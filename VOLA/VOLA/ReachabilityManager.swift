@@ -1,8 +1,8 @@
 import Foundation
 import ReachabilitySwift
 
-protocol NetworkStatusListener: class {
-    func networkStatusDidChange(status: Reachability.NetworkStatus)
+protocol ReachabilityListener: class {
+    func onNetworkStatusDidChange(status: Reachability.NetworkStatus)
 }
 
 extension Reachability.NetworkStatus {
@@ -40,7 +40,7 @@ class ReachabilityManager: NSObject {
 
     private var reachabilityStatus: Reachability.NetworkStatus = .notReachable
     private let reachability = Reachability()!
-    private var subscribers = [NetworkStatusListener]()
+    private var subscribers = [ReachabilityListener]()
 
     func reachabilityChanged(notification: Notification) {
 
@@ -59,7 +59,7 @@ class ReachabilityManager: NSObject {
         // notify interested parties
         subscribers.forEach { subscriber in
             DispatchQueue.main.async {
-                subscriber.networkStatusDidChange(status: reachability.currentReachabilityStatus)
+                subscriber.onNetworkStatusDidChange(status: reachability.currentReachabilityStatus)
             }
         }
     }
@@ -70,7 +70,7 @@ class ReachabilityManager: NSObject {
         do {
             try reachability.startNotifier()
         } catch {
-            Logger.error("Could not start reachability notifier")
+            Logger.error("Failed to start reachability notifier")
         }
     }
 
@@ -82,19 +82,19 @@ class ReachabilityManager: NSObject {
     /// Adds a new subscriber to a network status change
     ///
     /// - parameter `NetworkStatusListener`: a new subscriber
-    func subscribe(_ subscriber: NetworkStatusListener) {
+    func subscribe(_ subscriber: ReachabilityListener) {
         subscribers.append(subscriber)
 
         // notify the new subscriber regarding the current value
         DispatchQueue.main.async {
-            subscriber.networkStatusDidChange(status: self.reachabilityStatus)
+            subscriber.onNetworkStatusDidChange(status: self.reachabilityStatus)
         }
     }
 
     /// Removes a listener from listeners array
     ///
     /// - parameter delegate: the listener which is to be removed
-    func unsubscribe(_ subscriber: NetworkStatusListener) {
+    func unsubscribe(_ subscriber: ReachabilityListener) {
         subscribers = subscribers.filter { $0 !== subscriber }
     }
 }

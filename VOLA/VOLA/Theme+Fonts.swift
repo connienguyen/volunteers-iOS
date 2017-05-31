@@ -19,7 +19,6 @@ extension Theme {
     }
 }
 
-
 extension UIFont {
     convenience init(_ font: Theme.Font, size: CGFloat) {
         self.init(name: font.identifier, size: size)!

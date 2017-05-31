@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BB3E47C511A732DBADF4368 /* Pods_VOLA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */; };
 		754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46091EDED11400E2F848 /* AppDelegate.swift */; };
 		754C460C1EDED11400E2F848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C460B1EDED11400E2F848 /* ViewController.swift */; };
 		754C460F1EDED11400E2F848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C460D1EDED11400E2F848 /* Main.storyboard */; };
 		754C46111EDED11400E2F848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754C46101EDED11400E2F848 /* Assets.xcassets */; };
 		754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C46121EDED11400E2F848 /* LaunchScreen.storyboard */; };
 		754C461F1EDED11400E2F848 /* VOLATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C461E1EDED11400E2F848 /* VOLATests.swift */; };
+		754C46341EDED23A00E2F848 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46321EDED23A00E2F848 /* Date.swift */; };
+		754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46331EDED23A00E2F848 /* Int+Date.swift */; };
+		754C463C1EDED2D600E2F848 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46381EDED2D600E2F848 /* UIView.swift */; };
+		754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46391EDED2D600E2F848 /* AppDelegateExtension.swift */; };
+		754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C463A1EDED2D600E2F848 /* UIColor.swift */; };
+		754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C463B1EDED2D600E2F848 /* UIKit+Localization.swift */; };
+		754C46421EDED30A00E2F848 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46401EDED30A00E2F848 /* NSObject.swift */; };
+		754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46451EDED34C00E2F848 /* ReachabilityManager.swift */; };
+		754C46511EDED39800E2F848 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C464C1EDED39800E2F848 /* Logger.swift */; };
+		754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46521EDED42F00E2F848 /* Theme+Colors.swift */; };
+		754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46541EDED46700E2F848 /* Theme+Style.swift */; };
+		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
+		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +50,22 @@
 		754C461A1EDED11400E2F848 /* VOLATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VOLATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		754C461E1EDED11400E2F848 /* VOLATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOLATests.swift; sourceTree = "<group>"; };
 		754C46201EDED11400E2F848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754C46321EDED23A00E2F848 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		754C46331EDED23A00E2F848 /* Int+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Date.swift"; sourceTree = "<group>"; };
+		754C46381EDED2D600E2F848 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		754C46391EDED2D600E2F848 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
+		754C463A1EDED2D600E2F848 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		754C463B1EDED2D600E2F848 /* UIKit+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Localization.swift"; sourceTree = "<group>"; };
+		754C46401EDED30A00E2F848 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		754C46451EDED34C00E2F848 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		754C464C1EDED39800E2F848 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		754C46521EDED42F00E2F848 /* Theme+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Colors.swift"; sourceTree = "<group>"; };
+		754C46541EDED46700E2F848 /* Theme+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Style.swift"; sourceTree = "<group>"; };
+		754C46561EDED48800E2F848 /* Theme+Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Fonts.swift"; sourceTree = "<group>"; };
+		754C46591EDED5B300E2F848 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
+		FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEE98B16ABED5B48E82A034A /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB3E47C511A732DBADF4368 /* Pods_VOLA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +93,8 @@
 				754C46081EDED11400E2F848 /* VOLA */,
 				754C461D1EDED11400E2F848 /* VOLATests */,
 				754C46071EDED11400E2F848 /* Products */,
+				E5751441BD2F8393FD5E66FE /* Pods */,
+				804F3D01F628070DB8EE1677 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,11 +110,14 @@
 		754C46081EDED11400E2F848 /* VOLA */ = {
 			isa = PBXGroup;
 			children = (
+				754C462D1EDED1E800E2F848 /* Storyboards */,
+				754C462E1EDED1F600E2F848 /* ViewControllers */,
+				754C462F1EDED20200E2F848 /* Views */,
+				754C462A1EDED1AE00E2F848 /* Services */,
+				754C46291EDED1AA00E2F848 /* Model */,
+				754C462B1EDED1CC00E2F848 /* Helpers */,
+				754C462C1EDED1D500E2F848 /* Resources */,
 				754C46091EDED11400E2F848 /* AppDelegate.swift */,
-				754C460B1EDED11400E2F848 /* ViewController.swift */,
-				754C460D1EDED11400E2F848 /* Main.storyboard */,
-				754C46101EDED11400E2F848 /* Assets.xcassets */,
-				754C46121EDED11400E2F848 /* LaunchScreen.storyboard */,
 				754C46151EDED11400E2F848 /* Info.plist */,
 			);
 			path = VOLA;
@@ -96,6 +132,153 @@
 			path = VOLATests;
 			sourceTree = "<group>";
 		};
+		754C46291EDED1AA00E2F848 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		754C462A1EDED1AE00E2F848 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		754C462B1EDED1CC00E2F848 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				754C46471EDED36200E2F848 /* Util */,
+				754C465C1EDED8F900E2F848 /* Extensions */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		754C462C1EDED1D500E2F848 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				754C46581EDED4F900E2F848 /* Fonts */,
+				754C46101EDED11400E2F848 /* Assets.xcassets */,
+				754C46121EDED11400E2F848 /* LaunchScreen.storyboard */,
+				754C46521EDED42F00E2F848 /* Theme+Colors.swift */,
+				754C46541EDED46700E2F848 /* Theme+Style.swift */,
+				754C46561EDED48800E2F848 /* Theme+Fonts.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		754C462D1EDED1E800E2F848 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				754C460D1EDED11400E2F848 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		754C462E1EDED1F600E2F848 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				754C460B1EDED11400E2F848 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		754C462F1EDED20200E2F848 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				754C46311EDED20B00E2F848 /* Popups */,
+				754C46301EDED20800E2F848 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		754C46301EDED20800E2F848 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		754C46311EDED20B00E2F848 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Popups;
+			sourceTree = "<group>";
+		};
+		754C46361EDED23F00E2F848 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				754C46401EDED30A00E2F848 /* NSObject.swift */,
+				754C46321EDED23A00E2F848 /* Date.swift */,
+				754C46331EDED23A00E2F848 /* Int+Date.swift */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		754C46371EDED28F00E2F848 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				754C46591EDED5B300E2F848 /* UITableView.swift */,
+				754C46381EDED2D600E2F848 /* UIView.swift */,
+				754C46391EDED2D600E2F848 /* AppDelegateExtension.swift */,
+				754C463A1EDED2D600E2F848 /* UIColor.swift */,
+				754C463B1EDED2D600E2F848 /* UIKit+Localization.swift */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
+		754C46441EDED31500E2F848 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		754C46471EDED36200E2F848 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				754C464C1EDED39800E2F848 /* Logger.swift */,
+				754C46451EDED34C00E2F848 /* ReachabilityManager.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		754C46581EDED4F900E2F848 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		754C465C1EDED8F900E2F848 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				754C46441EDED31500E2F848 /* Pods */,
+				754C46371EDED28F00E2F848 /* UIKit */,
+				754C46361EDED23F00E2F848 /* Foundation */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		804F3D01F628070DB8EE1677 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5751441BD2F8393FD5E66FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FEE98B16ABED5B48E82A034A /* Pods-VOLA.debug.xcconfig */,
+				7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +286,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 754C46231EDED11400E2F848 /* Build configuration list for PBXNativeTarget "VOLA" */;
 			buildPhases = (
+				2276D89D58BF52FB9FA43F42 /* [CP] Check Pods Manifest.lock */,
 				754C46021EDED11400E2F848 /* Sources */,
 				754C46031EDED11400E2F848 /* Frameworks */,
 				754C46041EDED11400E2F848 /* Resources */,
+				91E3B2D43C2C1DB39CA6B3A9 /* [CP] Embed Pods Frameworks */,
+				A4DA5155F48CEF2E5AD641DA /* [CP] Copy Pods Resources */,
+				754C465B1EDED88700E2F848 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -194,13 +381,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2276D89D58BF52FB9FA43F42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		754C465B1EDED88700E2F848 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+		};
+		91E3B2D43C2C1DB39CA6B3A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4DA5155F48CEF2E5AD641DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		754C46021EDED11400E2F848 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */,
+				754C463C1EDED2D600E2F848 /* UIView.swift in Sources */,
+				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
+				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
+				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
 				754C460C1EDED11400E2F848 /* ViewController.swift in Sources */,
+				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
+				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
+				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
+				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
+				754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */,
+				754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */,
+				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
+				754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,9 +596,11 @@
 		};
 		754C46241EDED11400E2F848 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEE98B16ABED5B48E82A034A /* Pods-VOLA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VOLA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.systers.vola.VOLA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -347,9 +610,11 @@
 		};
 		754C46251EDED11400E2F848 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VOLA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.systers.vola.VOLA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,6 +669,7 @@
 				754C46251EDED11400E2F848 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		754C46261EDED11400E2F848 /* Build configuration list for PBXNativeTarget "VOLATests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +678,7 @@
 				754C46281EDED11400E2F848 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

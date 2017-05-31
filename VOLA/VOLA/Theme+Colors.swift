@@ -7,19 +7,11 @@
 //
 
 import Foundation
-
+import UIKit
 
 struct Theme {}
 
 extension Theme {
-    enum Colors: String {
-        case color1 = "ECA650"
-    }
-}
-
-///usage UIColor(.myColor)
-extension UIColor {
-    convenience init(_ themeColor: Theme.Colors) {
-        self.init(hexString: themeColor.rawValue)
+    struct Colors {
     }
 }

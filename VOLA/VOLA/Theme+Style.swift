@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension Theme {
+    struct Style {
+        //other global settings
+    }
+}

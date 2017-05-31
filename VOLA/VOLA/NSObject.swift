@@ -2,6 +2,14 @@ import Foundation
 import UIKit
 
 extension NSObject {
+    var className: String {
+        return String(describing: type(of: self))
+    }
+
+    class var className: String {
+        return String(describing: self)
+    }
+
     /// Adds an NotificationCenter with name and Selector
     func addNotificationObserver(_ name: NSNotification.Name, selector: Selector, _ object: Any? = nil) {
         NotificationCenter.default.removeObserver(self, name: name, object: object)
@@ -12,7 +20,7 @@ extension NSObject {
     func removeNotificationObserver(_ name: NSNotification.Name, _ object: Any? = nil) {
         NotificationCenter.default.removeObserver(self, name: name, object: object)
     }
-a
+
     /// Removes NotificationCenter'd observer
     func removeNotificationObserver() {
         NotificationCenter.default.removeObserver(self)

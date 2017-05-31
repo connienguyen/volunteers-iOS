@@ -11,7 +11,7 @@ extension AppDelegate {
      */
     class func replaceWindowAnimated(targetView: UIViewController, duration: TimeInterval = 0.65) {
         guard let app = UIApplication.shared.delegate as? AppDelegate else {
-            Logger.Warn("Couldn't get app delegate")
+            Logger.warn("Couldn't get app delegate")
             return
         }
 

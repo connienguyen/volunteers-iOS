@@ -1,0 +1,33 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace
+  - force_try
+  - force_cast
+  - operator_whitespace
+  - shorthand_operator
+  - vertical_parameter_alignment
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - missing_docs
+  # Find all the available rules by running:
+  # swiftlint rules
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+line_length: 150
+file_length:
+  warning: 500
+  error: 750
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+variable_name:
+  max_length:
+    warning: 45
+    error: 60
+  min_length:
+    warning: 1
+  excluded: # excluded via string array
+    - i
+    - j
+    - id
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit)

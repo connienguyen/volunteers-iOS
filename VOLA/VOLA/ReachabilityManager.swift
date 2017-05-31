@@ -49,11 +49,11 @@ class ReachabilityManager: NSObject {
 
         switch reachabilityStatus {
         case .notReachable:
-            Logger.Info("Network became unreachable")
+            Logger.info("Network became unreachable")
         case .reachableViaWiFi:
-            Logger.Info("Network reachable through WiFi")
+            Logger.info("Network reachable through WiFi")
         case .reachableViaWWAN:
-            Logger.Info("Network reachable through Cellular Data")
+            Logger.info("Network reachable through Cellular Data")
         }
 
         // notify interested parties
@@ -70,7 +70,7 @@ class ReachabilityManager: NSObject {
         do {
             try reachability.startNotifier()
         } catch {
-            Logger.Error("Could not start reachability notifier")
+            Logger.error("Could not start reachability notifier")
         }
     }
 

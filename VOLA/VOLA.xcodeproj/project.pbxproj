@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BB3E47C511A732DBADF4368 /* Pods_VOLA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */; };
 		754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46091EDED11400E2F848 /* AppDelegate.swift */; };
-		754C460C1EDED11400E2F848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C460B1EDED11400E2F848 /* ViewController.swift */; };
+		754C460C1EDED11400E2F848 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C460B1EDED11400E2F848 /* HomeViewController.swift */; };
 		754C460F1EDED11400E2F848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C460D1EDED11400E2F848 /* Main.storyboard */; };
 		754C46111EDED11400E2F848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754C46101EDED11400E2F848 /* Assets.xcassets */; };
 		754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C46121EDED11400E2F848 /* LaunchScreen.storyboard */; };
@@ -27,6 +27,12 @@
 		754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46541EDED46700E2F848 /* Theme+Style.swift */; };
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
+		F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */; };
+		F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */; };
+		F9ADA12C1EE2B75D006C7FF1 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9ADA12B1EE2B75D006C7FF1 /* LoginStoryboard.storyboard */; };
+		F9ADA12D1EE2B75D006C7FF1 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9ADA12B1EE2B75D006C7FF1 /* LoginStoryboard.storyboard */; };
+		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
+		F9ADA1301EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +48,7 @@
 /* Begin PBXFileReference section */
 		754C46061EDED11400E2F848 /* VOLA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VOLA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754C46091EDED11400E2F848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		754C460B1EDED11400E2F848 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		754C460B1EDED11400E2F848 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		754C460E1EDED11400E2F848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		754C46101EDED11400E2F848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		754C46131EDED11400E2F848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +70,10 @@
 		754C46561EDED48800E2F848 /* Theme+Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Fonts.swift"; sourceTree = "<group>"; };
 		754C46591EDED5B300E2F848 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
+		F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManualViewController.swift; sourceTree = "<group>"; };
+		F9ADA12B1EE2B75D006C7FF1 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE98B16ABED5B48E82A034A /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				754C460D1EDED11400E2F848 /* Main.storyboard */,
+				F9ADA12B1EE2B75D006C7FF1 /* LoginStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -179,7 +190,10 @@
 		754C462E1EDED1F600E2F848 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				754C460B1EDED11400E2F848 /* ViewController.swift */,
+				754C460B1EDED11400E2F848 /* HomeViewController.swift */,
+				F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */,
+				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
+				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -369,6 +383,7 @@
 				754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
 				754C460F1EDED11400E2F848 /* Main.storyboard in Resources */,
+				F9ADA12C1EE2B75D006C7FF1 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9ADA12D1EE2B75D006C7FF1 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,13 +468,16 @@
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
-				754C460C1EDED11400E2F848 /* ViewController.swift in Sources */,
+				754C460C1EDED11400E2F848 /* HomeViewController.swift in Sources */,
+				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
+				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
 				754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */,
 				754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */,
+				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
 				754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */,
@@ -469,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9ADA1301EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
 				754C461F1EDED11400E2F848 /* VOLATests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

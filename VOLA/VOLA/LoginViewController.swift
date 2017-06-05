@@ -8,15 +8,20 @@
 
 import UIKit
 import FRHyperLabel
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var signUpLabel: FRHyperLabel!
-
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         GIDSignIn.sharedInstance().uiDelegate = self
+
+        facebookLoginButton.readPermissions = ["public_profile", "email"]
+        facebookLoginButton.delegate = self
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
 
@@ -37,7 +42,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let _ = DataManager.sharedInstance.currentUser {
+        if DataManager.sharedInstance.currentUser != nil {
             onCancelPressed()
         }
     }
@@ -55,5 +60,32 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     func onCancelPressed() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        guard let response = result, response.token != nil else {
+            if let error = error {
+                print("There was a problem with Facebook login: \(error.localizedDescription)")
+            }
+            return
+        }
+
+        if FBSDKAccessToken.current() != nil {
+            let parameters = ["fields": "email, name"]
+            FBSDKGraphRequest.init(graphPath: "me", parameters: parameters).start(completionHandler: { (_, result, error) in
+                if error != nil {
+                    //
+                } else if let response = result as? [String:Any] {
+                    DataManager.sharedInstance.logIn(user: UserModel(fbResponse: response))
+                    self.onCancelPressed()
+                }
+            })
+        }
+    }
+
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        // required
     }
 }

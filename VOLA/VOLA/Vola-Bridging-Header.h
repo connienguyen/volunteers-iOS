@@ -11,5 +11,6 @@
 
 
 #import <Google/SignIn.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #endif /* Vola_Bridging_Header_h */

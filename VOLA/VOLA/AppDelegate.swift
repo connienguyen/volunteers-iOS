@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -15,13 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // Facebook setup
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
         // Google Sign In setup
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
         GIDSignIn.sharedInstance().delegate = self
-        
+
         return true
     }
 
@@ -45,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Google Sign In
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard let error = error else {
-            DataManager.sharedInstance.currentUser = UserModel(googleUser: user)
+            DataManager.sharedInstance.logIn(user: UserModel(googleUser: user))
             return
         }
 
@@ -58,9 +62,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        return GIDSignIn.sharedInstance()
-            .handle(url,
+        if (FBSDKApplicationDelegate.sharedInstance()
+            .application(app, open: url,
+                         sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                         annotation: options[UIApplicationOpenURLOptionsKey.annotation])) {
+            return true
+        } else if (GIDSignIn.sharedInstance().handle(url,
                     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])) {
+            return true
+        }
+
+        return false
     }
 }

@@ -19,7 +19,7 @@ class SocialLoginManager {
         }
 
         let parameters = ["fields": "email, name"]
-        FBSDKGraphRequest.init(graphPath: "me", parameters: parameters).start { (_, result, error) in
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (_, result, error) in
             guard error == nil else {
                 completion(nil, error)
                 return

@@ -46,6 +46,8 @@
 		F9B234911EE6DEE400884E4E /* SocialLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2348F1EE6DEE400884E4E /* SocialLoginManager.swift */; };
 		F9B234931EE6DF8400884E4E /* Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234921EE6DF8400884E4E /* Completions.swift */; };
 		F9B234941EE6DF8400884E4E /* Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234921EE6DF8400884E4E /* Completions.swift */; };
+		F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234951EE6FE1C00884E4E /* Constants.swift */; };
+		F9B234971EE6FE1C00884E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234951EE6FE1C00884E4E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,7 @@
 		F9B2348D1EE6D72500884E4E /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F9B2348F1EE6DEE400884E4E /* SocialLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginManager.swift; sourceTree = "<group>"; };
 		F9B234921EE6DF8400884E4E /* Completions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Completions.swift; sourceTree = "<group>"; };
+		F9B234951EE6FE1C00884E4E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE98B16ABED5B48E82A034A /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +190,7 @@
 			children = (
 				754C46471EDED36200E2F848 /* Util */,
 				754C465C1EDED8F900E2F848 /* Extensions */,
+				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -494,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */,
 				F9B234901EE6DEE400884E4E /* SocialLoginManager.swift in Sources */,
 				754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */,
 				F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */,
@@ -532,6 +537,7 @@
 				F9B234941EE6DF8400884E4E /* Completions.swift in Sources */,
 				F9ADA1331EE33CEE006C7FF1 /* UserModel.swift in Sources */,
 				754C461F1EDED11400E2F848 /* VOLATests.swift in Sources */,
+				F9B234971EE6FE1C00884E4E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

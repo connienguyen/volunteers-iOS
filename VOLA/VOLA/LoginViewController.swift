@@ -41,14 +41,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        guard DataManager.sharedInstance.currentUser == nil else {
+        guard DataManager.shared.currentUser == nil else {
             dismiss(animated: true, completion: nil)
             return
         }
     }
 
     @IBAction func onLoginWithEmailPressed(_ sender: Any) {
-        performSegue(withIdentifier: "showLoginManual", sender: self)
+        performSegue(.showLoginManual)
     }
 
     func onSignUpPressed() {
@@ -79,7 +79,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 return
             }
 
-            DataManager.sharedInstance.logIn(user: UserModel(fbResponse: response))
+            DataManager.shared.logIn(user: UserModel(fbResponse: response))
             self.onCancelPressed()
         }
     }

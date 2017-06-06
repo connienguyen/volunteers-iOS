@@ -8,4 +8,10 @@
 
 import UIKit
 
+extension UIViewController {
+    func performSegue(_ segue: Segue) {
+        performSegue(withIdentifier: segue.identifier, sender: self)
+    }
+}
+
 extension UIViewController: StoryboardIdentifiable {}

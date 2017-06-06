@@ -34,7 +34,7 @@ class UserModel: NSObject {
         userType = .google
     }
 
-    init(fbResponse: [String:Any]) {
+    init(fbResponse: [String: Any]) {
         name = fbResponse["name"] as? String ?? ""
         email = fbResponse["email"] as? String ?? ""
         userType = .facebook

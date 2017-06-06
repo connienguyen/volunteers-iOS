@@ -20,26 +20,26 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onLoginPressed(_ sender: Any) {
-        guard DataManager.sharedInstance.currentUser == nil else {
-            DataManager.sharedInstance.logOut()
+        guard !DataManager.shared.isLoggedIn else {
+            DataManager.shared.logOut()
             updateUserUI()
             return
         }
 
-        let loginVC: LoginViewController = UIStoryboard.init(storyboard: .login).instantiateViewController()
+//        let navController: UINavigationController = UIStoryboard.init(storyboard: .login).instantiateViewController()
+        let loginVC: LoginViewController = UIStoryboard(.login).instantiateViewController()
         let navController = UINavigationController(rootViewController: loginVC)
         present(navController, animated: true, completion: nil)
     }
 
     private func updateUserUI() {
-        DispatchQueue.main.async {
-            if let user = DataManager.sharedInstance.currentUser {
-                self.homeLabel.text = user.name
-                self.loginButton.setTitle("Log Out", for: .normal)
-            } else {
-                self.homeLabel.text = "Home"
-                self.loginButton.setTitle("Log In", for: .normal)
-            }
+        guard let user = DataManager.shared.currentUser else {
+            homeLabel.text = "Home"
+            loginButton.setTitle("Log In", for: .normal)
+            return
         }
+
+        homeLabel.text = user.name
+        loginButton.setTitle("Log Out", for: .normal)
     }
 }

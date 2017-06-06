@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         // Google Sign In setup
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        var configError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configError)
+        assert(configError == nil, "Error configuring Google services: \(configError)")
 
         GIDSignIn.sharedInstance().delegate = self
 
@@ -46,33 +46,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
     }
 
-    // Google Sign In
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard let error = error else {
-            DataManager.sharedInstance.logIn(user: UserModel(googleUser: user))
-            return
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+            let annotation = options[UIApplicationOpenURLOptionsKey.annotation] else {
+                return false
         }
 
-        print("Google Sign In Failed \(error.localizedDescription)")
+        let fbOpened = FBSDKApplicationDelegate.sharedInstance().application(app,
+                open: url, sourceApplication: sourceApplication, annotation: annotation)
+        let googleOpened = GIDSignIn.sharedInstance().handle(url,
+                sourceApplication: sourceApplication, annotation: annotation)
+
+        return (fbOpened || googleOpened)
+    }
+}
+
+extension AppDelegate: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        guard let _ = error else {
+            DataManager.shared.logIn(user: UserModel(googleUser: user))
+            return
+        }
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // required
-    }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-
-        if (FBSDKApplicationDelegate.sharedInstance()
-            .application(app, open: url,
-                         sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                         annotation: options[UIApplicationOpenURLOptionsKey.annotation])) {
-            return true
-        } else if (GIDSignIn.sharedInstance().handle(url,
-                    sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                    annotation: options[UIApplicationOpenURLOptionsKey.annotation])) {
-            return true
-        }
-
-        return false
     }
 }

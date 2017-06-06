@@ -18,7 +18,7 @@ extension UIStoryboard {
         }
     }
 
-    convenience init(storyboard: Storyboard, bundle: Bundle? = nil) {
+    convenience init(_ storyboard: Storyboard, bundle: Bundle? = nil) {
         self.init(name: storyboard.filename, bundle: bundle)
     }
 

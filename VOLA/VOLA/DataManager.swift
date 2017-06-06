@@ -11,12 +11,16 @@ import FBSDKLoginKit
 
 class DataManager {
 
-    static let sharedInstance = DataManager()
+    static let shared = DataManager()
 
     private var _currentUser: UserModel?
 
     var currentUser: UserModel? {
         return _currentUser
+    }
+
+    var isLoggedIn: Bool {
+        return _currentUser != nil
     }
 
     func logIn(user: UserModel) {

@@ -10,7 +10,4 @@ import UIKit
 
 class LoginManualViewController: UIViewController {
 
-    @IBAction func onDismissPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
 }

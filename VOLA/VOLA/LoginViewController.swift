@@ -18,32 +18,32 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set up viewController for social login
         GIDSignIn.sharedInstance().uiDelegate = self
 
         facebookLoginButton.readPermissions = ["public_profile", "email"]
         facebookLoginButton.delegate = self
 
+        // Set up Cancel button to dismiss
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
 
         // Handle hyper label set up
-        if let labelText = signUpLabel.text {
-            let attributes = [NSForegroundColorAttributeName: UIColor.black,
-                              NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)]
-            signUpLabel.attributedText = NSAttributedString(string: labelText, attributes: attributes)
-
-            let signUpHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-                self.onSignUpPressed()
-            }
-
-            signUpLabel.setLinkForSubstring("Sign up now.", withLinkHandler: signUpHandler)
+        let labelText = "Don't have a Vola account yet? Sign up now."
+        let labelAttributes = [NSForegroundColorAttributeName: UIColor.black,
+                               NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)]
+        signUpLabel.attributedText = NSAttributedString(string: labelText, attributes: labelAttributes)
+        let signUpHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
+            self.onSignUpPressed()
         }
+        signUpLabel.setLinkForSubstring("Sign up now.", withLinkHandler: signUpHandler)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if DataManager.sharedInstance.currentUser != nil {
-            onCancelPressed()
+        guard DataManager.sharedInstance.currentUser == nil else {
+            dismiss(animated: true, completion: nil)
+            return
         }
     }
 
@@ -52,10 +52,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 
     func onSignUpPressed() {
-        if let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")
-            as? SignUpViewController {
-            navigationController?.show(signUpVC, sender: self)
+        guard let storyboard = storyboard else {
+            return
         }
+
+        let signUpVC: SignUpViewController = storyboard.instantiateViewController()
+        navigationController?.show(signUpVC, sender: self)
     }
 
     func onCancelPressed() {
@@ -72,16 +74,13 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             return
         }
 
-        if FBSDKAccessToken.current() != nil {
-            let parameters = ["fields": "email, name"]
-            FBSDKGraphRequest.init(graphPath: "me", parameters: parameters).start(completionHandler: { (_, result, error) in
-                if error != nil {
-                    //
-                } else if let response = result as? [String:Any] {
-                    DataManager.sharedInstance.logIn(user: UserModel(fbResponse: response))
-                    self.onCancelPressed()
-                }
-            })
+        SocialLoginManager.sharedInstance.retrieveFacebookUser { (response, _) in
+            guard let response = response else {
+                return
+            }
+
+            DataManager.sharedInstance.logIn(user: UserModel(fbResponse: response))
+            self.onCancelPressed()
         }
     }
 

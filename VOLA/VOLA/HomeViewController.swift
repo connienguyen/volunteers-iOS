@@ -15,31 +15,28 @@ class HomeViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        updateUserUI()
+        updateHomeUI()
     }
     
     @IBAction func onLoginPressed(_ sender: Any) {
         guard !DataManager.shared.isLoggedIn else {
-            DataManager.shared.logOut()
-            updateUserUI()
+            LoginManager.shared.logOut()
+            updateHomeUI()
             return
         }
 
-//        let navController: UINavigationController = UIStoryboard.init(storyboard: .login).instantiateViewController()
-        let loginVC: LoginViewController = UIStoryboard(.login).instantiateViewController()
-        let navController = UINavigationController(rootViewController: loginVC)
+        let navController: LoginNavigationController = UIStoryboard.init(.login).instantiateViewController()
         present(navController, animated: true, completion: nil)
     }
 
-    private func updateUserUI() {
+    private func updateHomeUI() {
         guard let user = DataManager.shared.currentUser else {
-            homeLabel.text = "Home"
-            loginButton.setTitle("Log In", for: .normal)
+            homeLabel.text = "Home".localized
+            loginButton.setTitle("Log In".localized, for: .normal)
             return
         }
 
         homeLabel.text = user.name
-        loginButton.setTitle("Log Out", for: .normal)
+        loginButton.setTitle("Log Out".localized, for: .normal)
     }
 }

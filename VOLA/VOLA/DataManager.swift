@@ -7,15 +7,14 @@
 //
 
 import Foundation
-import FBSDKLoginKit
 
-class DataManager {
+final class DataManager {
 
     static let shared = DataManager()
 
-    private var _currentUser: UserModel?
+    private var _currentUser: User?
 
-    var currentUser: UserModel? {
+    var currentUser: User? {
         return _currentUser
     }
 
@@ -23,22 +22,7 @@ class DataManager {
         return _currentUser != nil
     }
 
-    func logIn(user: UserModel) {
+    func setUser(_ user: User?) {
         _currentUser = user
-    }
-
-    func logOut() {
-        if let user = _currentUser {
-            switch user.userType {
-            case .google:
-                GIDSignIn.sharedInstance().signOut()
-            case .facebook:
-                FBSDKLoginManager().logOut()
-            default:
-                print("TODO")
-            }
-
-            _currentUser = nil
-        }
     }
 }

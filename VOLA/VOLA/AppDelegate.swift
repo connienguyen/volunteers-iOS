@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Facebook setup
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        // Google Sign In setup
+        // Google Sign In setup: Configure Google services and set AppDelegate as a
+        // delegate for GIDSignIn
         var configError: NSError?
         GGLContext.sharedInstance().configureWithError(&configError)
         assert(configError == nil, "Error configuring Google services: \(configError)")
@@ -64,13 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard let _ = error else {
-            DataManager.shared.logIn(user: UserModel(googleUser: user))
+        guard error != nil else {
+            LoginManager.shared.login(user: User(googleUser: user))
             return
         }
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // required
+        // TODO - func is required to confirm to GIDSignInDelegate
     }
 }

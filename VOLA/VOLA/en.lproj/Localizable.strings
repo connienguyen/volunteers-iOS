@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  VOLA
+
+  Created by Connie Nguyen on 6/7/17.
+  Copyright © 2017 Systers-Opensource. All rights reserved.
+*/
+
+"Don't have a Vola account yet? Sign up now." = "Don't have a Vola account yet? Sign up now.";
+"Sign up now." = "Sign up now.";
+"Home" = "Home";
+"Log In" = "Log In";
+"Log Out" = "Log Out";

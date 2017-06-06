@@ -15,3 +15,9 @@ enum Segue: String {
         return rawValue
     }
 }
+
+struct FBRequest {
+    static let graphPath = "me"
+    static let graphParameters = "email, name"
+    static let readPermissions = ["public_profile", "email"]
+}

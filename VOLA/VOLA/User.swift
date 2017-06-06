@@ -7,14 +7,27 @@
 //
 
 import Foundation
+import FBSDKLoginKit
 
 enum UserType {
     case facebook
     case google
     case manual
+
+    func logOut() {
+        switch self {
+        case .facebook:
+            FBSDKLoginManager().logOut()
+        case .google:
+            GIDSignIn.sharedInstance().signOut()
+        case .manual:
+            // TODO: Print statement used as placeholder for manual logOut
+            print("Manual logout")
+        }
+    }
 }
 
-class UserModel: NSObject {
+class User {
 
     var name: String
     var email: String
@@ -24,8 +37,6 @@ class UserModel: NSObject {
         self.name = name
         self.email = email
         self.userType = userType
-
-        super.init()
     }
 
     init(googleUser: GIDGoogleUser) {

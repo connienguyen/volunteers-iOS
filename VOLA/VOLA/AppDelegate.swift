@@ -49,11 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-            let annotation = options[UIApplicationOpenURLOptionsKey.annotation] else {
+        guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String else {
                 return false
         }
 
+        let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
         let fbOpened = FBSDKApplicationDelegate.sharedInstance().application(app,
                 open: url, sourceApplication: sourceApplication, annotation: annotation)
         let googleOpened = GIDSignIn.sharedInstance().handle(url,

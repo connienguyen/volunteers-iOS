@@ -28,12 +28,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
 
         // Handle hyper label set up
-        let labelText = "Don't have a Vola account yet? Sign up now.".localized
+        let labelText = "signup.title.label".localized
         signUpLabel.setAttributedString(labelText, fontSize: 16.0)
         let signUpHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             self.onSignUpPressed()
         }
-        signUpLabel.setLinkForSubstring("Sign up now.".localized, withLinkHandler: signUpHandler)
+        signUpLabel.setLinkForSubstring("signup.prompt.title.label".localized, withLinkHandler: signUpHandler)
     }
 
     override func viewWillAppear(_ animated: Bool) {

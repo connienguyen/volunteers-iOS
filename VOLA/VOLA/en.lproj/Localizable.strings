@@ -6,8 +6,17 @@
   Copyright © 2017 Systers-Opensource. All rights reserved.
 */
 
-"Don't have a Vola account yet? Sign up now." = "Don't have a Vola account yet? Sign up now.";
-"Sign up now." = "Sign up now.";
-"Home" = "Home";
-"Log In" = "Log In";
-"Log Out" = "Log Out";
+// Error
+"error.invalid-facebook-token" = "Request not completed due to invalid Facebook access token.";
+"error.invalid-facebook-response" = "Could not cast Facebook response to [String: Any].";
+
+// Generic
+
+// HomeViewController
+"home.title.label" = "Home";
+"login.prompt.label" = "Log In";
+"logout.prompt.label" = "Log Out";
+
+// LoginViewController
+"signup.title.label" = "Don't have a Vola account yet? Sign up now.";
+"signup.prompt.title.label" = "Sign up now.";

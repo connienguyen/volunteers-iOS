@@ -39,6 +39,7 @@
 		F9A501BF1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
 		F9A501CA1EE7659300AB7E9E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501CC1EE7659300AB7E9E /* Login.storyboard */; };
 		F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */; };
+		F9A501D21EE7E97B00AB7E9E /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501D11EE7E97B00AB7E9E /* Errors.swift */; };
 		F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */; };
 		F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */; };
 		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
@@ -98,6 +99,7 @@
 		F9A501C21EE7600400AB7E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9A501CB1EE7659300AB7E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLHyperLabel.swift; sourceTree = "<group>"; };
+		F9A501D11EE7E97B00AB7E9E /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManualViewController.swift; sourceTree = "<group>"; };
 		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				754C46401EDED30A00E2F848 /* NSObject.swift */,
 				754C46321EDED23A00E2F848 /* Date.swift */,
 				754C46331EDED23A00E2F848 /* Int+Date.swift */,
+				F9A501D11EE7E97B00AB7E9E /* Errors.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
 				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
 				F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */,
+				F9A501D21EE7E97B00AB7E9E /* Errors.swift in Sources */,
 				754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */,
 				754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */,
 				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,

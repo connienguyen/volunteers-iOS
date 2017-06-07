@@ -31,12 +31,12 @@ class HomeViewController: UIViewController {
 
     private func updateHomeUI() {
         guard let user = DataManager.shared.currentUser else {
-            homeLabel.text = "Home".localized
-            loginButton.setTitle("Log In".localized, for: .normal)
+            homeLabel.text = "home.title.label".localized
+            loginButton.setTitle("login.prompt.label".localized, for: .normal)
             return
         }
 
         homeLabel.text = user.name
-        loginButton.setTitle("Log Out".localized, for: .normal)
+        loginButton.setTitle("logout.prompt.label".localized, for: .normal)
     }
 }

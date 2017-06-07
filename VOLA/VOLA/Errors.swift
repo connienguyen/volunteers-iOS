@@ -17,9 +17,9 @@ extension AuthenticationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidFacebookToken:
-            return NSLocalizedString("error.invalid-facebook-token", comment: "")
+            return "error.invalid-facebook-token".localized
         case .invalidFacebookResponse:
-            return NSLocalizedString("error.invalid-facebook-response", comment: "")
+            return "error.invalid-facebook-response".localized
         }
     }
 }

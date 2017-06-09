@@ -20,3 +20,9 @@
 // LoginViewController
 "signup.title.label" = "Don't have a Vola account yet? Sign up now.";
 "signup.prompt.title.label" = "Sign up now.";
+
+// SignUpViewController
+"signup-agree.title.label" = "By signing up you agree to the Terms of Service. You can also view the Privacy Policy.";
+"tos.title.label" = "Terms of Service.";
+"privacy.title.label" = "Privacy Policy.";
+

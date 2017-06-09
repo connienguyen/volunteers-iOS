@@ -13,5 +13,6 @@ struct Theme {}
 
 extension Theme {
     struct Colors {
+        static let crimson = UIColor(hex: 0xEF4135)
     }
 }

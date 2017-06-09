@@ -21,3 +21,9 @@ struct FBRequest {
     static let graphParameters = "email, name"
     static let readPermissions = ["public_profile", "email"]
 }
+
+struct ABIURL {
+    // TODO set to real URL values
+    static let termsOfService = URL(string: "https://anitaborg.org")
+    static let privacyPolicy = URL(string: "https://anitaborg.org")
+}

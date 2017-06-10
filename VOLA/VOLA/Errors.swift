@@ -12,6 +12,7 @@ public enum AuthenticationError: Error {
     case invalidFacebookToken
     case invalidFacebookResponse
     case invalidGoogleUser
+    case notLoggedIn
 }
 
 extension AuthenticationError: LocalizedError {
@@ -23,6 +24,8 @@ extension AuthenticationError: LocalizedError {
             return "error.invalid-facebook-response".localized
         case .invalidGoogleUser:
             return "error.invalid-google-user".localized
+        case .notLoggedIn:
+            return "error.not-logged-in".localized
         }
     }
 }

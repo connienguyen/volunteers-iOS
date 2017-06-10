@@ -78,4 +78,17 @@ final class LoginManager {
         login(user: User(name: "Default Name", email: email, userType: .manual))
         completion(nil)
     }
+
+    func updateUser(name: String, email: String, completion: @escaping ErrorCompletionBlock) {
+        // TODO - currently saving changes as if successful
+        guard let currentUser = DataManager.shared.currentUser else {
+            let error: Error = AuthenticationError.notLoggedIn
+            return
+        }
+
+        currentUser.name = name
+        currentUser.email = email
+        DataManager.shared.setUser(currentUser)
+        completion(nil)
+    }
 }

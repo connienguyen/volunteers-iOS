@@ -14,7 +14,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var signUpLabel: VLHyperLabel!
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
-    
+
+    var introSender: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +27,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         facebookLoginButton.delegate = self
 
         // Set up Cancel button to dismiss
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
+        if !introSender {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
+        }
 
         // Handle hyper label set up
         let labelText = "signup.title.label".localized

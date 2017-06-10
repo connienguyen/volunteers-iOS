@@ -12,8 +12,13 @@ struct NotificationName {
     static let googleDidSignIn = Notification.Name("googleDidSignIn")
 }
 
+enum DefaultsKey: String {
+    case shownIntro
+}
+
 enum Segue: String {
     case showLoginManual
+    case showEditProfile
 
     var identifier: String {
         return rawValue

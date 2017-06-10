@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0BB3E47C511A732DBADF4368 /* Pods_VOLA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */; };
 		754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46091EDED11400E2F848 /* AppDelegate.swift */; };
-		754C460C1EDED11400E2F848 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C460B1EDED11400E2F848 /* HomeViewController.swift */; };
 		754C460F1EDED11400E2F848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C460D1EDED11400E2F848 /* Main.storyboard */; };
 		754C46111EDED11400E2F848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754C46101EDED11400E2F848 /* Assets.xcassets */; };
 		754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C46121EDED11400E2F848 /* LaunchScreen.storyboard */; };
@@ -46,6 +45,18 @@
 		F9A501DB1EEB31E500AB7E9E /* VLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */; };
 		F9A501DC1EEB31E500AB7E9E /* VLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */; };
 		F9A501DE1EEBED4800AB7E9E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */; };
+		F9A501E01EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */; };
+		F9A501E11EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */; };
+		F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */; };
+		F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */; };
+		F9A501E61EEC463500AB7E9E /* IntroSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */; };
+		F9A501E71EEC463500AB7E9E /* IntroSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */; };
+		F9A501E91EEC465500AB7E9E /* IntroSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */; };
+		F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */; };
+		F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
+		F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
+		F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
+		F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
 		F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */; };
 		F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */; };
 		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
@@ -74,7 +85,6 @@
 /* Begin PBXFileReference section */
 		754C46061EDED11400E2F848 /* VOLA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VOLA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754C46091EDED11400E2F848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		754C460B1EDED11400E2F848 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		754C460E1EDED11400E2F848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		754C46101EDED11400E2F848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		754C46131EDED11400E2F848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,6 +120,12 @@
 		F9A501D71EE8728800AB7E9E /* InputValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidation.swift; sourceTree = "<group>"; };
 		F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLViewController.swift; sourceTree = "<group>"; };
 		F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroSlideView.xib; sourceTree = "<group>"; };
+		F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroSlideView.swift; sourceTree = "<group>"; };
+		F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLTabBarController.swift; sourceTree = "<group>"; };
+		F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManualViewController.swift; sourceTree = "<group>"; };
 		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -241,12 +257,15 @@
 		754C462E1EDED1F600E2F848 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				754C460B1EDED11400E2F848 /* HomeViewController.swift */,
+				F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */,
+				F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */,
+				F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */,
 				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
 				F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */,
 				F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */,
 				F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */,
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
+				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
 				F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */,
 			);
 			name = ViewControllers;
@@ -257,6 +276,8 @@
 			children = (
 				754C46311EDED20B00E2F848 /* Popups */,
 				754C46301EDED20800E2F848 /* Cells */,
+				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
+				F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -447,6 +468,7 @@
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
 				F9A377F81EE5562B00299FD3 /* GoogleService-Info.plist in Resources */,
 				754C460F1EDED11400E2F848 /* Main.storyboard in Resources */,
+				F9A501E61EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9A501BF1EE7600100AB7E9E /* Localizable.strings in Resources */,
+				F9A501E71EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
 				F9A377F91EE5562B00299FD3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,8 +561,8 @@
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
+				F9A501E01EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
-				754C460C1EDED11400E2F848 /* HomeViewController.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
 				F9A501D81EE8728800AB7E9E /* InputValidation.swift in Sources */,
 				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
@@ -549,6 +572,8 @@
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
+				F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
+				F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
 				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
 				F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */,
 				F9A501D21EE7E97B00AB7E9E /* Errors.swift in Sources */,
@@ -557,8 +582,10 @@
 				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,
 				F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
+				F9A501E91EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
 				754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */,
+				F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,12 +595,17 @@
 			files = (
 				F9ADA1301EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
 				F953BFF71EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
+				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */,
+				F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,
 				F9A501D91EE8728800AB7E9E /* InputValidation.swift in Sources */,
 				F9B234941EE6DF8400884E4E /* Completions.swift in Sources */,
 				F9B2349A1EE7532F00884E4E /* LoginManager.swift in Sources */,
+				F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				F9A501DC1EEB31E500AB7E9E /* VLViewController.swift in Sources */,
 				F9ADA1331EE33CEE006C7FF1 /* User.swift in Sources */,
+				F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
+				F9A501E11EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				754C461F1EDED11400E2F848 /* VOLATests.swift in Sources */,
 				F9A501BA1EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */,
 				F9B234971EE6FE1C00884E4E /* Constants.swift in Sources */,

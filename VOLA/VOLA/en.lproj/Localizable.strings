@@ -10,6 +10,7 @@
 "error.invalid-facebook-token" = "Request not completed due to invalid Facebook access token.";
 "error.invalid-facebook-response" = "Could not cast Facebook response to [String: Any].";
 "error.invalid-google-user" = "Could not log in with this Google account.";
+"error.not-logged-in" = "Action could not be completed because user is not logged in.";
 
 // Generic
 
@@ -17,6 +18,14 @@
 "home.title.label" = "Home";
 "login.prompt.label" = "Log In";
 "logout.prompt.label" = "Log Out";
+
+// IntroductionViewController
+"slide-0.title.label" = "Get Started";
+"slide-0.detail.label" = "Easily login using a social profile like Facebook or Google.";
+"slide-1.title.label" = "Autofill Forms";
+"slide-1.detail.label" = "Quickly register for events with details autofilled from your profile.";
+"slide-2.title.label" = "Track Events";
+"slide-2.detail.label" = "View events registered with your profile.";
 
 // LoginViewController
 "signup.title.label" = "Don't have a Vola account yet? Sign up now.";

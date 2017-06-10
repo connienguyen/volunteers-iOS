@@ -37,21 +37,22 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func onLoginPressed(_ sender: Any) {
-        let loginNavController: LoginNavigationController = UIStoryboard.init(.login).instantiateViewController()
+        let loginNavController: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
         present(loginNavController, animated: true, completion: nil)
     }
 
     func onEditPressed() {
-        // TODO segue to Edit Profile VC
+        performSegue(withIdentifier: Segue.showEditProfile.identifier, sender: self)
     }
 
     private func switchUserView() {
         currentUserView.isHidden = !DataManager.shared.isLoggedIn
         anonUserView.isHidden = DataManager.shared.isLoggedIn
 
-        // Hide or show edit button
-        navigationItem.rightBarButtonItem?.isEnabled = DataManager.shared.isLoggedIn
-        navigationItem.rightBarButtonItem?.tintColor = DataManager.shared.isLoggedIn ? nil : UIColor.clear
+        // Hide or show edit button - Should only be shown if logged in AND a manual user
+        let loggedInManual = DataManager.shared.currentUser?.userType == .manual
+        navigationItem.rightBarButtonItem?.isEnabled = loggedInManual
+        navigationItem.rightBarButtonItem?.tintColor = loggedInManual ? nil : UIColor.clear
 
         guard let user = DataManager.shared.currentUser else {
             return
@@ -59,11 +60,8 @@ class ProfileViewController: UIViewController {
 
         nameLabel.text = user.name
         emailLabel.text = user.email
-
-        guard let imageURL = user.imageURL else {
-            return
+        if let imageURL = user.imageURL {
+            profileImageView.kf.setImage(with: imageURL)
         }
-
-        profileImageView.kf.setImage(with: imageURL)
     }
 }

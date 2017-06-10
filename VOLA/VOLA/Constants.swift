@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct NotificationName {
+    static let googleDidSignIn = Notification.Name("googleDidSignIn")
+}
+
 enum Segue: String {
     case showLoginManual
 
@@ -20,6 +24,7 @@ struct FBRequest {
     static let graphPath = "me"
     static let graphParameters = "email, name"
     static let readPermissions = ["public_profile", "email"]
+    static let imageURLFormat = "https://graph.facebook.com/%@/picture?type=large"
 }
 
 struct ABIURL {

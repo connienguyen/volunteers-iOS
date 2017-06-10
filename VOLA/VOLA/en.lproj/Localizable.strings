@@ -9,6 +9,7 @@
 // Error
 "error.invalid-facebook-token" = "Request not completed due to invalid Facebook access token.";
 "error.invalid-facebook-response" = "Could not cast Facebook response to [String: Any].";
+"error.invalid-google-user" = "Could not log in with this Google account.";
 
 // Generic
 

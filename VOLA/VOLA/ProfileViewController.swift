@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var currentUserView: UIView!
     @IBOutlet weak var anonUserView: UIView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
 
@@ -57,5 +59,11 @@ class ProfileViewController: UIViewController {
 
         nameLabel.text = user.name
         emailLabel.text = user.email
+
+        guard let imageURL = user.imageURL else {
+            return
+        }
+
+        profileImageView.kf.setImage(with: imageURL)
     }
 }

@@ -65,10 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard error != nil else {
-            LoginManager.shared.login(user: User(googleUser: user))
+        guard error == nil else {
             return
         }
+
+        let notificationData: [String: Any] = [
+            "user" : user
+        ]
+        NotificationCenter.default.post(name: NotificationName.googleDidSignIn, object: nil, userInfo: notificationData)
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

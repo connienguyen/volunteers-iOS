@@ -52,6 +52,17 @@ final class LoginManager {
         }
     }
 
+    func loginGoogle(notification: NSNotification, completion: @escaping ErrorCompletionBlock) {
+        guard let googleUser = notification.userInfo?["user"] as? GIDGoogleUser else{
+                let error = AuthenticationError.invalidGoogleUser
+                completion(error)
+                return
+        }
+
+        login(user: User(googleUser: googleUser))
+        completion(nil)
+    }
+
     func signUpManual(name: String, email: String, password: String, completion: @escaping ErrorCompletionBlock) {
         // TODO - Need API access + documentation to save create user on backend
         // temporarily saving the user and returning

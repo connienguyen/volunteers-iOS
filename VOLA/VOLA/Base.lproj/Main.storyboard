@@ -198,6 +198,7 @@
                         <outlet property="currentUserView" destination="cek-4X-2T4" id="9My-Nb-CAA"/>
                         <outlet property="emailLabel" destination="1a6-WI-JY9" id="Wex-0I-MEs"/>
                         <outlet property="nameLabel" destination="Irh-lx-9QM" id="qHO-wj-B8V"/>
+                        <outlet property="profileImageView" destination="EKJ-NQ-de9" id="5G4-ED-fPw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOB-Zu-8Yq" userLabel="First Responder" sceneMemberID="firstResponder"/>

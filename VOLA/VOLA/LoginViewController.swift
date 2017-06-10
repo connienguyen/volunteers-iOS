@@ -34,6 +34,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             self.onSignUpPressed()
         }
         signUpLabel.setLinkForSubstring("signup.prompt.title.label".localized, withLinkHandler: signUpHandler)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(googleDidSignIn(_:)), name: NotificationName.googleDidSignIn, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,5 +84,19 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         // TODO - func is required to be defined as a FBSDKLoginButtonDelegate
+    }
+}
+
+//MARK: - NotificationObserver
+extension LoginViewController {
+    func googleDidSignIn(_ notification: NSNotification) {
+        LoginManager.shared.loginGoogle(notification: notification) { (error) in
+            guard error == nil else {
+                // TODO: Show error?
+                return
+            }
+
+            self.onCancelPressed()
+        }
     }
 }

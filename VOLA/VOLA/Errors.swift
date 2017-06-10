@@ -11,6 +11,7 @@ import Foundation
 public enum AuthenticationError: Error {
     case invalidFacebookToken
     case invalidFacebookResponse
+    case invalidGoogleUser
 }
 
 extension AuthenticationError: LocalizedError {
@@ -20,6 +21,8 @@ extension AuthenticationError: LocalizedError {
             return "error.invalid-facebook-token".localized
         case .invalidFacebookResponse:
             return "error.invalid-facebook-response".localized
+        case .invalidGoogleUser:
+            return "error.invalid-google-user".localized
         }
     }
 }

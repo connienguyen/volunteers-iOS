@@ -51,4 +51,20 @@ final class LoginManager {
             completion(nil)
         }
     }
+
+    func signUpManual(name: String, email: String, password: String, completion: @escaping ErrorCompletionBlock) {
+        // TODO - Need API access + documentation to save create user on backend
+        // temporarily saving the user and returning
+
+        login(user: User(name: name, email: email, userType: .manual))
+        completion(nil)
+    }
+
+    func loginManual(email: String, password: String, completion: @escaping ErrorCompletionBlock) {
+        // TODO - Need API access + documentation to log in user on backend
+        // temporarily saving the user and returning (Gives user a default name for now)
+
+        login(user: User(name: "Default Name", email: email, userType: .manual))
+        completion(nil)
+    }
 }

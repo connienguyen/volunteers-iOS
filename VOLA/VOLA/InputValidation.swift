@@ -18,6 +18,7 @@ enum InputValidation {
     case email
     case name
     case password
+    case required
     case none
 
     func validInput(_ input: String?) -> Bool {
@@ -32,6 +33,8 @@ enum InputValidation {
             return NSPredicate(format: "SELF MATCHES %@", ValidationRegex.name).evaluate(with: input)
         case .password:
             return NSPredicate(format: "SELF MATCHES %@", ValidationRegex.password).evaluate(with: input)
+        case .required:
+            return input.characters.count >= 1
         case .none:
             return true
         }

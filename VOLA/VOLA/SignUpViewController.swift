@@ -24,10 +24,7 @@ class SignUpViewController: VLViewController {
         nameTextField.validator = .name
         emailTextField.validator = .email
         passwordTextField.validator = .password
-        nameTextField.delegate = self
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        confirmTextField.delegate = self
+        confirmTextField.addTarget(self, action: #selector(confirmFieldDidChange(_:)), for: .editingDidEnd)
 
         // Set up hyper label
         let labelText = "signup-agree.title.label".localized
@@ -58,21 +55,23 @@ class SignUpViewController: VLViewController {
         // Handle confirmTextField, special case of validation
         confirmTextField.isValid = confirmTextField.text == passwordTextField.text
 
-        // TODO Use LoginManger to log in user
+        guard let name = nameTextField.text,
+            let email = emailTextField.text,
+            let password = passwordTextField.text else {
+                return
+        }
+
+        LoginManager.shared.signUpManual(name: name, email: email, password: password) { (error) in
+            guard error == nil else {
+                // TODO error handling
+                return
+            }
+
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-}
 
-//MARK: - UITextFieldDelegate
-extension SignUpViewController {
-    override func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let vlTextField = textField as? VLTextField else {
-            return
-        }
-
-        if vlTextField == confirmTextField {
-            vlTextField.isValid = vlTextField.text == passwordTextField.text
-        } else {
-            super.textFieldDidEndEditing(textField)
-        }
+    func confirmFieldDidChange(_ textField: VLTextField) {
+        confirmTextField.isValid = confirmTextField.text == passwordTextField.text
     }
 }

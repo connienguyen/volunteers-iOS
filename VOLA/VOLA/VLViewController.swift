@@ -12,6 +12,16 @@ class VLViewController: UIViewController {
 
     @IBOutlet var fieldsToValidate: [VLTextField]!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Using this instead of UITextFieldDelegate, because setting view controller as
+        // the UITextFieldDelegate disables TPKeyboardAvoiding "Next" button feature
+        for field in fieldsToValidate {
+            field.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)
+        }
+    }
+
     func allFieldsValid() -> Bool {
         var retValue = true
         for field in fieldsToValidate where !field.isValid {
@@ -21,12 +31,8 @@ class VLViewController: UIViewController {
 
         return retValue
     }
-}
 
-extension VLViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let vlTextField = textField as? VLTextField {
-            vlTextField.validate()
-        }
+    func textFieldEditingDidEnd(_ textField: VLTextField) {
+        textField.validate()
     }
 }

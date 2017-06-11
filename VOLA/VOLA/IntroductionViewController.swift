@@ -21,6 +21,7 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Commented out for testing purposes
         //UserDefaults.standard.set(true, forKey: DefaultsKey.shownIntro.rawValue)
     }
 
@@ -78,6 +79,7 @@ class IntroductionViewController: UIViewController {
             introSlide.frame = frame
             introSlide.titleLabel.text = "slide-\(i).title.label".localized
             introSlide.detailLabel.text = "slide-\(i).detail.label".localized
+            // TODO: Add correct image assets to introSlideView
             scrollView.addSubview(introSlide)
         }
 

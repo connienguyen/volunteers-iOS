@@ -57,6 +57,12 @@
 		F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
 		F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
 		F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
+		F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */; };
+		F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */; };
+		F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F71EEEC59C00AB7E9E /* Home.storyboard */; };
+		F9A501F91EEEC59C00AB7E9E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F71EEEC59C00AB7E9E /* Home.storyboard */; };
+		F9A501FB1EEEC67700AB7E9E /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501FA1EEEC67700AB7E9E /* Calendar.storyboard */; };
+		F9A501FC1EEEC67700AB7E9E /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501FA1EEEC67700AB7E9E /* Calendar.storyboard */; };
 		F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */; };
 		F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */; };
 		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
@@ -126,6 +132,9 @@
 		F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroSlideView.swift; sourceTree = "<group>"; };
 		F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLTabBarController.swift; sourceTree = "<group>"; };
 		F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F9A501F71EEEC59C00AB7E9E /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		F9A501FA1EEEC67700AB7E9E /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManualViewController.swift; sourceTree = "<group>"; };
 		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -248,8 +257,11 @@
 		754C462D1EDED1E800E2F848 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				F9A501FA1EEEC67700AB7E9E /* Calendar.storyboard */,
+				F9A501F71EEEC59C00AB7E9E /* Home.storyboard */,
 				F9A501CC1EE7659300AB7E9E /* Login.storyboard */,
 				754C460D1EDED11400E2F848 /* Main.storyboard */,
+				F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -464,10 +476,13 @@
 			files = (
 				754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */,
 				F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */,
+				F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
+				F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */,
 				F9A501CA1EE7659300AB7E9E /* Login.storyboard in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
 				F9A377F81EE5562B00299FD3 /* GoogleService-Info.plist in Resources */,
 				754C460F1EDED11400E2F848 /* Main.storyboard in Resources */,
+				F9A501FB1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
 				F9A501E61EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,8 +491,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9A501FC1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
 				F9A501BF1EE7600100AB7E9E /* Localizable.strings in Resources */,
+				F9A501F91EEEC59C00AB7E9E /* Home.storyboard in Resources */,
 				F9A501E71EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
+				F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
 				F9A377F91EE5562B00299FD3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

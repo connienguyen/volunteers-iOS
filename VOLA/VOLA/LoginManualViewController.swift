@@ -23,9 +23,12 @@ class LoginManualViewController: VLViewController {
 
 extension LoginManualViewController {
     @IBAction func onLoginPressed(_ sender: Any) {
+        let errorDescriptions = areAllFieldsValid()
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
-            areAllFieldsValid() else {
+            errorDescriptions.isEmpty else {
+                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
                 return
         }
 

@@ -42,12 +42,15 @@ class EditProfileViewController: VLViewController {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension EditProfileViewController {
     @IBAction func onSaveChangesPressed(_ sender: Any) {
+        let errorDescriptions = areAllFieldsValid()
         guard let name = nameTextField.text,
             let email = emailTextField.text,
-            areAllFieldsValid() else {
+            errorDescriptions.isEmpty else {
+                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
                 return
         }
 

@@ -11,6 +11,12 @@
 "error.invalid-facebook-response" = "Could not cast Facebook response to [String: Any].";
 "error.invalid-google-user" = "Could not log in with this Google account.";
 "error.not-logged-in" = "Action could not be completed because user is not logged in.";
+"error.invalid-email" = "Please provide a valid email address.";
+"error.invalid-name" = "Please enter your first and last name.";
+"error.invalid-password" = "Please enter a password that is at least 8 characters long and includes a lowercase, uppercase, and a number.";
+"error.invalid-confirm" = "Passwords do not match.";
+"error.invalid-required" = "Please complete required field.";
+"error.validation" = "Invalid Input";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";

@@ -22,17 +22,23 @@ class VLViewController: UIViewController {
         }
     }
 
-    func areAllFieldsValid() -> Bool {
-        var retValue = true
+    func areAllFieldsValid() -> [String] {
+        var errorDescriptions: [String] = []
         for field in fieldsToValidate where !field.isValid {
+            errorDescriptions.append(field.validator.error)
             field.validate() // Show error in case it hasn't been shown yet
-            retValue = false
         }
 
-        return retValue
+        return errorDescriptions
     }
 
     func textFieldEditingDidEnd(_ textField: VLTextField) {
         textField.validate()
+    }
+
+    func showErrorAlert(errorTitle: String, errorMessage: String) {
+        let alert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DictKeys.ok.rawValue, style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

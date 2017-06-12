@@ -28,6 +28,7 @@ enum Segue: String {
 enum DictKeys: String {
     case fields
     case user
+    case ok = "OK"
 }
 
 enum UserNumbers: UInt {

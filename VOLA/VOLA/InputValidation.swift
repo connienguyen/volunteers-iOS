@@ -14,12 +14,16 @@ struct ValidationRegex {
     static let password = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
 }
 
-enum InputValidation {
-    case email
-    case name
-    case password
-    case required
-    case none
+enum InputValidation: String {
+    case email = "error.invalid-email"
+    case name = "error.invalid-name"
+    case password = "error.invalid-password"
+    case required = "error.invalid-required"
+    case none = ""
+
+    var error: String {
+        return self.rawValue
+    }
 
     func isValid(_ input: String?) -> Bool {
         guard let input = input else {

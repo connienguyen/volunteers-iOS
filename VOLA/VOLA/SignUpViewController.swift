@@ -57,18 +57,22 @@ class SignUpViewController: VLViewController {
 //MARK: - IBActions
 extension SignUpViewController {
     @IBAction func onSignUpPressed(_ sender: Any) {
-        guard areAllFieldsValid() else {
-            return
-        }
-
-        // Handle confirmTextField, special case of validation
-        confirmTextField.isValid = confirmTextField.text == passwordTextField.text
-
+        let errorDescriptions = areAllFieldsValid()
         guard let name = nameTextField.text,
             let email = emailTextField.text,
-            let password = passwordTextField.text else {
-                Logger.error("Required text fields: name, email, password were not strings.")
+            let password = passwordTextField.text,
+            let confirm = confirmTextField.text,
+            password == confirm,
+            errorDescriptions.isEmpty else {
+                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
                 return
+        }
+        guard errorDescriptions.isEmpty else {
+            let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+            showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
+            Logger.error("Required text fields: name, email, password were invalid.")
+            return
         }
 
         LoginManager.shared.signUpManual(name: name, email: email, password: password) { (error) in

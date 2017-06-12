@@ -44,7 +44,7 @@ class User {
         name = googleUser.profile.name
         email = googleUser.profile.email
         userType = .google
-        imageURL = googleUser.profile.imageURL(withDimension: 200)
+        imageURL = googleUser.profile.imageURL(withDimension: UserNumbers.twiceImageIcon.rawValue)
     }
 
     init(fbResponse: [String: Any]) {

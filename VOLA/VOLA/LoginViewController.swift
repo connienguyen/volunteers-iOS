@@ -38,17 +38,23 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             self.onSignUpPressed()
         }
         signUpLabel.setLinkForSubstring("signup.prompt.title.label".localized, withLinkHandler: signUpHandler)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(googleDidSignIn(_:)), name: NotificationName.googleDidSignIn, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        addNotificationObserver(NotificationName.googleDidSignIn, selector: #selector(googleDidSignIn(_:)), nil)
+
         guard DataManager.shared.currentUser == nil else {
             dismiss(animated: true, completion: nil)
             return
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        removeNotificationObserver(NotificationName.googleDidSignIn)
     }
 
     @IBAction func onLoginWithEmailPressed(_ sender: Any) {

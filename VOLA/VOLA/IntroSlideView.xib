@@ -48,9 +48,9 @@
                 <constraint firstItem="e1N-g3-efh" firstAttribute="top" secondItem="QQH-zb-r3L" secondAttribute="bottom" constant="25" id="qke-WU-TEI"/>
             </constraints>
             <connections>
-                <outlet property="detailLabel" destination="e1N-g3-efh" id="tby-rl-tvc"/>
-                <outlet property="slideImageView" destination="QQH-zb-r3L" id="DzN-td-joE"/>
-                <outlet property="titleLabel" destination="Dif-Ri-rE8" id="pBU-l1-Zmh"/>
+                <outlet property="detailLabel" destination="e1N-g3-efh" id="Ebu-gG-xds"/>
+                <outlet property="slideImageView" destination="QQH-zb-r3L" id="j5P-js-gYY"/>
+                <outlet property="titleLabel" destination="Dif-Ri-rE8" id="PZf-yX-1YR"/>
             </connections>
         </view>
     </objects>

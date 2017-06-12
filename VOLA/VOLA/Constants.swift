@@ -25,6 +25,15 @@ enum Segue: String {
     }
 }
 
+enum DictKeys: String {
+    case fields
+    case user
+}
+
+enum UserNumbers: UInt {
+    case twiceImageIcon = 200
+}
+
 struct FBRequest {
     static let graphPath = "me"
     static let graphParameters = "email, name"

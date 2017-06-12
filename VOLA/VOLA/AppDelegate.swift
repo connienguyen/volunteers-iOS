@@ -70,7 +70,7 @@ extension AppDelegate: GIDSignInDelegate {
             return
         }
 
-        let notificationData: [String: Any] = ["user": user]
+        let notificationData: [String: Any] = [DictKeys.user.rawValue: user]
         NotificationCenter.default.post(name: NotificationName.googleDidSignIn, object: nil, userInfo: notificationData)
     }
 

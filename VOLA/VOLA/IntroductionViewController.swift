@@ -21,8 +21,8 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Commented out for testing purposes
-        //UserDefaults.standard.set(true, forKey: DefaultsKey.shownIntro.rawValue)
+        // Uncomment for testing purposes
+        Defaults.setObject(forKey: .shownIntro, object: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,11 +47,7 @@ class IntroductionViewController: UIViewController {
     }
 
     @IBAction func onPageControlPressed(_ sender: Any) {
-        let pageNumber = pageControl.currentPage
-        var frame = scrollView.frame
-        frame.origin.x = scrollView.frame.width * CGFloat(pageNumber)
-        frame.origin.y = 0.0
-        scrollView.scrollRectToVisible(frame, animated: true)
+        scrollView.scrollToPage(page: pageControl.currentPage)
     }
 
     @IBAction func onLoginPressed(_ sender: Any) {
@@ -65,22 +61,22 @@ class IntroductionViewController: UIViewController {
     }
 
     private func loadScrollView() {
-        let pageCount: CGFloat = 3.0
-
         scrollView.delegate = self
-        scrollView.isPagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentSize = CGSize(width: scrollView.frame.width * pageCount, height: 1.0)
+        let pageCount = Intro.introSlides.count
+        scrollView.loadScrollPages(pageCount: 3, subviewType: IntroSlideView.self)
 
-        // Add slides as subviews
-        for i in 0..<Int(pageCount) {
-            let frame = CGRect(x: scrollView.frame.width * CGFloat(i), y: 0.0, width: scrollView.frame.width, height: scrollView.frame.height)
-            let introSlide = IntroSlideView.instantiateFromXib()
-            introSlide.frame = frame
-            introSlide.titleLabel.text = "slide-\(i).title.label".localized
-            introSlide.detailLabel.text = "slide-\(i).detail.label".localized
-            // TODO: Add correct image assets to introSlideView
-            scrollView.addSubview(introSlide)
+        // Configure data on pages
+        var i: Int = 0
+        for case let page as IntroSlideView in scrollView.subviews {
+            guard i < pageCount else {
+                Logger.error("Attempted to configure scroll view page out of index.")
+                return
+            }
+            // TODO: ERROR: Outlets on introSlideView is nil when it shoudn't be
+//            page.titleLabel.text = Intro.introSlides[i].title
+//            page.detailLabel.text = Intro.introSlides[i].detail
+//            page.slideImageView.image = UIImage(named: Intro.introSlides[i].imageName)
+            i += 1
         }
 
         pageControl.currentPage = 0

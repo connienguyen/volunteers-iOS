@@ -54,14 +54,12 @@ class ProfileViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = loggedInManual
         navigationItem.rightBarButtonItem?.tintColor = loggedInManual ? nil : UIColor.clear
 
-        guard let user = DataManager.shared.currentUser else {
-            return
-        }
-
-        nameLabel.text = user.name
-        emailLabel.text = user.email
-        if let imageURL = user.imageURL {
-            profileImageView.kf.setImage(with: imageURL)
+        if let user = DataManager.shared.currentUser {
+            nameLabel.text = user.name
+            emailLabel.text = user.email
+            if let imageURL = user.imageURL {
+                profileImageView.kf.setImage(with: imageURL)
+            }
         }
     }
 }

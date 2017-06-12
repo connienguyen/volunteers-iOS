@@ -14,7 +14,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Check if intro slides have been shown before
-        if !UserDefaults.standard.bool(forKey: DefaultsKey.shownIntro.rawValue) {
+        let shownIntro = Defaults.getObject(forKey: .shownIntro) as? Bool ?? false
+        if !shownIntro {
             let introNavController: IntroductionNavigationController = UIStoryboard(.main).instantiateViewController()
             present(introNavController, animated: true, completion: nil)
         }

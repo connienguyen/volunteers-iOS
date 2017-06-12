@@ -33,7 +33,7 @@ final class LoginManager {
             return
         }
 
-        let parameters = ["fields": FBRequest.graphParameters]
+        let parameters = [DictKeys.fields.rawValue: FBRequest.graphParameters]
         FBSDKGraphRequest(graphPath: FBRequest.graphPath, parameters: parameters)
             .start { (_, result, error) in
             guard error == nil else {
@@ -53,7 +53,7 @@ final class LoginManager {
     }
 
     func loginGoogle(notification: NSNotification, completion: @escaping ErrorCompletionBlock) {
-        guard let googleUser = notification.userInfo?["user"] as? GIDGoogleUser else {
+        guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser else {
             let error = AuthenticationError.invalidGoogleUser
             completion(error)
             return
@@ -74,6 +74,7 @@ final class LoginManager {
     func loginManual(email: String, password: String, completion: @escaping ErrorCompletionBlock) {
         // TODO - Need API access + documentation to log in user on backend
         // temporarily saving the user and returning (Gives user a default name for now)
+        // "Default Name" name is temporary and will be changed once hooked up to backend
 
         login(user: User(name: "Default Name", email: email, userType: .manual))
         completion(nil)

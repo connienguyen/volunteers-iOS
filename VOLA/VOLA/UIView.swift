@@ -89,7 +89,7 @@ extension UIView {
     }
 }
 
-public protocol XIBInstantiable {
+protocol XIBInstantiable {
     static var associatedNib: UINib { get }
 }
 

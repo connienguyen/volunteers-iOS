@@ -31,21 +31,11 @@ class ProfileViewController: UIViewController {
         switchUserView()
     }
 
-    @IBAction func onLogoutPressed(_ sender: Any) {
-        LoginManager.shared.logOut()
-        switchUserView()
-    }
-
-    @IBAction func onLoginPressed(_ sender: Any) {
-        let loginNavController: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
-        present(loginNavController, animated: true, completion: nil)
-    }
-
     func onEditPressed() {
         performSegue(withIdentifier: Segue.showEditProfile.identifier, sender: self)
     }
 
-    private func switchUserView() {
+    func switchUserView() {
         currentUserView.isHidden = !DataManager.shared.isLoggedIn
         anonUserView.isHidden = DataManager.shared.isLoggedIn
 
@@ -61,5 +51,18 @@ class ProfileViewController: UIViewController {
                 profileImageView.kf.setImage(with: imageURL)
             }
         }
+    }
+}
+
+//MARK: - IBActions
+extension ProfileViewController {
+    @IBAction func onLogoutPressed(_ sender: Any) {
+        LoginManager.shared.logOut()
+        switchUserView()
+    }
+
+    @IBAction func onLoginPressed(_ sender: Any) {
+        let loginNavController: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
+        present(loginNavController, animated: true, completion: nil)
     }
 }

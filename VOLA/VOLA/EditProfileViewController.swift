@@ -24,23 +24,6 @@ class EditProfileViewController: VLViewController {
         configureProfile()
     }
 
-    @IBAction func onSaveChangesPressed(_ sender: Any) {
-        guard let name = nameTextField.text,
-            let email = emailTextField.text,
-            areAllFieldsValid() else {
-                return
-        }
-
-        LoginManager.shared.updateUser(name: name, email: email) { (error) in
-            guard error == nil else {
-                Logger.error(error?.localizedDescription ?? "Could not update user.")
-                return
-            }
-
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-
     private func configureProfile() {
         guard let user = DataManager.shared.currentUser else {
             Logger.error("Could not configure user since user is not logged in.")
@@ -55,6 +38,26 @@ class EditProfileViewController: VLViewController {
 
         if let imageURL = user.imageURL {
             profileImageView.kf.setImage(with: imageURL)
+        }
+    }
+}
+
+//MARK: - IBActions
+extension EditProfileViewController {
+    @IBAction func onSaveChangesPressed(_ sender: Any) {
+        guard let name = nameTextField.text,
+            let email = emailTextField.text,
+            areAllFieldsValid() else {
+                return
+        }
+
+        LoginManager.shared.updateUser(name: name, email: email) { (error) in
+            guard error == nil else {
+                Logger.error(error?.localizedDescription ?? "Could not update user.")
+                return
+            }
+
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

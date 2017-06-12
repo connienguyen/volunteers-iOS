@@ -49,6 +49,13 @@ class SignUpViewController: VLViewController {
         signUpAgreeLabel.setLinkForSubstring("privacy.title.label".localized, withLinkHandler: privacyHandler)
     }
 
+    func confirmFieldDidChange(_ textField: VLTextField) {
+        confirmTextField.isValid = confirmTextField.text == passwordTextField.text
+    }
+}
+
+//MARK: - IBActions
+extension SignUpViewController {
     @IBAction func onSignUpPressed(_ sender: Any) {
         guard areAllFieldsValid() else {
             return
@@ -72,9 +79,5 @@ class SignUpViewController: VLViewController {
 
             self.dismiss(animated: true, completion: nil)
         }
-    }
-
-    func confirmFieldDidChange(_ textField: VLTextField) {
-        confirmTextField.isValid = confirmTextField.text == passwordTextField.text
     }
 }

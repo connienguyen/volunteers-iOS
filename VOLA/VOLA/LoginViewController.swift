@@ -57,10 +57,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         removeNotificationObserver(NotificationName.googleDidSignIn)
     }
 
-    @IBAction func onLoginWithEmailPressed(_ sender: Any) {
-        performSegue(.showLoginManual)
-    }
-
     func onSignUpPressed() {
         guard let storyboard = storyboard else {
             Logger.error("Storyboard for LoginViewController was nil.")
@@ -73,6 +69,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     func onCancelPressed() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - IBActions
+extension LoginViewController {
+    @IBAction func onLoginWithEmailPressed(_ sender: Any) {
+        performSegue(.showLoginManual)
     }
 }
 

@@ -19,7 +19,9 @@ class LoginManualViewController: VLViewController {
         emailTextField.validator = .email
         passwordTextField.validator = .required
     }
+}
 
+extension LoginManualViewController {
     @IBAction func onLoginPressed(_ sender: Any) {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,

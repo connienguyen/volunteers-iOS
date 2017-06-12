@@ -46,20 +46,6 @@ class IntroductionViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
-    @IBAction func onPageControlPressed(_ sender: Any) {
-        scrollView.scrollToPage(page: pageControl.currentPage)
-    }
-
-    @IBAction func onLoginPressed(_ sender: Any) {
-        let loginVC: LoginViewController = UIStoryboard(.login).instantiateViewController()
-        loginVC.introSender = true
-        navigationController?.show(loginVC, sender: self)
-    }
-
-    @IBAction func onSkipPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
     private func loadScrollView() {
         scrollView.delegate = self
         let pageCount = Intro.introSlides.count
@@ -80,6 +66,23 @@ class IntroductionViewController: UIViewController {
         }
 
         pageControl.currentPage = 0
+    }
+}
+
+//MARK: - IBActions
+extension IntroductionViewController {
+    @IBAction func onPageControlPressed(_ sender: Any) {
+        scrollView.scrollToPage(page: pageControl.currentPage)
+    }
+
+    @IBAction func onLoginPressed(_ sender: Any) {
+        let loginVC: LoginViewController = UIStoryboard(.login).instantiateViewController()
+        loginVC.introSender = true
+        navigationController?.show(loginVC, sender: self)
+    }
+
+    @IBAction func onSkipPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

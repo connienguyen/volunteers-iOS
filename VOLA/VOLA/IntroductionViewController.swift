@@ -48,24 +48,18 @@ class IntroductionViewController: UIViewController {
 
     private func loadScrollView() {
         scrollView.delegate = self
-        let pageCount = Intro.introSlides.count
-        scrollView.loadScrollPages(pageCount: 3, subviewType: IntroSlideView.self)
-
-        // Configure data on pages
-        var i: Int = 0
-        for case let page as IntroSlideView in scrollView.subviews {
-            guard i < pageCount else {
-                Logger.error("Attempted to configure scroll view page out of index.")
-                return
-            }
-            // TODO: ERROR: Outlets on introSlideView is nil when it shoudn't be
-//            page.titleLabel.text = Intro.introSlides[i].title
-//            page.detailLabel.text = Intro.introSlides[i].detail
-//            page.slideImageView.image = UIImage(named: Intro.introSlides[i].imageName)
-            i += 1
-        }
-
+        scrollView.loadScrollPages(views: Intro.introSlides.map { $0.createSlideView() })
         pageControl.currentPage = 0
+    }
+}
+
+fileprivate extension Intro.IntroDetail {
+    func createSlideView() -> IntroSlideView {
+        let view = IntroSlideView.instantiateFromXib()
+        view.titleLabel.text = title
+        view.detailLabel.text = detail
+        view.slideImageView.image = UIImage(named: imageName)
+        return view
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FBSDKLoginKit
 
 final class LoginManager {
     static let shared = LoginManager()
@@ -19,10 +20,18 @@ final class LoginManager {
 
     func logOut() {
         guard let user = DataManager.shared.currentUser else {
+            Logger.error("Attempted to log out when not logged in.")
             return
         }
-
-        user.userType.logOut()
+        switch user.userType {
+        case .facebook:
+            FBSDKLoginManager().logOut()
+        case .google:
+            GIDSignIn.sharedInstance().signOut()
+        case .manual:
+            // TODO: Print statement used as placeholder for manual logOut
+            print("Manual logout")
+        }
         DataManager.shared.setUser(nil)
     }
 

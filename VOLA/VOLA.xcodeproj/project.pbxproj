@@ -96,6 +96,8 @@
 		F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A502281EEEFBA000AB7E9E /* Intro.swift */; };
 		F9A5022C1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5022B1EEF0D3F00AB7E9E /* UserDefaults.swift */; };
 		F9A5022D1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5022B1EEF0D3F00AB7E9E /* UserDefaults.swift */; };
+		F9A5022F1EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */; };
+		F9A502301EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */; };
 		F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */; };
 		F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */; };
 		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
@@ -171,6 +173,7 @@
 		F9A502251EEEDC2A00AB7E9E /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		F9A502281EEEFBA000AB7E9E /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 		F9A5022B1EEF0D3F00AB7E9E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIBInstantiable.swift; sourceTree = "<group>"; };
 		F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManualViewController.swift; sourceTree = "<group>"; };
 		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -361,16 +364,17 @@
 		754C46371EDED28F00E2F848 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				754C46591EDED5B300E2F848 /* UITableView.swift */,
-				754C46381EDED2D600E2F848 /* UIView.swift */,
 				754C46391EDED2D600E2F848 /* AppDelegateExtension.swift */,
 				754C463A1EDED2D600E2F848 /* UIColor.swift */,
 				754C463B1EDED2D600E2F848 /* UIKit+Localization.swift */,
+				F9A502251EEEDC2A00AB7E9E /* UIScrollView.swift */,
 				F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */,
+				754C46591EDED5B300E2F848 /* UITableView.swift */,
+				754C46381EDED2D600E2F848 /* UIView.swift */,
 				F9B2348D1EE6D72500884E4E /* UIViewController.swift */,
 				F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */,
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
-				F9A502251EEEDC2A00AB7E9E /* UIScrollView.swift */,
+				F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -613,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */,
+				F9A5022F1EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F9A501D61EE871BE00AB7E9E /* VLTextField.swift in Sources */,
 				F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */,
 				754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */,
@@ -663,6 +668,7 @@
 				F9A502171EEED01F00AB7E9E /* VLHyperLabel.swift in Sources */,
 				F9A5021A1EEED02300AB7E9E /* Date.swift in Sources */,
 				F9A502021EEED00600AB7E9E /* ReachabilityManager.swift in Sources */,
+				F9A502301EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F9A502051EEED00D00AB7E9E /* LoginManualViewController.swift in Sources */,
 				F9A502071EEED00D00AB7E9E /* ProfileViewController.swift in Sources */,

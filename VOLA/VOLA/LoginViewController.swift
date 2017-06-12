@@ -57,6 +57,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     func onSignUpPressed() {
         guard let storyboard = storyboard else {
+            Logger.error("Storyboard for LoginViewController was nil.")
             return
         }
 
@@ -72,13 +73,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 extension LoginViewController: FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         guard let response = result, response.token != nil else {
-            // TODO: Error handling
+            Logger.error("Facebook response or access token is nil.")
             return
         }
 
         LoginManager.shared.loginFacebook { (error) in
             guard error == nil else {
-                // TODO: Show error?
+                Logger.error(error?.localizedDescription ?? "Facebook log in service returned an error.")
                 return
             }
 
@@ -96,7 +97,7 @@ extension LoginViewController {
     func googleDidSignIn(_ notification: NSNotification) {
         LoginManager.shared.loginGoogle(notification: notification) { (error) in
             guard error == nil else {
-                // TODO: Show error?
+                Logger.error(error?.localizedDescription ?? "Error while attempting to log in with Google.")
                 return
             }
 

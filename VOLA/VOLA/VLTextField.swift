@@ -18,6 +18,6 @@ class VLTextField: UITextField {
     }
 
     func validate() {
-        isValid = validator.validInput(self.text)
+        isValid = validator.isValid(self.text)
     }
 }

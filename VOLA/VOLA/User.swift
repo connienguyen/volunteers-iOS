@@ -54,6 +54,7 @@ class User {
 
         guard let id = fbResponse["id"] as? String,
             let url = URL(string: String(format: FBRequest.imageURLFormat, id)) else {
+                Logger.error("Could not format Facebook user imageURL.")
                 return
         }
 

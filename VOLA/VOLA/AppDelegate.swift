@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
         guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String else {
-                return false
+            return false
         }
 
         let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else {
+            Logger.error(error?.localizedDescription ?? "Could not sign in with Google.")
             return
         }
 

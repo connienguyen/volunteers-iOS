@@ -89,7 +89,6 @@ class IntroductionViewController: UIViewController {
 
 extension IntroductionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //
         let viewWidth: CGFloat = scrollView.frame.width
         let pageNumber = floor((scrollView.contentOffset.x - viewWidth * 0.5) / viewWidth) + 1
         pageControl.currentPage = Int(pageNumber)

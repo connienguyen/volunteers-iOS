@@ -54,9 +54,9 @@ final class LoginManager {
 
     func loginGoogle(notification: NSNotification, completion: @escaping ErrorCompletionBlock) {
         guard let googleUser = notification.userInfo?["user"] as? GIDGoogleUser else {
-                let error = AuthenticationError.invalidGoogleUser
-                completion(error)
-                return
+            let error = AuthenticationError.invalidGoogleUser
+            completion(error)
+            return
         }
 
         login(user: User(googleUser: googleUser))

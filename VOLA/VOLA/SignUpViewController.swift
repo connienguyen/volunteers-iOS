@@ -31,6 +31,7 @@ class SignUpViewController: VLViewController {
         signUpAgreeLabel.setAttributedString(labelText, fontSize: 14.0)
         let termsHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             guard let url = ABIURL.termsOfService else {
+                Logger.error("Invalid URL for ABI terms of service.")
                 return
             }
 
@@ -38,6 +39,7 @@ class SignUpViewController: VLViewController {
         }
         let privacyHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             guard let url = ABIURL.privacyPolicy else {
+                Logger.error("Invalid URL for ABI privacy policy.")
                 return
             }
 
@@ -48,7 +50,7 @@ class SignUpViewController: VLViewController {
     }
 
     @IBAction func onSignUpPressed(_ sender: Any) {
-        guard allFieldsValid() else {
+        guard areAllFieldsValid() else {
             return
         }
 
@@ -58,12 +60,13 @@ class SignUpViewController: VLViewController {
         guard let name = nameTextField.text,
             let email = emailTextField.text,
             let password = passwordTextField.text else {
+                Logger.error("Required text fields: name, email, password were not strings.")
                 return
         }
 
         LoginManager.shared.signUpManual(name: name, email: email, password: password) { (error) in
             guard error == nil else {
-                // TODO error handling
+                Logger.error(error?.localizedDescription ?? "Error when trying to log in manually with Systers.")
                 return
             }
 

@@ -21,7 +21,7 @@ enum InputValidation {
     case required
     case none
 
-    func validInput(_ input: String?) -> Bool {
+    func isValid(_ input: String?) -> Bool {
         guard let input = input else {
             return false
         }

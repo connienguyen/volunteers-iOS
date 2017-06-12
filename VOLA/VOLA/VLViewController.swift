@@ -22,7 +22,7 @@ class VLViewController: UIViewController {
         }
     }
 
-    func allFieldsValid() -> Bool {
+    func areAllFieldsValid() -> Bool {
         var retValue = true
         for field in fieldsToValidate where !field.isValid {
             field.validate() // Show error in case it hasn't been shown yet

@@ -23,13 +23,13 @@ class LoginManualViewController: VLViewController {
     @IBAction func onLoginPressed(_ sender: Any) {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
-            allFieldsValid() else {
+            areAllFieldsValid() else {
                 return
         }
 
         LoginManager.shared.loginManual(email: email, password: password) { (error) in
             guard error == nil else {
-                // TODO error handling
+                Logger.error(error?.localizedDescription ?? "Could not log in to Systers server.")
                 return
             }
 

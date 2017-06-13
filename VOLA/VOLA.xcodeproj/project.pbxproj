@@ -26,7 +26,7 @@
 		754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46541EDED46700E2F848 /* Theme+Style.swift */; };
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
-		F902A8C51EEFC5CD00B529AC /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902A8C41EEFC5CD00B529AC /* GeneratedMocks.swift */; };
+		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
 		F9A377F81EE5562B00299FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */; };
 		F9A377F91EE5562B00299FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */; };
@@ -124,6 +124,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		192A5878F35DB0A7174DE67C /* Pods-VOLATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLATests/Pods-VOLATests.debug.xcconfig"; sourceTree = "<group>"; };
+		588875E663F4A4AE18E00FFD /* Pods_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		754C46061EDED11400E2F848 /* VOLA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VOLA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754C46091EDED11400E2F848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754C460E1EDED11400E2F848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,7 +150,8 @@
 		754C46591EDED5B300E2F848 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
 		F193268237FFFD12AF1521EF /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
-		F902A8C41EEFC5CD00B529AC /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 		F9B234951EE6FE1C00884E4E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F9B234981EE7532F00884E4E /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLATests/Pods-VOLATests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,8 +255,8 @@
 			children = (
 				754C46201EDED11400E2F848 /* Info.plist */,
 				F9A501FD1EEECCE200AB7E9E /* InputValidationUnitTests.swift */,
-				F902A8C41EEFC5CD00B529AC /* GeneratedMocks.swift */,
 				754C461E1EDED11400E2F848 /* VOLATests.swift */,
+				F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */,
 			);
 			path = VOLATests;
 			sourceTree = "<group>";
@@ -421,6 +425,8 @@
 			isa = PBXGroup;
 			children = (
 				FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */,
+				588875E663F4A4AE18E00FFD /* Pods_VOLATests.framework */,
+				F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -430,6 +436,8 @@
 			children = (
 				7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */,
 				F193268237FFFD12AF1521EF /* Pods-VOLA.debug.xcconfig */,
+				192A5878F35DB0A7174DE67C /* Pods-VOLATests.debug.xcconfig */,
+				FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -465,7 +473,6 @@
 				754C46161EDED11400E2F848 /* Sources */,
 				754C46171EDED11400E2F848 /* Frameworks */,
 				754C46181EDED11400E2F848 /* Resources */,
-				F902A8C31EEFBD2400B529AC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -613,19 +620,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F902A8C31EEFBD2400B529AC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"$PROJECT_DIR/Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"$PROJECT_DIR/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"$PROJECT_DIR\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"$PROJECT_DIR/$PROJECT_NAME\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/LoginManager.swift\" \\\n# ... and so forth";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -690,12 +684,12 @@
 				F9A502051EEED00D00AB7E9E /* LoginManualViewController.swift in Sources */,
 				F9A502071EEED00D00AB7E9E /* ProfileViewController.swift in Sources */,
 				F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */,
-				F902A8C51EEFC5CD00B529AC /* GeneratedMocks.swift in Sources */,
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,
 				F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */,
 				F9A502241EEED34500AB7E9E /* Theme+Fonts.swift in Sources */,
 				F9A502101EEED01F00AB7E9E /* UITableView.swift in Sources */,
 				F9A502271EEEDC2A00AB7E9E /* UIScrollView.swift in Sources */,
+				F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */,
 				F9A501FE1EEECCE200AB7E9E /* InputValidationUnitTests.swift in Sources */,
 				F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,
 				F9A5022D1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
@@ -914,7 +908,6 @@
 		};
 		754C46281EDED11400E2F848 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

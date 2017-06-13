@@ -9,7 +9,7 @@
 import Foundation
 import FBSDKLoginKit
 
-final class LoginManager {
+class LoginManager {
     static let shared = LoginManager()
 
     private init() { /* Intentionally left empty */ }

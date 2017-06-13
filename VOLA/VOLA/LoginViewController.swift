@@ -72,7 +72,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension LoginViewController {
     @IBAction func onLoginWithEmailPressed(_ sender: Any) {
         performSegue(.showLoginManual)
@@ -101,7 +101,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
     }
 }
 
-//MARK: - NotificationObserver
+// MARK: - NotificationObserver
 extension LoginViewController {
     func googleDidSignIn(_ notification: NSNotification) {
         LoginManager.shared.loginGoogle(notification: notification) { (error) in

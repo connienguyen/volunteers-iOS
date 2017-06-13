@@ -63,7 +63,7 @@ fileprivate extension Intro.IntroDetail {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension IntroductionViewController {
     @IBAction func onPageControlPressed(_ sender: Any) {
         scrollView.scrollToPage(page: pageControl.currentPage)

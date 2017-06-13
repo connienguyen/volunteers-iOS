@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension ProfileViewController {
     @IBAction func onLogoutPressed(_ sender: Any) {
         LoginManager.shared.logOut()

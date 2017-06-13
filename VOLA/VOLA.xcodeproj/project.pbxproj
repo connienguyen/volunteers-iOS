@@ -27,6 +27,12 @@
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
 		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
+		F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920301EEFF18B0055DA69 /* EventTableViewController.swift */; };
+		F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920311EEFF18B0055DA69 /* EventTableViewController.xib */; };
+		F92920361EEFF2660055DA69 /* EventImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920341EEFF2660055DA69 /* EventImageCell.swift */; };
+		F92920371EEFF2660055DA69 /* EventImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920351EEFF2660055DA69 /* EventImageCell.xib */; };
+		F929203A1EEFF3C30055DA69 /* RegisteredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920381EEFF3C30055DA69 /* RegisteredCell.swift */; };
+		F929203B1EEFF3C30055DA69 /* RegisteredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920391EEFF3C30055DA69 /* RegisteredCell.xib */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
 		F9A377F81EE5562B00299FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */; };
 		F9A377F91EE5562B00299FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */; };
@@ -152,6 +158,12 @@
 		F193268237FFFD12AF1521EF /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
+		F92920301EEFF18B0055DA69 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		F92920311EEFF18B0055DA69 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewController.xib; sourceTree = "<group>"; };
+		F92920341EEFF2660055DA69 /* EventImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventImageCell.swift; sourceTree = "<group>"; };
+		F92920351EEFF2660055DA69 /* EventImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventImageCell.xib; sourceTree = "<group>"; };
+		F92920381EEFF3C30055DA69 /* RegisteredCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredCell.swift; sourceTree = "<group>"; };
+		F92920391EEFF3C30055DA69 /* RegisteredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisteredCell.xib; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -327,6 +339,8 @@
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
 				F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */,
+				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
+				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -345,6 +359,10 @@
 		754C46301EDED20800E2F848 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F92920341EEFF2660055DA69 /* EventImageCell.swift */,
+				F92920351EEFF2660055DA69 /* EventImageCell.xib */,
+				F92920381EEFF3C30055DA69 /* RegisteredCell.swift */,
+				F92920391EEFF3C30055DA69 /* RegisteredCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -530,8 +548,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */,
+				F929203B1EEFF3C30055DA69 /* RegisteredCell.xib in Resources */,
 				F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */,
 				F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
+				F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */,
+				F92920371EEFF2660055DA69 /* EventImageCell.xib in Resources */,
 				F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */,
 				F9A501CA1EE7659300AB7E9E /* Login.storyboard in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
@@ -635,6 +656,9 @@
 				F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */,
 				754C463C1EDED2D600E2F848 /* UIView.swift in Sources */,
 				F9A501DE1EEBED4800AB7E9E /* ProfileViewController.swift in Sources */,
+				F929203A1EEFF3C30055DA69 /* RegisteredCell.swift in Sources */,
+				F92920361EEFF2660055DA69 /* EventImageCell.swift in Sources */,
+				F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */,
 				F9B234991EE7532F00884E4E /* LoginManager.swift in Sources */,
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,

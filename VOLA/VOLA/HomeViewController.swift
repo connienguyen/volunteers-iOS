@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
         if !isShownIntro {
             let introNavController: IntroductionNavigationController = UIStoryboard(.main).instantiateViewController()
             present(introNavController, animated: true, completion: nil)
+        } else {
+            let eventViewController = EventTableViewController.instantiateFromXib()
+            navigationController?.pushViewController(eventViewController, animated: true)
         }
     }
 }

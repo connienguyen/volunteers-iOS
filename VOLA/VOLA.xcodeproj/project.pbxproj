@@ -33,6 +33,15 @@
 		F92920371EEFF2660055DA69 /* EventImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920351EEFF2660055DA69 /* EventImageCell.xib */; };
 		F929203A1EEFF3C30055DA69 /* RegisteredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920381EEFF3C30055DA69 /* RegisteredCell.swift */; };
 		F929203B1EEFF3C30055DA69 /* RegisteredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920391EEFF3C30055DA69 /* RegisteredCell.xib */; };
+		F929203D1EF003D60055DA69 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929203C1EF003D60055DA69 /* Event.swift */; };
+		F929203E1EF003D60055DA69 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929203C1EF003D60055DA69 /* Event.swift */; };
+		F92920401EF0051F0055DA69 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929203F1EF0051F0055DA69 /* Location.swift */; };
+		F92920411EF0051F0055DA69 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929203F1EF0051F0055DA69 /* Location.swift */; };
+		F92920421EF008B20055DA69 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920301EEFF18B0055DA69 /* EventTableViewController.swift */; };
+		F92920441EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */; };
+		F92920451EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */; };
+		F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920461EF045900055DA69 /* EventRegistrationViewController.swift */; };
+		F92920481EF045900055DA69 /* EventRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920461EF045900055DA69 /* EventRegistrationViewController.swift */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
 		F9A377F81EE5562B00299FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */; };
 		F9A377F91EE5562B00299FD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */; };
@@ -164,6 +173,10 @@
 		F92920351EEFF2660055DA69 /* EventImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventImageCell.xib; sourceTree = "<group>"; };
 		F92920381EEFF3C30055DA69 /* RegisteredCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredCell.swift; sourceTree = "<group>"; };
 		F92920391EEFF3C30055DA69 /* RegisteredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisteredCell.xib; sourceTree = "<group>"; };
+		F929203C1EF003D60055DA69 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F929203F1EF0051F0055DA69 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETouchesAPIService.swift; sourceTree = "<group>"; };
+		F92920461EF045900055DA69 /* EventRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRegistrationViewController.swift; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377F71EE5562B00299FD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -277,6 +290,8 @@
 			isa = PBXGroup;
 			children = (
 				F9ADA1311EE33CEE006C7FF1 /* User.swift */,
+				F929203C1EF003D60055DA69 /* Event.swift */,
+				F929203F1EF0051F0055DA69 /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -286,6 +301,7 @@
 			children = (
 				F9A377FA1EE5818900299FD3 /* DataManager.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
+				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -341,6 +357,7 @@
 				F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */,
 				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
 				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
+				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -660,6 +677,7 @@
 				F92920361EEFF2660055DA69 /* EventImageCell.swift in Sources */,
 				F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */,
 				F9B234991EE7532F00884E4E /* LoginManager.swift in Sources */,
+				F929203D1EF003D60055DA69 /* Event.swift in Sources */,
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
@@ -669,11 +687,13 @@
 				F9A502291EEEFBA000AB7E9E /* Intro.swift in Sources */,
 				F9A502261EEEDC2A00AB7E9E /* UIScrollView.swift in Sources */,
 				F9A501D81EE8728800AB7E9E /* InputValidation.swift in Sources */,
+				F92920401EF0051F0055DA69 /* Location.swift in Sources */,
 				F9A5022C1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
 				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
 				F9A501DB1EEB31E500AB7E9E /* VLViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
+				F92920441EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
@@ -686,6 +706,7 @@
 				754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */,
 				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,
 				F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */,
+				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
 				F9A501E91EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
@@ -710,6 +731,8 @@
 				F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,
 				F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */,
+				F92920481EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
+				F929203E1EF003D60055DA69 /* Event.swift in Sources */,
 				F9A502241EEED34500AB7E9E /* Theme+Fonts.swift in Sources */,
 				F9A502101EEED01F00AB7E9E /* UITableView.swift in Sources */,
 				F9A502271EEEDC2A00AB7E9E /* UIScrollView.swift in Sources */,
@@ -719,7 +742,9 @@
 				F9A5022D1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F9B2349A1EE7532F00884E4E /* LoginManager.swift in Sources */,
 				F9A502191EEED02300AB7E9E /* NSObject.swift in Sources */,
+				F92920411EF0051F0055DA69 /* Location.swift in Sources */,
 				F9A502011EEED00600AB7E9E /* Logger.swift in Sources */,
+				F92920421EF008B20055DA69 /* EventTableViewController.swift in Sources */,
 				F9A502031EEED00600AB7E9E /* Completions.swift in Sources */,
 				F9A502161EEED01F00AB7E9E /* UIViewController.swift in Sources */,
 				F9A5021F1EEED06C00AB7E9E /* AppDelegate.swift in Sources */,
@@ -735,6 +760,7 @@
 				F9A502041EEED00600AB7E9E /* InputValidation.swift in Sources */,
 				F9A502221EEED34500AB7E9E /* Theme+Colors.swift in Sources */,
 				F9A502181EEED01F00AB7E9E /* VLTextField.swift in Sources */,
+				F92920451EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
 				F9A501BA1EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */,
 				F9A5021C1EEED02300AB7E9E /* Errors.swift in Sources */,
 				F9A502151EEED01F00AB7E9E /* UIStoryboard.swift in Sources */,

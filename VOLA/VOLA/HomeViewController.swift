@@ -18,9 +18,15 @@ class HomeViewController: UIViewController {
         if !shownIntro {
             let introNavController: IntroductionNavigationController = UIStoryboard(.main).instantiateViewController()
             present(introNavController, animated: true, completion: nil)
-        } else {
-            let eventViewController = EventTableViewController.instantiateFromXib()
-            navigationController?.pushViewController(eventViewController, animated: true)
+        }
+    }
+}
+
+// MARK: - IBActions
+extension HomeViewController {
+    @IBAction func onGetDetailPressed(_ sender: Any) {
+        ETouchesAPIService.shared.getEventDetail(eventID: 1) { (retrievedEvent) in
+            print("Retrieved event: \(retrievedEvent)")
         }
     }
 }

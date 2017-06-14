@@ -21,3 +21,12 @@ class HomeViewController: UIViewController {
         }
     }
 }
+
+// MARK: - IBActions
+extension HomeViewController {
+    @IBAction func onGetDetailPressed(_ sender: Any) {
+        ETouchesAPIService.shared.getEventDetail(eventID: 1) { (retrievedEvent) in
+            print("Retrieved event: \(retrievedEvent)")
+        }
+    }
+}

@@ -27,6 +27,11 @@
 // EditProfileViewController
 "save-changes.prompt.label" = "Save Changes";
 
+// EventRegistrationViewController
+"event.title.label" = "Event Title";
+"registration-login.title.label" ="Log in to pre-fill your information and save this to your events.";
+"registration-login.prompt.title.label" = "Log in";
+
 // HomeViewController
 "home.title.label" = "Home";
 "login.prompt.label" = "Log In";

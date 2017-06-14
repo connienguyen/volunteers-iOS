@@ -9,10 +9,19 @@
 import UIKit
 
 class EventTableViewController: UITableViewController, XIBInstantiable {
-        
+
+    var event: Event?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ETouchesAPIService.shared.getEventDetail(eventID: 1) { (retrievedEvent) in
+            guard let foundEvent = retrievedEvent else {
+                return
+            }
+
+            self.event = foundEvent
+        }
         tableView.register(cellType: RegisteredCell.self)
     }
 

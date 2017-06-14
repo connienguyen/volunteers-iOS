@@ -86,13 +86,14 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             return
         }
 
-        LoginManager.shared.loginFacebook { (error) in
-            guard error == nil else {
-                Logger.error(error?.localizedDescription ?? "Facebook log in service returned an error.")
+        LoginManager.shared.loginFacebook().then { (success) -> Void in
+            guard success else {
                 return
             }
-
             self.onCancelPressed()
+
+            }.catch { error in
+                Logger.error(error.localizedDescription)
         }
     }
 

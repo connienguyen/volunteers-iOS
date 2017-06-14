@@ -8,6 +8,7 @@
 
 import Foundation
 import FBSDKLoginKit
+import PromiseKit
 
 class LoginManager {
     static let shared = LoginManager()
@@ -35,30 +36,37 @@ class LoginManager {
         DataManager.shared.setUser(nil)
     }
 
-    func loginFacebook(completion: @escaping ErrorCompletionBlock) {
-        guard FBSDKAccessToken.current() != nil else {
-            let error: Error = AuthenticationError.invalidFacebookToken
-            completion(error)
-            return
+    func login(authenticationPromise: Promise<User>) -> Promise<Bool> {
+        return authenticationPromise
+            .then { user -> Promise<Bool> in
+                DataManager.shared.setUser(user)
+                return true
         }
+    }
 
-        let parameters = [DictKeys.fields.rawValue: FBRequest.graphParameters]
-        FBSDKGraphRequest(graphPath: FBRequest.graphPath, parameters: parameters)
-            .start { (_, result, error) in
-            guard error == nil else {
-                completion(error)
+    func loginFacebook() -> Promise<Bool> {
+        return login(authenticationPromise: Promise {fulfill, reject in
+            guard FBSDKAccessToken.current() != nil else {
+                let error: Error = AuthenticationError.invalidFacebookToken
+                reject(error)
                 return
             }
 
-            guard let response = result as? [String: Any] else {
-                let error: Error = AuthenticationError.invalidFacebookResponse
-                completion(error)
-                return
-            }
+            let parameters = [DictKeys.fields.rawValue: FBRequest.graphParameters]
+            FBSDKGraphRequest(graphPath: FBRequest.graphPath, parameters: parameters).start { (_, result, error) in
+                guard error == nil else {
+                    reject(error ?? AuthenticationError.invalidFacebookResponse)
+                    return
+                }
 
-            self.login(user: User(fbResponse: response))
-            completion(nil)
-        }
+                guard let response = result as? [String: Any] else {
+                    reject(AuthenticationError.invalidFacebookResponse)
+                    return
+                }
+
+                fulfill(User(fbResponse: response))
+            }
+        })
     }
 
     func loginGoogle(notification: NSNotification, completion: @escaping ErrorCompletionBlock) {

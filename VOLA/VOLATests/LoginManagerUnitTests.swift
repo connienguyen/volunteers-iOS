@@ -15,11 +15,6 @@ class LoginManagerUnitTests: XCTestCase {
         super.setUp()
         DataManager.shared.setUser(nil)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
 
     func testGoodSocialLogin() {
         let user = User(name: "Anita Borg", email: "anita@anitaborg.org", userType: .manual)
@@ -27,12 +22,15 @@ class LoginManagerUnitTests: XCTestCase {
             fulfill(user)
         }
 
-        XCTAssert(DataManager.shared.currentUser == nil)
+        XCTAssertNil(DataManager.shared.currentUser, "Start state: current user should be nil.")
         LoginManager.shared.login(authenticationPromise: userPromise)
             .always {
                 let currentUser = DataManager.shared.currentUser
-                XCTAssert(currentUser != nil)
-                XCTAssert(currentUser?.email == user.email)
+                XCTAssertNotNil(currentUser, "Successful should set the current user to a not nil value.")
+                XCTAssertEqual(currentUser?.email, user.email)
+                XCTAssertEqual(currentUser?.name, user.name)
+                XCTAssertEqual(currentUser?.userType, user.userType)
+                XCTAssertEqual(currentUser?.imageURL, user.imageURL)
             }
 
     }
@@ -43,10 +41,10 @@ class LoginManagerUnitTests: XCTestCase {
             reject(AuthenticationError.notLoggedIn)
         }
 
-        XCTAssert(DataManager.shared.currentUser == nil)
+        XCTAssertNil(DataManager.shared.currentUser, "Start state: current user should be nil.")
         LoginManager.shared.login(authenticationPromise: userPromise)
             .always {
-                XCTAssert(DataManager.shared.currentUser == nil)
+                XCTAssertNil(DataManager.shared.currentUser, "After failed login, current user should still be nil.")
             }
     }
 }

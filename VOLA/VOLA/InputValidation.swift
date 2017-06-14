@@ -10,7 +10,7 @@ import Foundation
 
 struct ValidationRegex {
     static let email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-    static let name = "^([ \\u00c0-\\u01ffa-zA-Z'\\-]){2,}$"
+    static let name = "^([ \\u00c0-\\u01ffa-zA-Z'\\-]){2,}$"    // Regex allows alphabetic unicode characters, e.g. ëøå 
     static let password = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
 }
 
@@ -38,7 +38,7 @@ enum InputValidation: String {
         case .password:
             return NSPredicate(format: "SELF MATCHES %@", ValidationRegex.password).evaluate(with: input)
         case .required:
-            return input.trimmingCharacters(in: .whitespacesAndNewlines).characters.count >= 1
+            return input.trimmed.characters.count >= 1
         case .none:
             return true
         }

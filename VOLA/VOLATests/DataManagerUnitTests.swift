@@ -14,36 +14,31 @@ class DataManagerUnitTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         DataManager.shared.setUser(nil)
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
     }
 
     func testIsLoggedIn() {
         let notLoggedIn = DataManager.shared.isLoggedIn
-        XCTAssertFalse(notLoggedIn)
+        XCTAssertFalse(notLoggedIn, "Start state: user should not be logged in.")
 
         DataManager.shared.setUser(self.user)
         let loggedIn = DataManager.shared.isLoggedIn
-        XCTAssertTrue(loggedIn)
+        XCTAssertTrue(loggedIn, "User should be logged in after setting user.")
     }
 
     func testCurrentUser() {
         var currentUser = DataManager.shared.currentUser
-        XCTAssertTrue(currentUser == nil)
+        XCTAssertNil(currentUser, "Start state: no currentUser since no user is logged in.")
 
         DataManager.shared.setUser(self.user)
         currentUser = DataManager.shared.currentUser
-        XCTAssertTrue(currentUser != nil)
-        XCTAssertTrue(currentUser?.name == self.user.name)
-        XCTAssertTrue(currentUser?.email == self.user.email)
+        XCTAssertNotNil(currentUser, "Current user model should be updated to new user.")
+        XCTAssertEqual(currentUser?.name, self.user.name)
+        XCTAssertEqual(currentUser?.email, self.user.email)
+        XCTAssertEqual(currentUser?.userType, self.user.userType)
 
         DataManager.shared.setUser(nil)
         currentUser = DataManager.shared.currentUser
-        XCTAssertTrue(currentUser == nil)
+        XCTAssertNil(currentUser, "Current user should be unset to nil.")
     }
 }

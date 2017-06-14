@@ -72,7 +72,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension LoginViewController {
     @IBAction func onLoginWithEmailPressed(_ sender: Any) {
         performSegue(.showLoginManual)
@@ -86,15 +86,18 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             return
         }
 
-        LoginManager.shared.loginFacebook().then { (success) -> Void in
-            guard success else {
-                return
-            }
-            self.onCancelPressed()
+        LoginManager.shared.loginFacebook()
+            .then { [weak self] (success) -> Void in
+                guard let controller = self,
+                    success else {
+                    return
+                }
+
+                controller.onCancelPressed()
 
             }.catch { error in
                 Logger.error(error.localizedDescription)
-        }
+            }
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -102,16 +105,19 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
     }
 }
 
-//MARK: - NotificationObserver
+// MARK: - NotificationObserver
 extension LoginViewController {
     func googleDidSignIn(_ notification: NSNotification) {
-        LoginManager.shared.loginGoogle(notification: notification) { (error) in
-            guard error == nil else {
-                Logger.error(error?.localizedDescription ?? "Error while attempting to log in with Google.")
-                return
-            }
+        LoginManager.shared.loginGoogle(notification: notification)
+            .then { [weak self] (success) -> Void in
+                guard let controller = self,
+                    success else {
+                    return
+                }
 
-            self.onCancelPressed()
-        }
+                controller.onCancelPressed()
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }
     }
 }

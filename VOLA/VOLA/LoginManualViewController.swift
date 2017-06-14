@@ -32,13 +32,16 @@ extension LoginManualViewController {
                 return
         }
 
-        LoginManager.shared.loginManual(email: email, password: password) { (error) in
-            guard error == nil else {
-                Logger.error(error?.localizedDescription ?? "Could not log in to Systers server.")
-                return
-            }
+        LoginManager.shared.loginManual(email: email, password: password)
+            .then { [weak self] (success) -> Void in
+                guard let controller = self,
+                    success else {
+                    return
+                }
 
-            self.dismiss(animated: true, completion: nil)
-        }
+                controller.dismiss(animated: true, completion: nil)
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }
     }
 }

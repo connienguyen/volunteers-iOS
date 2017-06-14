@@ -38,7 +38,7 @@ class LoginManager {
 
     func login(authenticationPromise: Promise<User>) -> Promise<Bool> {
         return authenticationPromise
-            .then { user -> Promise<Bool> in
+            .then { user -> Bool in
                 DataManager.shared.setUser(user)
                 return true
         }
@@ -69,32 +69,35 @@ class LoginManager {
         })
     }
 
-    func loginGoogle(notification: NSNotification, completion: @escaping ErrorCompletionBlock) {
-        guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser else {
-            let error = AuthenticationError.invalidGoogleUser
-            completion(error)
-            return
-        }
+    func loginGoogle(notification: NSNotification) -> Promise<Bool> {
+        return login(authenticationPromise: Promise {fulfill, reject in
+            guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser else {
+                let error = AuthenticationError.invalidGoogleUser
+                reject(error)
+                return
+            }
 
-        login(user: User(googleUser: googleUser))
-        completion(nil)
+            fulfill(User(googleUser: googleUser))
+        })
     }
 
-    func signUpManual(name: String, email: String, password: String, completion: @escaping ErrorCompletionBlock) {
-        // TODO - Need API access + documentation to save create user on backend
-        // temporarily saving the user and returning
+    func signUpManual(name: String, email: String, password: String) -> Promise<Bool> {
+        return login(authenticationPromise: Promise {fulfill, reject in
+            // TODO - Need API access + documentation to save create user on backend
+            // temporarily saving the user and returning
 
-        login(user: User(name: name, email: email, userType: .manual))
-        completion(nil)
+            fulfill(User(name: name, email: email, userType: .manual))
+        })
     }
 
-    func loginManual(email: String, password: String, completion: @escaping ErrorCompletionBlock) {
-        // TODO - Need API access + documentation to log in user on backend
-        // temporarily saving the user and returning (Gives user a default name for now)
-        // "Default Name" name is temporary and will be changed once hooked up to backend
+    func loginManual(email: String, password: String) -> Promise<Bool> {
+        return login(authenticationPromise: Promise {fulfill, reject in
+            // TODO - Need API access + documentation to log in user on backend
+            // temporarily saving the user and returning (Gives user a default name for now)
+            // "Default Name" name is temporary and will be changed once hooked up to backend
 
-        login(user: User(name: "Default Name", email: email, userType: .manual))
-        completion(nil)
+            fulfill(User(name: "Default Name", email: email, userType: .manual))
+        })
     }
 
     func updateUser(name: String, email: String, completion: @escaping ErrorCompletionBlock) {

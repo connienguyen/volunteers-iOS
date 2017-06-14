@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="1id-Am-XBm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Dy9-J2-Dsl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JX5-yM-1e8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JX5-yM-1e8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gS-UR-koe">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gS-UR-koe" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ypP-Bb-bYN">

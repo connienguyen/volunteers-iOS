@@ -75,13 +75,16 @@ extension SignUpViewController {
             return
         }
 
-        LoginManager.shared.signUpManual(name: name, email: email, password: password) { (error) in
-            guard error == nil else {
-                Logger.error(error?.localizedDescription ?? "Error when trying to log in manually with Systers.")
-                return
-            }
+        LoginManager.shared.signUpManual(name: name, email: email, password: password)
+            .then { [weak self] (success) -> Void in
+                guard let controller = self,
+                    success else {
+                        return
+                }
 
-            self.dismiss(animated: true, completion: nil)
-        }
+                controller.dismiss(animated: true, completion: nil)
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }
     }
 }

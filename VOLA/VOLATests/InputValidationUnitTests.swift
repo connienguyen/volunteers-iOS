@@ -23,39 +23,81 @@ class InputValidationUnitTests: XCTestCase {
 
     func testValidEmail() {
         let validation: InputValidation = .email
-        let badInput = "incomplete@email"
+
+        // Test good inputs
         let goodInput = "systers.volunteers@gmail.com"
+        let goodInput2 = "syster.volunteers+1@gmail.com"
+
+        XCTAssertTrue(validation.isValid(goodInput))
+        XCTAssertTrue(validation.isValid(goodInput2))
+
+        // Test bad inputs
+        let badInput = "incomplete@email"
+        let badInput2 = "syster.volunteers@gmail.com "
 
         XCTAssertFalse(validation.isValid(badInput))
-        XCTAssertTrue(validation.isValid(goodInput))
+        XCTAssertFalse(validation.isValid(badInput2))
     }
 
     func testValidName() {
         let validation: InputValidation = .name
-        let badInput = "Name"
+
+        // Test good inputs
         let goodInput = "Anita Borg"
-        let anotherGoodInput = "Anne Isabella Milbanke"
+        let goodInput2 = "Anne Isabella Milbanke"
+        let goodInput3 = "Åsa Blomström"
+        let goodInput4 = "Jerry O'Connel"
+        let goodInput5 = "Joseph Gordon-Levitt"
+        let goodInput6 = "Cher"
+
+        XCTAssertTrue(validation.isValid(goodInput))
+        XCTAssertTrue(validation.isValid(goodInput2))
+        XCTAssertTrue(validation.isValid(goodInput3))
+        XCTAssertTrue(validation.isValid(goodInput4))
+        XCTAssertTrue(validation.isValid(goodInput5))
+        XCTAssertTrue(validation.isValid(goodInput6))
+
+        // Test bad inputs
+        let badInput = "Ca$h Money"
 
         XCTAssertFalse(validation.isValid(badInput))
-        XCTAssertTrue(validation.isValid(goodInput))
-        XCTAssertTrue(validation.isValid(anotherGoodInput))
     }
 
     func testValidPassword() {
         let validation: InputValidation = .password
+
+        // Test good inputs
+        let goodInput = "MyPassword1"
+
+        XCTAssertTrue(validation.isValid(goodInput))
+
+        // Test bad inputs
         let badInput = "mypassword"
-        let goodInput = "Mypassword1"
+        let badInput2 = "my passworD1"
+        let badInput3 = "5maLL"
 
         XCTAssertFalse(validation.isValid(badInput))
-        XCTAssertTrue(validation.isValid(goodInput))
+        XCTAssertFalse(validation.isValid(badInput2))
+        XCTAssertFalse(validation.isValid(badInput3))
     }
 
     func testValidRequired() {
         let validation: InputValidation = .required
-        let badInput = ""
+
+        // Test good inputs
         let goodInput = "Textfield input"
+        let goodInput2 = "Hur är läget?"
+
+        XCTAssertTrue(validation.isValid(goodInput))
+        XCTAssertTrue(validation.isValid(goodInput2))
+
+        // Test bad inputs
+        let badInput = ""
+        let badInput2 = " "
+        let badInput3 = "\r\t"
 
         XCTAssertFalse(validation.isValid(badInput))
-        XCTAssertTrue(validation.isValid(goodInput))
+        XCTAssertFalse(validation.isValid(badInput2))
+        XCTAssertFalse(validation.isValid(badInput3))
     }
 }

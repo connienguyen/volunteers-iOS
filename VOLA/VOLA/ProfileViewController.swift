@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = loggedInManual
         navigationItem.rightBarButtonItem?.tintColor = loggedInManual ? nil : UIColor.clear
 
+        profileImageView.image = nil    // Ensure last user's image is not shown
         if let user = DataManager.shared.currentUser {
             nameLabel.text = user.name
             emailLabel.text = user.email
@@ -54,7 +55,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension ProfileViewController {
     @IBAction func onLogoutPressed(_ sender: Any) {
         LoginManager.shared.logOut()

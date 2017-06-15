@@ -18,6 +18,8 @@
 "error.invalid-required" = "Please complete required field.";
 "error.validation" = "Invalid Input";
 "error.user-update" = "Cannot update user.";
+"error.existing-activity-indicator" = "This view controller already has an existing activity indicator.";
+"error.etouches-no-data" = "Could not retrieve data from eTouches.";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";
@@ -30,7 +32,7 @@
 
 // EventRegistrationViewController
 "event.title.label" = "Event Title";
-"registration-login.title.label" ="Log in to pre-fill your information and save this to your events.";
+"registration-login.title.label" = "Log in to pre-fill your information and save this to your events.";
 "registration-login.prompt.title.label" = "Log in";
 
 // HomeViewController

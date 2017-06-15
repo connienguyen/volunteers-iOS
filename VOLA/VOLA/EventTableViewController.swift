@@ -15,13 +15,6 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ETouchesAPIService.shared.getEventDetail(eventID: 1) { (retrievedEvent) in
-            guard let foundEvent = retrievedEvent else {
-                return
-            }
-
-            self.event = foundEvent
-        }
         tableView.register(cellType: RegisteredCell.self)
     }
 

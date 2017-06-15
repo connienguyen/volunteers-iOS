@@ -29,3 +29,29 @@ extension AuthenticationError: LocalizedError {
         }
     }
 }
+
+public enum UIError: Error {
+    case existingActivityIndicator
+}
+
+extension UIError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .existingActivityIndicator:
+            return "error.existing-activity-indicator".localized
+        }
+    }
+}
+
+public enum ETouchesError: Error {
+    case couldNotRetrieveData
+}
+
+extension ETouchesError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .couldNotRetrieveData:
+            return "error.etouches-no-data".localized
+        }
+    }
+}

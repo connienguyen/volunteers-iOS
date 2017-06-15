@@ -9,8 +9,11 @@
 //
 
 import UIKit
+import PromiseKit
 
 class HomeViewController: UIViewController {
+
+    var didLayout: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,18 @@ class HomeViewController: UIViewController {
 // MARK: - IBActions
 extension HomeViewController {
     @IBAction func onGetDetailPressed(_ sender: Any) {
-        ETouchesAPIService.shared.getEventDetail(eventID: 1) { (retrievedEvent) in
-            print("Retrieved event: \(retrievedEvent)")
-        }
+
+//        firstly { () -> AnyPromise in
+//            displayActivityIndicator()
+//        }.then {
+//            self.removeActivityIndicator()
+//            return ETouchesAPIService.shared.getEventDetail(eventID: 1)
+//        }.then { event in
+//            let eventDetail = EventDetailViewController.instantiateFromXib()
+//            eventDetail.event = event
+//            self.navigationController?.show(eventDetail, sender: self)
+//        }.catch {
+//
+//        }
     }
 }

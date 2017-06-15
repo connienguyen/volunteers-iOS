@@ -39,19 +39,21 @@ class Event {
         // Required to conform to Mappable; can do JSON validation here
     }
 
-//    convenience init(eventID: Int = 0, name: String = "", description: String = "", location: Location? = nil,
-//         sponsorImage: URL? = nil) {
-//
-//        self.eventID = eventID
-//        self.name = name
-//        self.description = description
-//        if let foundLocation = location {
-//            self.location = foundLocation
-//        } else {
-//            self.location = Location()
-//        }
-//        self.sponsorImageURL = sponsorImage
-//    }
+    convenience init(eventID: Int = 0, name: String = "", description: String = "", location: Location? = nil,
+         sponsorImage: URL? = nil) {
+
+        self.init()
+        
+        self.eventID = eventID
+        self.name = name
+        self.description = description
+        if let foundLocation = location {
+            self.location = foundLocation
+        } else {
+            self.location = Location()
+        }
+        self.sponsorImageURL = sponsorImage
+    }
 }
 
 extension Event: Mappable {

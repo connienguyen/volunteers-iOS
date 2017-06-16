@@ -13,12 +13,14 @@ import PromiseKit
 
 typealias EventCompletionBlock = (_ retrievedEvent: Event?) -> Void
 
-class ETouchesAPIService {
+final class ETouchesAPIService {
     static let shared = ETouchesAPIService()
+
+    private init() { /* Intentionally left empty */ }
 
     func getEventDetail(eventID: Int) -> Promise<Event> {
         return Promise { fulfill, reject in
-            let URL = "https://private-fbd097-tempetouches.apiary-mock.com/events/\(eventID)"
+            let URL = "https://private-fbd097-tempetouches.apiary-mock.com/events"
             Alamofire.request(URL).validate().responseObject { (response: DataResponse<Event>) in
                 let eventResponse = response.result.value
 

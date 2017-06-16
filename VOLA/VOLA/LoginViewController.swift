@@ -90,7 +90,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             return
         }
 
-        LoginManager.shared.loginFacebook()
+        LoginManager.shared.login(.facebook)
             .then { [weak self] (success) -> Void in
                 guard let controller = self,
                     success else {
@@ -112,7 +112,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
 // MARK: - NotificationObserver
 extension LoginViewController {
     func googleDidSignIn(_ notification: NSNotification) {
-        LoginManager.shared.loginGoogle(notification: notification)
+        LoginManager.shared.login(.google(notification))
             .then { [weak self] (success) -> Void in
                 guard let controller = self,
                     success else {

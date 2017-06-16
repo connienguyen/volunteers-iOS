@@ -31,9 +31,14 @@
 "save-changes.prompt.label" = "Save Changes";
 
 // EventRegistrationViewController
+"registration.title.label" = "Event Registration";
 "event.title.label" = "Event Title";
 "registration-login.title.label" = "Log in to pre-fill your information and save this to your events.";
 "registration-login.prompt.title.label" = "Log in";
+"accommodations.title.label" = "Special Accommodations";
+"accommodations-description.title.label" = "Please inform event organizers if you neec any special accommodation such as accessibility issues or allergies";
+"volunteer.prompt.label" = "I would like to volunteer at this event.";
+"register.prompt.label" = "Register";
 
 // HomeViewController
 "home.title.label" = "Home";

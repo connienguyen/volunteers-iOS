@@ -35,11 +35,11 @@ extension LoginManualViewController {
                 return
         }
 
-        LoginManager.shared.loginManual(email: email, password: password)
+        LoginManager.shared.login(.manualLogin(email, password))
             .then { [weak self] (success) -> Void in
                 guard let controller = self,
                     success else {
-                    return
+                        return
                 }
 
                 controller.dismiss(animated: true, completion: nil)

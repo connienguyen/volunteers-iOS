@@ -9,10 +9,14 @@
 import Foundation
 import ObjectMapper
 
-enum EventType {
+enum EventType: String {
     case registered
     case volunteering
     case unregistered
+
+    var labelText: String {
+        return self.rawValue.capitalized
+    }
 }
 
 enum EventMapable: String {
@@ -20,6 +24,8 @@ enum EventMapable: String {
     case name
     case description
     case location
+    case areVolunteersNeeded = "needs_volunteers"
+    case eventImageURL = "event_image_url"
     case sponsorImageURL = "sponsor_image_url"
 
     var mapping: String {
@@ -29,9 +35,11 @@ enum EventMapable: String {
 
 class Event {
     var eventID: Int = 0
-    var name: String?
-    var description: String?
-    var location: Location?
+    var name: String = ""
+    var description: String = ""
+    var location: Location = Location()
+    var areVolunteersNeeded: Bool = false
+    var eventImageURL: URL?
     var sponsorImageURL: URL?
     var eventType: EventType = .unregistered
 
@@ -39,10 +47,8 @@ class Event {
         // Required to conform to Mappable; can do JSON validation here
     }
 
-    convenience init(eventID: Int = 0, name: String = "", description: String = "", location: Location? = nil,
-         sponsorImage: URL? = nil) {
-
-        self.init()
+    init(eventID: Int = 0, name: String = "", description: String = "", location: Location? = nil,
+         areVolunteersNeeded: Bool = false, eventImage: URL? = nil, sponsorImage: URL? = nil) {
         
         self.eventID = eventID
         self.name = name
@@ -52,16 +58,20 @@ class Event {
         } else {
             self.location = Location()
         }
+        self.areVolunteersNeeded = areVolunteersNeeded
+        self.eventImageURL = eventImage
         self.sponsorImageURL = sponsorImage
     }
 }
 
 extension Event: Mappable {
     func mapping(map: Map) {
-        eventID         <- map[EventMapable.eventID.mapping]
-        name            <- map[EventMapable.name.mapping]
-        description     <- map[EventMapable.description.mapping]
-        location        <- map[EventMapable.location.mapping]
-        sponsorImageURL <- (map[EventMapable.sponsorImageURL.mapping], URLTransform())
+        eventID             <- map[EventMapable.eventID.mapping]
+        name                <- map[EventMapable.name.mapping]
+        description         <- map[EventMapable.description.mapping]
+        location            <- map[EventMapable.location.mapping]
+        areVolunteersNeeded <- map[EventMapable.areVolunteersNeeded.mapping]
+        eventImageURL       <- (map[EventMapable.eventImageURL.mapping], URLTransform())
+        sponsorImageURL     <- (map[EventMapable.sponsorImageURL.mapping], URLTransform())
     }
 }

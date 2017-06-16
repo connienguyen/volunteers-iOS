@@ -11,8 +11,8 @@ import ObjectMapper
 
 enum LocationMappable: String {
     case name
-    case addressOne = "address1"
-    case addressTwo = "address2"
+    case address1 = "address1"
+    case address2 = "address2"
     case city
     case postCode
     case country
@@ -24,36 +24,41 @@ enum LocationMappable: String {
 }
 
 class Location {
-    var name: String?
-    var addressOne: String?
-    var addressTwo: String?
-    var city: String?
-    var postCode: String?
-    var country: String?
-    var phone: String?
+    var name: String = ""
+    var address1: String = ""
+    var address2: String = ""
+    var city: String = ""
+    var postCode: String = ""
+    var country: String = ""
+    var phone: String = ""
 
     required init?(map: Map) {
         // Required to conform to protocol
     }
 
-    init(name: String? = nil, addressOne: String? = nil, addressTwo: String? = nil, city: String? = nil,
-         postCode: String? = nil, country: String? = nil, phone: String? = nil) {
+    init(name: String = "", addressOne: String = "", addressTwo: String = "", city: String = "",
+         postCode: String = "", country: String = "", phone: String = "") {
 
         self.name = name
-        self.addressOne = addressOne
-        self.addressTwo = addressTwo
+        self.address1 = addressOne
+        self.address2 = addressTwo
         self.city = city
         self.postCode = postCode
         self.country = country
         self.phone = phone
+    }
+
+    func addressString() -> String {
+        let mainAddressArray: [String] = [name, address1, address2, city].filter({ $0.trimmed != ""})
+        return mainAddressArray.joined(separator: "\n").trimmed
     }
 }
 
 extension Location: Mappable {
     func mapping(map: Map) {
         name        <- map[LocationMappable.name.mapping]
-        addressOne  <- map[LocationMappable.addressOne.mapping]
-        addressTwo  <- map[LocationMappable.addressTwo.mapping]
+        address1  <- map[LocationMappable.address1.mapping]
+        address2  <- map[LocationMappable.address2.mapping]
         city        <- map[LocationMappable.city.mapping]
         postCode    <- map[LocationMappable.postCode.mapping]
         country     <- map[LocationMappable.country.mapping]

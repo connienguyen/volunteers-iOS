@@ -55,7 +55,7 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
             registerView.isHidden = true
         case.unregistered:
             registeredLabel.isHidden = true
-            let registerBarButton = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(onRegisterPressed(_:)))
+            let registerBarButton = UIBarButtonItem(title: "register.prompt.label".localized, style: .plain, target: self, action: #selector(onRegisterPressed(_:)))
             navigationItem.rightBarButtonItem = registerBarButton
         }
     }
@@ -68,6 +68,8 @@ extension EventDetailViewController {
     }
 
     @IBAction func onRegisterPressed(_ sender: Any) {
-        // TODO show event registration vc
+        let registrationVC: EventRegistrationViewController = UIStoryboard(.home).instantiateViewController()
+        registrationVC.event = event
+        navigationController?.show(registrationVC, sender: self)
     }
 }

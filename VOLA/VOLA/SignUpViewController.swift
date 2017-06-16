@@ -75,7 +75,7 @@ extension SignUpViewController {
             return
         }
 
-        LoginManager.shared.signUpManual(name: name, email: email, password: password)
+        LoginManager.shared.login(.manualSignup(name, email, password))
             .then { [weak self] (success) -> Void in
                 guard let controller = self,
                     success else {

@@ -15,7 +15,6 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(cellType: RegisteredCell.self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,9 +35,7 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(indexPath, cellType: RegisteredCell.self)
-        cell.registeredLabel.text = "VOLUNTEERING"
-        return cell
+        return UITableViewCell()
     }
 
     /*

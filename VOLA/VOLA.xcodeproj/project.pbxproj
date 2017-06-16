@@ -48,6 +48,13 @@
 		F98807E41EF1D7BE00589A23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */; };
 		F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
 		F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
+		F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E91EF3DF9700589A23 /* VLCheckbox.swift */; };
+		F98807EE1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */; };
+		F98807EF1EF405A700589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */; };
+		F98807F01EF4063500589A23 /* VLCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E91EF3DF9700589A23 /* VLCheckbox.swift */; };
+		F98807F11EF4067E00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
+		F98807F21EF4068300589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
+		F98807F31EF4068900589A23 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920311EEFF18B0055DA69 /* EventTableViewController.xib */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
@@ -186,6 +193,8 @@
 		F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		F98807E91EF3DF9700589A23 /* VLCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLCheckbox.swift; sourceTree = "<group>"; };
+		F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkingAuthenticationStrategy.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -310,6 +319,7 @@
 				F9A377FA1EE5818900299FD3 /* DataManager.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
 				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
+				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -354,6 +364,11 @@
 			isa = PBXGroup;
 			children = (
 				F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */,
+				F98807E71EF26A2800589A23 /* EventDetailViewController.swift */,
+				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
+				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
+				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
+				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 				F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */,
 				F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */,
 				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
@@ -363,11 +378,6 @@
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
 				F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */,
-				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
-				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
-				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
-				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
-				F98807E71EF26A2800589A23 /* EventDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -428,6 +438,7 @@
 				F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */,
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
 				F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */,
+				F98807E91EF3DF9700589A23 /* VLCheckbox.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -596,8 +607,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98807F11EF4067E00589A23 /* EventDetailViewController.xib in Resources */,
 				F9A501FC1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
 				F9A501BF1EE7600100AB7E9E /* Localizable.strings in Resources */,
+				F98807F31EF4068900589A23 /* EventTableViewController.xib in Resources */,
 				F9A5021D1EEED03800AB7E9E /* Login.storyboard in Resources */,
 				F9A502211EEED34100AB7E9E /* LaunchScreen.storyboard in Resources */,
 				F9A5021E1EEED03D00AB7E9E /* Main.storyboard in Resources */,
@@ -707,6 +720,7 @@
 				F9A501DB1EEB31E500AB7E9E /* VLViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
 				F92920441EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
+				F98807EE1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
@@ -722,6 +736,7 @@
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
 				F9A501E91EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
+				F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
 				754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */,
 				F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,
@@ -741,6 +756,7 @@
 				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F9A502051EEED00D00AB7E9E /* LoginManualViewController.swift in Sources */,
 				F9A502071EEED00D00AB7E9E /* ProfileViewController.swift in Sources */,
+				F98807F01EF4063500589A23 /* VLCheckbox.swift in Sources */,
 				F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,
 				F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */,
@@ -765,6 +781,7 @@
 				F9A501DC1EEB31E500AB7E9E /* VLViewController.swift in Sources */,
 				F9ADA1331EE33CEE006C7FF1 /* User.swift in Sources */,
 				F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
+				F98807EF1EF405A700589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
 				F9A501E11EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				F9A5021B1EEED02300AB7E9E /* Int+Date.swift in Sources */,
 				F9A502141EEED01F00AB7E9E /* UIKit+Localization.swift in Sources */,
@@ -772,6 +789,7 @@
 				754C461F1EDED11400E2F848 /* VOLATests.swift in Sources */,
 				F9A502041EEED00600AB7E9E /* InputValidation.swift in Sources */,
 				F9A502221EEED34500AB7E9E /* Theme+Colors.swift in Sources */,
+				F98807F21EF4068300589A23 /* EventDetailViewController.swift in Sources */,
 				F9A502181EEED01F00AB7E9E /* VLTextField.swift in Sources */,
 				F929204C1EF14B7D0055DA69 /* LoginManagerUnitTests.swift in Sources */,
 				F92920451EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
@@ -956,6 +974,7 @@
 		};
 		754C46271EDED11400E2F848 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A0D07B569D2B9142C685959 /* Pods-VOLA.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -11,15 +11,12 @@
         <!--Calendar-->
         <scene sceneID="sTz-W1-5IK">
             <objects>
-                <navigationController id="rKB-K5-eNT" sceneMemberID="viewController">
+                <navigationController id="rKB-K5-eNT" customClass="CalendarNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendar" id="5v3-ZN-mGc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hej-ZD-Z59">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hej-ZD-Z59">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="gPe-vX-RhW" kind="relationship" relationship="rootViewController" id="Hy8-i1-5Ez"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TnU-Zz-eg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

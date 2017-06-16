@@ -57,8 +57,8 @@ class Location {
 extension Location: Mappable {
     func mapping(map: Map) {
         name        <- map[LocationMappable.name.mapping]
-        address1  <- map[LocationMappable.address1.mapping]
-        address2  <- map[LocationMappable.address2.mapping]
+        address1    <- map[LocationMappable.address1.mapping]
+        address2    <- map[LocationMappable.address2.mapping]
         city        <- map[LocationMappable.city.mapping]
         postCode    <- map[LocationMappable.postCode.mapping]
         country     <- map[LocationMappable.country.mapping]

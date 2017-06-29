@@ -2,6 +2,9 @@
 //  IntroductionViewController.swift
 //  VOLA
 //
+//  Introduction slides shown once to user on first open. Each of
+//  the slides show a benefit to the user having an account.
+//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -63,7 +66,7 @@ fileprivate extension Intro.IntroDetail {
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension IntroductionViewController {
     @IBAction func onPageControlPressed(_ sender: Any) {
         scrollView.scrollToPage(page: pageControl.currentPage)
@@ -82,8 +85,6 @@ extension IntroductionViewController {
 
 extension IntroductionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let viewWidth: CGFloat = scrollView.frame.width
-        let pageNumber = floor((scrollView.contentOffset.x - viewWidth * 0.5) / viewWidth) + 1
-        pageControl.currentPage = Int(pageNumber)
+        pageControl.currentPage = scrollView.pageNumber()
     }
 }

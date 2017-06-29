@@ -11,83 +11,123 @@ import XCTest
 
 class InputValidationUnitTests: XCTestCase {
 
-    func testValidEmail() {
+    func testSuccessValidEmailShouldReturnTrue() {
         let validation: InputValidation = .email
-
-        // Test good inputs
-        let goodInput = "systers.volunteers@gmail.com"
-        let goodInput2 = "syster.volunteers+1@gmail.com"
-
-        XCTAssertTrue(validation.isValid(goodInput), "Standard email address is valid.")
-        XCTAssertTrue(validation.isValid(goodInput2), "Emails using + (available with gmail) are valid.")
-
-        // Test bad inputs
-        let badInput = "incomplete@email"
-        let badInput2 = "syster.volunteers@gmail.com "
-
-        XCTAssertFalse(validation.isValid(badInput), "Emails with invalid domain strings are invalid")
-        XCTAssertFalse(validation.isValid(badInput2), "Emails with extra whitespace are invalid.")
+        let input = InputConstants.validEmail
+        XCTAssertTrue(validation.isValid(input), "Standard email address is valid.")
     }
 
-    func testValidName() {
+    func testSuccessValidEmailSpecialCharacterShouldReturnTrue() {
+        let validation: InputValidation = .email
+        let input = InputConstants.validEmailSpecialCharacter
+        XCTAssertTrue(validation.isValid(input), "Emails using + (available with gmail) are valid.")
+    }
+
+    func testFailureIncompleteEmailShouldReturnFalse() {
+        let validation: InputValidation = .email
+        let input = InputConstants.incompleteEmail
+        XCTAssertFalse(validation.isValid(input),  "Emails with invalid domain strings are invalid")
+    }
+
+    func testFailureEmailWithWitespaceShouldReturnFalse() {
+        let validation: InputValidation = .email
+        let input = InputConstants.whitespaceEmail
+        XCTAssertFalse(validation.isValid(input),  "Emails with extra whitespace are invalid.")
+    }
+
+    func testSuccessValidNameShouldReturnTrue() {
         let validation: InputValidation = .name
-
-        // Test good inputs
-        let goodInput = "Anita Borg"
-        let goodInput2 = "Anne Isabella Milbanke"
-        let goodInput3 = "Åsa Blomström"
-        let goodInput4 = "Jerry O'Connel"
-        let goodInput5 = "Joseph Gordon-Levitt"
-        let goodInput6 = "Cher"
-
-        XCTAssertTrue(validation.isValid(goodInput), "Standard first and last name should be valid.")
-        XCTAssertTrue(validation.isValid(goodInput2), "Names with middle names are valid.")
-        XCTAssertTrue(validation.isValid(goodInput3), "Names with non-ASCII letters are valid.")
-        XCTAssertTrue(validation.isValid(goodInput4), "Names with apostrophe are valid.")
-        XCTAssertTrue(validation.isValid(goodInput5), "Hyphenated names are valid.")
-        XCTAssertTrue(validation.isValid(goodInput6), "Single word names are valid.")
-
-        // Test bad inputs
-        let badInput = "Ca$h Money"
-
-        XCTAssertFalse(validation.isValid(badInput), "Names with special characters are not valid.")
+        let input = InputConstants.validName
+        XCTAssertTrue(validation.isValid(input), "Standard first and last name should be valid.")
     }
 
-    func testValidPassword() {
+    func testSuccessValidNameMultipleShouldReturnTrue() {
+        let validation: InputValidation = .name
+        let input = InputConstants.validNameMultiple
+        XCTAssertTrue(validation.isValid(input), "Names with middle names are valid.")
+    }
+
+    func testSuccessValidNameSpecialCharacterShouldReturnTrue() {
+        let validation: InputValidation = .name
+        let input = InputConstants.validNameSpecial
+        XCTAssertTrue(validation.isValid(input), "Names with non-ASCII letters are valid.")
+    }
+
+    func testSuccessValidNameApostropheShouldReturnTrue() {
+        let validation: InputValidation = .name
+        let input = InputConstants.validNameApostrophe
+        XCTAssertTrue(validation.isValid(input), "Names with apostrophe are valid.")
+    }
+
+    func testSuccessValidNameHyphenShouldReturnTrue() {
+        let validation: InputValidation = .name
+        let input = InputConstants.validNameHyphen
+        XCTAssertTrue(validation.isValid(input), "Hyphenated names are valid.")
+    }
+
+    func testSuccessValidNameMonoShouldReturnTrue() {
+        let validation: InputValidation = .name
+        let input = InputConstants.validName
+        XCTAssertTrue(validation.isValid(input), "Single word names are valid.")
+    }
+
+    func testFailureInvalidNameSpecialCharacterShouldReturnFalse() {
+        let validation: InputValidation = .name
+        let input = InputConstants.invalidNameSpecial
+        XCTAssertFalse(validation.isValid(input), "Names with special characters are not valid.")
+    }
+
+    func testSuccessValidPasswordShouldReturnTrue() {
         let validation: InputValidation = .password
-
-        // Test good inputs
-        let goodInput = "MyPassword1"
-
-        XCTAssertTrue(validation.isValid(goodInput), "Passwords with at least 8 characters, one lowercase, one uppercase, and one number are valid.")
-
-        // Test bad inputs
-        let badInput = "mypassword"
-        let badInput2 = "my passworD1"
-        let badInput3 = "5maLL"
-
-        XCTAssertFalse(validation.isValid(badInput), "Password with no uppercase letters or numbers is invalid.")
-        XCTAssertFalse(validation.isValid(badInput2), "Password with whitespace is invalid.")
-        XCTAssertFalse(validation.isValid(badInput3), "Password with less than 8 characters is invalid.")
+        let input = InputConstants.validPassword
+        XCTAssertTrue(validation.isValid(input), "Passwords with at least 8 characters, one lowercase, one uppercase, and one number are valid.")
     }
 
-    func testValidRequired() {
+    func testFailureInvalidPasswordAllLowercaseShouldReturnFalse() {
+        let validation: InputValidation = .password
+        let input = InputConstants.invalidPasswordAllLowercase
+        XCTAssertFalse(validation.isValid(input), "Password with no uppercase letters or numbers is invalid.")
+    }
+
+    func testFailureInvalidPasswordWhiteSpaceShouldReturnFalse() {
+        let validation: InputValidation = .password
+        let input = InputConstants.invalidPasswordWhitespace
+        XCTAssertFalse(validation.isValid(input), "Password with whitespace is invalid.")
+    }
+
+    func testFailureInvalidPasswordTooShortShouldReturnFalse() {
+        let validation: InputValidation = .password
+        let input = InputConstants.invalidPasswordShort
+        XCTAssertFalse(validation.isValid(input), "Password with less than 8 characters is invalid.")
+    }
+
+    func testSuccessValidRequiredInputShouldReturnTrue() {
         let validation: InputValidation = .required
+        let input = InputConstants.validRequiredInput
+        XCTAssertTrue(validation.isValid(input), "Input with more than one character is valid.")
+    }
 
-        // Test good inputs
-        let goodInput = "Textfield input"
-        let goodInput2 = "Hur är läget?"
+    func testSuccessValidRequiredInputSpecialShouldReturnTrue() {
+        let validation: InputValidation = .required
+        let input = InputConstants.validRequiredInputSpecial
+        XCTAssertTrue(validation.isValid(input), "Input with non-ASCII characters is valid.")
+    }
 
-        XCTAssertTrue(validation.isValid(goodInput), "Input with more than one character is valid.")
-        XCTAssertTrue(validation.isValid(goodInput2), "Input with non-ASCII characters is valid.")
+    func testFailureRequiredInputEmptyShouldReturnFalse() {
+        let validation: InputValidation = .required
+        let input = InputConstants.invalidRequiredInputEmpty
+        XCTAssertFalse(validation.isValid(input), "Emptry string input is invalid.")
+    }
 
-        // Test bad inputs
-        let badInput = ""
-        let badInput2 = " "
-        let badInput3 = "\r\t"
+    func testFailureRequiredInputSpaceShouldReturnFalse() {
+        let validation: InputValidation = .required
+        let input = InputConstants.invalidRequiredInputSpace
+        XCTAssertFalse(validation.isValid(input), "Input filled with whitespace is invalid.")
+    }
 
-        XCTAssertFalse(validation.isValid(badInput), "Emptry string input is invalid.")
-        XCTAssertFalse(validation.isValid(badInput2), "Input filled with whitespace is invalid.")
-        XCTAssertFalse(validation.isValid(badInput3), "Input filled with whitespace is invalid.")
+    func testFailureRequiredInputWhitespaceShouldReturnFalse() {
+        let validation: InputValidation = .required
+        let input = InputConstants.invalidRequiredInputEmpty
+        XCTAssertFalse(validation.isValid(input), "Input filled with whitespace is invalid.")
     }
 }

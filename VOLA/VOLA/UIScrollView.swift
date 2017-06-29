@@ -34,4 +34,10 @@ extension UIScrollView {
         }
         self.scrollRectToVisible(newFrame, animated: true)
     }
+
+    func pageNumber() -> Int {
+        let viewWidth = self.frame.width
+        let pageNumber = floor((self.contentOffset.x - viewWidth * 0.5) / viewWidth) + 1
+        return Int(pageNumber)
+    }
 }

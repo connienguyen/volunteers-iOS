@@ -2,6 +2,9 @@
 //  EditProfileViewController.swift
 //  VOLA
 //
+//  EditProfileViewController manages the view controller where a logged in user can edit
+//  their profile.
+//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -17,7 +20,6 @@ class EditProfileViewController: VLViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
 
-        // Set up validators for text fields
         nameTextField.validator = .name
         emailTextField.validator = .email
 
@@ -26,7 +28,7 @@ class EditProfileViewController: VLViewController {
 
     private func configureProfile() {
         guard let user = DataManager.shared.currentUser else {
-            Logger.error("Could not configure user since user is not logged in.")
+            Logger.error(ErrorStrings.notLoggedIn.localized)
             return
         }
 
@@ -50,13 +52,13 @@ extension EditProfileViewController {
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
+                showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
                 return
         }
 
-        LoginManager.shared.updateUser(name: name, email: email) { (error) in
-            guard error == nil else {
-                Logger.error(error?.localizedDescription ?? "Could not update user.")
+        LoginManager.shared.updateUser(name: name, email: email) { (loginError) in
+            guard loginError == nil else {
+                Logger.error(loginError?.localizedDescription ?? ErrorStrings.userUpdate.localized)
                 return
             }
 

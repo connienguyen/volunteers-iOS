@@ -17,6 +17,7 @@
 "error.invalid-confirm" = "Passwords do not match.";
 "error.invalid-required" = "Please complete required field.";
 "error.validation" = "Invalid Input";
+"error.user-update" = "Cannot update user.";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";

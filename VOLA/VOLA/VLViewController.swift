@@ -2,6 +2,9 @@
 //  VLViewController.swift
 //  VOLA
 //
+//  VLViewController is a base view controller class that handles
+//  showing error alert messages and checking field validity
+//
 //  Created by Connie Nguyen on 6/9/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //

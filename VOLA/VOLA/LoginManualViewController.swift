@@ -2,6 +2,9 @@
 //  LoginManualViewController.swift
 //  VOLA
 //
+//  View controller that allows user to log in to their account
+//  manually with an email and password.
+//
 //  Created by Connie Nguyen on 5/31/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -28,7 +31,7 @@ extension LoginManualViewController {
             let password = passwordTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
+                showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
                 return
         }
 

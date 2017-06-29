@@ -2,6 +2,9 @@
 //  ProfileViewController.swift
 //  VOLA
 //
+//  ProfileViewController allows user to view their profile if they are
+//  logged in. If not, they are given the option to sign up or login.
+//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //

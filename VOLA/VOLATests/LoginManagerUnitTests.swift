@@ -16,8 +16,8 @@ class LoginManagerUnitTests: XCTestCase {
         DataManager.shared.setUser(nil)
     }
 
-    func testGoodSocialLogin() {
-        let user = User(name: "Anita Borg", email: "anita@anitaborg.org", userType: .manual)
+    func testSuccessSocialLoginShouldReturnSetCurrentUser() {
+        let user = User(name: InputConstants.validName, email: InputConstants.validEmail, userType: .manual)
         let userPromise: Promise<User> = Promise { fulfill, _ in
             fulfill(user)
         }
@@ -35,7 +35,7 @@ class LoginManagerUnitTests: XCTestCase {
 
     }
 
-    func testBadSocialLogin() {
+    func testFailureSocialLoginShouldReturnNilCurrentUser() {
         // Test case where there was an error logging into a social network
         let userPromise: Promise<User> = Promise { _, reject in
             reject(AuthenticationError.notLoggedIn)

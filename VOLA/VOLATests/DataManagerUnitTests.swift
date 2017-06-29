@@ -10,23 +10,25 @@ import XCTest
 
 class DataManagerUnitTests: XCTestCase {
 
-    let user: User = User(name: "Anita Borg", email: "anita@anitaborg.org", userType: .manual)
+    let user: User = User(name: InputConstants.validName, email: InputConstants.validEmail, userType: .manual)
 
     override func setUp() {
         super.setUp()
         DataManager.shared.setUser(nil)
     }
 
-    func testIsLoggedIn() {
+    func testSuccessUserSetNilShouldReturnFalse() {
         let notLoggedIn = DataManager.shared.isLoggedIn
         XCTAssertFalse(notLoggedIn, "Start state: user should not be logged in.")
+    }
 
+    func testSuccessSetUserShouldReturnTrue() {
         DataManager.shared.setUser(self.user)
         let loggedIn = DataManager.shared.isLoggedIn
         XCTAssertTrue(loggedIn, "User should be logged in after setting user.")
     }
 
-    func testCurrentUser() {
+    func testSuccessSetUserShouldReturnMatchingCurrentUser() {
         var currentUser = DataManager.shared.currentUser
         XCTAssertNil(currentUser, "Start state: no currentUser since no user is logged in.")
 

@@ -2,6 +2,8 @@
 //  SignUpViewController.swift
 //  VOLA
 //
+//  SignUpViewController allows user to manually sign up for the app.
+//
 //  Created by Connie Nguyen on 6/3/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -20,7 +22,6 @@ class SignUpViewController: VLViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set appropriate validators for text fields and delegates
         nameTextField.validator = .name
         emailTextField.validator = .email
         passwordTextField.validator = .password
@@ -65,13 +66,13 @@ extension SignUpViewController {
             password == confirm,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
+                showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
                 return
         }
         guard errorDescriptions.isEmpty else {
             let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-            showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
-            Logger.error("Required text fields: name, email, password were invalid.")
+            showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
+            Logger.error(errorMessage)
             return
         }
 

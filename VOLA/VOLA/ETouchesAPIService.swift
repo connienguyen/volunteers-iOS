@@ -8,65 +8,8 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 import AlamofireObjectMapper
 import PromiseKit
-
-typealias EventCompletionBlock = (_ retrievedEvent: Event?) -> Void
-
-struct ETouchesURL {
-    static var baseURL: String {
-        // Temporarily only use mock base
-        return mockBaseURL
-    }
-
-    static let trueBaseURL = "https://www.eiseverywhere.com/api/v2/"
-    static let mockBaseURL = "https://private-fbd097-tempetouches.apiary-mock.com/"
-
-    // Add-ons to base URLs
-    static let accessTokenAddOn = "global/authorize.json"
-    static let getEventAddOn = "ereg/getEvent.json"
-    static let listEventsAddOn = "global/listEvents.json"
-}
-
-enum ETouchesKeys: String {
-    case accountID
-    case key
-    case accessToken
-    case eventID
-    case customFields
-    case fields
-
-    var forURL: String {
-        return self.rawValue.lowercased()
-    }
-}
-
-struct ETouchesParameters {
-    static let listEvents = "location,eventid,name,event_image,url"
-}
-
-class ETouchesAccessToken: Mappable {
-    enum ETouchesMapping: String {
-        case accessToken
-
-        var mapping: String {
-            return self.rawValue.lowercased()
-        }
-    }
-
-    var accessToken: String = ""
-
-    required init?(map: Map) {
-        // Required to conform to Mappable; can do JSON validation here
-    }
-}
-
-extension ETouchesAccessToken {
-    func mapping(map: Map) {
-        accessToken     <- map[ETouchesAccessToken.ETouchesMapping.accessToken.mapping]
-    }
-}
 
 final class ETouchesAPIService {
     static let shared = ETouchesAPIService()

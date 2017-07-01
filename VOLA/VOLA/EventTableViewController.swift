@@ -14,9 +14,17 @@
 import UIKit
 import PromiseKit
 
+enum EventTableType: String {
+    case home = "Home"
+    case calendar = "My Events"
+}
+
+
 class EventTableViewController: UITableViewController, XIBInstantiable {
 
     var events: [Event] = []
+    var tableType: EventTableType = .home
+    private var isShown: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +32,39 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
         tableView.register(cellType: EventCell.self)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250.0
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Since view controller is instantiated from XIB file, need to do first load
+        // UI activities here
+        guard !isShown else {
+            return
+        }
+
+        isShown = true
+        self.title = tableType.rawValue
         firstly { () -> Promise<[Event]> in
             displayActivityIndicator()
+            // TODO - Switch case on self.tableType to determine which ETouchesAPIService call to return
+            // Not done yet since API call for a user's registered events is still ambiguous
             return ETouchesAPIService.shared.getAvailableEvents()
-        }.then { [weak self] (events) -> Void in
-            guard let `self` = self else {
-                return
-            }
+            }.then { [weak self] (events) -> Void in
+                guard let `self` = self else {
+                    return
+                }
 
-            `self`.events = events
-            `self`.tableView.reloadData()
-        }.catch { error in
-            Logger.error(error.localizedDescription)
-        }.always { [weak self] in
-            guard let `self` = self else {
-                return
-            }
-
-            `self`.removeActivityIndicator()
+                `self`.events = events
+                `self`.tableView.reloadData()
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }.always { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+                
+                `self`.removeActivityIndicator()
         }
     }
 }

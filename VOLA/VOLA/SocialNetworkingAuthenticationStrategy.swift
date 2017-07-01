@@ -2,6 +2,10 @@
 //  SocialNetworkingAuthenticationStrategy.swift
 //  VOLA
 //
+//  Protocols for user authentication (social logins and manual) for use with
+//  LoginManager. Each strategy returns a Promise<User> for each respective
+//  social network.
+//
 //  Created by Connie Nguyen on 6/16/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //

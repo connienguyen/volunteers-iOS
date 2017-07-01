@@ -92,12 +92,12 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
 
         LoginManager.shared.login(.facebook)
             .then { [weak self] (success) -> Void in
-                guard let controller = self,
+                guard let `self` = self,
                     success else {
                     return
                 }
 
-                controller.onCancelPressed()
+                `self`.onCancelPressed()
 
             }.catch { error in
                 Logger.error(error.localizedDescription)
@@ -114,12 +114,12 @@ extension LoginViewController {
     func googleDidSignIn(_ notification: NSNotification) {
         LoginManager.shared.login(.google(notification))
             .then { [weak self] (success) -> Void in
-                guard let controller = self,
+                guard let `self` = self,
                     success else {
                     return
                 }
 
-                controller.onCancelPressed()
+                `self`.onCancelPressed()
             }.catch { error in
                 Logger.error(error.localizedDescription)
             }

@@ -78,12 +78,12 @@ extension SignUpViewController {
 
         LoginManager.shared.login(.manualSignup(name, email, password))
             .then { [weak self] (success) -> Void in
-                guard let controller = self,
+                guard let `self` = self,
                     success else {
                         return
                 }
 
-                controller.dismiss(animated: true, completion: nil)
+                `self`.dismiss(animated: true, completion: nil)
             }.catch { error in
                 Logger.error(error.localizedDescription)
             }

@@ -2,6 +2,9 @@
 //  EventRegistrationViewController.swift
 //  VOLA
 //
+//  EventRegistrationViewController allows the user to register for an event.
+//  Some fields may be autofilled if the user is logged in.
+//
 //  Created by Connie Nguyen on 6/13/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -23,7 +26,6 @@ class EventRegistrationViewController: VLViewController {
         super.viewDidLoad()
 
         title = "registration.title.label".localized
-        // Set up validators for text fields
         nameTextField.validator = .name
         emailTextField.validator = .email
 
@@ -63,7 +65,7 @@ extension EventRegistrationViewController {
             let _ = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: "error.validation".localized, errorMessage: errorMessage)
+                showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
                 return
         }
 

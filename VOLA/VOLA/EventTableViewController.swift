@@ -2,13 +2,17 @@
 //  EventTableViewController.swift
 //  VOLA
 //
+//  EventTableViewController displays events in a list (table format).
+//  From this view controller, the user can select an event to view more information
+//  about that event. This view controller can be used for both the My Events view
+//  or for browsing nearby events from the Home screen.
+//
 //  Created by Connie Nguyen on 6/13/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 import PromiseKit
-import Kingfisher
 
 class EventTableViewController: UITableViewController, XIBInstantiable {
 
@@ -24,41 +28,26 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
             displayActivityIndicator()
             return ETouchesAPIService.shared.getAvailableEvents()
         }.then { [weak self] (events) -> Void in
-            guard let controller = self else {
+            guard let `self` = self else {
                 return
             }
 
-            controller.events = events
-            controller.tableView.reloadData()
+            `self`.events = events
+            `self`.tableView.reloadData()
         }.catch { error in
             Logger.error(error.localizedDescription)
         }.always { [weak self] in
-            guard let controller = self else {
+            guard let `self` = self else {
                 return
             }
 
-            controller.removeActivityIndicator()
-        }
-    }
-
-    func configureCell(cell: EventCell, event: Event) {
-        cell.nameLabel.text = event.name
-        cell.addressLabel.text = event.location.addressString()
-        cell.registeredLabel.isHidden = event.eventType == .unregistered
-        cell.registeredLabel.text = event.eventType.labelText
-
-        if let eventImageURL = event.eventImageURL {
-            cell.eventImageView.kf.setImage(with: eventImageURL)
+            `self`.removeActivityIndicator()
         }
     }
 }
 
 // MARK: - Table view data source
 extension EventTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
@@ -70,7 +59,21 @@ extension EventTableViewController {
         }
 
         let event = events[indexPath.row]
-        configureCell(cell: cell, event: event)
+        cell.configureCell(event: event)
         return cell
+    }
+}
+
+// MARK: - Table view delegate
+extension EventTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < events.count else {
+            return
+        }
+
+        let event = events[indexPath.row]
+        let eventDetailVC = EventDetailViewController.instantiateFromXib()
+        eventDetailVC.event = event
+        self.navigationController?.show(eventDetailVC, sender: self)
     }
 }

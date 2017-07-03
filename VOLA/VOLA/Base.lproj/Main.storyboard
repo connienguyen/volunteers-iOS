@@ -1,55 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vt6-fD-Tp5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Introduction Navigation Controller-->
+        <scene sceneID="0Lb-py-iah">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="IntroductionNavigationController" id="cAz-8n-7E2" customClass="IntroductionNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NdN-K8-nXQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3a4-9U-ZLv" kind="relationship" relationship="rootViewController" id="1yc-1V-S8U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PLe-fh-4qD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2287" y="1306"/>
+        </scene>
+        <!--Introduction View Controller-->
+        <scene sceneID="Gqw-jk-R5g">
+            <objects>
+                <viewController id="3a4-9U-ZLv" customClass="IntroductionViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="qiI-UV-Lpq"/>
+                        <viewControllerLayoutGuide type="bottom" id="hh4-UO-6c8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="gcQ-m8-Ysk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAQ-Rq-9Bx">
-                                <rect key="frame" x="168.5" y="131" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfe-S5-aF8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="uMm-hw-Evd">
+                                <rect key="frame" x="168" y="555" width="39" height="37"/>
                                 <connections>
-                                    <action selector="onLoginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iMs-Zj-Teg"/>
+                                    <action selector="onPageControlPressed:" destination="3a4-9U-ZLv" eventType="valueChanged" id="hMy-N7-H3u"/>
+                                </connections>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-iX-zlJ">
+                                <rect key="frame" x="166" y="607" width="42" height="30"/>
+                                <state key="normal" title="Log In"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="login.prompt.label"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onLoginPressed:" destination="3a4-9U-ZLv" eventType="touchUpInside" id="eL6-P1-N3F"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oo6-Ge-edD">
-                                <rect key="frame" x="164.5" y="70" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyg-gM-wjj">
+                                <rect key="frame" x="314" y="84" width="30" height="30"/>
+                                <state key="normal" title="Skip"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="skip.prompt.label"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSkipPressed:" destination="3a4-9U-ZLv" eventType="touchUpInside" id="AQ5-yZ-jG5"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TAQ-Rq-9Bx" firstAttribute="centerX" secondItem="Oo6-Ge-edD" secondAttribute="centerX" id="0oJ-ww-TF3"/>
-                            <constraint firstItem="Oo6-Ge-edD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="Haw-nQ-yMM"/>
-                            <constraint firstItem="TAQ-Rq-9Bx" firstAttribute="top" secondItem="Oo6-Ge-edD" secondAttribute="bottom" constant="40" id="Ojz-Fs-IGa"/>
-                            <constraint firstItem="Oo6-Ge-edD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vnA-pX-iij"/>
+                            <constraint firstItem="5ve-iX-zlJ" firstAttribute="centerX" secondItem="Kfe-S5-aF8" secondAttribute="centerX" id="9Py-dG-tUQ"/>
+                            <constraint firstItem="hh4-UO-6c8" firstAttribute="top" secondItem="Kfe-S5-aF8" secondAttribute="bottom" id="EJj-RP-YQo"/>
+                            <constraint firstItem="Kfe-S5-aF8" firstAttribute="top" secondItem="qiI-UV-Lpq" secondAttribute="bottom" id="I3r-z9-aro"/>
+                            <constraint firstAttribute="trailing" secondItem="Kfe-S5-aF8" secondAttribute="trailing" id="MvQ-QZ-ohM"/>
+                            <constraint firstItem="uMm-hw-Evd" firstAttribute="centerX" secondItem="gcQ-m8-Ysk" secondAttribute="centerX" id="ORj-z2-NZT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kyg-gM-wjj" secondAttribute="trailing" constant="15" id="Ydb-iP-t5x"/>
+                            <constraint firstItem="hh4-UO-6c8" firstAttribute="top" secondItem="5ve-iX-zlJ" secondAttribute="bottom" constant="30" id="Zod-qC-U0e"/>
+                            <constraint firstItem="kyg-gM-wjj" firstAttribute="top" secondItem="qiI-UV-Lpq" secondAttribute="bottom" constant="20" id="f1K-3s-Cjl"/>
+                            <constraint firstItem="Kfe-S5-aF8" firstAttribute="leading" secondItem="gcQ-m8-Ysk" secondAttribute="leading" id="oGl-sY-RF0"/>
+                            <constraint firstItem="5ve-iX-zlJ" firstAttribute="top" secondItem="uMm-hw-Evd" secondAttribute="bottom" constant="15" id="wxX-dU-1t4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NhS-XN-qem"/>
                     <connections>
-                        <outlet property="homeLabel" destination="Oo6-Ge-edD" id="DbA-hX-wAh"/>
-                        <outlet property="loginButton" destination="TAQ-Rq-9Bx" id="8dB-cN-3ZG"/>
+                        <outlet property="pageControl" destination="uMm-hw-Evd" id="Thq-G9-MDP"/>
+                        <outlet property="scrollView" destination="Kfe-S5-aF8" id="26K-2P-RaQ"/>
+                        <outlet property="skipButton" destination="kyg-gM-wjj" id="Vvc-d8-ImP"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qRC-1c-V3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="120.98950524737631"/>
+            <point key="canvasLocation" x="-1137" y="1317"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="ieV-Ud-UdH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="cYn-yj-Ocu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="iqy-dd-7MV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZpL-wl-ZkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1212" y="283"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="9vT-8b-TPU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="ho7-Vf-3px" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4rI-u0-1IA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDI-KJ-y9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1227" y="406"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="sXx-Mj-AA5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="znk-6b-QcG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mJx-TB-L3t"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LrQ-4k-Z3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1230" y="522"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="qo7-wJ-9bg">
+            <objects>
+                <tabBarController id="vt6-fD-Tp5" customClass="VLTabBarController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="EaB-Ld-Q2z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cYn-yj-Ocu" kind="relationship" relationship="viewControllers" id="aRg-HV-f8m"/>
+                        <segue destination="ho7-Vf-3px" kind="relationship" relationship="viewControllers" id="8kT-IQ-6du"/>
+                        <segue destination="znk-6b-QcG" kind="relationship" relationship="viewControllers" id="uFD-L4-eWg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CEP-8b-zFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2287" y="407"/>
         </scene>
     </scenes>
 </document>

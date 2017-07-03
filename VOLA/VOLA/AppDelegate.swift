@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
         guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String else {
-                return false
+            return false
         }
 
         let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
@@ -65,10 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard error != nil else {
-            LoginManager.shared.login(user: User(googleUser: user))
+        guard error == nil else {
+            Logger.error(error?.localizedDescription ?? ErrorStrings.invalidGoogleUser.localized)
             return
         }
+
+        let notificationData: [String: Any] = [DictKeys.user.rawValue: user]
+        NotificationCenter.default.post(name: NotificationName.googleDidSignIn, object: nil, userInfo: notificationData)
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

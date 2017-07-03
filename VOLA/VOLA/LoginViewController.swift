@@ -2,6 +2,10 @@
 //  LoginViewController.swift
 //  VOLA
 //
+//  View controller where user is presented with multiple methods of logging
+//  in, including social logins and manual login. The user can also navigate
+//  to the sign up screen from this view.
+//
 //  Created by Connie Nguyen on 5/31/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -14,7 +18,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var signUpLabel: VLHyperLabel!
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
-    
+
+    var introSender: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +31,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         facebookLoginButton.delegate = self
 
         // Set up Cancel button to dismiss
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
+        if !introSender {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelPressed))
+        }
 
         // Handle hyper label set up
         let labelText = "signup.title.label".localized
@@ -39,18 +47,23 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        addNotificationObserver(NotificationName.googleDidSignIn, selector: #selector(googleDidSignIn(_:)), nil)
+
         guard DataManager.shared.currentUser == nil else {
             dismiss(animated: true, completion: nil)
             return
         }
     }
 
-    @IBAction func onLoginWithEmailPressed(_ sender: Any) {
-        performSegue(.showLoginManual)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        removeNotificationObserver(NotificationName.googleDidSignIn)
     }
 
     func onSignUpPressed() {
         guard let storyboard = storyboard else {
+            Logger.error("Storyboard for LoginViewController was nil.")
             return
         }
 
@@ -63,24 +76,52 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 }
 
+// MARK: - IBActions
+extension LoginViewController {
+    @IBAction func onLoginWithEmailPressed(_ sender: Any) {
+        performSegue(.showLoginManual)
+    }
+}
+
 extension LoginViewController: FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         guard let response = result, response.token != nil else {
-            // TODO: Error handling
+            Logger.error("Facebook response or access token is nil.")
             return
         }
 
-        LoginManager.shared.loginFacebook { (error) in
-            guard error == nil else {
-                // TODO: Show error?
-                return
-            }
+        LoginManager.shared.loginFacebook()
+            .then { [weak self] (success) -> Void in
+                guard let controller = self,
+                    success else {
+                    return
+                }
 
-            self.onCancelPressed()
-        }
+                controller.onCancelPressed()
+
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         // TODO - func is required to be defined as a FBSDKLoginButtonDelegate
+    }
+}
+
+// MARK: - NotificationObserver
+extension LoginViewController {
+    func googleDidSignIn(_ notification: NSNotification) {
+        LoginManager.shared.loginGoogle(notification: notification)
+            .then { [weak self] (success) -> Void in
+                guard let controller = self,
+                    success else {
+                    return
+                }
+
+                controller.onCancelPressed()
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }
     }
 }

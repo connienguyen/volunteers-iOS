@@ -34,7 +34,6 @@ extension UIViewController {
         }
 
         let indicator = UIActivityIndicatorView(frame: view.frame)
-        print("VC frame size: \(view.frame)")
         indicator.activityIndicatorViewStyle = .gray
         indicator.center = view.center
         indicator.isHidden = false

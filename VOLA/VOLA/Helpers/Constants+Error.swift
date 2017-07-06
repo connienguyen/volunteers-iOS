@@ -19,6 +19,8 @@ enum VLError: String, LocalizedError {
     case invalidName = "error.invalid-name"
     case invalidPassword = "error.invalid-password"
     case invalidRequired = "error.invalid-required"
+    case invalidTOS = "error.invalid-TOS"
+    case invalidPrivacy = "error.invalid-privacy"
     case validation = "error.validation"
     case userUpdate = "error.user-update"
 

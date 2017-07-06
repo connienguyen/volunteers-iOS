@@ -24,3 +24,11 @@ extension UIFont {
         self.init(name: font.identifier, size: size)!
     }
 }
+
+enum TextSize: CGFloat {
+    case normal = 16.0
+
+    var fontSize: CGFloat {
+        return rawValue
+    }
+}

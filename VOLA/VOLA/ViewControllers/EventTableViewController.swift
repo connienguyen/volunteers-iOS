@@ -31,7 +31,7 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
 
         tableView.register(cellType: EventCell.self)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 250.0
+        tableView.estimatedRowHeight = EventCell.estimatedHeight
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +65,7 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
                 }
                 
                 `self`.removeActivityIndicator()
-        }
+            }
     }
 }
 

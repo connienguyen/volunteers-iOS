@@ -31,7 +31,7 @@ class EventRegistrationViewController: VLViewController {
 
         // Set up VLHyperLabel
         let labelText = "registration-login.title.label".localized
-        loginBenefitLabel.setAttributedString(labelText, fontSize: 16.0)
+        loginBenefitLabel.setAttributedString(labelText, fontSize: TextSize.normal.fontSize)
         let loginHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
             self.present(loginNavVC, animated: true, completion: nil)

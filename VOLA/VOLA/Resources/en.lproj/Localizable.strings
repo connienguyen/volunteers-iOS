@@ -16,6 +16,8 @@
 "error.invalid-password" = "Please enter a password that is at least 8 characters long and includes a lowercase, uppercase, and a number.";
 "error.invalid-confirm" = "Passwords do not match.";
 "error.invalid-required" = "Please complete required field.";
+"error.invalid-TOS" = "Invalid URL for ABI terms of service.";
+"error.invalid-privacy" = "Invalid URL for ABI privacy policy";
 "error.validation" = "Invalid Input";
 "error.user-update" = "Cannot update user.";
 "error.existing-activity-indicator" = "This view controller already has an existing activity indicator.";

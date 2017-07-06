@@ -32,7 +32,7 @@ class SignUpViewController: VLViewController {
         signUpAgreeLabel.setAttributedString(labelText, fontSize: 14.0)
         let termsHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             guard let url = ABIURL.termsOfService else {
-                Logger.error("Invalid URL for ABI terms of service.")
+                Logger.error(VLError.invalidTOS.localizedDescription)
                 return
             }
 
@@ -40,7 +40,7 @@ class SignUpViewController: VLViewController {
         }
         let privacyHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             guard let url = ABIURL.privacyPolicy else {
-                Logger.error("Invalid URL for ABI privacy policy.")
+                Logger.error(VLError.invalidPrivacy.localizedDescription)
                 return
             }
 

@@ -13,7 +13,8 @@ class VLCheckbox: UIButton {
 
     var isChecked: Bool = false {
         didSet {
-            // TODO switch checked/unchecked images
+            //  TODO switch checked/unchecked images. Y/N are used temporarily to show
+            //  Yes/No
             if isChecked {
                 setTitle("Y", for: .normal)
             } else {

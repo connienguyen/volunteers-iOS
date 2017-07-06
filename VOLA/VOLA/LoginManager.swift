@@ -2,6 +2,9 @@
 //  LoginManager.swift
 //  VOLA
 //
+//  LoginManager handles the various methods a user may login (sign up is an
+//  implicit login)
+//
 //  Created by Connie Nguyen on 6/6/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //

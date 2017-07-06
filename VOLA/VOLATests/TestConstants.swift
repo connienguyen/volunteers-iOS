@@ -30,3 +30,8 @@ struct InputConstants {
     static let invalidRequiredInputSpace = " "
     static let invalidRequiredInputWhitespace = "\r\t"
 }
+
+struct EventTestConstants {
+    static let testEventName = "Test Event Name - from JSON"
+    static let availableEventsCount = 3
+}

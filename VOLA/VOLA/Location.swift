@@ -11,8 +11,8 @@ import ObjectMapper
 
 enum LocationMappable: String {
     case name
-    case address1 = "address1"
-    case address2 = "address2"
+    case address1
+    case address2
     case city
     case postCode
     case country
@@ -36,6 +36,8 @@ class Location {
         // Required to conform to protocol
     }
 
+    //  This init is primarily used to return a default Location model without using a map, such as
+    //  on the Event model. It can also be used for testing/mocking purposes.
     init(name: String = "", addressOne: String = "", addressTwo: String = "", city: String = "",
          postCode: String = "", country: String = "", phone: String = "") {
 

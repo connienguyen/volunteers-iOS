@@ -28,7 +28,7 @@ class EditProfileViewController: VLViewController {
 
     private func configureProfile() {
         guard let user = DataManager.shared.currentUser else {
-            Logger.error(ErrorStrings.notLoggedIn.localized)
+            Logger.error(VLError.notLoggedIn.localizedDescription)
             return
         }
 
@@ -52,13 +52,13 @@ extension EditProfileViewController {
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
+                showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
 
         LoginManager.shared.updateUser(name: name, email: email) { (loginError) in
             guard loginError == nil else {
-                Logger.error(loginError?.localizedDescription ?? ErrorStrings.userUpdate.localized)
+                Logger.error(loginError?.localizedDescription ?? VLError.userUpdate.localizedDescription)
                 return
             }
 

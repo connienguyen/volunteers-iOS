@@ -65,7 +65,7 @@ extension EventRegistrationViewController {
             let _ = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: ErrorStrings.validation.localized, errorMessage: errorMessage)
+                showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
 

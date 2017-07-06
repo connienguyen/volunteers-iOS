@@ -47,6 +47,8 @@ class Event {
         // Required to conform to Mappable; can do JSON validation here
     }
 
+    //  This init is primarily used for creating a default Event model to avoid using optionals like on
+    //  the EventDetailViewController. It can also be used for mocking/testing purposes
     init(eventID: Int = 0, name: String = "", description: String = "", location: Location? = nil,
          areVolunteersNeeded: Bool = false, eventImage: URL? = nil, sponsorImage: URL? = nil) {
         

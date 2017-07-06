@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else {
-            Logger.error(error?.localizedDescription ?? ErrorStrings.invalidGoogleUser.localized)
+            Logger.error(error?.localizedDescription ?? VLError.invalidGoogleUser.localizedDescription)
             return
         }
 

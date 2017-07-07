@@ -2,6 +2,8 @@
 //  VLCheckbox.swift
 //  VOLA
 //
+//  VLCheckbox is a custom UIButton that displays a checked and not checked state
+//
 //  Created by Connie Nguyen on 6/16/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //

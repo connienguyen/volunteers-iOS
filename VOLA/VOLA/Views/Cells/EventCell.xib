@@ -19,30 +19,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="548" height="188.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXW-jD-pc5">
-                        <rect key="frame" x="15" y="39.5" width="109.5" height="109.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXW-jD-pc5" customClass="RoundedImageView" customModule="VOLA" customModuleProvider="target">
+                        <rect key="frame" x="15" y="39" width="110.5" height="110.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="XXW-jD-pc5" secondAttribute="height" multiplier="1:1" id="Uq5-h0-23o"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LrS-ha-ayv">
-                        <rect key="frame" x="134.5" y="15" width="398.5" height="158.5"/>
+                        <rect key="frame" x="135.5" y="15" width="397.5" height="158.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="990" verticalCompressionResistancePriority="751" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhS-Yg-rqS">
-                                <rect key="frame" x="0.0" y="0.0" width="398.5" height="134.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="397.5" height="134.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="991" verticalCompressionResistancePriority="991" text="Event Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcM-Ut-JMb">
-                                <rect key="frame" x="0.0" y="141.5" width="378.5" height="17"/>
+                                <rect key="frame" x="0.0" y="141.5" width="377.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="V" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-cy-gFQ">
-                                <rect key="frame" x="386.5" y="138" width="12" height="20.5"/>
+                                <rect key="frame" x="385.5" y="138" width="12" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

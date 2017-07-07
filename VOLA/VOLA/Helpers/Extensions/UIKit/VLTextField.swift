@@ -12,9 +12,17 @@ class VLTextField: UITextField {
     var validator: InputValidation = .none
     var isValid: Bool = false {
         willSet {
-            self.layer.borderColor = newValue ? UIColor.lightGray.cgColor : Theme.Colors.crimson.cgColor
+            self.layer.borderColor = newValue ? ThemeColors.lightGrey.cgColor : ThemeManager.shared.currentTheme.errorColor.cgColor
             self.layer.borderWidth = 1.0
         }
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        layer.borderColor = ThemeColors.lightGrey.cgColor
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 3.0
     }
 
     func validate() {

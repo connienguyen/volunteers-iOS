@@ -14,6 +14,7 @@ struct NotificationName {
 
 enum DefaultsKey: String {
     case shownIntro
+    case selectedTheme
 }
 
 enum Segue: String {

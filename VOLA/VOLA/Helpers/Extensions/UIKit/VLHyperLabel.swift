@@ -10,9 +10,20 @@ import UIKit
 import FRHyperLabel
 
 class VLHyperLabel: FRHyperLabel {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        linkAttributeDefault = [
+            NSForegroundColorAttributeName: ThemeManager.shared.currentTheme.linkColor,
+            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue
+        ]
+    }
+
     func setAttributedString(_ string: String, fontSize: CGFloat) {
-        let labelAttributes = [NSForegroundColorAttributeName: UIColor.black,
-                               NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)]
+        let labelAttributes = [
+                NSForegroundColorAttributeName: ThemeManager.shared.currentTheme.textColor,
+                NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)
+        ]
         attributedText = NSAttributedString(string: string, attributes: labelAttributes)
     }
 }

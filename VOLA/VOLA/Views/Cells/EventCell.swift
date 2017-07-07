@@ -15,7 +15,7 @@ import Kingfisher
 class EventCell: UITableViewCell {
     static let estimatedHeight: CGFloat = 250.0
 
-    @IBOutlet weak var eventImageView: UIImageView!
+    @IBOutlet weak var eventImageView: RoundedImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var registeredLabel: UILabel!

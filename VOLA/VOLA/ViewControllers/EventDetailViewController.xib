@@ -215,6 +215,9 @@
                 </constraints>
             </view>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="event-detail.title.label"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="addressLabel" destination="Gwg-jf-5OP" id="sSV-fc-uJW"/>
                 <outlet property="descriptionLabel" destination="2KT-OS-z2Q" id="cE0-Gi-xvV"/>

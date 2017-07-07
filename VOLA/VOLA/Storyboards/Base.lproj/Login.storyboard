@@ -13,7 +13,7 @@
         <scene sceneID="nmF-iZ-8oZ">
             <objects>
                 <navigationController storyboardIdentifier="LoginNavigationController" id="AYe-br-d5T" customClass="LoginNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sn3-aq-JU0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sn3-aq-JU0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -71,7 +71,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnp-Vm-A22">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnp-Vm-A22" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="35" y="366" width="305" height="30"/>
                                                 <accessibility key="accessibilityConfiguration" label="EmailLoginButton"/>
                                                 <state key="normal" title="Log in with Email"/>
@@ -257,7 +257,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-XV-tSs">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-XV-tSs" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="50" y="466" width="275" height="30"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <userDefinedRuntimeAttributes>
@@ -405,7 +405,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALs-BR-JKr">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALs-BR-JKr" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="45" y="298.5" width="285" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="BRE-eo-aFC"/>

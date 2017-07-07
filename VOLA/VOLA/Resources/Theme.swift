@@ -48,6 +48,13 @@ enum Theme: Int {
         }
     }
 
+    var tintContrastColor: UIColor {
+        switch self {
+        case .normal:
+            return ThemeColors.emerald
+        }
+    }
+
     var textColor: UIColor {
         switch self {
         case .normal:

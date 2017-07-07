@@ -29,6 +29,10 @@
 		F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */; };
 		F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
 		F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
+		F92855E21F103DAD00D461B1 /* RegisteredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */; };
+		F92855E31F103DAD00D461B1 /* RegisteredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */; };
+		F92855E51F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855E41F10416100D461B1 /* PaddedRegisteredLabel.swift */; };
+		F92855E61F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855E41F10416100D461B1 /* PaddedRegisteredLabel.swift */; };
 		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
 		F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920301EEFF18B0055DA69 /* EventTableViewController.swift */; };
 		F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920311EEFF18B0055DA69 /* EventTableViewController.xib */; };
@@ -204,6 +208,8 @@
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEvents.json; sourceTree = "<group>"; };
 		F9259D491F0EDEA100CE7954 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredLabel.swift; sourceTree = "<group>"; };
+		F92855E41F10416100D461B1 /* PaddedRegisteredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedRegisteredLabel.swift; sourceTree = "<group>"; };
 		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
 		F92920301EEFF18B0055DA69 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		F92920311EEFF18B0055DA69 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewController.xib; sourceTree = "<group>"; };
@@ -221,7 +227,7 @@
 		F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
-		F98807E91EF3DF9700589A23 /* VLCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VLCheckbox.swift; path = ../Helpers/Extensions/UIKit/VLCheckbox.swift; sourceTree = "<group>"; };
+		F98807E91EF3DF9700589A23 /* VLCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLCheckbox.swift; sourceTree = "<group>"; };
 		F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkingAuthenticationStrategy.swift; sourceTree = "<group>"; };
 		F98807F41EF412F700589A23 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		F98807F71EF4173E00589A23 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -237,9 +243,9 @@
 		F9A501C01EE7600100AB7E9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9A501C21EE7600400AB7E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9A501CB1EE7659300AB7E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
-		F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VLHyperLabel.swift; path = ../Helpers/Extensions/UIKit/VLHyperLabel.swift; sourceTree = "<group>"; };
+		F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLHyperLabel.swift; sourceTree = "<group>"; };
 		F9A501D11EE7E97B00AB7E9E /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		F9A501D51EE871BE00AB7E9E /* VLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VLTextField.swift; path = ../Helpers/Extensions/UIKit/VLTextField.swift; sourceTree = "<group>"; };
+		F9A501D51EE871BE00AB7E9E /* VLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLTextField.swift; sourceTree = "<group>"; };
 		F9A501D71EE8728800AB7E9E /* InputValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidation.swift; sourceTree = "<group>"; };
 		F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLViewController.swift; sourceTree = "<group>"; };
 		F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -387,10 +393,10 @@
 				754C46101EDED11400E2F848 /* Assets.xcassets */,
 				754C46121EDED11400E2F848 /* LaunchScreen.storyboard */,
 				F9A501C11EE7600100AB7E9E /* Localizable.strings */,
-				F94B4A7C1F0FD00400AEB13A /* Theme.swift */,
 				754C46521EDED42F00E2F848 /* Theme+Colors.swift */,
 				754C46561EDED48800E2F848 /* Theme+Fonts.swift */,
 				754C46541EDED46700E2F848 /* Theme+Style.swift */,
+				F94B4A7C1F0FD00400AEB13A /* Theme.swift */,
 				F94B4A7F1F0FD13300AEB13A /* ThemeManager.swift */,
 			);
 			path = Resources;
@@ -435,15 +441,16 @@
 		754C462F1EDED20200E2F848 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F94B4A821F0FFDD600AEB13A /* Buttons */,
+				754C46301EDED20800E2F848 /* Cells */,
+				F92855E01F103D3100D461B1 /* Labels */,
+				754C46311EDED20B00E2F848 /* Popups */,
 				F9259D491F0EDEA100CE7954 /* CircleImageView.swift */,
 				F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */,
+				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
 				F94B4A861F10330800AEB13A /* RoundedImageView.swift */,
 				F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */,
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
-				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
-				F94B4A821F0FFDD600AEB13A /* Buttons */,
-				754C46301EDED20800E2F848 /* Cells */,
-				754C46311EDED20B00E2F848 /* Popups */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -549,13 +556,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F92855E01F103D3100D461B1 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				F92855E41F10416100D461B1 /* PaddedRegisteredLabel.swift */,
+				F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */,
+			);
+			name = Labels;
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		F94B4A821F0FFDD600AEB13A /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				F98807E91EF3DF9700589A23 /* VLCheckbox.swift */,
 				F94B4A831F0FFE1900AEB13A /* VLButton.swift */,
+				F98807E91EF3DF9700589A23 /* VLCheckbox.swift */,
 			);
-			name = Buttons;
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		F9DD11D81F0E34EA006C029A /* Fixtures */ = {
@@ -770,6 +787,7 @@
 				F94B4A801F0FD13300AEB13A /* ThemeManager.swift in Sources */,
 				F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */,
 				754C46551EDED46700E2F848 /* Theme+Style.swift in Sources */,
+				F92855E51F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */,
 				F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */,
 				754C463C1EDED2D600E2F848 /* UIView.swift in Sources */,
 				F9A501DE1EEBED4800AB7E9E /* ProfileViewController.swift in Sources */,
@@ -777,6 +795,7 @@
 				F9B234991EE7532F00884E4E /* LoginManager.swift in Sources */,
 				F929203D1EF003D60055DA69 /* Event.swift in Sources */,
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
+				F92855E21F103DAD00D461B1 /* RegisteredLabel.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
 				F94B4A841F0FFE1900AEB13A /* VLButton.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
@@ -836,10 +855,12 @@
 				F9A502301EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F94B4A881F10330800AEB13A /* RoundedImageView.swift in Sources */,
+				F92855E31F103DAD00D461B1 /* RegisteredLabel.swift in Sources */,
 				F9A502051EEED00D00AB7E9E /* LoginManualViewController.swift in Sources */,
 				F98808081F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
 				F9A502071EEED00D00AB7E9E /* ProfileViewController.swift in Sources */,
 				F98807F01EF4063500589A23 /* VLCheckbox.swift in Sources */,
+				F92855E61F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */,
 				F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F9DD11D41F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,

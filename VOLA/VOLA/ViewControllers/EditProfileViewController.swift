@@ -13,7 +13,7 @@ import UIKit
 import Kingfisher
 
 class EditProfileViewController: VLViewController {
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
 

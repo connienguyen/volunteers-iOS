@@ -13,6 +13,7 @@ import UIKit
 class CircleImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = ThemeManager.shared.currentTheme.accentColor
         layer.masksToBounds = false
         layer.cornerRadius = frame.height/2.0
         clipsToBounds = true

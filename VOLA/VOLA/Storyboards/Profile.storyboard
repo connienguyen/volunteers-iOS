@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="1id-Am-XBm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Dy9-J2-Dsl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JX5-yM-1e8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JX5-yM-1e8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -204,7 +204,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-JT-2Ck" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-iE-QD6">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-iE-QD6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="137.5" y="25" width="100" height="100"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>

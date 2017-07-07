@@ -18,13 +18,12 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var eventImageView: RoundedImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var registeredLabel: UILabel!
+    @IBOutlet weak var registeredLabel: PaddedRegisteredLabel!
 
     func configureCell(event: Event) {
         nameLabel.text = event.name
-        addressLabel.text = event.location.addressString
-        registeredLabel.isHidden = event.eventType == .unregistered
-        registeredLabel.text = event.eventType.labelText
+        addressLabel.text = event.location.addressString()
+        registeredLabel.eventType = event.eventType
 
         if let eventImageURL = event.eventImageURL {
             eventImageView.kf.setImage(with: eventImageURL)

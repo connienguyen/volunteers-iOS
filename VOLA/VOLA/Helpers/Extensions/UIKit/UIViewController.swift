@@ -30,6 +30,7 @@ extension UIViewController {
         let indicator = UIActivityIndicatorView(frame: view.frame)
         indicator.activityIndicatorViewStyle = .gray
         indicator.center = view.center
+        indicator.backgroundColor = ThemeColors.lightGrey
         indicator.isHidden = false
         indicator.startAnimating()
         self.view.addSubview(indicator)

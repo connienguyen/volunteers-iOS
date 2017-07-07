@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var currentUserView: UIView!
     @IBOutlet weak var anonUserView: UIView!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
 
@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
         // Hide or show edit button - Should only be shown if logged in AND a manual user
         let loggedInManual = DataManager.shared.currentUser?.userType == .manual
         navigationItem.rightBarButtonItem?.isEnabled = loggedInManual
-        navigationItem.rightBarButtonItem?.tintColor = loggedInManual ? nil : UIColor.clear
+        navigationItem.rightBarButtonItem?.title = loggedInManual ? "Edit" : nil
 
         profileImageView.image = nil    // Ensure last user's image is not shown
         if let user = DataManager.shared.currentUser {

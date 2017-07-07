@@ -172,7 +172,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="volunteer.prompt.label"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-PR-tJV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-PR-tJV" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                         <rect key="frame" x="40" y="541.5" width="295" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <userDefinedRuntimeAttributes>

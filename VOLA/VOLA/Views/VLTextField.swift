@@ -13,7 +13,8 @@ class VLTextField: UITextField {
     var isValid: Bool = false {
         willSet {
             self.layer.borderColor = newValue ? ThemeColors.lightGrey.cgColor : ThemeManager.shared.currentTheme.errorColor.cgColor
-            self.layer.borderWidth = 1.0
+            // If invalid, show wider border for emphasis
+            self.layer.borderWidth = newValue ? 0.5 : 1.0
         }
     }
 
@@ -21,7 +22,7 @@ class VLTextField: UITextField {
         super.awakeFromNib()
 
         layer.borderColor = ThemeColors.lightGrey.cgColor
-        layer.borderWidth = 1.0
+        layer.borderWidth = 0.5
         layer.cornerRadius = 3.0
     }
 

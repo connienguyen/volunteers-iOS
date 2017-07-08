@@ -75,12 +75,4 @@ enum Theme: Int {
             return .black
         }
     }
-
-    var navigationBackgroundImage: UIImage? {
-        switch self {
-        case .normal:
-            // Return empty UIImage to remove gradient from navBar
-            return UIImage()
-        }
-    }
 }

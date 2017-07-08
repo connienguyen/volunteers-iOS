@@ -44,3 +44,38 @@ enum InputValidation: String {
         }
     }
 }
+
+protocol Validatable {
+    var fieldsToValidate: [VLTextField] { get }
+}
+
+//  Additional wrapper protocol to avoid #selector objc error in setUpValidatableFields()
+protocol Validator {
+    func textFieldEditingDidEnd(_ textField: VLTextField)
+}
+
+extension Validatable where Self: UIViewController {
+    func setUpValidatableFields() {
+        for field in fieldsToValidate {
+            field.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)
+        }
+    }
+
+    // Returns an array of strings that describes the text validation errors on view controller
+    func areAllFieldsValid() -> [String] {
+        var errorDescriptions: [String] = []
+        for field in fieldsToValidate where !field.isValid {
+            errorDescriptions.append(field.validator.error)
+            field.validate()    // Show error if not already shown
+        }
+
+        return errorDescriptions
+    }
+}
+
+extension UIViewController: Validator {
+    func textFieldEditingDidEnd(_ textField: VLTextField) {
+        textField.validate()
+    }
+}
+

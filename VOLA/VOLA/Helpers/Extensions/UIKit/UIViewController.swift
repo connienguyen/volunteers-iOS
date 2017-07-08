@@ -41,4 +41,10 @@ extension UIViewController {
             indicator.removeFromSuperview()
         }
     }
+
+    func showErrorAlert(errorTitle: String, errorMessage: String) {
+        let alert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DictKeys.ok.rawValue, style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }

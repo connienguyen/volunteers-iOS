@@ -19,7 +19,6 @@ enum EventTableType: String {
     case calendar = "My Events"
 }
 
-
 class EventTableViewController: UITableViewController, XIBInstantiable {
 
     var events: [Event] = []

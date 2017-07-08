@@ -12,7 +12,7 @@
 import UIKit
 import Kingfisher
 
-class EditProfileViewController: VLViewController {
+class EditProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
@@ -22,6 +22,7 @@ class EditProfileViewController: VLViewController {
 
         nameTextField.validator = .name
         emailTextField.validator = .email
+        setUpValidatableFields()
 
         configureProfile()
     }
@@ -64,5 +65,11 @@ extension EditProfileViewController {
 
             self.navigationController?.popViewController(animated: true)
         }
+    }
+}
+
+extension EditProfileViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [nameTextField, emailTextField]
     }
 }

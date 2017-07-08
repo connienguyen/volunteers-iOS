@@ -13,7 +13,7 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
 
     @IBOutlet weak var registeredLabel: RegisteredLabel!
     @IBOutlet weak var eventImageView: UIImageView!
-    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var eventTitleLabel: TitleLabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var volunteersNeededView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!

@@ -11,7 +11,7 @@
 import UIKit
 import FRHyperLabel
 
-class SignUpViewController: VLViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
@@ -29,6 +29,7 @@ class SignUpViewController: VLViewController {
         nameTextField.validator = .name
         emailTextField.validator = .email
         passwordTextField.validator = .password
+        setUpValidatableFields()
         confirmTextField.addTarget(self, action: #selector(confirmFieldDidChange(_:)), for: .editingDidEnd)
 
         // Set up hyper label
@@ -91,5 +92,11 @@ extension SignUpViewController {
             }.catch { error in
                 Logger.error(error)
             }
+    }
+}
+
+extension SignUpViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [nameTextField, emailTextField, passwordTextField]
     }
 }

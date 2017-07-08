@@ -32,12 +32,12 @@ final class ThemeManager {
     func applyTheme(theme: Theme) {
         Defaults.setObject(forKey: .selectedTheme, object: theme.rawValue)
 
-        UINavigationBar.appearance().setBackgroundImage(theme.navigationBackgroundImage, for: .default)
         UINavigationBar.appearance().barStyle = theme.barStyle
         UINavigationBar.appearance().backgroundColor = theme.primaryColor
         UINavigationBar.appearance().tintColor = theme.tintColor
+        UINavigationBar.appearance().barTintColor = theme.primaryColor
 
-        UITabBar.appearance().backgroundImage = theme.navigationBackgroundImage
+        UITabBar.appearance().barTintColor = theme.primaryColor
         UITabBar.appearance().backgroundColor = theme.primaryColor
         UITabBarItem.appearance().setTitleTextAttributes([
                 NSForegroundColorAttributeName: theme.tintContrastColor
@@ -48,5 +48,9 @@ final class ThemeManager {
 
         VLButton.appearance().backgroundColor = theme.secondaryColor
         VLButton.appearance().tintColor = theme.tintColor
+
+        VolunteersNeededLabel.appearance().backgroundColor = theme.accentColor
+        TitleLabel.appearance().textColor = theme.textColor
+        TextLabel.appearance().textColor = theme.textColor
     }
 }

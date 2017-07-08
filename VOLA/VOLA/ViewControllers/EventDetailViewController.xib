@@ -17,11 +17,11 @@
                 <viewControllerLayoutGuide type="bottom" id="WCC-GM-Nv6"/>
             </layoutGuides>
             <view key="view" contentMode="scaleToFill" id="xOd-RA-Ngb">
-                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dw1-Qc-r26">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="936"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GFB-1M-mOI">
                                 <rect key="frame" x="0.0" y="0.0" width="375.5" height="838.5"/>
@@ -45,13 +45,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-cm-5FM" userLabel="Event Info View">
                                         <rect key="frame" x="0.0" y="256" width="375.5" height="81"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-qp-qXD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-qp-qXD" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="25" width="335.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwg-jf-5OP">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwg-jf-5OP" customClass="ThinLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="60.5" width="336" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -63,7 +63,7 @@
                                             <constraint firstItem="Gwg-jf-5OP" firstAttribute="leading" secondItem="7h1-cm-5FM" secondAttribute="leading" constant="20" id="9cs-X2-qk3"/>
                                             <constraint firstItem="4tW-qp-qXD" firstAttribute="leading" secondItem="7h1-cm-5FM" secondAttribute="leading" constant="20" id="Vda-CB-pSl"/>
                                             <constraint firstItem="4tW-qp-qXD" firstAttribute="top" secondItem="7h1-cm-5FM" secondAttribute="top" constant="25" id="YFd-fw-qvk"/>
-                                            <constraint firstAttribute="bottom" secondItem="Gwg-jf-5OP" secondAttribute="bottom" id="Zeg-My-F04"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gwg-jf-5OP" secondAttribute="bottom" priority="999" id="Zeg-My-F04"/>
                                             <constraint firstAttribute="trailing" secondItem="4tW-qp-qXD" secondAttribute="trailing" constant="20" id="rOZ-PZ-WyZ"/>
                                             <constraint firstItem="Gwg-jf-5OP" firstAttribute="top" secondItem="4tW-qp-qXD" secondAttribute="bottom" constant="7" id="xxK-pw-LOw"/>
                                             <constraint firstAttribute="trailing" secondItem="Gwg-jf-5OP" secondAttribute="trailing" constant="20" id="zRg-2H-3wf"/>
@@ -72,7 +72,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqx-qG-c9L" userLabel="Volunteers View">
                                         <rect key="frame" x="0.0" y="337" width="375.5" height="30.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volunteers Needed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGW-V5-yVl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volunteers Needed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGW-V5-yVl" customClass="VolunteersNeededLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10" width="146.5" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="9Fg-a3-K8I"/>
@@ -111,7 +111,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F26-hI-Yty" userLabel="Description View">
                                         <rect key="frame" x="0.0" y="437.5" width="375.5" height="60.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KT-OS-z2Q">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KT-OS-z2Q" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="25" width="335.5" height="35.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -129,7 +129,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGg-DY-77N" userLabel="Sponsor View">
                                         <rect key="frame" x="0.0" y="498" width="375.5" height="260.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMR-J8-ZW3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMR-J8-ZW3" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="25" width="335.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -149,7 +149,7 @@
                                             <constraint firstAttribute="trailing" secondItem="I69-rb-Cfe" secondAttribute="trailing" id="Dk0-0B-RZS"/>
                                             <constraint firstItem="yMR-J8-ZW3" firstAttribute="leading" secondItem="eGg-DY-77N" secondAttribute="leading" constant="20" id="Fl5-lL-LIB"/>
                                             <constraint firstAttribute="trailing" secondItem="yMR-J8-ZW3" secondAttribute="trailing" constant="20" id="Rc6-et-8qJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="I69-rb-Cfe" secondAttribute="bottom" id="Sjl-1M-mH0"/>
+                                            <constraint firstAttribute="bottom" secondItem="I69-rb-Cfe" secondAttribute="bottom" priority="999" id="Sjl-1M-mH0"/>
                                             <constraint firstItem="yMR-J8-ZW3" firstAttribute="top" secondItem="eGg-DY-77N" secondAttribute="top" constant="25" id="a5G-jU-6FN"/>
                                             <constraint firstItem="I69-rb-Cfe" firstAttribute="leading" secondItem="eGg-DY-77N" secondAttribute="leading" id="ie3-bt-Rnu"/>
                                         </constraints>
@@ -168,7 +168,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="HT8-mf-no5" secondAttribute="trailing" constant="50" id="Qea-kd-7OZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="HT8-mf-no5" secondAttribute="bottom" constant="25" id="UvN-y4-tig"/>
+                                            <constraint firstAttribute="bottom" secondItem="HT8-mf-no5" secondAttribute="bottom" priority="999" constant="25" id="UvN-y4-tig"/>
                                             <constraint firstItem="HT8-mf-no5" firstAttribute="leading" secondItem="rJW-hM-7Ta" secondAttribute="leading" constant="50" id="izV-Pl-Ed6"/>
                                             <constraint firstItem="HT8-mf-no5" firstAttribute="top" secondItem="rJW-hM-7Ta" secondAttribute="top" constant="25" id="xGl-Uf-3hR"/>
                                         </constraints>
@@ -215,6 +215,8 @@
                 </constraints>
             </view>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="375" height="1000"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="event-detail.title.label"/>
             </userDefinedRuntimeAttributes>
@@ -229,7 +231,7 @@
                 <outlet property="sponsoredView" destination="eGg-DY-77N" id="VPY-ga-3x4"/>
                 <outlet property="volunteersNeededView" destination="Nqx-qG-c9L" id="6ts-Pu-Wdj"/>
             </connections>
-            <point key="canvasLocation" x="-83.5" y="68"/>
+            <point key="canvasLocation" x="-88" y="73"/>
         </viewController>
     </objects>
 </document>

@@ -11,7 +11,7 @@
 
 import UIKit
 
-class LoginManualViewController: VLViewController {
+class LoginManualViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: VLTextField!
     @IBOutlet weak var passwordTextField: VLTextField!
@@ -21,9 +21,11 @@ class LoginManualViewController: VLViewController {
 
         emailTextField.validator = .email
         passwordTextField.validator = .required
+        setUpValidatableFields()
     }
 }
 
+// MARK :- IBActions
 extension LoginManualViewController {
     @IBAction func onLoginPressed(_ sender: Any) {
         let errorDescriptions = areAllFieldsValid()
@@ -46,5 +48,11 @@ extension LoginManualViewController {
             }.catch { error in
                 Logger.error(error.localizedDescription)
             }
+    }
+}
+
+extension LoginManualViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [emailTextField, passwordTextField]
     }
 }

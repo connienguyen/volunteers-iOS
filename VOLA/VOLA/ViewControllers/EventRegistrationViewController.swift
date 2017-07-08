@@ -12,7 +12,7 @@
 import UIKit
 import FRHyperLabel
 
-class EventRegistrationViewController: VLViewController {
+class EventRegistrationViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var loginBenefitLabel: VLHyperLabel!
     @IBOutlet weak var nameTextField: VLTextField!
@@ -28,6 +28,7 @@ class EventRegistrationViewController: VLViewController {
         title = "registration.title.label".localized
         nameTextField.validator = .name
         emailTextField.validator = .email
+        setUpValidatableFields()
 
         // Set up VLHyperLabel
         let labelText = "registration-login.title.label".localized
@@ -70,5 +71,11 @@ extension EventRegistrationViewController {
         }
 
         // TODO event registration API call
+    }
+}
+
+extension EventRegistrationViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [nameTextField, emailTextField]
     }
 }

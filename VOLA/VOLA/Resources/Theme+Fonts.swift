@@ -9,18 +9,16 @@
 import Foundation
 import UIKit
 
-extension Theme {
-    enum Font: String {
-        case font1 = "MyCustomFontName"
+enum ThemeFont: String {
+    case title = "MyCustomFont"
 
-        var identifier: String {
-            return rawValue
-        }
+    var identifier: String {
+        return rawValue
     }
 }
 
 extension UIFont {
-    convenience init(_ font: Theme.Font, size: CGFloat) {
+    convenience init(_ font: ThemeFont, size: CGFloat) {
         self.init(name: font.identifier, size: size)!
     }
 }

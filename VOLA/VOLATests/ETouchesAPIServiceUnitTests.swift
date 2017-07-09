@@ -15,8 +15,8 @@ import Mockingjay
 class ETouchesAPIServiceUnitTests: XCTestCase {
 
     func testSuccessEventDetailShouldReturnEvent() {
-        let url = ETouchesURL.baseURL + ETouchesURL.getEventAddOn
-        stub(uri(url), jsonData(JSONFileNames.eventDetail.fileData))
+        print("\(EventStubURI.getEventDetail)")
+        stub(uri(EventStubURI.getEventDetail), jsonData(JSONFileNames.eventDetail.fileData))
 
         let exp = expectation(description: "Retrieve event json from API")
         ETouchesAPIService.shared.getEventDetail(eventID: 1)
@@ -32,8 +32,7 @@ class ETouchesAPIServiceUnitTests: XCTestCase {
     }
 
     func testFailureEventDetailShouldReturnFailedPromise() {
-        let url = ETouchesURL.baseURL + ETouchesURL.getEventAddOn
-        stub(uri(url), failure(ETouchesError.couldNotRetrieveData as NSError))
+        stub(uri(EventStubURI.getEventDetail), failure(ETouchesError.couldNotRetrieveData as NSError))
 
         let exp = expectation(description: "Retrieve event json from API")
         ETouchesAPIService.shared.getEventDetail(eventID: 1)
@@ -48,8 +47,7 @@ class ETouchesAPIServiceUnitTests: XCTestCase {
     }
 
     func testSuccessAvailableEventsShouldReturnEventList() {
-        let url = ETouchesURL.baseURL + ETouchesURL.listEventsAddOn
-        stub(uri(url), jsonData(JSONFileNames.availableEvents.fileData))
+        stub(uri(EventStubURI.getAvailableEvents), jsonData(JSONFileNames.availableEvents.fileData))
 
         let exp = expectation(description: "Retrieve available events JSON from API")
         ETouchesAPIService.shared.getAvailableEvents()
@@ -65,8 +63,7 @@ class ETouchesAPIServiceUnitTests: XCTestCase {
     }
 
     func testFailureAvailableEventsShouldReturnFailedPromise() {
-        let url = ETouchesURL.baseURL + ETouchesURL.listEventsAddOn
-        stub(uri(url), failure(ETouchesError.couldNotRetrieveData as NSError))
+        stub(uri(EventStubURI.getAvailableEvents), failure(ETouchesError.couldNotRetrieveData as NSError))
 
         let exp = expectation(description: "Retrieve available events JSON from API")
         ETouchesAPIService.shared.getAvailableEvents()

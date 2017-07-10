@@ -16,9 +16,9 @@ class VLCheckbox: UIButton {
             //  TODO switch checked/unchecked images. Y/N are used temporarily to show
             //  Yes/No
             if isChecked {
-                setTitle("Y", for: .normal)
+                setTitle(UIDisplay.yes.rawValue, for: .normal)
             } else {
-                setTitle("N", for: .normal)
+                setTitle(UIDisplay.no.rawValue, for: .normal)
             }
         }
     }

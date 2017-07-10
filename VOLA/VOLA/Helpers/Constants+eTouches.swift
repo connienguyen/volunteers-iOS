@@ -13,13 +13,7 @@ import Foundation
 typealias EventCompletionBlock = (_ retrievedEvent: Event?) -> Void
 
 struct ETouchesURL {
-    static var baseURL: String {
-        // Temporarily only use mock base
-        return mockBaseURL
-    }
-
-    static let trueBaseURL = "https://www.eiseverywhere.com/api/v2/"
-    static let mockBaseURL = "https://private-fbd097-tempetouches.apiary-mock.com/"
+    static let baseURL = "https://private-fbd097-tempetouches.apiary-mock.com/"
 
     // Add-ons to base URLs
     static let accessTokenAddOn = "global/authorize.json"

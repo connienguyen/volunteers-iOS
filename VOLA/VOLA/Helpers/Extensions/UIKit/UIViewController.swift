@@ -17,13 +17,13 @@ extension UIViewController {
     }
 
     func findActivityIndicator() -> UIActivityIndicatorView? {
-        var retValue: UIActivityIndicatorView? = nil
+        var currentIndicator: UIActivityIndicatorView? = nil
         for case let indicator as UIActivityIndicatorView in view.subviews {
-            retValue = indicator
+            currentIndicator = indicator
             break
         }
 
-        return retValue
+        return currentIndicator
     }
 
     func displayActivityIndicator() {

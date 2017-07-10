@@ -31,16 +31,19 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     @IBAction func onGetDetailPressed(_ sender: Any) {
 
-        firstly { () -> Promise<Event> in
-            displayActivityIndicator()
-            return ETouchesAPIService.shared.getEventDetail(eventID: 1)
-        }.then { (event) -> Void in
-            let eventDetailVC = EventDetailViewController.instantiateFromXib()
-            eventDetailVC.event = event
-            self.removeActivityIndicator()
-            self.navigationController?.show(eventDetailVC, sender: self)
-        }.catch { error in
-            Logger.error(error.localizedDescription)
-        }
+        displayActivityIndicator()
+        ETouchesAPIService.shared.getEventDetail(eventID: 1)
+            .then { [weak self] (event) -> Void in
+                guard let `self` = self else {
+                    return
+                }
+
+                let eventDetailVC = EventDetailViewController.instantiateFromXib()
+                eventDetailVC.event = event
+                self.removeActivityIndicator()
+                self.navigationController?.show(eventDetailVC, sender: self)
+            }.catch { error in
+                Logger.error(error.localizedDescription)
+            }
     }
 }

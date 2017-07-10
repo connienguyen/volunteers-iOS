@@ -45,26 +45,25 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
 
         isShown = true
         self.title = tableType.rawValue
-        firstly { () -> Promise<[Event]> in
-            displayActivityIndicator()
-            // TODO - Switch case on self.tableType to determine which ETouchesAPIService call to return
-            // Not done yet since API call for a user's registered events is still ambiguous
-            return ETouchesAPIService.shared.getAvailableEvents()
-            }.then { [weak self] (events) -> Void in
+        displayActivityIndicator()
+        // TODO - Switch case on self.tableType to determine which ETouchesAPIService call to return
+        // Not done yet since API call for a user's registered events is still ambiguous
+        ETouchesAPIService.shared.getAvailableEvents()
+            .then { [weak self] (events) -> Void in
                 guard let `self` = self else {
                     return
                 }
 
-                `self`.events = events
-                `self`.tableView.reloadData()
-            }.catch { error in
-                Logger.error(error.localizedDescription)
+                self.events = events
+                self.tableView.reloadData()
             }.always { [weak self] in
                 guard let `self` = self else {
                     return
                 }
-                
-                `self`.removeActivityIndicator()
+
+                self.removeActivityIndicator()
+            }.catch { error in
+                Logger.error(error.localizedDescription)
             }
     }
 }

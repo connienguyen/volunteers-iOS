@@ -35,6 +35,11 @@ enum UserNumbers: UInt {
     case twiceImageIcon = 200
 }
 
+enum UIDisplay: String {
+    case yes = "Y"
+    case no = "N"
+}
+
 struct FBRequest {
     static let graphPath = "me"
     static let graphParameters = "email, name"

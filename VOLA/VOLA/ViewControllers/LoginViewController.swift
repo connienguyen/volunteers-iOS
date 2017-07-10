@@ -97,7 +97,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     return
                 }
 
-                `self`.onCancelPressed()
+                self.onCancelPressed()
 
             }.catch { error in
                 Logger.error(error.localizedDescription)
@@ -119,7 +119,7 @@ extension LoginViewController {
                     return
                 }
 
-                `self`.onCancelPressed()
+                self.onCancelPressed()
             }.catch { error in
                 Logger.error(error.localizedDescription)
             }

@@ -83,7 +83,7 @@ extension SignUpViewController {
                         return
                 }
 
-                `self`.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }.catch { error in
                 Logger.error(error.localizedDescription)
             }

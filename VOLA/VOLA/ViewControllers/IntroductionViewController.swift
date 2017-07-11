@@ -25,7 +25,7 @@ class IntroductionViewController: UIViewController {
         super.viewDidLoad()
 
         // Uncomment for testing purposes
-        Defaults.setObject(forKey: .shownIntro, object: true)
+        DefaultsManager.shared.setBool(forKey: .shownIntro, value: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -27,6 +27,14 @@
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
 		F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */; };
+		F92855FA1F154D9400D461B1 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F91F154D9400D461B1 /* DefaultManager.swift */; };
+		F92855FB1F154D9400D461B1 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F91F154D9400D461B1 /* DefaultManager.swift */; };
+		F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */; };
+		F92855FE1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */; };
+		F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */; };
+		F92856011F15585000D461B1 /* GetEventDetailMissing.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */; };
+		F928560C1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
+		F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
 		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
 		F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920301EEFF18B0055DA69 /* EventTableViewController.swift */; };
 		F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920311EEFF18B0055DA69 /* EventTableViewController.xib */; };
@@ -193,6 +201,10 @@
 		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEvents.json; sourceTree = "<group>"; };
+		F92855F91F154D9400D461B1 /* DefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManager.swift; sourceTree = "<group>"; };
+		F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailInvalid.json; sourceTree = "<group>"; };
+		F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailMissing.json; sourceTree = "<group>"; };
+		F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEventsInvalid.json; sourceTree = "<group>"; };
 		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
 		F92920301EEFF18B0055DA69 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		F92920311EEFF18B0055DA69 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewController.xib; sourceTree = "<group>"; };
@@ -337,7 +349,6 @@
 				F929203F1EF0051F0055DA69 /* Location.swift */,
 				F9ADA1311EE33CEE006C7FF1 /* User.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -349,8 +360,8 @@
 				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
 				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
+				F92855F91F154D9400D461B1 /* DefaultManager.swift */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -364,7 +375,6 @@
 				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 				F9A502281EEEFBA000AB7E9E /* Intro.swift */,
 			);
-			name = Helpers;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -379,7 +389,6 @@
 				754C46561EDED48800E2F848 /* Theme+Fonts.swift */,
 				754C46541EDED46700E2F848 /* Theme+Style.swift */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -392,7 +401,6 @@
 				754C460D1EDED11400E2F848 /* Main.storyboard */,
 				F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
@@ -417,7 +425,6 @@
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
 				F9A501DA1EEB31E500AB7E9E /* VLViewController.swift */,
 			);
-			name = ViewControllers;
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -429,7 +436,6 @@
 				F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */,
 				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -439,7 +445,6 @@
 				F98807F71EF4173E00589A23 /* EventCell.swift */,
 				F98807F41EF412F700589A23 /* EventCell.xib */,
 			);
-			name = Cells;
 			path = Cells;
 			sourceTree = "<group>";
 		};
@@ -447,7 +452,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Popups;
 			path = Popups;
 			sourceTree = "<group>";
 		};
@@ -461,7 +465,6 @@
 				F929204D1EF181B10055DA69 /* String.swift */,
 				F9A5022B1EEF0D3F00AB7E9E /* UserDefaults.swift */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -481,7 +484,6 @@
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
 				F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -489,7 +491,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -501,7 +502,6 @@
 				754C464C1EDED39800E2F848 /* Logger.swift */,
 				754C46451EDED34C00E2F848 /* ReachabilityManager.swift */,
 			);
-			name = Util;
 			path = Util;
 			sourceTree = "<group>";
 		};
@@ -509,7 +509,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Fonts;
 			path = Fonts;
 			sourceTree = "<group>";
 		};
@@ -520,7 +519,6 @@
 				754C46441EDED31500E2F848 /* Pods */,
 				754C46371EDED28F00E2F848 /* UIKit */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -550,8 +548,10 @@
 			children = (
 				F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */,
 				F9DD11D91F0E35AB006C029A /* GetEventDetail.json */,
+				F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */,
+				F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */,
+				F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */,
 			);
-			name = Fixtures;
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
@@ -645,13 +645,16 @@
 				F98807E41EF1D7BE00589A23 /* GoogleService-Info.plist in Resources */,
 				754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */,
 				F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */,
+				F928560C1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */,
 				F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
 				F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */,
 				F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */,
 				F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */,
 				F9A501CA1EE7659300AB7E9E /* Login.storyboard in Resources */,
+				F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
 				F98807F51EF412F700589A23 /* EventCell.xib in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
+				F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
 				754C460F1EDED11400E2F848 /* Main.storyboard in Resources */,
 				F9A501FB1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
 				F9A501E61EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
@@ -663,8 +666,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98807F11EF4067E00589A23 /* EventDetailViewController.xib in Resources */,
+				F92856011F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
+				F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */,
 				F9DD11DA1F0E35AB006C029A /* GetEventDetail.json in Resources */,
 				F9A501FC1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
+				F92855FE1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
 				F9A501BF1EE7600100AB7E9E /* Localizable.strings in Resources */,
 				F98807F31EF4068900589A23 /* EventTableViewController.xib in Resources */,
 				F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */,
@@ -774,6 +780,7 @@
 				F9A501D81EE8728800AB7E9E /* InputValidation.swift in Sources */,
 				F98807FB1EF41A5100589A23 /* CalendarNavigationController.swift in Sources */,
 				F92920401EF0051F0055DA69 /* Location.swift in Sources */,
+				F92855FA1F154D9400D461B1 /* DefaultManager.swift in Sources */,
 				F9A5022C1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
 				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
@@ -845,6 +852,7 @@
 				F92920421EF008B20055DA69 /* EventTableViewController.swift in Sources */,
 				F9A502031EEED00600AB7E9E /* Completions.swift in Sources */,
 				F9A502161EEED01F00AB7E9E /* UIViewController.swift in Sources */,
+				F92855FB1F154D9400D461B1 /* DefaultManager.swift in Sources */,
 				F9A5021F1EEED06C00AB7E9E /* AppDelegate.swift in Sources */,
 				F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				F9A501DC1EEB31E500AB7E9E /* VLViewController.swift in Sources */,

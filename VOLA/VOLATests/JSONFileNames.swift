@@ -12,7 +12,10 @@ import Foundation
 
 enum JSONFileNames: String {
     case eventDetail = "GetEventDetail"
+    case eventDetailInvalid = "GetEventDetailInvalid"
+    case eventDetailMissing = "GetEventDetailMissing"
     case availableEvents = "GetAvailableEvents"
+    case availableEventsInvalid = "GetAvailableEventsInvalid"
 
     var fileData: Data {
         guard let path = Bundle(for: ETouchesAPIServiceUnitTests.self).url(forResource: self.rawValue, withExtension: "json") else {

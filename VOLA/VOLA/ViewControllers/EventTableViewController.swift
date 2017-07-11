@@ -85,10 +85,6 @@ extension EventTableViewController {
 // MARK: - Table view delegate
 extension EventTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row < events.count else {
-            return
-        }
-
         let event = events[indexPath.row]
         let eventDetailVC = EventDetailViewController.instantiateFromXib()
         eventDetailVC.event = event

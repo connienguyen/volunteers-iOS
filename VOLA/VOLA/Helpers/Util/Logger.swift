@@ -14,7 +14,12 @@ class Logger {
 
     /// Logs Error messages
     static func error(_ message: CustomStringConvertible, function: String = #function, path: String = #file, line: Int = #line) {
-        Logger.write("ERRO", msg: message, function: function, path: path, line: line)
+        Logger.write("ERROR", msg: message, function: function, path: path, line: line)
+    }
+
+    /// Logs Error messages using an error's localizedDescription
+    static func error(_ localizableError: Error, function: String = #function, path: String = #file, line: Int = #line) {
+        Logger.write("ERROR", msg: localizableError.localizedDescription, function: function, path: path, line: line)
     }
 
     static private func write(_ prefix: String, msg: CustomStringConvertible, function: String = #function, path: String = #file, line: Int = #line) {

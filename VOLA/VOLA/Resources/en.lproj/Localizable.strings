@@ -22,12 +22,16 @@
 "error.user-update" = "Cannot update user.";
 "error.existing-activity-indicator" = "This view controller already has an existing activity indicator.";
 "error.etouches-no-data" = "Could not retrieve data from eTouches.";
+"error.load-json-data" = "Could not load JSON data from file.";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";
 "email.title.label" = "Email Address";
 "name.title.label" = "Name";
 "password.title.label" = "Password";
+"yes-short.prompt.label" = "Y";
+"no-short.prompt.label" = "N";
+"defailt-name.label" = "Default Name";
 
 // EditProfileViewController
 "save-changes.prompt.label" = "Save Changes";

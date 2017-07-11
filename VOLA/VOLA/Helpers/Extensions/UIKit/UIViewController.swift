@@ -17,19 +17,13 @@ extension UIViewController {
     }
 
     func findActivityIndicator() -> UIActivityIndicatorView? {
-        var currentIndicator: UIActivityIndicatorView? = nil
-        for case let indicator as UIActivityIndicatorView in view.subviews {
-            currentIndicator = indicator
-            break
-        }
-
-        return currentIndicator
+        return view.subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView
     }
 
     func displayActivityIndicator() {
         guard findActivityIndicator() == nil else {
             // Make sure there isn't already an activity indicator
-            Logger.error(UIError.existingActivityIndicator.localizedDescription)
+            Logger.error(UIError.existingActivityIndicator)
             return
         }
 
@@ -42,7 +36,7 @@ extension UIViewController {
     }
 
     func removeActivityIndicator() {
-        for case let indicator as UIActivityIndicatorView in view.subviews {
+        if let indicator = findActivityIndicator() {
             indicator.removeFromSuperview()
         }
     }

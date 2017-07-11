@@ -28,7 +28,7 @@ class EditProfileViewController: VLViewController {
 
     private func configureProfile() {
         guard let user = DataManager.shared.currentUser else {
-            Logger.error(VLError.notLoggedIn.localizedDescription)
+            Logger.error(VLError.notLoggedIn)
             return
         }
 

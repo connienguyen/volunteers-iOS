@@ -36,8 +36,13 @@ enum UserNumbers: UInt {
 }
 
 enum UIDisplay: String {
-    case yes = "Y"
-    case no = "N"
+    case yes = "yes-short.prompt.label"
+    case no = "no-short.prompt.label"
+    case defaultName = "default-name.label"
+
+    var localized: String {
+        return rawValue.localized
+    }
 }
 
 struct FBRequest {

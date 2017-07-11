@@ -16,17 +16,17 @@ enum JSONFileNames: String {
 
     var fileData: Data {
         guard let path = Bundle(for: ETouchesAPIServiceUnitTests.self).url(forResource: self.rawValue, withExtension: "json") else {
-            fatalError()
+            fatalError(VLError.loadJSONData.localizedDescription)
         }
 
         do {
             let data = try Data(contentsOf: path)
             return data
         } catch {
-            Logger.error(error.localizedDescription)
+            Logger.error(error)
         }
 
         // If it has reached this point, throw an error
-        fatalError()
+        fatalError(VLError.loadJSONData.localizedDescription)
     }
 }

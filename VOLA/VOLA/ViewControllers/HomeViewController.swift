@@ -32,7 +32,7 @@ extension HomeViewController {
     @IBAction func onGetDetailPressed(_ sender: Any) {
 
         displayActivityIndicator()
-        ETouchesAPIService.shared.getEventDetail(eventID: 1)
+        ETouchesAPIService.shared.getEventDetail(eventID: ETouchesParameters.mockEventID)
             .then { [weak self] (event) -> Void in
                 guard let `self` = self else {
                     return
@@ -43,7 +43,7 @@ extension HomeViewController {
                 self.removeActivityIndicator()
                 self.navigationController?.show(eventDetailVC, sender: self)
             }.catch { error in
-                Logger.error(error.localizedDescription)
+                Logger.error(error)
             }
     }
 }

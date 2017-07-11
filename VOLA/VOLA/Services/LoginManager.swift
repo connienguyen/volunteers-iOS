@@ -24,7 +24,7 @@ class LoginManager {
 
     func logOut() {
         guard let user = DataManager.shared.currentUser else {
-            Logger.error("Attempted to log out when not logged in.")
+            Logger.error(VLError.notLoggedIn)
             return
         }
         switch user.userType {

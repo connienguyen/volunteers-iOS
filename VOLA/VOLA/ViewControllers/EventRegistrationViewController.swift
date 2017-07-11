@@ -20,23 +20,27 @@ class EventRegistrationViewController: VLViewController {
     @IBOutlet weak var accommodationTextView: UITextView!
     @IBOutlet weak var volunteerCheckbox: VLCheckbox!
 
+    let titleKey = "registration.title.label"
+    let registrationLabelKey = "registration-login.title.label"
+    let registrationPromptKey = "registration-login.prompt.title.label"
+
     var event: Event = Event()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "registration.title.label".localized
+        title = titleKey.localized
         nameTextField.validator = .name
         emailTextField.validator = .email
 
         // Set up VLHyperLabel
-        let labelText = "registration-login.title.label".localized
+        let labelText = registrationLabelKey.localized
         loginBenefitLabel.setAttributedString(labelText, fontSize: TextSize.normal.fontSize)
         let loginHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
             self.present(loginNavVC, animated: true, completion: nil)
         }
-        loginBenefitLabel.setLinkForSubstring("registration-login.prompt.title.label".localized, withLinkHandler: loginHandler)
+        loginBenefitLabel.setLinkForSubstring(registrationPromptKey.localized, withLinkHandler: loginHandler)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +53,7 @@ class EventRegistrationViewController: VLViewController {
         eventNameLabel.text = event.name
         loginBenefitLabel.isHidden = DataManager.shared.isLoggedIn
         guard let user = DataManager.shared.currentUser else {
+            Logger.error(VLError.notLoggedIn)
             return
         }
 

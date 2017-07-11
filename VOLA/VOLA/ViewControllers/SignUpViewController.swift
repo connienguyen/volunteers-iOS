@@ -19,6 +19,10 @@ class SignUpViewController: VLViewController {
     @IBOutlet weak var confirmTextField: VLTextField!
     @IBOutlet weak var signUpAgreeLabel: VLHyperLabel!
 
+    let agreeLabelKey = "signup-agree.title.label"
+    let tosPromptKey = "tos.title.label"
+    let privacyPromptKey = "privacy.title.label"
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,11 +32,11 @@ class SignUpViewController: VLViewController {
         confirmTextField.addTarget(self, action: #selector(confirmFieldDidChange(_:)), for: .editingDidEnd)
 
         // Set up hyper label
-        let labelText = "signup-agree.title.label".localized
+        let labelText = agreeLabelKey.localized
         signUpAgreeLabel.setAttributedString(labelText, fontSize: 14.0)
         let termsHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             guard let url = ABIURL.termsOfService else {
-                Logger.error(VLError.invalidTOS.localizedDescription)
+                Logger.error(VLError.invalidTOS)
                 return
             }
 
@@ -40,14 +44,14 @@ class SignUpViewController: VLViewController {
         }
         let privacyHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             guard let url = ABIURL.privacyPolicy else {
-                Logger.error(VLError.invalidPrivacy.localizedDescription)
+                Logger.error(VLError.invalidPrivacy)
                 return
             }
 
             UIApplication.shared.openURL(url)
         }
-        signUpAgreeLabel.setLinkForSubstring("tos.title.label".localized, withLinkHandler: termsHandler)
-        signUpAgreeLabel.setLinkForSubstring("privacy.title.label".localized, withLinkHandler: privacyHandler)
+        signUpAgreeLabel.setLinkForSubstring(tosPromptKey.localized, withLinkHandler: termsHandler)
+        signUpAgreeLabel.setLinkForSubstring(privacyPromptKey.localized, withLinkHandler: privacyHandler)
     }
 
     func confirmFieldDidChange(_ textField: VLTextField) {
@@ -85,7 +89,7 @@ extension SignUpViewController {
 
                 self.dismiss(animated: true, completion: nil)
             }.catch { error in
-                Logger.error(error.localizedDescription)
+                Logger.error(error)
             }
     }
 }

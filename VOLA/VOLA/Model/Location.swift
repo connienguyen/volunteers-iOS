@@ -32,28 +32,16 @@ class Location {
     var country: String = ""
     var phone: String = ""
 
+    var addressString: String {
+        let mainAddressArray: [String] = [name, address1, address2, city].filter({ !$0.trimmed.isEmpty})
+        return mainAddressArray.joined(separator: "\n").trimmed
+    }
+
     required init?(map: Map) {
         // Required to conform to protocol
     }
 
-    //  This init is primarily used to return a default Location model without using a map, such as
-    //  on the Event model. It can also be used for testing/mocking purposes.
-    init(name: String = "", addressOne: String = "", addressTwo: String = "", city: String = "",
-         postCode: String = "", country: String = "", phone: String = "") {
-
-        self.name = name
-        self.address1 = addressOne
-        self.address2 = addressTwo
-        self.city = city
-        self.postCode = postCode
-        self.country = country
-        self.phone = phone
-    }
-
-    func addressString() -> String {
-        let mainAddressArray: [String] = [name, address1, address2, city].filter({ $0.trimmed != ""})
-        return mainAddressArray.joined(separator: "\n").trimmed
-    }
+    init() { /* Used to initialize Location object with default values (e.g. in Event) */ }
 }
 
 extension Location: Mappable {

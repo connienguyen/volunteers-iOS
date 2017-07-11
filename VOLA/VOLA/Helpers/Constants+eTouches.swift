@@ -36,4 +36,5 @@ enum ETouchesKeys: String {
 
 struct ETouchesParameters {
     static let listEvents = "location,eventid,name,event_image,url"
+    static let mockEventID = 1
 }

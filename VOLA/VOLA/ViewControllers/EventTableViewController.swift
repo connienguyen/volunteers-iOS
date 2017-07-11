@@ -38,7 +38,7 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
         super.viewWillAppear(animated)
 
         // Since view controller is instantiated from XIB file, need to do first load
-        // UI activities here
+        // UI setup here (set title, retrieve events for data source)
         guard !isShown else {
             return
         }
@@ -63,7 +63,7 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
 
                 self.removeActivityIndicator()
             }.catch { error in
-                Logger.error(error.localizedDescription)
+                Logger.error(error)
             }
     }
 }
@@ -76,10 +76,6 @@ extension EventTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(indexPath, cellType: EventCell.self)
-        guard indexPath.row < events.count else {
-            return cell
-        }
-
         let event = events[indexPath.row]
         cell.configureCell(event: event)
         return cell

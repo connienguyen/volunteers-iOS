@@ -29,7 +29,7 @@ extension ETouchesAPIService {
 
                     guard let event = eventResponse else {
                         let error = ETouchesError.couldNotRetrieveData
-                        Logger.error(error.localizedDescription)
+                        Logger.error(error)
                         reject(error)
                         return
                     }
@@ -53,7 +53,7 @@ extension ETouchesAPIService {
 
                     guard let events = eventsResponse else {
                         let error = ETouchesError.couldNotRetrieveData
-                        Logger.error(error.localizedDescription)
+                        Logger.error(error)
                         reject(error)
                         return
                     }

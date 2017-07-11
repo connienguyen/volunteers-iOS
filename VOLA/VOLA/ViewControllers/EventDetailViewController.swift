@@ -21,6 +21,8 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
     @IBOutlet weak var sponsorImageView: UIImageView!
     @IBOutlet weak var registerView: UIView!
 
+    let registerPromptKey = "register.prompt.label"
+
     var event: Event = Event()
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +35,7 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
     func configureDetailView() {
         // Details viewable in all events
         eventTitleLabel.text = event.name
-        addressLabel.text = event.location.addressString()
+        addressLabel.text = event.location.addressString
         descriptionLabel.text = event.description
         if let eventImageURL = event.eventImageURL {
             eventImageView.kf.setImage(with: eventImageURL)
@@ -55,7 +57,12 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
             registerView.isHidden = true
         case.unregistered:
             registeredLabel.isHidden = true
-            let registerBarButton = UIBarButtonItem(title: "register.prompt.label".localized, style: .plain, target: self, action: #selector(onRegisterPressed(_:)))
+            let registerBarButton = UIBarButtonItem(
+                title: registerPromptKey.localized,
+                style: .plain,
+                target: self,
+                action: #selector(onRegisterPressed(_:))
+            )
             navigationItem.rightBarButtonItem = registerBarButton
         }
     }

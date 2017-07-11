@@ -44,7 +44,7 @@ extension LoginManualViewController {
 
                 self.dismiss(animated: true, completion: nil)
             }.catch { error in
-                Logger.error(error.localizedDescription)
+                Logger.error(error)
             }
     }
 }

@@ -108,7 +108,7 @@ struct ManualLoginStrategy: SocialNetworkingAuthenticationStrategy {
             // TODO - Need API access + documentation to log in user on backend
             // temporarily saving the user and returning (Gives user a default name for now)
             // "Default Name" name is temporary and will be changed once hooked up to backend
-            fulfill(User(name: "Default Name", email: email, userType: .manual))
+            fulfill(User(name: UIDisplay.defaultName.localized, email: email, userType: .manual))
         }
     }
 }

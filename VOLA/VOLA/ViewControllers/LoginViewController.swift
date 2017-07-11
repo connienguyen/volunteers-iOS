@@ -19,6 +19,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var signUpLabel: VLHyperLabel!
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
 
+    let signUpTitleKey = "signup.title.label"
+    let signUpPromptKey = "signup.prompt.title.label"
+
     var introSender: Bool = false
 
     override func viewDidLoad() {
@@ -36,12 +39,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
 
         // Handle hyper label set up
-        let labelText = "signup.title.label".localized
+        let labelText = signUpTitleKey.localized
         signUpLabel.setAttributedString(labelText, fontSize: 16.0)
         let signUpHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
             self.onSignUpPressed()
         }
-        signUpLabel.setLinkForSubstring("signup.prompt.title.label".localized, withLinkHandler: signUpHandler)
+        signUpLabel.setLinkForSubstring(signUpPromptKey.localized, withLinkHandler: signUpHandler)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +89,7 @@ extension LoginViewController {
 extension LoginViewController: FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         guard let response = result, response.token != nil else {
-            Logger.error("Facebook response or access token is nil.")
+            Logger.error(VLError.invalidFacebookResponse)
             return
         }
 
@@ -100,7 +103,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 self.onCancelPressed()
 
             }.catch { error in
-                Logger.error(error.localizedDescription)
+                Logger.error(error)
             }
     }
 
@@ -121,7 +124,7 @@ extension LoginViewController {
 
                 self.onCancelPressed()
             }.catch { error in
-                Logger.error(error.localizedDescription)
+                Logger.error(error)
             }
     }
 }

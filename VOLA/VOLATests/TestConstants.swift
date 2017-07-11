@@ -32,6 +32,7 @@ struct InputConstants {
 }
 
 struct EventTestConstants {
+    static let testEventID = 1
     static let testEventName = "Test Event Name - from JSON"
     static let availableEventsCount = 3
 }

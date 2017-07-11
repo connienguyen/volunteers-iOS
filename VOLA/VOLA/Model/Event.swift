@@ -47,23 +47,7 @@ class Event {
         // Required to conform to Mappable; can do JSON validation here
     }
 
-    //  This init is primarily used for creating a default Event model to avoid using optionals like on
-    //  the EventDetailViewController. It can also be used for mocking/testing purposes
-    init(eventID: Int = 0, name: String = "", description: String = "", location: Location? = nil,
-         areVolunteersNeeded: Bool = false, eventImage: URL? = nil, sponsorImage: URL? = nil) {
-        
-        self.eventID = eventID
-        self.name = name
-        self.description = description
-        if let foundLocation = location {
-            self.location = foundLocation
-        } else {
-            self.location = Location()
-        }
-        self.areVolunteersNeeded = areVolunteersNeeded
-        self.eventImageURL = eventImage
-        self.sponsorImageURL = sponsorImage
-    }
+    init() { /* Used to initialized an Event with default values (i.e. in EventDetailViewController) */}
 }
 
 extension Event: Mappable {

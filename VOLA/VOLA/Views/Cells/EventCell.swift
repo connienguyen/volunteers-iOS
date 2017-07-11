@@ -22,7 +22,7 @@ class EventCell: UITableViewCell {
 
     func configureCell(event: Event) {
         nameLabel.text = event.name
-        addressLabel.text = event.location.addressString()
+        addressLabel.text = event.location.addressString
         registeredLabel.isHidden = event.eventType == .unregistered
         registeredLabel.text = event.eventType.labelText
 

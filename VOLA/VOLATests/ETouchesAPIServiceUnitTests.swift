@@ -15,11 +15,10 @@ import Mockingjay
 class ETouchesAPIServiceUnitTests: XCTestCase {
 
     func testSuccessEventDetailShouldReturnEvent() {
-        print("\(EventStubURI.getEventDetail)")
         stub(uri(EventStubURI.getEventDetail), jsonData(JSONFileNames.eventDetail.fileData))
 
         let exp = expectation(description: "Retrieve event json from API")
-        ETouchesAPIService.shared.getEventDetail(eventID: 1)
+        ETouchesAPIService.shared.getEventDetail(eventID: EventTestConstants.testEventID)
             .then { retrievedEvent -> Void in
                 exp.fulfill()
                 XCTAssertEqual(retrievedEvent.name, EventTestConstants.testEventName)

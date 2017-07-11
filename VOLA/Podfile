@@ -33,5 +33,5 @@ target 'VOLA' do
     pod 'Google/SignIn', '~> 3.0.3'
 
     # Testing
-    pod 'Mockingjay'
+    pod 'Mockingjay', '~> 2.0.0'
 end

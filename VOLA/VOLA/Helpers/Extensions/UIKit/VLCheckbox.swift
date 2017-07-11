@@ -16,9 +16,9 @@ class VLCheckbox: UIButton {
             //  TODO switch checked/unchecked images. Y/N are used temporarily to show
             //  Yes/No
             if isChecked {
-                setTitle(UIDisplay.yes.rawValue, for: .normal)
+                setTitle(UIDisplay.yes.localized, for: .normal)
             } else {
-                setTitle(UIDisplay.no.rawValue, for: .normal)
+                setTitle(UIDisplay.no.localized, for: .normal)
             }
         }
     }
@@ -30,10 +30,6 @@ class VLCheckbox: UIButton {
     }
 
     func onPress(sender: UIButton) {
-        guard sender == self else {
-            return
-        }
-
         isChecked = !isChecked
     }
 }

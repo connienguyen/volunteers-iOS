@@ -2,10 +2,6 @@
 //  LoginViewController.swift
 //  VOLA
 //
-//  View controller where user is presented with multiple methods of logging
-//  in, including social logins and manual login. The user can also navigate
-//  to the sign up screen from this view.
-//
 //  Created by Connie Nguyen on 5/31/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -14,6 +10,11 @@ import UIKit
 import FRHyperLabel
 import FBSDKLoginKit
 
+/**
+View controller where user is presented with multiple methods of logging in,
+ including social logins amd manual login. User can also navigate to sign up
+ from this view controller.
+*/
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var signUpLabel: VLHyperLabel!
@@ -64,6 +65,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         removeNotificationObserver(NotificationName.googleDidSignIn)
     }
 
+    /**
+    Show SignUpViewController
+    */
     func onSignUpPressed() {
         guard let storyboard = storyboard else {
             Logger.error("Storyboard for LoginViewController was nil.")
@@ -74,6 +78,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         navigationController?.show(signUpVC, sender: self)
     }
 
+    /**
+    Dismiss login views 
+    */
     func onCancelPressed() {
         dismiss(animated: true, completion: nil)
     }
@@ -86,6 +93,7 @@ extension LoginViewController {
     }
 }
 
+// MARK:- FBSDKLoginButtonDelegate
 extension LoginViewController: FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         guard let response = result, response.token != nil else {

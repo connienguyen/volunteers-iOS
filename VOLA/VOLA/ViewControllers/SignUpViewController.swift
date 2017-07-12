@@ -2,8 +2,6 @@
 //  SignUpViewController.swift
 //  VOLA
 //
-//  SignUpViewController allows user to manually sign up for the app.
-//
 //  Created by Connie Nguyen on 6/3/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -11,6 +9,7 @@
 import UIKit
 import FRHyperLabel
 
+/// View controller allows user to sign up for an account
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: VLTextField!
@@ -63,7 +62,7 @@ class SignUpViewController: UIViewController {
 //MARK: - IBActions
 extension SignUpViewController {
     @IBAction func onSignUpPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let name = nameTextField.text,
             let email = emailTextField.text,
             let password = passwordTextField.text,
@@ -95,6 +94,7 @@ extension SignUpViewController {
     }
 }
 
+// MARK:- Validatable; protocol to validate applicable text fields on view controller
 extension SignUpViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [nameTextField, emailTextField, passwordTextField]

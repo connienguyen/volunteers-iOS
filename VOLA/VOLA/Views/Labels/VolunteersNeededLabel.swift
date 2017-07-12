@@ -2,14 +2,13 @@
 //  VolunteersNeededLabel.swift
 //  VOLA
 //
-//  Label to display that an event is in need of volunteers
-//
 //  Created by Connie Nguyen on 7/8/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 
+/// Padded stylized label to display that an event is in need of volunteers
 class VolunteersNeededLabel: UILabel, PaddableLabel {
     var textInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0.5, left: 3.0, bottom: 0.5, right: 3.0)

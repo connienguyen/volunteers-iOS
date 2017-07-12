@@ -2,9 +2,6 @@
 //  EditProfileViewController.swift
 //  VOLA
 //
-//  EditProfileViewController manages the view controller where a logged in user can edit
-//  their profile.
-//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -12,6 +9,7 @@
 import UIKit
 import Kingfisher
 
+/// View controller where a logged in user can edit their profile.
 class EditProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameTextField: VLTextField!
@@ -47,8 +45,11 @@ class EditProfileViewController: UIViewController {
 
 // MARK: - IBActions
 extension EditProfileViewController {
+    /**
+    Save changes made to user profile to backend
+    */
     @IBAction func onSaveChangesPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let name = nameTextField.text,
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
@@ -68,6 +69,7 @@ extension EditProfileViewController {
     }
 }
 
+// MARK:- Validatable; protocol to validate text fields on view controller
 extension EditProfileViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [nameTextField, emailTextField]

@@ -27,14 +27,6 @@
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
 		F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */; };
-		F92855FA1F154D9400D461B1 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F91F154D9400D461B1 /* DefaultManager.swift */; };
-		F92855FB1F154D9400D461B1 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F91F154D9400D461B1 /* DefaultManager.swift */; };
-		F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */; };
-		F92855FE1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */; };
-		F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */; };
-		F92856011F15585000D461B1 /* GetEventDetailMissing.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */; };
-		F928560C1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
-		F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
 		F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
 		F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
 		F92855E21F103DAD00D461B1 /* RegisteredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */; };
@@ -51,6 +43,14 @@
 		F92855F51F11249500D461B1 /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F31F11249500D461B1 /* TextLabel.swift */; };
 		F92855F71F11262800D461B1 /* ThinLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F61F11262800D461B1 /* ThinLabel.swift */; };
 		F92855F81F11262800D461B1 /* ThinLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F61F11262800D461B1 /* ThinLabel.swift */; };
+		F92855FA1F154D9400D461B1 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F91F154D9400D461B1 /* DefaultManager.swift */; };
+		F92855FB1F154D9400D461B1 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92855F91F154D9400D461B1 /* DefaultManager.swift */; };
+		F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */; };
+		F92855FE1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */; };
+		F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */; };
+		F92856011F15585000D461B1 /* GetEventDetailMissing.json in Resources */ = {isa = PBXBuildFile; fileRef = F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */; };
+		F928560C1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
+		F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
 		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
 		F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920301EEFF18B0055DA69 /* EventTableViewController.swift */; };
 		F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920311EEFF18B0055DA69 /* EventTableViewController.xib */; };
@@ -223,10 +223,6 @@
 		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEvents.json; sourceTree = "<group>"; };
-		F92855F91F154D9400D461B1 /* DefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManager.swift; sourceTree = "<group>"; };
-		F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailInvalid.json; sourceTree = "<group>"; };
-		F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailMissing.json; sourceTree = "<group>"; };
-		F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEventsInvalid.json; sourceTree = "<group>"; };
 		F9259D491F0EDEA100CE7954 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredLabel.swift; sourceTree = "<group>"; };
 		F92855E41F10416100D461B1 /* PaddedRegisteredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedRegisteredLabel.swift; sourceTree = "<group>"; };
@@ -235,6 +231,10 @@
 		F92855F01F1111C500D461B1 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F92855F31F11249500D461B1 /* TextLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
 		F92855F61F11262800D461B1 /* ThinLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThinLabel.swift; sourceTree = "<group>"; };
+		F92855F91F154D9400D461B1 /* DefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManager.swift; sourceTree = "<group>"; };
+		F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailInvalid.json; sourceTree = "<group>"; };
+		F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailMissing.json; sourceTree = "<group>"; };
+		F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEventsInvalid.json; sourceTree = "<group>"; };
 		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
 		F92920301EEFF18B0055DA69 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		F92920311EEFF18B0055DA69 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewController.xib; sourceTree = "<group>"; };
@@ -326,7 +326,6 @@
 			children = (
 				804F3D01F628070DB8EE1677 /* Frameworks */,
 				E5751441BD2F8393FD5E66FE /* Pods */,
-				754C46071EDED11400E2F848 /* Products */,
 				754C46081EDED11400E2F848 /* VOLA */,
 				754C461D1EDED11400E2F848 /* VOLATests */,
 			);
@@ -389,11 +388,11 @@
 			isa = PBXGroup;
 			children = (
 				F9A377FA1EE5818900299FD3 /* DataManager.swift */,
+				F92855F91F154D9400D461B1 /* DefaultManager.swift */,
 				F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */,
 				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
 				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
-				F92855F91F154D9400D461B1 /* DefaultManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -514,13 +513,13 @@
 				754C46391EDED2D600E2F848 /* AppDelegateExtension.swift */,
 				754C463A1EDED2D600E2F848 /* UIColor.swift */,
 				754C463B1EDED2D600E2F848 /* UIKit+Localization.swift */,
+				F92855F01F1111C500D461B1 /* UILabel.swift */,
 				F9A502251EEEDC2A00AB7E9E /* UIScrollView.swift */,
 				F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */,
 				754C46591EDED5B300E2F848 /* UITableView.swift */,
 				754C46381EDED2D600E2F848 /* UIView.swift */,
 				F9B2348D1EE6D72500884E4E /* UIViewController.swift */,
 				F9A5022E1EEF273E00AB7E9E /* XIBInstantiable.swift */,
-				F92855F01F1111C500D461B1 /* UILabel.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -573,6 +572,7 @@
 		E5751441BD2F8393FD5E66FE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				754C46071EDED11400E2F848 /* Products */,
 				7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */,
 				192A5878F35DB0A7174DE67C /* Pods-VOLATests.debug.xcconfig */,
 				FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */,
@@ -586,12 +586,31 @@
 			children = (
 				F92855E41F10416100D461B1 /* PaddedRegisteredLabel.swift */,
 				F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */,
-				F92855E71F10DDA600D461B1 /* TitleLabel.swift */,
-				F92855EA1F11103300D461B1 /* VolunteersNeededLabel.swift */,
 				F92855F31F11249500D461B1 /* TextLabel.swift */,
 				F92855F61F11262800D461B1 /* ThinLabel.swift */,
+				F92855E71F10DDA600D461B1 /* TitleLabel.swift */,
+				F92855EA1F11103300D461B1 /* VolunteersNeededLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		F928560E1F15731800D461B1 /* GetEventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F9DD11D91F0E35AB006C029A /* GetEventDetail.json */,
+				F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */,
+				F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */,
+			);
+			path = GetEventDetail;
+			sourceTree = "<group>";
+		};
+		F928560F1F15733A00D461B1 /* GetAvailableEvents */ = {
+			isa = PBXGroup;
+			children = (
+				F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */,
+				F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */,
+			);
+			path = GetAvailableEvents;
 			sourceTree = "<group>";
 		};
 		F94B4A821F0FFDD600AEB13A /* Buttons */ = {
@@ -606,11 +625,8 @@
 		F9DD11D81F0E34EA006C029A /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */,
-				F9DD11D91F0E35AB006C029A /* GetEventDetail.json */,
-				F92855FC1F1557D800D461B1 /* GetEventDetailInvalid.json */,
-				F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */,
-				F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */,
+				F928560F1F15733A00D461B1 /* GetAvailableEvents */,
+				F928560E1F15731800D461B1 /* GetEventDetail */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";

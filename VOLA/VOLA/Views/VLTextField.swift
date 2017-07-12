@@ -8,8 +8,11 @@
 
 import UIKit
 
+/// Stylized custom text field enabled with input validation
 class VLTextField: UITextField {
+    /// Validation method for text input
     var validator: InputValidation = .none
+    /// Update text field's border display according to input validity
     var isValid: Bool = false {
         willSet {
             self.layer.borderColor = newValue ? ThemeColors.lightGrey.cgColor : ThemeManager.shared.currentTheme.errorColor.cgColor
@@ -26,6 +29,7 @@ class VLTextField: UITextField {
         layer.cornerRadius = 3.0
     }
 
+    /// Validate current text input and update border display accordingly
     func validate() {
         isValid = validator.isValid(self.text)
     }

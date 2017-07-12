@@ -2,9 +2,6 @@
 //  ProfileViewController.swift
 //  VOLA
 //
-//  ProfileViewController allows user to view their profile if they are
-//  logged in. If not, they are given the option to sign up or login.
-//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -12,6 +9,10 @@
 import UIKit
 import Kingfisher
 
+/**
+View controller where user can view their profile if they are logged in, otherwise
+ encourage user to sign up or log in.
+*/
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var currentUserView: UIView!

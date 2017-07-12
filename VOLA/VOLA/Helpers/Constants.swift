@@ -17,10 +17,12 @@ enum DefaultsKey: String {
     case selectedTheme
 }
 
+/// Constants for storyboard segues
 enum Segue: String {
     case showLoginManual
     case showEditProfile
 
+    /// Storyboard segue identifier
     var identifier: String {
         return rawValue
     }
@@ -36,6 +38,7 @@ enum UserNumbers: UInt {
     case twiceImageIcon = 200
 }
 
+/// Constants for localized UI display text
 enum UIDisplay: String {
     case yes = "yes-short.prompt.label"
     case no = "no-short.prompt.label"
@@ -46,6 +49,7 @@ enum UIDisplay: String {
     }
 }
 
+/// Constants for requests to Facebook for data
 struct FBRequest {
     static let graphPath = "me"
     static let graphParameters = "email, name"
@@ -53,8 +57,9 @@ struct FBRequest {
     static let imageURLFormat = "https://graph.facebook.com/%@/picture?type=large"
 }
 
+/// Constants for Anita Borg Institute URLs
 struct ABIURL {
-    // TODO set to real URL values
+    // TODO: set to real URL values
     static let termsOfService = URL(string: "https://anitaborg.org")
     static let privacyPolicy = URL(string: "https://anitaborg.org")
 }

@@ -2,9 +2,6 @@
 //  IntroductionViewController.swift
 //  VOLA
 //
-//  Introduction slides shown once to user on first open. Each of
-//  the slides show a benefit to the user having an account.
-//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -13,6 +10,10 @@ import UIKit
 
 class IntroductionNavigationController: UINavigationController {}
 
+/**
+Instroduction slides shown once to user on first open. Each of the slides show
+ a benefit to the user having an account.
+*/
 class IntroductionViewController: UIViewController {
 
     @IBOutlet weak var skipButton: UIButton!
@@ -83,6 +84,7 @@ extension IntroductionViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension IntroductionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pageControl.currentPage = scrollView.pageNumber()

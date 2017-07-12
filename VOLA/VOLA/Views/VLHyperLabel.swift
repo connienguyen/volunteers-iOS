@@ -9,6 +9,7 @@
 import UIKit
 import FRHyperLabel
 
+/// Stylized HyperLabel (label with clickable links)
 class VLHyperLabel: FRHyperLabel {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +20,13 @@ class VLHyperLabel: FRHyperLabel {
         ]
     }
 
+    /**
+    Set attributed text for label
+     
+    - Parmaeters:
+        - string: Text for label
+        - fontSize: Font size for label text
+    */
     func setAttributedString(_ string: String, fontSize: CGFloat) {
         let labelAttributes = [
                 NSForegroundColorAttributeName: ThemeManager.shared.currentTheme.textColor,

@@ -2,8 +2,6 @@
 //  ETouchesAPIService+Events.swift
 //  VOLA
 //
-//  Extension on ETouchesAPIService focused on event related API calls
-//
 //  Created by Connie Nguyen on 7/5/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -13,7 +11,16 @@ import PromiseKit
 import Alamofire
 import ObjectMapper
 
+// MARK:- ETouchesAPIService extension for event releated API requests
 extension ETouchesAPIService {
+    /**
+    Get complete details for an event
+     
+    - Parameters:
+        - eventID: Identifier for event to retrieve details for
+     
+    - Returns: Event promise if successful
+    */
     func getEventDetail(eventID: Int) -> Promise<Event> {
         return Promise { fulfill, reject in
             let URL = ETouchesURL.baseURL + ETouchesURL.getEventAddOn
@@ -39,6 +46,11 @@ extension ETouchesAPIService {
         }
     }
 
+    /**
+    Get list of available events
+     
+    - Returns: Promise for array of Event objects if successful
+    */
     func getAvailableEvents() -> Promise<[Event]> {
         return Promise { fulfill, reject in
             let URL = ETouchesURL.baseURL + ETouchesURL.listEventsAddOn

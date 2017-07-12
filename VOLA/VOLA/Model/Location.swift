@@ -9,6 +9,9 @@
 import Foundation
 import ObjectMapper
 
+/**
+ Enum to organize mappable fields on Location from JSON
+*/
 enum LocationMappable: String {
     case name
     case address1
@@ -18,11 +21,13 @@ enum LocationMappable: String {
     case country
     case phone
 
+    /// JSON key to map from
     var mapping: String {
         return self.rawValue.lowercased()
     }
 }
 
+/// Model for Location data within an Event
 class Location {
     var name: String = ""
     var address1: String = ""
@@ -41,9 +46,11 @@ class Location {
         // Required to conform to protocol
     }
 
-    init() { /* Used to initialize Location object with default values (e.g. in Event) */ }
+    /// Used to initialize Location object with default values (e.g. in Event)
+    init() { /* intentionally empty */ }
 }
 
+// MARK:- Conform to protocol for Mappable
 extension Location: Mappable {
     func mapping(map: Map) {
         name        <- map[LocationMappable.name.mapping]

@@ -10,6 +10,7 @@
 
 import UIKit
 
+
 class PaddedRegisteredLabel: RegisteredLabel, PaddableLabel {
     var textInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 1.5, left: 2.5, bottom: 1.5, right: 2.5)

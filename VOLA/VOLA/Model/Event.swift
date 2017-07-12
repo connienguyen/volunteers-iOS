@@ -9,16 +9,27 @@
 import Foundation
 import ObjectMapper
 
+/**
+    Type of event in relation to the user
+ 
+    - registered: For events the user is registered
+    - volunteering: For events the user is registered for as a volunteer
+    - unregistered: For events the user is not registered for
+*/
 enum EventType: String {
     case registered
     case volunteering
     case unregistered
 
+    /// Display text to be used for labels
     var labelText: String {
         return self.rawValue.capitalized
     }
 }
 
+/**
+    Enum to organize mappable fields on Event from JSON
+*/
 enum EventMapable: String {
     case eventID
     case name
@@ -28,11 +39,13 @@ enum EventMapable: String {
     case eventImageURL = "event_image_url"
     case sponsorImageURL = "sponsor_image_url"
 
+    /// JSON key to map from
     var mapping: String {
         return self.rawValue.lowercased()
     }
 }
 
+/// Model for Event data
 class Event {
     var eventID: Int = 0
     var name: String = ""
@@ -47,9 +60,11 @@ class Event {
         // Required to conform to Mappable; can do JSON validation here
     }
 
-    init() { /* Used to initialized an Event with default values (i.e. in EventDetailViewController) */}
+    /// Used to initialized an Event with default values (i.e. in EventDetailViewController)
+    init() { /* Intentionally empty */}
 }
 
+// MARK:- Conform to protocol for Mappable
 extension Event: Mappable {
     func mapping(map: Map) {
         eventID             <- map[EventMapable.eventID.mapping]

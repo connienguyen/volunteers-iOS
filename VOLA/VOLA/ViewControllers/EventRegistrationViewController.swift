@@ -2,9 +2,6 @@
 //  EventRegistrationViewController.swift
 //  VOLA
 //
-//  EventRegistrationViewController allows the user to register for an event.
-//  Some fields may be autofilled if the user is logged in.
-//
 //  Created by Connie Nguyen on 6/13/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -12,6 +9,10 @@
 import UIKit
 import FRHyperLabel
 
+/**
+View controller that allows user to register for an event. Some fields may be autofilled
+ if the user is logged in.
+*/
 class EventRegistrationViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var loginBenefitLabel: VLHyperLabel!
@@ -66,7 +67,7 @@ class EventRegistrationViewController: UIViewController {
 // MARK: - IBActions
 extension EventRegistrationViewController {
     @IBAction func onRegisterPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let _ = nameTextField.text,
             let _ = emailTextField.text,
             errorDescriptions.isEmpty else {
@@ -79,6 +80,7 @@ extension EventRegistrationViewController {
     }
 }
 
+// MARK:- Validatable; protocol to validate application text fields on view controller
 extension EventRegistrationViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [nameTextField, emailTextField]

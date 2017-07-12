@@ -2,15 +2,15 @@
 //  LoginManualViewController.swift
 //  VOLA
 //
-//  View controller that allows user to log in to their account
-//  manually with an email and password.
-//
 //  Created by Connie Nguyen on 5/31/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 
+/**
+View controller where user can log in to their account manually with an email and password
+*/
 class LoginManualViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: VLTextField!
@@ -28,7 +28,7 @@ class LoginManualViewController: UIViewController {
 // MARK :- IBActions
 extension LoginManualViewController {
     @IBAction func onLoginPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             errorDescriptions.isEmpty else {
@@ -51,6 +51,7 @@ extension LoginManualViewController {
     }
 }
 
+// MARK:- Validatable; protocol to validate applicable fields on view controller
 extension LoginManualViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [emailTextField, passwordTextField]

@@ -2,14 +2,13 @@
 //  TitleLabel.swift
 //  VOLA
 //
-//  TitleLabel is the UILabel to be used for title elements
-//
 //  Created by Connie Nguyen on 7/8/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 
+/// Stylized label with a semibold font weight
 class TitleLabel: UILabel {
     override func awakeFromNib() {
         super.awakeFromNib()

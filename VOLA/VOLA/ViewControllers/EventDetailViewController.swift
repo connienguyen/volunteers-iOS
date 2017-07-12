@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 
+/// View controller for displaying event details
 class EventDetailViewController: UIViewController, XIBInstantiable {
 
     @IBOutlet weak var registeredLabel: RegisteredLabel!

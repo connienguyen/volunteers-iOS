@@ -25,14 +25,15 @@ class LoginManualViewController: UIViewController {
     }
 }
 
-// MARK :- IBActions
+// MARK : - IBActions
 extension LoginManualViewController {
+    /// Display validation errors if there are any, otherwise make request to backend to login user
     @IBAction func onLoginPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             errorDescriptions.isEmpty else {
-                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                let errorMessage = String.combineStrings(errorDescriptions, separator: "\n")
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
@@ -51,7 +52,7 @@ extension LoginManualViewController {
     }
 }
 
-// MARK:- Validatable; protocol to validate applicable fields on view controller
+// MARK: - Validatable; protocol to validate applicable fields on view controller
 extension LoginManualViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [emailTextField, passwordTextField]

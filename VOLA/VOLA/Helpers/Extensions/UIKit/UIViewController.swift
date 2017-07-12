@@ -23,18 +23,14 @@ extension UIViewController {
         performSegue(withIdentifier: segue.identifier, sender: self)
     }
 
-    /**
-    Finds the currently active activity indicator
-     
-    - Returns: Current activity indicator if there is one, otherwise nil
-    */
-    func findActivityIndicator() -> UIActivityIndicatorView? {
+    /// Currently active indicator, nil if there is no indicator
+    var currentActivityIndicator: UIActivityIndicatorView? {
         return view.subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView
     }
 
     /// Display activity indicator if there is not one already active
     func displayActivityIndicator() {
-        guard findActivityIndicator() == nil else {
+        guard currentActivityIndicator == nil else {
             // Make sure there isn't already an activity indicator
             Logger.error(UIError.existingActivityIndicator)
             return
@@ -51,7 +47,7 @@ extension UIViewController {
 
     /// Remove current activity indicator if there is one
     func removeActivityIndicator() {
-        if let indicator = findActivityIndicator() {
+        if let indicator = currentActivityIndicator {
             indicator.removeFromSuperview()
         }
     }

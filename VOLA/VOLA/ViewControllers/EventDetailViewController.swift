@@ -33,6 +33,7 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
         configureDetailView()
     }
 
+    /// Configure view controller to display event details and hide unused stack view elements
     func configureDetailView() {
         // Details viewable in all events
         eventTitleLabel.text = event.name

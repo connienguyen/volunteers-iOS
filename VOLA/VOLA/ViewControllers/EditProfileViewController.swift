@@ -53,7 +53,7 @@ extension EditProfileViewController {
         guard let name = nameTextField.text,
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
-                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                let errorMessage = String.combineStrings(errorDescriptions, separator: "\n")
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
@@ -69,7 +69,7 @@ extension EditProfileViewController {
     }
 }
 
-// MARK:- Validatable; protocol to validate text fields on view controller
+// MARK: - Validatable; protocol to validate text fields on view controller
 extension EditProfileViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [nameTextField, emailTextField]

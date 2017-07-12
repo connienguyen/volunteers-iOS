@@ -91,7 +91,7 @@ extension Validatable where Self: UIViewController {
     }
 }
 
-// MARK:- Validator
+// MARK: - Validator
 extension UIViewController: Validator {
     /**
     Validate text field at end of editing
@@ -103,4 +103,3 @@ extension UIViewController: Validator {
         textField.validate()
     }
 }
-

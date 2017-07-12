@@ -35,10 +35,12 @@ class ProfileViewController: UIViewController {
         switchUserView()
     }
 
+    /// Segue to EditProfileViewController
     func onEditPressed() {
         performSegue(withIdentifier: Segue.showEditProfile.identifier, sender: self)
     }
 
+    /// Configure display based on whether or not user is logged in or not
     func switchUserView() {
         currentUserView.isHidden = !DataManager.shared.isLoggedIn
         anonUserView.isHidden = DataManager.shared.isLoggedIn
@@ -61,11 +63,13 @@ class ProfileViewController: UIViewController {
 
 // MARK: - IBActions
 extension ProfileViewController {
+    /// Log out user and update display accordingly
     @IBAction func onLogoutPressed(_ sender: Any) {
         LoginManager.shared.logOut()
         switchUserView()
     }
 
+    /// Show login user flow
     @IBAction func onLoginPressed(_ sender: Any) {
         let loginNavController: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
         present(loginNavController, animated: true, completion: nil)

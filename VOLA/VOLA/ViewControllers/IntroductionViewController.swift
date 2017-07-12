@@ -50,6 +50,7 @@ class IntroductionViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
+    /// Set up scroll view delegate and load introduction slides as scroll view pages
     private func loadScrollView() {
         scrollView.delegate = self
         scrollView.loadScrollPages(views: Intro.introSlides.map { $0.createSlideView() })
@@ -57,7 +58,9 @@ class IntroductionViewController: UIViewController {
     }
 }
 
+// MARK: - Intro.IntroDetail does not need to be aware of this extension so it is fileprivate
 fileprivate extension Intro.IntroDetail {
+    /// Create introduction slide view and populate it with data from IntroDetail
     func createSlideView() -> IntroSlideView {
         let view = IntroSlideView.instantiateFromXib()
         view.titleLabel.text = title
@@ -69,16 +72,19 @@ fileprivate extension Intro.IntroDetail {
 
 // MARK: - IBActions
 extension IntroductionViewController {
+    /// Scroll to next page when page controll is pressed
     @IBAction func onPageControlPressed(_ sender: Any) {
         scrollView.scrollToPage(page: pageControl.currentPage)
     }
 
+    /// Show login flow
     @IBAction func onLoginPressed(_ sender: Any) {
         let loginVC: LoginViewController = UIStoryboard(.login).instantiateViewController()
         loginVC.introSender = true
         navigationController?.show(loginVC, sender: self)
     }
 
+    /// Skip introduction slides and dismiss view controller
     @IBAction func onSkipPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -87,6 +93,6 @@ extension IntroductionViewController {
 // MARK: - UIScrollViewDelegate
 extension IntroductionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControl.currentPage = scrollView.pageNumber()
+        pageControl.currentPage = scrollView.currentPage
     }
 }

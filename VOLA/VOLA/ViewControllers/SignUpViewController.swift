@@ -32,35 +32,29 @@ class SignUpViewController: UIViewController {
         confirmTextField.addTarget(self, action: #selector(confirmFieldDidChange(_:)), for: .editingDidEnd)
 
         // Set up hyper label
-        let labelText = agreeLabelKey.localized
-        signUpAgreeLabel.setAttributedString(labelText, fontSize: 14.0)
-        let termsHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-            guard let url = ABIURL.termsOfService else {
-                Logger.error(VLError.invalidTOS)
-                return
-            }
-
-            UIApplication.shared.openURL(url)
-        }
-        let privacyHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-            guard let url = ABIURL.privacyPolicy else {
-                Logger.error(VLError.invalidPrivacy)
-                return
-            }
-
-            UIApplication.shared.openURL(url)
-        }
-        signUpAgreeLabel.setLinkForSubstring(tosPromptKey.localized, withLinkHandler: termsHandler)
-        signUpAgreeLabel.setLinkForSubstring(privacyPromptKey.localized, withLinkHandler: privacyHandler)
+        let signUpHandlers = [
+            HyperHandler(linkText: tosPromptKey.localized, linkHandler: {
+                URL.applicationOpen(url: ABIURL.termsOfService, error: VLError.invalidTOS)
+            }),
+            HyperHandler(linkText: privacyPromptKey.localized, linkHandler: {
+                URL.applicationOpen(url: ABIURL.privacyPolicy, error: VLError.invalidPrivacy)
+            })
+        ]
+        signUpAgreeLabel.setUpLabel(agreeLabelKey.localized, textSize: .small, handlers: signUpHandlers)
     }
 
+    /// Validate confirmTextField on editing did end
     func confirmFieldDidChange(_ textField: VLTextField) {
         confirmTextField.isValid = confirmTextField.text == passwordTextField.text
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension SignUpViewController {
+    /**
+     Display validation errors it there are any, otherwise make request to server to
+     create an account
+    */
     @IBAction func onSignUpPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
         guard let name = nameTextField.text,
@@ -74,7 +68,7 @@ extension SignUpViewController {
                 return
         }
         guard errorDescriptions.isEmpty else {
-            let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+            let errorMessage = String.combineStrings(errorDescriptions, separator: "\n")
             showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
             Logger.error(errorMessage)
             return
@@ -94,7 +88,7 @@ extension SignUpViewController {
     }
 }
 
-// MARK:- Validatable; protocol to validate applicable text fields on view controller
+// MARK: - Validatable; protocol to validate applicable text fields on view controller
 extension SignUpViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
         return [nameTextField, emailTextField, passwordTextField]

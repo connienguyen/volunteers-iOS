@@ -8,9 +8,7 @@
 
 import UIKit
 
-/**
-Stylized image view to display image in a rounder rectangular view
-*/
+/// Stylized image view to display image in a rounder rectangular view
 class RoundedImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()

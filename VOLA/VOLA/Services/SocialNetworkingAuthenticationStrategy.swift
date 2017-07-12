@@ -31,7 +31,7 @@ enum AvailableLoginStrategies {
     case custom(Promise<User>)
 }
 
-// MARK:- SocialNetworkingAuthenticationStrategy
+// MARK: - SocialNetworkingAuthenticationStrategy
 extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
     /**
     Login based on the selected user authentication method
@@ -52,7 +52,7 @@ extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
     }
 }
 
-// MARK:- SocialNetworkingAuthenticationStrategy
+// MARK: - SocialNetworkingAuthenticationStrategy
 /// Strategy for user authentication via Facebook
 struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     /**
@@ -86,7 +86,7 @@ struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     }
 }
 
-// MARK:- SocialNetworkingAuthenticationStrategy
+// MARK: - SocialNetworkingAuthenticationStrategy
 /**
 Strategy for user authentication via Google
  
@@ -113,7 +113,7 @@ struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     }
 }
 
-// MARK:- SocialNetworkingAuthenticationStrategy
+// MARK: - SocialNetworkingAuthenticationStrategy
 /**
 Strategy for user authentication by creating a new user account
  
@@ -140,7 +140,7 @@ struct ManualSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     }
 }
 
-// MARK:- SocialNetworkingAuthenticationStrategy
+// MARK: - SocialNetworkingAuthenticationStrategy
 /**
 Strategy for user authentication by manually logging in
  

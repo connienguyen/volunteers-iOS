@@ -2,15 +2,13 @@
 //  PaddedRegisteredLabel.swift
 //  VOLA
 //
-//  PaddedRegisteredLabel is a padded label for use in EventCell
-//
 //  Created by Connie Nguyen on 7/8/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 
-
+/// Padded label for use in EventCell
 class PaddedRegisteredLabel: RegisteredLabel, PaddableLabel {
     var textInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 1.5, left: 2.5, bottom: 1.5, right: 2.5)

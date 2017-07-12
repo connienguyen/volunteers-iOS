@@ -64,7 +64,7 @@ class Event {
     init() { /* Intentionally empty */}
 }
 
-// MARK:- Conform to protocol for Mappable
+// MARK: - Conform to protocol for Mappable
 extension Event: Mappable {
     func mapping(map: Map) {
         eventID             <- map[EventMapable.eventID.mapping]

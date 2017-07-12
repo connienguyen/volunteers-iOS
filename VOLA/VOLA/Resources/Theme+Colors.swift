@@ -6,6 +6,7 @@
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
+/// Constants for color palette used for styling app
 struct ThemeColors {
     static let crimson = UIColor(hex: 0xEF4135)
     static let caribbean = UIColor(hex: 0x54BCEB)
@@ -17,4 +18,3 @@ struct ThemeColors {
     static let white = UIColor(hex: 0xFFFFFF)
     static let emerald = UIColor(hex: 0x00833E)
 }
-

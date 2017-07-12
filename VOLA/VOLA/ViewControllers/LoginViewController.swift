@@ -23,6 +23,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     let signUpTitleKey = "signup.title.label"
     let signUpPromptKey = "signup.prompt.title.label"
 
+    /// Set to true if sender was an introduction slide
     var introSender: Bool = false
 
     override func viewDidLoad() {
@@ -40,12 +41,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
 
         // Handle hyper label set up
-        let labelText = signUpTitleKey.localized
-        signUpLabel.setAttributedString(labelText, fontSize: 16.0)
-        let signUpHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-            self.onSignUpPressed()
-        }
-        signUpLabel.setLinkForSubstring(signUpPromptKey.localized, withLinkHandler: signUpHandler)
+        let signUpHandlers = [
+            HyperHandler(linkText: signUpPromptKey.localized, linkHandler: {
+                self.onSignUpPressed()
+            })
+        ]
+        signUpLabel.setUpLabel(signUpTitleKey.localized, textSize: .normal, handlers: signUpHandlers)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,9 +66,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         removeNotificationObserver(NotificationName.googleDidSignIn)
     }
 
-    /**
-    Show SignUpViewController
-    */
+    /// Show SignUpViewController
     func onSignUpPressed() {
         guard let storyboard = storyboard else {
             Logger.error("Storyboard for LoginViewController was nil.")
@@ -78,9 +77,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         navigationController?.show(signUpVC, sender: self)
     }
 
-    /**
-    Dismiss login views 
-    */
+    /// Dismiss login views
     func onCancelPressed() {
         dismiss(animated: true, completion: nil)
     }
@@ -93,8 +90,9 @@ extension LoginViewController {
     }
 }
 
-// MARK:- FBSDKLoginButtonDelegate
+// MARK: - FBSDKLoginButtonDelegate
 extension LoginViewController: FBSDKLoginButtonDelegate {
+    /// Log in user using Facebook
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         guard let response = result, response.token != nil else {
             Logger.error(VLError.invalidFacebookResponse)
@@ -109,14 +107,13 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 }
 
                 self.onCancelPressed()
-
             }.catch { error in
                 Logger.error(error)
             }
     }
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        // TODO - func is required to be defined as a FBSDKLoginButtonDelegate
+        /* intentionally left blank and required to confirm to FBSDKLoginButtonDelegate */
     }
 }
 

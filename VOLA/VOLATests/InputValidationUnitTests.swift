@@ -26,13 +26,13 @@ class InputValidationUnitTests: XCTestCase {
     func testFailureIncompleteEmailShouldReturnFalse() {
         let validation: InputValidation = .email
         let input = InputConstants.incompleteEmail
-        XCTAssertFalse(validation.isValid(input),  "Emails with invalid domain strings are invalid")
+        XCTAssertFalse(validation.isValid(input), "Emails with invalid domain strings are invalid")
     }
 
     func testFailureEmailWithWitespaceShouldReturnFalse() {
         let validation: InputValidation = .email
         let input = InputConstants.whitespaceEmail
-        XCTAssertFalse(validation.isValid(input),  "Emails with extra whitespace are invalid.")
+        XCTAssertFalse(validation.isValid(input), "Emails with extra whitespace are invalid.")
     }
 
     func testSuccessValidNameShouldReturnTrue() {

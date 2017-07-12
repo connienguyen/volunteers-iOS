@@ -11,7 +11,7 @@ import PromiseKit
 import Alamofire
 import ObjectMapper
 
-// MARK:- ETouchesAPIService extension for event releated API requests
+// MARK: - ETouchesAPIService extension for event releated API requests
 extension ETouchesAPIService {
     /**
     Get complete details for an event

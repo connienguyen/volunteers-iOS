@@ -50,7 +50,7 @@ class Location {
     init() { /* intentionally empty */ }
 }
 
-// MARK:- Conform to protocol for Mappable
+// MARK: - Conform to protocol for Mappable
 extension Location: Mappable {
     func mapping(map: Map) {
         name        <- map[LocationMappable.name.mapping]

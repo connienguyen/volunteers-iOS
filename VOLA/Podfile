@@ -31,4 +31,7 @@ target 'VOLA' do
     pod 'FBSDKLoginKit', '~> 4.22.1'
     pod 'FBSDKShareKit', '~> 4.22.1'
     pod 'Google/SignIn', '~> 3.0.3'
+
+    # Testing
+    pod 'Mockingjay', '~> 2.0.0'
 end

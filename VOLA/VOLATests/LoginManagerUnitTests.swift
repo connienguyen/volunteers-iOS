@@ -23,7 +23,7 @@ class LoginManagerUnitTests: XCTestCase {
         }
 
         XCTAssertNil(DataManager.shared.currentUser, "Start state: current user should be nil.")
-        LoginManager.shared.login(authenticationPromise: userPromise)
+        LoginManager.shared.login(.custom(userPromise))
             .always {
                 let currentUser = DataManager.shared.currentUser
                 XCTAssertNotNil(currentUser, "Successful should set the current user to a not nil value.")
@@ -42,7 +42,7 @@ class LoginManagerUnitTests: XCTestCase {
         }
 
         XCTAssertNil(DataManager.shared.currentUser, "Start state: current user should be nil.")
-        LoginManager.shared.login(authenticationPromise: userPromise)
+        LoginManager.shared.login(.custom(userPromise))
             .always {
                 XCTAssertNil(DataManager.shared.currentUser, "After failed login, current user should still be nil.")
             }

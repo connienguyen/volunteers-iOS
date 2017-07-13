@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  VOLA
+
+  Created by Connie Nguyen on 6/7/17.
+  Copyright © 2017 Systers-Opensource. All rights reserved.
+*/
+
+// Error
+"error.invalid-facebook-token" = "Request not completed due to invalid Facebook access token.";
+"error.invalid-facebook-response" = "Could not cast Facebook response to [String: Any].";
+"error.invalid-google-user" = "Could not log in with this Google account.";
+"error.not-logged-in" = "Action could not be completed because user is not logged in.";
+"error.invalid-email" = "Please provide a valid email address.";
+"error.invalid-name" = "Please enter your first and last name.";
+"error.invalid-password" = "Please enter a password that is at least 8 characters long and includes a lowercase, uppercase, and a number.";
+"error.invalid-confirm" = "Passwords do not match.";
+"error.invalid-required" = "Please complete required field.";
+"error.invalid-TOS" = "Invalid URL for ABI terms of service.";
+"error.invalid-privacy" = "Invalid URL for ABI privacy policy";
+"error.validation" = "Invalid Input";
+"error.user-update" = "Cannot update user.";
+"error.existing-activity-indicator" = "This view controller already has an existing activity indicator.";
+"error.etouches-no-data" = "Could not retrieve data from eTouches.";
+"error.load-json-data" = "Could not load JSON data from file.";
+
+// Generic
+"confirm-password.title.label" = "Confirm Password";
+"email.title.label" = "Email Address";
+"name.title.label" = "Name";
+"password.title.label" = "Password";
+"yes-short.prompt.label" = "Y";
+"no-short.prompt.label" = "N";
+"defailt-name.label" = "Default Name";
+
+// EditProfileViewController
+"save-changes.prompt.label" = "Save Changes";
+
+// EventRegistrationViewController
+"registration.title.label" = "Event Registration";
+"event.title.label" = "Event Title";
+"registration-login.title.label" = "Log in to pre-fill your information and save this to your events.";
+"registration-login.prompt.title.label" = "Log in";
+"accommodations.title.label" = "Special Accommodations";
+"accommodations-description.title.label" = "Please inform event organizers if you neec any special accommodation such as accessibility issues or allergies";
+"volunteer.prompt.label" = "I would like to volunteer at this event.";
+"register.prompt.label" = "Register";
+
+// HomeViewController
+"home.title.label" = "Home";
+"login.prompt.label" = "Log In";
+"logout.prompt.label" = "Log Out";
+
+// IntroductionViewController
+"skip.prompt.label" = "Skip";
+"slide-0.title.label" = "Get Started";
+"slide-0.detail.label" = "Easily login using a social profile like Facebook or Google.";
+"slide-1.title.label" = "Autofill Forms";
+"slide-1.detail.label" = "Quickly register for events with details autofilled from your profile.";
+"slide-2.title.label" = "Track Events";
+"slide-2.detail.label" = "View events registered with your profile.";
+
+// LoginViewController
+"enable-event-login.title.label" = "Enable quick event registration and saved events by logging in";
+"signup.title.label" = "Don't have a Vola account yet? Sign up now.";
+"signup.prompt.title.label" = "Sign up now.";
+"login-facebook.prompt.label"  = "Log in with Facebook";
+"login-email.prompt.label" = "Log in with Email";
+
+// LoginManualViewController
+"login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
+
+// ProfileViewController
+"first-last.title.label" = "Firstname Lastname";
+"sample-email.title.label" = "email@address.org";
+"not-logged-in.title.label" = "You are not logged in";
+"login-to-view.title.label" = "Log in to view your profile, enable quick event registration, and view your registered events.";
+
+// SignUpViewController
+"create-account.title.label" = "Create an account to view and manage volunteer opportunities in your area.";
+"signup.prompt.label" = "Sign Up";
+"signup-agree.title.label" = "By signing up you agree to the Terms of Service. You can also view the Privacy Policy.";
+"tos.title.label" = "Terms of Service.";
+"privacy.title.label" = "Privacy Policy.";
+

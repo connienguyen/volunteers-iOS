@@ -30,3 +30,16 @@ struct InputConstants {
     static let invalidRequiredInputSpace = " "
     static let invalidRequiredInputWhitespace = "\r\t"
 }
+
+struct EventTestConstants {
+    static let testEventID = 1
+    static let testEventName = "Test Event Name - from JSON"
+    static let availableEventsCount = 3
+}
+
+struct EventStubURI {
+    static let getEventDetail = ETouchesURL.baseURL + ETouchesURL.getEventAddOn +
+            "{?\(ETouchesKeys.accessToken.forURL),\(ETouchesKeys.eventID.forURL),\(ETouchesKeys.customFields.forURL)}"
+    static let getAvailableEvents = ETouchesURL.baseURL + ETouchesURL.listEventsAddOn +
+            "{?\(ETouchesKeys.accessToken.forURL),\(ETouchesKeys.fields.forURL)}"
+}

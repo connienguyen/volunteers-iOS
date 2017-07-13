@@ -2,17 +2,19 @@
 //  HomeViewController.swift
 //  VOLA
 //
-//  View controller where user can view available events in their area
-//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 import PromiseKit
+import CoreLocation
+import GoogleMaps
 
+/// View controller where user can view available events in their area on a map view
 class HomeViewController: UIViewController {
 
+    let locationManager = CLLocationManager()
     var didLayout: Bool = false
 
     override func viewDidLoad() {
@@ -24,6 +26,17 @@ class HomeViewController: UIViewController {
             let introNavController: IntroductionNavigationController = UIStoryboard(.main).instantiateViewController()
             present(introNavController, animated: true, completion: nil)
         }
+
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+
+        guard let currentLocation = locationManager.location else {
+            return
+        }
+
+        let camera = GMSCameraPosition.camera(withLatitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude, zoom: 6.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        view = mapView
     }
 }
 

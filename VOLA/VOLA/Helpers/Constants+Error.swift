@@ -24,6 +24,7 @@ enum VLError: String, LocalizedError {
     case userUpdate = "error.user-update"
     case loadJSONData = "error.load-json-data"
     case invalidURL = "error.invalid-url"
+    case loadPlistData = "error.load-plist-data"
 
     var errorDescription: String? {
         return rawValue.localized

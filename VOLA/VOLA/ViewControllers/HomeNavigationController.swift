@@ -17,7 +17,7 @@ class HomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let eventTable = EventTableViewController.instantiateFromXib()
-        setViewControllers([eventTable], animated: true)
+        let homeVC: HomeViewController = UIStoryboard(.home).instantiateViewController()
+        setViewControllers([homeVC], animated: true)
     }
 }

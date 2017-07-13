@@ -23,6 +23,7 @@
 "error.existing-activity-indicator" = "This view controller already has an existing activity indicator.";
 "error.etouches-no-data" = "Could not retrieve data from eTouches.";
 "error.load-json-data" = "Could not load JSON data from file.";
+"error.load-plist-data" = "Could not open .plist file";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";

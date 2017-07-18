@@ -14,47 +14,51 @@
             <objects>
                 <navigationController id="aYH-uM-SWg" customClass="HomeNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="nzh-V4-Z8T"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dZa-Yo-2iB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dZa-Yo-2iB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="hXh-aB-3Vf" kind="relationship" relationship="rootViewController" id="o2l-MB-ltv"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QT9-kb-kDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1116" y="405"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="1PN-HW-VAT">
+        <!--Home Container View Controller-->
+        <scene sceneID="NXS-6m-XfJ">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="IWH-ZM-gGl" customClass="HomeViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="hXh-aB-3Vf" customClass="HomeContainerViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QSj-zG-osB"/>
-                        <viewControllerLayoutGuide type="bottom" id="OEr-Vf-jPr"/>
+                        <viewControllerLayoutGuide type="top" id="ML6-fr-UJd"/>
+                        <viewControllerLayoutGuide type="bottom" id="P8B-Ix-MbQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Nbs-FI-wM3">
+                    <view key="view" contentMode="scaleToFill" id="50l-iZ-Qcj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLr-1B-rYz">
-                                <rect key="frame" x="132" y="318" width="118" height="30"/>
-                                <state key="normal" title="Get Event Details"/>
-                                <connections>
-                                    <action selector="onGetDetailPressed:" destination="IWH-ZM-gGl" eventType="touchUpInside" id="ptx-hJ-a5D"/>
-                                </connections>
-                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ay1-ww-aTE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FLr-1B-rYz" firstAttribute="centerX" secondItem="Nbs-FI-wM3" secondAttribute="centerX" id="YP9-zB-mz6"/>
-                            <constraint firstItem="FLr-1B-rYz" firstAttribute="centerY" secondItem="Nbs-FI-wM3" secondAttribute="centerY" id="wi0-qJ-oG3"/>
+                            <constraint firstItem="Ay1-ww-aTE" firstAttribute="leading" secondItem="50l-iZ-Qcj" secondAttribute="leading" id="cyC-hb-rsy"/>
+                            <constraint firstItem="Ay1-ww-aTE" firstAttribute="top" secondItem="ML6-fr-UJd" secondAttribute="bottom" id="ib9-lp-YJS"/>
+                            <constraint firstItem="P8B-Ix-MbQ" firstAttribute="top" secondItem="Ay1-ww-aTE" secondAttribute="bottom" id="k5q-im-8aM"/>
+                            <constraint firstAttribute="trailing" secondItem="Ay1-ww-aTE" secondAttribute="trailing" id="oqw-fq-N7j"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="NlT-Rd-0PM"/>
-                    <navigationItem key="navigationItem" id="d4u-4c-hcP"/>
+                    <navigationItem key="navigationItem" id="Ph2-OC-LPe"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="container" destination="Ay1-ww-aTE" id="awb-PX-dyU"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YpM-eA-tER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQ0-m3-NkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="406"/>
+            <point key="canvasLocation" x="-118" y="404"/>
         </scene>
         <!--Event Registration View Controller-->
         <scene sceneID="bfd-Tn-7Tv">
@@ -236,6 +240,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSP-BU-bHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="812" y="409.7451274362819"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="tgn-se-hOC">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="C3q-Ku-QKd" customClass="MapViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LIT-vl-HeR"/>
+                        <viewControllerLayoutGuide type="bottom" id="MoP-tx-Vej"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ccu-9z-gXV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-WB-gGV" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9ke-WB-gGV" secondAttribute="trailing" id="23w-nN-ej6"/>
+                            <constraint firstItem="9ke-WB-gGV" firstAttribute="leading" secondItem="ccu-9z-gXV" secondAttribute="leading" id="4rc-VZ-6hF"/>
+                            <constraint firstItem="9ke-WB-gGV" firstAttribute="top" secondItem="LIT-vl-HeR" secondAttribute="bottom" id="DjZ-jD-ey1"/>
+                            <constraint firstItem="MoP-tx-Vej" firstAttribute="top" secondItem="9ke-WB-gGV" secondAttribute="bottom" id="E9H-GB-eBh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="9ke-WB-gGV" id="ROF-ch-T4O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2T-UI-yKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="1165"/>
         </scene>
     </scenes>
 </document>

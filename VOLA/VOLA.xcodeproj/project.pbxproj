@@ -55,6 +55,17 @@
 		F92856161F17900F00D461B1 /* SecretKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856151F17900F00D461B1 /* SecretKeyManager.swift */; };
 		F92856171F17900F00D461B1 /* SecretKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856151F17900F00D461B1 /* SecretKeyManager.swift */; };
 		F928561B1F17A99700D461B1 /* SecretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561A1F17A99700D461B1 /* SecretKeys.plist */; };
+		F928561D1F18141700D461B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561C1F18141700D461B1 /* GoogleService-Info.plist */; };
+		F928561F1F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */; };
+		F92856201F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */; };
+		F92856221F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */; };
+		F92856231F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */; };
+		F92856251F18ECA100D461B1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856241F18ECA100D461B1 /* MapViewController.swift */; };
+		F92856261F18ECA100D461B1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856241F18ECA100D461B1 /* MapViewController.swift */; };
+		F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */; };
+		F92856291F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */; };
+		F928562B1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */; };
+		F928562C1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */; };
 		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
 		F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92920301EEFF18B0055DA69 /* EventTableViewController.swift */; };
 		F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92920311EEFF18B0055DA69 /* EventTableViewController.xib */; };
@@ -78,7 +89,6 @@
 		F94B4A871F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F94B4A881F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
-		F98807E41EF1D7BE00589A23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */; };
 		F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
 		F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
 		F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E91EF3DF9700589A23 /* VLCheckbox.swift */; };
@@ -125,8 +135,6 @@
 		F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */; };
 		F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
 		F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
-		F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
-		F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
 		F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */; };
 		F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */; };
 		F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F71EEEC59C00AB7E9E /* Home.storyboard */; };
@@ -239,6 +247,12 @@
 		F92856101F16B25C00D461B1 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		F92856151F17900F00D461B1 /* SecretKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeyManager.swift; sourceTree = "<group>"; };
 		F928561A1F17A99700D461B1 /* SecretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SecretKeys.plist; sourceTree = "<group>"; };
+		F928561C1F18141700D461B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventMapInfoWindow.xib; path = VOLA/Views/EventMapInfoWindow.xib; sourceTree = SOURCE_ROOT; };
+		F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMapInfoWindow.swift; path = VOLA/Views/EventMapInfoWindow.swift; sourceTree = SOURCE_ROOT; };
+		F92856241F18ECA100D461B1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerViewController.swift; sourceTree = "<group>"; };
+		F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+GoogleMaps.swift"; sourceTree = "<group>"; };
 		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
 		F92920301EEFF18B0055DA69 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		F92920311EEFF18B0055DA69 /* EventTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewController.xib; sourceTree = "<group>"; };
@@ -253,7 +267,6 @@
 		F94B4A831F0FFE1900AEB13A /* VLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLButton.swift; sourceTree = "<group>"; };
 		F94B4A861F10330800AEB13A /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
-		F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		F98807E91EF3DF9700589A23 /* VLCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLCheckbox.swift; sourceTree = "<group>"; };
@@ -282,7 +295,6 @@
 		F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroSlideView.xib; sourceTree = "<group>"; };
 		F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroSlideView.swift; sourceTree = "<group>"; };
 		F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLTabBarController.swift; sourceTree = "<group>"; };
-		F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F9A501F71EEEC59C00AB7E9E /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F9A501FA1EEEC67700AB7E9E /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -356,10 +368,10 @@
 				754C462E1EDED1F600E2F848 /* ViewControllers */,
 				754C462F1EDED20200E2F848 /* Views */,
 				754C46091EDED11400E2F848 /* AppDelegate.swift */,
-				F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */,
 				754C46151EDED11400E2F848 /* Info.plist */,
 				F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */,
 				F928561A1F17A99700D461B1 /* SecretKeys.plist */,
+				F928561C1F18141700D461B1 /* GoogleService-Info.plist */,
 			);
 			path = VOLA;
 			sourceTree = "<group>";
@@ -411,6 +423,7 @@
 				754C46471EDED36200E2F848 /* Util */,
 				F98807FF1F05A96700589A23 /* Constants+Error.swift */,
 				F98808061F0864AF00589A23 /* Constants+eTouches.swift */,
+				F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */,
 				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 				F9A502281EEEFBA000AB7E9E /* Intro.swift */,
 			);
@@ -450,19 +463,20 @@
 				F98807FA1EF41A5100589A23 /* CalendarNavigationController.swift */,
 				F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */,
 				F98807E71EF26A2800589A23 /* EventDetailViewController.swift */,
-				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
 				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
 				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
-				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
+				F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */,
 				F98808091F0864DF00589A23 /* HomeNavigationController.swift */,
-				F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */,
 				F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */,
 				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
 				F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */,
 				F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */,
+				F92856241F18ECA100D461B1 /* MapViewController.swift */,
 				F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */,
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
+				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
+				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -495,6 +509,8 @@
 		754C46311EDED20B00E2F848 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */,
+				F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -725,7 +741,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F98807E41EF1D7BE00589A23 /* GoogleService-Info.plist in Resources */,
 				754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */,
 				F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */,
 				F928560C1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */,
@@ -738,6 +753,8 @@
 				F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
 				F98807F51EF412F700589A23 /* EventCell.xib in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
+				F928561D1F18141700D461B1 /* GoogleService-Info.plist in Resources */,
+				F928561F1F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
 				754C460F1EDED11400E2F848 /* Main.storyboard in Resources */,
 				F9A501FB1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
@@ -762,6 +779,7 @@
 				F9A5021D1EEED03800AB7E9E /* Login.storyboard in Resources */,
 				F9A502211EEED34100AB7E9E /* LaunchScreen.storyboard in Resources */,
 				F9A5021E1EEED03D00AB7E9E /* Main.storyboard in Resources */,
+				F92856201F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F9A501F91EEEC59C00AB7E9E /* Home.storyboard in Resources */,
 				F9A501E71EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
 				F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
@@ -856,6 +874,7 @@
 				F92920321EEFF18B0055DA69 /* EventTableViewController.swift in Sources */,
 				F9B234991EE7532F00884E4E /* LoginManager.swift in Sources */,
 				F929203D1EF003D60055DA69 /* Event.swift in Sources */,
+				F928562B1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */,
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
 				F92855E21F103DAD00D461B1 /* RegisteredLabel.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
@@ -866,6 +885,7 @@
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
 				F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
+				F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F9A502291EEEFBA000AB7E9E /* Intro.swift in Sources */,
 				F9A502261EEEDC2A00AB7E9E /* UIScrollView.swift in Sources */,
 				F94B4A871F10330800AEB13A /* RoundedImageView.swift in Sources */,
@@ -876,6 +896,7 @@
 				F92855F41F11249500D461B1 /* TextLabel.swift in Sources */,
 				F9A5022C1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
+				F92856251F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
 				F92855F71F11262800D461B1 /* ThinLabel.swift in Sources */,
@@ -887,9 +908,9 @@
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
 				F9DD11D31F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
-				F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
 				F98808041F0863D800589A23 /* ETouchesAccessToken.swift in Sources */,
 				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
+				F92856221F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */,
 				F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */,
 				F9A501D21EE7E97B00AB7E9E /* Errors.swift in Sources */,
 				754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */,
@@ -920,6 +941,8 @@
 				F9A5021A1EEED02300AB7E9E /* Date.swift in Sources */,
 				F9A502021EEED00600AB7E9E /* ReachabilityManager.swift in Sources */,
 				F92855E91F10DDA600D461B1 /* TitleLabel.swift in Sources */,
+				F928562C1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */,
+				F92856261F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9A502301EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F94B4A881F10330800AEB13A /* RoundedImageView.swift in Sources */,
@@ -936,6 +959,7 @@
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,
 				F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */,
 				F92920481EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
+				F92856231F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */,
 				F929203E1EF003D60055DA69 /* Event.swift in Sources */,
 				F9A502241EEED34500AB7E9E /* Theme+Fonts.swift in Sources */,
 				F94B4A851F0FFE1900AEB13A /* VLButton.swift in Sources */,
@@ -948,6 +972,7 @@
 				F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,
 				F9A5022D1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F94B4A811F0FD13300AEB13A /* ThemeManager.swift in Sources */,
+				F92856291F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F94B4A7E1F0FD00400AEB13A /* Theme.swift in Sources */,
 				F9B2349A1EE7532F00884E4E /* LoginManager.swift in Sources */,
 				F9A502191EEED02300AB7E9E /* NSObject.swift in Sources */,
@@ -961,7 +986,6 @@
 				F9A5021F1EEED06C00AB7E9E /* AppDelegate.swift in Sources */,
 				F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				F9ADA1331EE33CEE006C7FF1 /* User.swift in Sources */,
-				F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
 				F92856171F17900F00D461B1 /* SecretKeyManager.swift in Sources */,
 				F98807EF1EF405A700589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
 				F9A501E11EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,

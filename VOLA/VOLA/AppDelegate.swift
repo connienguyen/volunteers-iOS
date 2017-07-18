@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import GoogleMaps
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Set up Google Maps API
         GMSServices.provideAPIKey(SecretKeyManager.shared.value(forKey: .googleMaps))
+        FIRApp.configure()
 
         ThemeManager.shared.applyTheme(theme: ThemeManager.shared.currentTheme)
         return true

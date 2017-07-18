@@ -12,12 +12,4 @@ import UIKit
 Navigation controller that sets the root view controller for the home tab on the
  tab bar navigation
 */
-class HomeNavigationController: UINavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let homeVC: HomeViewController = UIStoryboard(.home).instantiateViewController()
-        setViewControllers([homeVC], animated: true)
-    }
-}
+class HomeNavigationController: UINavigationController {}

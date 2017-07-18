@@ -14,14 +14,13 @@ extension URL {
      
     - Parameters:
         - url: URL to open
-        - error: Error in case URL could not be opened
     */
-    static func applicationOpen(url: URL?, error: Error) {
-        guard let url = url else {
-            Logger.error(error.localizedDescription)
+    static func applicationOpen(url: URL?) {
+        guard let validURL = url else {
+            Logger.error("\(VLError.invalidURL.errorDescription) \(url)")
             return
         }
 
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.openURL(validURL)
     }
 }

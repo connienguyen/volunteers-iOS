@@ -26,10 +26,4 @@ class RegisteredLabel: UILabel {
             }
         }
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        textColor = ThemeColors.white
-    }
 }

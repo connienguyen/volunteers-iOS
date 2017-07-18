@@ -8,10 +8,15 @@
 
 import UIKit
 
+fileprivate let topPadding: CGFloat = 1.5
+fileprivate let leftPadding: CGFloat = 2.5
+fileprivate let bottomPadding: CGFloat = 1.5
+fileprivate let rightPadding: CGFloat = 2.5
+
 /// Padded label for use in EventCell
 class PaddedRegisteredLabel: RegisteredLabel, PaddableLabel {
     var textInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 1.5, left: 2.5, bottom: 1.5, right: 2.5)
+        return UIEdgeInsets(top: topPadding, left: leftPadding, bottom: bottomPadding, right: rightPadding)
     }
 
     // Calculate proper insets due to autolayout

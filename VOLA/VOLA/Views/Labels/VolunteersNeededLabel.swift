@@ -8,16 +8,15 @@
 
 import UIKit
 
+fileprivate let topPadding: CGFloat = 0.5
+fileprivate let leftPadding: CGFloat = 3.0
+fileprivate let bottomPadding: CGFloat = 0.5
+fileprivate let rightPadding: CGFloat = 3.0
+
 /// Padded stylized label to display that an event is in need of volunteers
 class VolunteersNeededLabel: UILabel, PaddableLabel {
     var textInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 0.5, left: 3.0, bottom: 0.5, right: 3.0)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        textColor = ThemeColors.white
+        return UIEdgeInsets(top: topPadding, left: leftPadding, bottom: bottomPadding, right: rightPadding)
     }
 
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {

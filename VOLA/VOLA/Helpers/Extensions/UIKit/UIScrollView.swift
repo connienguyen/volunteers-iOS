@@ -39,7 +39,7 @@ extension UIScrollView {
     Scroll frame to content on given page
      
     - Parameters:
-        - page: Page to scroll to
+        - page: Page to scroll to in horizontal direction
     */
     func scrollToPage(page: Int) {
         var newFrame = self.frame

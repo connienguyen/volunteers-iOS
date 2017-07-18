@@ -34,10 +34,10 @@ class SignUpViewController: UIViewController {
         // Set up hyper label
         let signUpHandlers = [
             HyperHandler(linkText: tosPromptKey.localized, linkHandler: {
-                URL.applicationOpen(url: ABIURL.termsOfService, error: VLError.invalidTOS)
+                URL.applicationOpen(url: ABIURL.termsOfService)
             }),
             HyperHandler(linkText: privacyPromptKey.localized, linkHandler: {
-                URL.applicationOpen(url: ABIURL.privacyPolicy, error: VLError.invalidPrivacy)
+                URL.applicationOpen(url: ABIURL.privacyPolicy)
             })
         ]
         signUpAgreeLabel.setUpLabel(agreeLabelKey.localized, textSize: .small, handlers: signUpHandlers)
@@ -68,7 +68,7 @@ extension SignUpViewController {
                 return
         }
         guard errorDescriptions.isEmpty else {
-            let errorMessage = String.combineStrings(errorDescriptions, separator: "\n")
+            let errorMessage = errorDescriptions.joinLocalized()
             showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
             Logger.error(errorMessage)
             return

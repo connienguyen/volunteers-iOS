@@ -34,7 +34,7 @@ final class ThemeManager {
     - Parameters:
         - theme: New theme
     */
-    func applyTheme(theme: Theme) {
+    func apply(_ theme: Theme) {
         Defaults.setObject(forKey: .selectedTheme, object: theme.rawValue)
         _currentTheme = theme
 
@@ -56,6 +56,8 @@ final class ThemeManager {
         VLButton.appearance().tintColor = theme.tintColor
 
         VolunteersNeededLabel.appearance().backgroundColor = theme.accentColor
+        VolunteersNeededLabel.appearance().textColor = theme.tintColor
+        RegisteredLabel.appearance().textColor = theme.tintColor
         TitleLabel.appearance().textColor = theme.textColor
         TextLabel.appearance().textColor = theme.textColor
     }

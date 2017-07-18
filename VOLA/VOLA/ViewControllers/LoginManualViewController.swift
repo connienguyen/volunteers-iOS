@@ -33,7 +33,7 @@ extension LoginManualViewController {
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             errorDescriptions.isEmpty else {
-                let errorMessage = String.combineStrings(errorDescriptions, separator: "\n")
+                let errorMessage = errorDescriptions.joinLocalized()
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }

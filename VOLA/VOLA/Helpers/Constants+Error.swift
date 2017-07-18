@@ -23,6 +23,7 @@ enum VLError: String, LocalizedError {
     case validation = "error.validation"
     case userUpdate = "error.user-update"
     case loadJSONData = "error.load-json-data"
+    case invalidURL = "error.invalid-url"
 
     var errorDescription: String? {
         return rawValue.localized

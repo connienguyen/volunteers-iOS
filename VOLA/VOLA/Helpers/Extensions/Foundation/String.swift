@@ -13,17 +13,18 @@ extension String {
     public var trimmed: String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
+}
 
+extension Sequence where Iterator.Element == String {
     /**
-    Combine an array of strings into one string
+    Combine an array of strings into one localized string
      
-    - Parameters:
-        - strings: Array of strings to combine
-        - separator: Separator between each string to combine
+    - Parameteters:
+        - separator: String between each element to combine; default is newline character
      
-    - Returns: Combined string of array elements
+    - Returns: Combined string of localized array elements
     */
-    static func combineStrings(_ strings: [String], separator: String) -> String {
-        return strings.flatMap({$0.localized}).joined(separator: "\n")
+    func joinLocalized(separator: String = "\n") -> String {
+        return flatMap({ $0.localized}).joined(separator: separator)
     }
 }

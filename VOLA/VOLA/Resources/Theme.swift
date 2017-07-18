@@ -78,6 +78,14 @@ enum Theme: Int {
         }
     }
 
+    /// Color for input borders
+    var inputBorderColor: UIColor {
+        switch self {
+        case .normal:
+            return ThemeColors.lightGrey
+        }
+    }
+
     /// Bar style of status bar for theme
     var barStyle: UIBarStyle {
         switch self {

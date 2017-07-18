@@ -11,7 +11,7 @@ import UIKit
 /**
 Navigation controller for the calendar tab on the tab bar navigation. Where the root view controller is configured.
  */
-class CalendarNavigationController: UINavigationController {
+class CalendarNavigationController: HiddenBackTextNavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

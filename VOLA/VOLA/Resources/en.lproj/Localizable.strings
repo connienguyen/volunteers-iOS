@@ -52,6 +52,11 @@
 // EventDetailViewController
 "event-detail.title.label" = "Event Detail";
 
+// HomeContainerViewController
+"list.prompt.label" = "List";
+"map.prompt.label" = "Map";
+"search.prompt.label" = "Search for events";
+
 // HomeViewController
 "home.title.label" = "Home";
 "login.prompt.label" = "Log In";

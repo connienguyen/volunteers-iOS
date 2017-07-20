@@ -9,7 +9,19 @@
 import UIKit
 
 extension UIScrollView {
+    /// Current page of scroll view
+    var currentPage: Int {
+        let viewWidth = self.frame.width
+        let pageNumber = floor((self.contentOffset.x - viewWidth * 0.5) / viewWidth) + 1
+        return Int(pageNumber)
+    }
 
+    /**
+    Load subview pages for scroll views
+    
+     - Parameters:
+        - views: Array of views to serve as pages within scroll view
+    */
     func loadScrollPages(views: [UIView]) {
         isPagingEnabled = true
         showsHorizontalScrollIndicator = false
@@ -23,6 +35,12 @@ extension UIScrollView {
         }
     }
 
+    /**
+    Scroll frame to content on given page
+     
+    - Parameters:
+        - page: Page to scroll to in horizontal direction
+    */
     func scrollToPage(page: Int) {
         var newFrame = self.frame
         let scrollToX = self.frame.width * CGFloat(page)
@@ -33,11 +51,5 @@ extension UIScrollView {
             return
         }
         self.scrollRectToVisible(newFrame, animated: true)
-    }
-
-    func pageNumber() -> Int {
-        let viewWidth = self.frame.width
-        let pageNumber = floor((self.contentOffset.x - viewWidth * 0.5) / viewWidth) + 1
-        return Int(pageNumber)
     }
 }

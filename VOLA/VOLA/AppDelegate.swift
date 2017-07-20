@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assert(configError == nil, "Error configuring Google services: \(configError)")
 
         GIDSignIn.sharedInstance().delegate = self
-
+        ThemeManager.shared.apply(ThemeManager.shared.currentTheme)
         return true
     }
 

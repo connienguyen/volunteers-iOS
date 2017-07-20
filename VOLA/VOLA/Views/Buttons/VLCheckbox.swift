@@ -8,9 +8,11 @@
 
 import UIKit
 
+/// Custom button that manages and displays whether or not checkbox was checked
 class VLCheckbox: UIButton {
     // TODO set images to checked/unchecked state
 
+    /// Change display state of checkbox based on whether or not is is checked
     var isChecked: Bool = false {
         didSet {
             //  TODO switch checked/unchecked images. Y/N are used temporarily to show
@@ -29,6 +31,7 @@ class VLCheckbox: UIButton {
         self.addTarget(self, action: #selector(onPress(sender:)), for: .touchUpInside)
     }
 
+    /// Toggle isChecked property
     func onPress(sender: UIButton) {
         isChecked = !isChecked
     }

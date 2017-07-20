@@ -8,4 +8,4 @@
 
 import UIKit
 
-class LoginNavigationController: UINavigationController {}
+class LoginNavigationController: HiddenBackTextNavigationController {}

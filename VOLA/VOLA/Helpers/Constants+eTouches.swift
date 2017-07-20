@@ -21,6 +21,7 @@ struct ETouchesURL {
     static let listEventsAddOn = "global/listEvents.json"
 }
 
+/// Parameter keys used with eTouches API requests
 enum ETouchesKeys: String {
     case accountID
     case key
@@ -29,11 +30,13 @@ enum ETouchesKeys: String {
     case customFields
     case fields
 
+    /// URL query parameter key
     var forURL: String {
         return self.rawValue.lowercased()
     }
 }
 
+/// eTouches constant request parameters
 struct ETouchesParameters {
     static let listEvents = "location,eventid,name,event_image,url"
     static let mockEventID = 1

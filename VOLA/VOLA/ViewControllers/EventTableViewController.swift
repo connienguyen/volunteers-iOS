@@ -2,11 +2,6 @@
 //  EventTableViewController.swift
 //  VOLA
 //
-//  EventTableViewController displays events in a list (table format).
-//  From this view controller, the user can select an event to view more information
-//  about that event. This view controller can be used for both the My Events view
-//  or for browsing nearby events from the Home screen.
-//
 //  Created by Connie Nguyen on 6/13/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -14,12 +9,21 @@
 import UIKit
 import PromiseKit
 
+/**
+Type of data source table should display
+ 
+- home: Use all available events as data source for table
+- calendar: Use events user has registered as data source for table
+*/
 enum EventTableType: String {
     case home = "Home"
-    case calendar = "My Events"
+    case calendar = "Calendar"
 }
 
-
+/**
+Table view controller displays events in a list (table format). View controller allows user to
+ select an event to view more detail
+*/
 class EventTableViewController: UITableViewController, XIBInstantiable {
 
     var events: [Event] = []

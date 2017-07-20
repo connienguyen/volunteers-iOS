@@ -2,9 +2,6 @@
 //  EditProfileViewController.swift
 //  VOLA
 //
-//  EditProfileViewController manages the view controller where a logged in user can edit
-//  their profile.
-//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -12,8 +9,9 @@
 import UIKit
 import Kingfisher
 
-class EditProfileViewController: VLViewController {
-    @IBOutlet weak var profileImageView: UIImageView!
+/// View controller where a logged in user can edit their profile.
+class EditProfileViewController: UIViewController {
+    @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
 
@@ -22,6 +20,7 @@ class EditProfileViewController: VLViewController {
 
         nameTextField.validator = .name
         emailTextField.validator = .email
+        setUpValidatableFields()
 
         configureProfile()
     }
@@ -46,12 +45,15 @@ class EditProfileViewController: VLViewController {
 
 // MARK: - IBActions
 extension EditProfileViewController {
+    /**
+    Save changes made to user profile to backend
+    */
     @IBAction func onSaveChangesPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let name = nameTextField.text,
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
-                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                let errorMessage = errorDescriptions.joinLocalized()
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
@@ -64,5 +66,12 @@ extension EditProfileViewController {
 
             self.navigationController?.popViewController(animated: true)
         }
+    }
+}
+
+// MARK: - Validatable; protocol to validate text fields on view controller
+extension EditProfileViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [nameTextField, emailTextField]
     }
 }

@@ -2,14 +2,13 @@
 //  JSONFilesNAmes.swift
 //  VOLA
 //
-//  JSONFileNames will load specific JSON files for unit testing (mocking API responses)
-//
 //  Created by Connie Nguyen on 7/6/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import Foundation
 
+/// Handler to load specific JSON files for unit testing (mocking API responses)
 enum JSONFileNames: String {
     case eventDetail = "GetEventDetail"
     case eventDetailInvalid = "GetEventDetailInvalid"
@@ -17,6 +16,7 @@ enum JSONFileNames: String {
     case availableEvents = "GetAvailableEvents"
     case availableEventsInvalid = "GetAvailableEventsInvalid"
 
+    /// Data give a JSON file name
     var fileData: Data {
         guard let path = Bundle(for: ETouchesAPIServiceUnitTests.self).url(forResource: self.rawValue, withExtension: "json") else {
             fatalError(VLError.loadJSONData.localizedDescription)

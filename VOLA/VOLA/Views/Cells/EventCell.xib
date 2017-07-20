@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="548" height="188.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXW-jD-pc5">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XXW-jD-pc5" customClass="RoundedImageView" customModule="VOLA" customModuleProvider="target">
                         <rect key="frame" x="15" y="39.5" width="109.5" height="109.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -27,23 +27,23 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LrS-ha-ayv">
-                        <rect key="frame" x="134.5" y="15" width="398.5" height="158.5"/>
+                        <rect key="frame" x="134.5" y="15" width="413.5" height="158.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="990" verticalCompressionResistancePriority="751" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhS-Yg-rqS">
-                                <rect key="frame" x="0.0" y="0.0" width="398.5" height="134.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="990" verticalCompressionResistancePriority="751" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhS-Yg-rqS" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="413.5" height="134.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="991" verticalCompressionResistancePriority="991" text="Event Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcM-Ut-JMb">
-                                <rect key="frame" x="0.0" y="141.5" width="378.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="991" verticalCompressionResistancePriority="991" text="Event Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcM-Ut-JMb" customClass="ThinLabel" customModule="VOLA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="141.5" width="393.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="V" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-cy-gFQ">
-                                <rect key="frame" x="386.5" y="138" width="12" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Volunteering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-cy-gFQ" customClass="PaddedRegisteredLabel" customModule="VOLA" customModuleProvider="target">
+                                <rect key="frame" x="347" y="145.5" width="66.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -67,7 +67,7 @@
                     <constraint firstItem="XXW-jD-pc5" firstAttribute="leading" secondItem="TpH-Bc-Cey" secondAttribute="leading" constant="15" id="E8m-kO-mud"/>
                     <constraint firstItem="LrS-ha-ayv" firstAttribute="top" secondItem="TpH-Bc-Cey" secondAttribute="top" priority="999" constant="15" id="J2t-4X-5Ht"/>
                     <constraint firstItem="XXW-jD-pc5" firstAttribute="centerY" secondItem="TpH-Bc-Cey" secondAttribute="centerY" id="Wdc-nA-S81"/>
-                    <constraint firstAttribute="trailing" secondItem="LrS-ha-ayv" secondAttribute="trailing" constant="15" id="YE5-IU-UMG"/>
+                    <constraint firstAttribute="trailing" secondItem="LrS-ha-ayv" secondAttribute="trailing" id="YE5-IU-UMG"/>
                     <constraint firstAttribute="bottom" secondItem="LrS-ha-ayv" secondAttribute="bottom" priority="999" constant="15" id="aMN-Hd-DGF"/>
                     <constraint firstItem="LrS-ha-ayv" firstAttribute="centerY" secondItem="XXW-jD-pc5" secondAttribute="centerY" id="cEv-pp-i1i"/>
                     <constraint firstItem="XXW-jD-pc5" firstAttribute="width" secondItem="TpH-Bc-Cey" secondAttribute="width" multiplier="1:5" id="pC8-rL-bYZ"/>

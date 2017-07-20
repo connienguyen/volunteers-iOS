@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Data for introduction slides
 struct Intro {
     struct IntroDetail {
         var title: String

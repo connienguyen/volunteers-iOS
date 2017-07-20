@@ -9,11 +9,12 @@
 import UIKit
 import Kingfisher
 
+/// View controller for displaying event details
 class EventDetailViewController: UIViewController, XIBInstantiable {
 
-    @IBOutlet weak var registeredLabel: UILabel!
+    @IBOutlet weak var registeredLabel: RegisteredLabel!
     @IBOutlet weak var eventImageView: UIImageView!
-    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var eventTitleLabel: TitleLabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var volunteersNeededView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -32,6 +33,7 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
         configureDetailView()
     }
 
+    /// Configure view controller to display event details and hide unused stack view elements
     func configureDetailView() {
         // Details viewable in all events
         eventTitleLabel.text = event.name
@@ -50,19 +52,9 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
         }
 
         // Views dependent on event.eventType status
-        switch event.eventType {
-        case .registered, .volunteering:
-            registeredLabel.isHidden = false
-            registeredLabel.text = event.eventType.labelText
-            registerView.isHidden = true
-        case.unregistered:
-            registeredLabel.isHidden = true
-            let registerBarButton = UIBarButtonItem(
-                title: registerPromptKey.localized,
-                style: .plain,
-                target: self,
-                action: #selector(onRegisterPressed(_:))
-            )
+        registeredLabel.eventType = event.eventType
+        if event.eventType == .unregistered {
+            let registerBarButton = UIBarButtonItem(title: "register.prompt.label".localized, style: .plain, target: self, action: #selector(onRegisterPressed(_:)))
             navigationItem.rightBarButtonItem = registerBarButton
         }
     }

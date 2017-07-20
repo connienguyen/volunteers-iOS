@@ -2,9 +2,6 @@
 //  ProfileViewController.swift
 //  VOLA
 //
-//  ProfileViewController allows user to view their profile if they are
-//  logged in. If not, they are given the option to sign up or login.
-//
 //  Created by Connie Nguyen on 6/10/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -12,11 +9,15 @@
 import UIKit
 import Kingfisher
 
+/**
+View controller where user can view their profile if they are logged in, otherwise
+ encourage user to sign up or log in.
+*/
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var currentUserView: UIView!
     @IBOutlet weak var anonUserView: UIView!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
 
@@ -34,10 +35,12 @@ class ProfileViewController: UIViewController {
         switchUserView()
     }
 
+    /// Segue to EditProfileViewController
     func onEditPressed() {
         performSegue(withIdentifier: Segue.showEditProfile.identifier, sender: self)
     }
 
+    /// Configure display based on whether or not user is logged in or not
     func switchUserView() {
         currentUserView.isHidden = !DataManager.shared.isLoggedIn
         anonUserView.isHidden = DataManager.shared.isLoggedIn
@@ -45,7 +48,7 @@ class ProfileViewController: UIViewController {
         // Hide or show edit button - Should only be shown if logged in AND a manual user
         let loggedInManual = DataManager.shared.currentUser?.userType == .manual
         navigationItem.rightBarButtonItem?.isEnabled = loggedInManual
-        navigationItem.rightBarButtonItem?.tintColor = loggedInManual ? nil : UIColor.clear
+        navigationItem.rightBarButtonItem?.title = loggedInManual ? "Edit" : nil
 
         profileImageView.image = nil    // Ensure last user's image is not shown
         if let user = DataManager.shared.currentUser {
@@ -60,11 +63,13 @@ class ProfileViewController: UIViewController {
 
 // MARK: - IBActions
 extension ProfileViewController {
+    /// Log out user and update display accordingly
     @IBAction func onLogoutPressed(_ sender: Any) {
         LoginManager.shared.logOut()
         switchUserView()
     }
 
+    /// Show login user flow
     @IBAction func onLoginPressed(_ sender: Any) {
         let loginNavController: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
         present(loginNavController, animated: true, completion: nil)

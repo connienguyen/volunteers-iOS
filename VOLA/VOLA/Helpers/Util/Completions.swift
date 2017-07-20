@@ -8,5 +8,6 @@
 
 import Foundation
 
+typealias VoidCompletionBlock = () -> Void
 typealias ErrorCompletionBlock = (_ error: Error?) -> Void
 typealias ResultCompletionBlock = ((_ result: [String:Any]?, _ error: Error?) -> Void)

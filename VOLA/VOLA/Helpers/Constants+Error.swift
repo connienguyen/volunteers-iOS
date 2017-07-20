@@ -2,14 +2,13 @@
 //  Constants+Error.swift
 //  VOLA
 //
-//  VLError is a class to display custom localized errors (from Localizable.strings)
-//
 //  Created by Connie Nguyen on 6/29/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import Foundation
 
+/// Wrapper for displaying custom localized errors from Localizable.strings
 enum VLError: String, LocalizedError {
     case invalidFacebookToken = "error.invalid-facebook-token"
     case invalidFacebookResponse = "error.invalid-facebook-response"
@@ -24,6 +23,7 @@ enum VLError: String, LocalizedError {
     case validation = "error.validation"
     case userUpdate = "error.user-update"
     case loadJSONData = "error.load-json-data"
+    case invalidURL = "error.invalid-url"
 
     var errorDescription: String? {
         return rawValue.localized

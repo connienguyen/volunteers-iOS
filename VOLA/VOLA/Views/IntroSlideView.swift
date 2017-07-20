@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// View for displaying introduction slide details
 class IntroSlideView: UIView, XIBInstantiable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var slideImageView: UIImageView!

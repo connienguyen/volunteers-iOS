@@ -2,16 +2,16 @@
 //  LoginManualViewController.swift
 //  VOLA
 //
-//  View controller that allows user to log in to their account
-//  manually with an email and password.
-//
 //  Created by Connie Nguyen on 5/31/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
 
 import UIKit
 
-class LoginManualViewController: VLViewController {
+/**
+View controller where user can log in to their account manually with an email and password
+*/
+class LoginManualViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: VLTextField!
     @IBOutlet weak var passwordTextField: VLTextField!
@@ -21,16 +21,19 @@ class LoginManualViewController: VLViewController {
 
         emailTextField.validator = .email
         passwordTextField.validator = .required
+        setUpValidatableFields()
     }
 }
 
+// MARK : - IBActions
 extension LoginManualViewController {
+    /// Display validation errors if there are any, otherwise make request to backend to login user
     @IBAction func onLoginPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let email = emailTextField.text,
             let password = passwordTextField.text,
             errorDescriptions.isEmpty else {
-                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                let errorMessage = errorDescriptions.joinLocalized()
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
@@ -46,5 +49,12 @@ extension LoginManualViewController {
             }.catch { error in
                 Logger.error(error)
             }
+    }
+}
+
+// MARK: - Validatable; protocol to validate applicable fields on view controller
+extension LoginManualViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [emailTextField, passwordTextField]
     }
 }

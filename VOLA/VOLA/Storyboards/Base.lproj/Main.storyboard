@@ -46,7 +46,7 @@
                                     <action selector="onPageControlPressed:" destination="3a4-9U-ZLv" eventType="valueChanged" id="hMy-N7-H3u"/>
                                 </connections>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-iX-zlJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-iX-zlJ" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                 <rect key="frame" x="166" y="607" width="42" height="30"/>
                                 <state key="normal" title="Log In"/>
                                 <userDefinedRuntimeAttributes>
@@ -125,7 +125,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qo7-wJ-9bg">
             <objects>
-                <tabBarController id="vt6-fD-Tp5" customClass="VLTabBarController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="vt6-fD-Tp5" customClass="VLTabBarController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="EaB-Ld-Q2z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

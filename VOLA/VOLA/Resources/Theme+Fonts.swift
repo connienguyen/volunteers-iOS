@@ -9,24 +9,15 @@
 import Foundation
 import UIKit
 
-extension Theme {
-    enum Font: String {
-        case font1 = "MyCustomFontName"
-
-        var identifier: String {
-            return rawValue
-        }
-    }
-}
-
-extension UIFont {
-    convenience init(_ font: Theme.Font, size: CGFloat) {
-        self.init(name: font.identifier, size: size)!
-    }
-}
-
+/**
+Text sizes to use throughout app
+ 
+ - normal: For body text
+ - small: For smaller labels at the bottom of a page
+*/
 enum TextSize: CGFloat {
     case normal = 16.0
+    case small = 14.0
 
     var fontSize: CGFloat {
         return rawValue

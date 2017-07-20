@@ -23,6 +23,7 @@
 "error.existing-activity-indicator" = "This view controller already has an existing activity indicator.";
 "error.etouches-no-data" = "Could not retrieve data from eTouches.";
 "error.load-json-data" = "Could not load JSON data from file.";
+"error.invalid-url" = "Could not open URL";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";
@@ -31,9 +32,10 @@
 "password.title.label" = "Password";
 "yes-short.prompt.label" = "Y";
 "no-short.prompt.label" = "N";
-"defailt-name.label" = "Default Name";
+"default-name.label" = "Default Name";
 
 // EditProfileViewController
+"edit-profile.title.label" = "Edit Profile";
 "save-changes.prompt.label" = "Save Changes";
 
 // EventRegistrationViewController
@@ -45,6 +47,9 @@
 "accommodations-description.title.label" = "Please inform event organizers if you neec any special accommodation such as accessibility issues or allergies";
 "volunteer.prompt.label" = "I would like to volunteer at this event.";
 "register.prompt.label" = "Register";
+
+// EventDetailViewController
+"event-detail.title.label" = "Event Detail";
 
 // HomeViewController
 "home.title.label" = "Home";
@@ -71,6 +76,7 @@
 "login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
 
 // ProfileViewController
+"profile.title.label" = "Profile";
 "first-last.title.label" = "Firstname Lastname";
 "sample-email.title.label" = "email@address.org";
 "not-logged-in.title.label" = "You are not logged in";

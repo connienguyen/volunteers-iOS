@@ -2,8 +2,6 @@
 //  SignUpViewController.swift
 //  VOLA
 //
-//  SignUpViewController allows user to manually sign up for the app.
-//
 //  Created by Connie Nguyen on 6/3/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -11,7 +9,8 @@
 import UIKit
 import FRHyperLabel
 
-class SignUpViewController: VLViewController {
+/// View controller allows user to sign up for an account
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
@@ -29,40 +28,35 @@ class SignUpViewController: VLViewController {
         nameTextField.validator = .name
         emailTextField.validator = .email
         passwordTextField.validator = .password
+        setUpValidatableFields()
         confirmTextField.addTarget(self, action: #selector(confirmFieldDidChange(_:)), for: .editingDidEnd)
 
         // Set up hyper label
-        let labelText = agreeLabelKey.localized
-        signUpAgreeLabel.setAttributedString(labelText, fontSize: 14.0)
-        let termsHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-            guard let url = ABIURL.termsOfService else {
-                Logger.error(VLError.invalidTOS)
-                return
-            }
-
-            UIApplication.shared.openURL(url)
-        }
-        let privacyHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-            guard let url = ABIURL.privacyPolicy else {
-                Logger.error(VLError.invalidPrivacy)
-                return
-            }
-
-            UIApplication.shared.openURL(url)
-        }
-        signUpAgreeLabel.setLinkForSubstring(tosPromptKey.localized, withLinkHandler: termsHandler)
-        signUpAgreeLabel.setLinkForSubstring(privacyPromptKey.localized, withLinkHandler: privacyHandler)
+        let signUpHandlers = [
+            HyperHandler(linkText: tosPromptKey.localized, linkHandler: {
+                URL.applicationOpen(url: ABIURL.termsOfService)
+            }),
+            HyperHandler(linkText: privacyPromptKey.localized, linkHandler: {
+                URL.applicationOpen(url: ABIURL.privacyPolicy)
+            })
+        ]
+        signUpAgreeLabel.setUpLabel(agreeLabelKey.localized, textSize: .small, handlers: signUpHandlers)
     }
 
+    /// Validate confirmTextField on editing did end
     func confirmFieldDidChange(_ textField: VLTextField) {
         confirmTextField.isValid = confirmTextField.text == passwordTextField.text
     }
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension SignUpViewController {
+    /**
+     Display validation errors it there are any, otherwise make request to server to
+     create an account
+    */
     @IBAction func onSignUpPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let name = nameTextField.text,
             let email = emailTextField.text,
             let password = passwordTextField.text,
@@ -74,7 +68,7 @@ extension SignUpViewController {
                 return
         }
         guard errorDescriptions.isEmpty else {
-            let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+            let errorMessage = errorDescriptions.joinLocalized()
             showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
             Logger.error(errorMessage)
             return
@@ -91,5 +85,12 @@ extension SignUpViewController {
             }.catch { error in
                 Logger.error(error)
             }
+    }
+}
+
+// MARK: - Validatable; protocol to validate applicable text fields on view controller
+extension SignUpViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [nameTextField, emailTextField, passwordTextField]
     }
 }

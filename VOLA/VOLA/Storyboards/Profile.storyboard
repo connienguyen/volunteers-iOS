@@ -47,7 +47,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-P7-Hln">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-rh-tJ6">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-rh-tJ6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="137" y="25" width="100" height="100"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -55,7 +55,7 @@
                                                             <constraint firstAttribute="width" secondItem="7JJ-rh-tJ6" secondAttribute="height" multiplier="1:1" id="N3Y-OF-utK"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname LastName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om7-yh-022">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname LastName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om7-yh-022" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="150" width="315" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -64,7 +64,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="first-last.title.label"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.org" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-U2-Iap">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.org" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-U2-Iap" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="185.5" width="315" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -73,7 +73,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="sample-email.title.label"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-zu-yEa">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-zu-yEa" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="231" width="275" height="34"/>
                                                         <state key="normal" title="Log Out"/>
                                                         <userDefinedRuntimeAttributes>
@@ -103,7 +103,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-It-y0E">
                                                 <rect key="frame" x="0.0" y="290" width="375" height="211.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not logged in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f14-sk-eWS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not logged in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f14-sk-eWS" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="25" width="315" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -112,7 +112,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="not-logged-in.title.label"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to view your profile, enabled quick event registration, and view your registered events." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npA-TT-ogB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to view your profile, enabled quick event registration, and view your registered events." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npA-TT-ogB" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="70.5" width="315" height="61"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -121,7 +121,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="login-to-view.title.label"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B6-61-vUN">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B6-61-vUN" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="156.5" width="275" height="30"/>
                                                         <state key="normal" title="Log In"/>
                                                         <userDefinedRuntimeAttributes>
@@ -168,6 +168,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="l6Z-s1-mQe"/>
                     <navigationItem key="navigationItem" id="bYh-mU-fgS"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="profile.title.label"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="anonUserView" destination="cdt-It-y0E" id="dOC-7B-x1J"/>
                         <outlet property="currentUserView" destination="VPV-P7-Hln" id="78z-oh-Ik2"/>
@@ -201,7 +204,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-JT-2Ck" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-iE-QD6">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-iE-QD6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="137.5" y="25" width="100" height="100"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -209,7 +212,7 @@
                                                     <constraint firstAttribute="width" secondItem="LUh-iE-QD6" secondAttribute="height" multiplier="1:1" id="m3K-DJ-RiQ"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-3g-DNJ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx3-3g-DNJ" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="150" width="43" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
@@ -224,7 +227,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH5-y3-7Nw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH5-y3-7Nw" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="232" width="108" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -289,12 +292,13 @@
                             <constraint firstItem="j5u-Wb-4S3" firstAttribute="top" secondItem="Jbs-xy-QQA" secondAttribute="top" id="mOx-2n-KwR"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="edit-profile.title.label"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailTextField" destination="gQ1-H8-Ssr" id="veG-zr-6Xx"/>
                         <outlet property="nameTextField" destination="ku5-oO-Gsc" id="30Y-u3-MxJ"/>
                         <outlet property="profileImageView" destination="LUh-iE-QD6" id="Jlm-Q0-5nZ"/>
-                        <outletCollection property="fieldsToValidate" destination="ku5-oO-Gsc" collectionClass="NSMutableArray" id="VFS-2v-Rje"/>
-                        <outletCollection property="fieldsToValidate" destination="gQ1-H8-Ssr" collectionClass="NSMutableArray" id="s2h-f1-HH3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5o-LD-MSP" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -23,7 +23,6 @@ final class DefaultsManager {
 
     private init() { /* intentionally left empty */ }
 
-
     /**
      Retrieves a Bool value from standard user defaults
     

@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 import PromiseKit
 
+/// Service wrapper for requests to the eTouches API
 final class ETouchesAPIService {
     static let shared = ETouchesAPIService()
     var accessToken: String = ""

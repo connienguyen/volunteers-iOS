@@ -108,7 +108,7 @@ DEPENDENCIES:
   - Google/SignIn (~> 3.0.3)
   - GoogleMaps
   - Kingfisher (~> 3.4.0)
-  - Mockingjay
+  - Mockingjay (~> 2.0.0)
   - NVActivityIndicatorView (~> 3.4)
   - PopupDialog (~> 0.5)
   - PromiseKit (~> 4.1.3)
@@ -147,6 +147,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   URITemplate: 720b8a56a281494d7c2d31ee33183986eaed2c67
 
-PODFILE CHECKSUM: 268c48f897cb732eee0f8761c79789a7f84b29f0
+PODFILE CHECKSUM: 1c5c70c5d58613bd921fe11ffa68743bc77042c7
 
 COCOAPODS: 1.2.1

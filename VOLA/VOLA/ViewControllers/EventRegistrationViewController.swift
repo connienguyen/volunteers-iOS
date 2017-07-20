@@ -2,9 +2,6 @@
 //  EventRegistrationViewController.swift
 //  VOLA
 //
-//  EventRegistrationViewController allows the user to register for an event.
-//  Some fields may be autofilled if the user is logged in.
-//
 //  Created by Connie Nguyen on 6/13/17.
 //  Copyright © 2017 Systers-Opensource. All rights reserved.
 //
@@ -12,7 +9,11 @@
 import UIKit
 import FRHyperLabel
 
-class EventRegistrationViewController: VLViewController {
+/**
+View controller that allows user to register for an event. Some fields may be autofilled
+ if the user is logged in.
+*/
+class EventRegistrationViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var loginBenefitLabel: VLHyperLabel!
     @IBOutlet weak var nameTextField: VLTextField!
@@ -32,15 +33,16 @@ class EventRegistrationViewController: VLViewController {
         title = titleKey.localized
         nameTextField.validator = .name
         emailTextField.validator = .email
+        setUpValidatableFields()
 
         // Set up VLHyperLabel
-        let labelText = registrationLabelKey.localized
-        loginBenefitLabel.setAttributedString(labelText, fontSize: TextSize.normal.fontSize)
-        let loginHandler = {(hyperLabel: FRHyperLabel?, substring: String?) -> Void in
-            let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
-            self.present(loginNavVC, animated: true, completion: nil)
-        }
-        loginBenefitLabel.setLinkForSubstring(registrationPromptKey.localized, withLinkHandler: loginHandler)
+        let loginHandlers = [
+            HyperHandler(linkText: registrationPromptKey.localized, linkHandler: {
+                let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
+                self.present(loginNavVC, animated: true, completion: nil)
+            })
+        ]
+        loginBenefitLabel.setUpLabel(registrationLabelKey.localized, textSize: .normal, handlers: loginHandlers)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,11 +51,12 @@ class EventRegistrationViewController: VLViewController {
         configureRegistrationView()
     }
 
+    /// Configure event registration display based on whether or nor user is logged in
     func configureRegistrationView() {
         eventNameLabel.text = event.name
         loginBenefitLabel.isHidden = DataManager.shared.isLoggedIn
         guard let user = DataManager.shared.currentUser else {
-            Logger.error(VLError.notLoggedIn)
+            // If user is not logged in, do not pre-fill text fields
             return
         }
 
@@ -65,15 +68,22 @@ class EventRegistrationViewController: VLViewController {
 // MARK: - IBActions
 extension EventRegistrationViewController {
     @IBAction func onRegisterPressed(_ sender: Any) {
-        let errorDescriptions = areAllFieldsValid()
+        let errorDescriptions = validationErrorDescriptions
         guard let _ = nameTextField.text,
             let _ = emailTextField.text,
             errorDescriptions.isEmpty else {
-                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
+                let errorMessage = errorDescriptions.joinLocalized()
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
 
         // TODO event registration API call
+    }
+}
+
+// MARK: - Validatable; protocol to validate application text fields on view controller
+extension EventRegistrationViewController: Validatable {
+    var fieldsToValidate: [VLTextField] {
+        return [nameTextField, emailTextField]
     }
 }

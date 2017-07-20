@@ -35,5 +35,7 @@ target 'VOLA' do
     pod 'Firebase/Core', '~> 3.17.0'
 
     # Testing
-    pod 'Mockingjay', '~> 2.0.0'
+    target 'VOLATests' do
+        pod 'Mockingjay', '~> 2.0.0'
+    end
 end

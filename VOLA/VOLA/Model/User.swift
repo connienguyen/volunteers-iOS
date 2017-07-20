@@ -7,23 +7,35 @@
 //
 
 import Foundation
+import RealmSwift
 
 /**
     Track how the user logged in, by social network or manually
 */
-enum UserType {
+enum UserType: String {
     case facebook
     case google
     case manual
 }
 
 /// Model for User data
-class User {
+class User: Object {
 
-    var name: String
-    var email: String
-    var userType: UserType
-    var imageURL: URL?
+    dynamic var name: String = ""
+    dynamic var email: String = ""
+    dynamic var userTypeRaw: String = ""
+    dynamic var imageURLString: String = ""
+    // Following properties are computed values since they are unsupported by Realm
+    var userType: UserType {
+        return UserType(rawValue: userTypeRaw) ?? .manual
+    }
+    var imageURL: URL? {
+        return URL(string: imageURLString)
+    }
+
+    override class func primaryKey() -> String {
+        return "email"
+    }
 
     /**
     Initializer for a customized User, such as from manual login or for mocking purposes
@@ -33,10 +45,12 @@ class User {
         - email: Email address of user
         - userType: Method that user logged in
     */
-    init(name: String, email: String, userType: UserType) {
+    convenience init(name: String, email: String, userType: UserType, imageURLString: String = "") {
+        self.init()
         self.name = name
         self.email = email
-        self.userType = userType
+        self.userTypeRaw = userType.rawValue
+        self.imageURLString = imageURLString
     }
 
     /**
@@ -45,11 +59,12 @@ class User {
     - Parameters:
         - googleUser: GIDGoogleUser object to extract user details from (e.g. name, email)
     */
-    init(googleUser: GIDGoogleUser) {
+    convenience init(googleUser: GIDGoogleUser) {
+        self.init()
         name = googleUser.profile.name
         email = googleUser.profile.email
-        userType = .google
-        imageURL = googleUser.profile.imageURL(withDimension: UserNumbers.twiceImageIcon.rawValue)
+        userTypeRaw = UserType.google.rawValue
+        imageURLString = googleUser.profile.imageURL(withDimension: UserNumbers.twiceImageIcon.rawValue).absoluteString
     }
 
     /**
@@ -58,17 +73,17 @@ class User {
     - Parameters:
         - fbResponse: Response from Facebook Graph API request for user data
     */
-    init(fbResponse: [String: Any]) {
+    convenience init(fbResponse: [String: Any]) {
+        self.init()
         name = fbResponse["name"] as? String ?? ""
         email = fbResponse["email"] as? String ?? ""
-        userType = .facebook
-
-        guard let id = fbResponse["id"] as? String,
-            let url = URL(string: String(format: FBRequest.imageURLFormat, id)) else {
-                Logger.error("Could not format Facebook user imageURL.")
-                return
+        userTypeRaw = UserType.facebook.rawValue
+        guard let fbID = fbResponse["id"] as? String else {
+            Logger.error("Could not retrieve facebook user ID")
+            imageURLString = ""
+            return
         }
 
-        imageURL = url
+        imageURLString = String(format: FBRequest.imageURLFormat, fbID)
     }
 }

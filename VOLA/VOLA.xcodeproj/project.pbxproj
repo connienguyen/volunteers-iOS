@@ -25,6 +25,7 @@
 		754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46521EDED42F00E2F848 /* Theme+Colors.swift */; };
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
+		F516F0E909262C2936C6F12A /* Pods_VOLA_VOLATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */; };
 		F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */; };
 		F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
 		F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
@@ -89,6 +90,8 @@
 		F94B4A871F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F94B4A881F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
+		F98294C31F20D8C900F9152B /* Constants+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98294C21F20D8C900F9152B /* Constants+Realm.swift */; };
+		F98294C41F20D8C900F9152B /* Constants+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98294C21F20D8C900F9152B /* Constants+Realm.swift */; };
 		F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
 		F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
 		F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E91EF3DF9700589A23 /* VLCheckbox.swift */; };
@@ -206,6 +209,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155A19673829972BA1B0C597 /* Pods-VOLA-VOLATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA-VOLATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests.release.xcconfig"; sourceTree = "<group>"; };
 		192A5878F35DB0A7174DE67C /* Pods-VOLATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLATests/Pods-VOLATests.debug.xcconfig"; sourceTree = "<group>"; };
 		588875E663F4A4AE18E00FFD /* Pods_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		754C46061EDED11400E2F848 /* VOLA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VOLA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +234,7 @@
 		754C46561EDED48800E2F848 /* Theme+Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Fonts.swift"; sourceTree = "<group>"; };
 		754C46591EDED5B300E2F848 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
+		BC78AD7239ADA8FC03795E01 /* Pods-VOLA-VOLATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA-VOLATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests.debug.xcconfig"; sourceTree = "<group>"; };
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEvents.json; sourceTree = "<group>"; };
 		F9259D491F0EDEA100CE7954 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
@@ -267,6 +272,7 @@
 		F94B4A831F0FFE1900AEB13A /* VLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLButton.swift; sourceTree = "<group>"; };
 		F94B4A861F10330800AEB13A /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		F98294C21F20D8C900F9152B /* Constants+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+Realm.swift"; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		F98807E91EF3DF9700589A23 /* VLCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLCheckbox.swift; sourceTree = "<group>"; };
@@ -332,6 +338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F516F0E909262C2936C6F12A /* Pods_VOLA_VOLATests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +430,7 @@
 				754C46471EDED36200E2F848 /* Util */,
 				F98807FF1F05A96700589A23 /* Constants+Error.swift */,
 				F98808061F0864AF00589A23 /* Constants+eTouches.swift */,
+				F98294C21F20D8C900F9152B /* Constants+Realm.swift */,
 				F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */,
 				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 				F9A502281EEEFBA000AB7E9E /* Intro.swift */,
@@ -599,6 +607,8 @@
 				192A5878F35DB0A7174DE67C /* Pods-VOLATests.debug.xcconfig */,
 				FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */,
 				FBFBF714F6D6E9CF92AE47F5 /* Pods-VOLA.debug.xcconfig */,
+				BC78AD7239ADA8FC03795E01 /* Pods-VOLA-VOLATests.debug.xcconfig */,
+				155A19673829972BA1B0C597 /* Pods-VOLA-VOLATests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -682,9 +692,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 754C46261EDED11400E2F848 /* Build configuration list for PBXNativeTarget "VOLATests" */;
 			buildPhases = (
+				82E1AB2D5EB4BA2BD24D05EA /* [CP] Check Pods Manifest.lock */,
 				754C46161EDED11400E2F848 /* Sources */,
 				754C46171EDED11400E2F848 /* Frameworks */,
 				754C46181EDED11400E2F848 /* Resources */,
+				1D96B86B6719780A3B0078B4 /* [CP] Embed Pods Frameworks */,
+				DB377BDF1C5404AE7BB8903F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -790,6 +803,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1D96B86B6719780A3B0078B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2276D89D58BF52FB9FA43F42 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -817,6 +845,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+		};
+		82E1AB2D5EB4BA2BD24D05EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		91E3B2D43C2C1DB39CA6B3A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -846,6 +889,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB377BDF1C5404AE7BB8903F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -919,6 +977,7 @@
 				F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */,
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
+				F98294C31F20D8C900F9152B /* Constants+Realm.swift in Sources */,
 				F92855F11F1111C500D461B1 /* UILabel.swift in Sources */,
 				F94B4A7D1F0FD00400AEB13A /* Theme.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
@@ -949,6 +1008,7 @@
 				F92855F21F1111C500D461B1 /* UILabel.swift in Sources */,
 				F92855E31F103DAD00D461B1 /* RegisteredLabel.swift in Sources */,
 				F9A502051EEED00D00AB7E9E /* LoginManualViewController.swift in Sources */,
+				F98294C41F20D8C900F9152B /* Constants+Realm.swift in Sources */,
 				F98808081F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
 				F9A502071EEED00D00AB7E9E /* ProfileViewController.swift in Sources */,
 				F92855F51F11249500D461B1 /* TextLabel.swift in Sources */,
@@ -1190,6 +1250,7 @@
 		};
 		754C46271EDED11400E2F848 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC78AD7239ADA8FC03795E01 /* Pods-VOLA-VOLATests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1205,6 +1266,7 @@
 		};
 		754C46281EDED11400E2F848 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 155A19673829972BA1B0C597 /* Pods-VOLA-VOLATests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

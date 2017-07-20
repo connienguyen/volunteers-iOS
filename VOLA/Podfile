@@ -33,7 +33,10 @@ target 'VOLA' do
 
     pod 'GoogleMaps', '~> 2.3.0'
     pod 'Firebase/Core', '~> 3.17.0'
+    pod 'RealmSwift', '~> 2.7.0'
 
     # Testing
-    pod 'Mockingjay', '~> 2.0.0'
+    target 'VOLATests' do
+        pod 'Mockingjay', '~> 2.0.0'
+    end
 end

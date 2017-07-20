@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import GoogleMaps
 import Firebase
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(SecretKeyManager.shared.value(forKey: .googleMaps))
         FIRApp.configure()
 
+        //Realm.Configuration.defaultConfiguration = RealmConfigs.defaultConfig
+        //DataManager.shared.loadUser()
         ThemeManager.shared.applyTheme(theme: ThemeManager.shared.currentTheme)
         return true
     }

@@ -8,6 +8,9 @@
 
 import Foundation
 
+fileprivate let borderWidth: CGFloat = 1.0
+fileprivate let cornerRadius: CGFloat = 7.0
+
 protocol EventMapInfoWindowDelegate: class {
     func infoWindow(didTap infoWindow: EventMapInfoWindow)
 }
@@ -24,9 +27,9 @@ class EventMapInfoWindow: UIView, XIBInstantiable {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        layer.borderColor = ThemeColors.lightGrey.cgColor
-        layer.borderWidth = 1.0
-        layer.cornerRadius = 7.0
+        layer.borderColor = ThemeManager.shared.currentTheme.inputBorderColor.cgColor
+        layer.borderWidth = borderWidth
+        layer.cornerRadius = cornerRadius
 
         isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(infoWindowTapped))

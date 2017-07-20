@@ -107,7 +107,7 @@ DEPENDENCIES:
   - FBSDKCoreKit (~> 4.22.1)
   - FBSDKLoginKit (~> 4.22.1)
   - FBSDKShareKit (~> 4.22.1)
-  - Firebase/Core
+  - Firebase/Core (~> 3.17.0)
   - FRHyperLabel (~> 1.0.4)
   - Google/SignIn (~> 3.0.3)
   - GoogleMaps (~> 2.3.0)
@@ -152,6 +152,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   URITemplate: 720b8a56a281494d7c2d31ee33183986eaed2c67
 
-PODFILE CHECKSUM: 52644de7bebf084a01aadf469663eba73fd80f40
+PODFILE CHECKSUM: 665afd8f64801da7ccd8d993223d26085fae96f4
 
 COCOAPODS: 1.2.1

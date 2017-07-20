@@ -36,11 +36,19 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
         tableView.register(cellType: EventCell.self)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = EventCell.estimatedHeight
+
+        // If child viewcontroller, will still recieve notification and update
+        if tableType == .home {
+            addNotificationObserver(NotificationName.availableEventsUpdated, selector: #selector(eventsDidUpdate(_:)))
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        if tableType == .calendar {
+            addNotificationObserver(NotificationName.calendarEventsUpdated, selector: #selector(eventsDidUpdate(_:)))
+        }
         // Since view controller is instantiated from XIB file, need to do first load
         // UI setup here (set title, retrieve events for data source)
         guard !isShown else {
@@ -49,26 +57,20 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
 
         isShown = true
         self.title = tableType.rawValue
-        displayActivityIndicator()
-        // TODO - Switch case on self.tableType to determine which ETouchesAPIService call to return
-        // Not done yet since API call for a user's registered events is still ambiguous
-        ETouchesAPIService.shared.getAvailableEvents()
-            .then { [weak self] (events) -> Void in
-                guard let `self` = self else {
-                    return
-                }
+    }
 
-                self.events = events
-                self.tableView.reloadData()
-            }.always { [weak self] in
-                guard let `self` = self else {
-                    return
-                }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
-                self.removeActivityIndicator()
-            }.catch { error in
-                Logger.error(error)
-            }
+        if tableType == .calendar {
+            removeNotificationObserver(NotificationName.calendarEventsUpdated)
+        }
+    }
+
+    deinit {
+        // Remove notification here instead of viewWillDisappear so non-active child viewcontroller
+        // can still receive notification
+        removeNotificationObserver(NotificationName.availableEventsUpdated)
     }
 }
 
@@ -93,5 +95,17 @@ extension EventTableViewController {
         let eventDetailVC = EventDetailViewController.instantiateFromXib()
         eventDetailVC.event = event
         self.navigationController?.show(eventDetailVC, sender: self)
+    }
+}
+
+// MARK: - Notification observer
+extension EventTableViewController {
+    func eventsDidUpdate(_ notification: NSNotification) {
+        guard let updatedEvents = notification.object as? [Event] else {
+            return
+        }
+
+        events = updatedEvents
+        tableView.reloadData()
     }
 }

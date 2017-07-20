@@ -12,4 +12,4 @@ import UIKit
 Navigation controller that sets the root view controller for the home tab on the
  tab bar navigation
 */
-class HomeNavigationController: UINavigationController {}
+class HomeNavigationController: HiddenBackTextNavigationController {}

@@ -40,11 +40,7 @@ class HomeContainerViewController: UIViewController {
     let searchPromptKey = "search.prompt.label"
     var events: [Event] = [] {
         didSet {
-            guard let mapVC = firstChildController(.map) as? MapViewController else {
-                return
-            }
-
-            mapVC.events = events
+            NotificationCenter.default.post(name: NotificationName.availableEventsUpdated, object: events)
         }
     }
     private var currentController: ChildControllers = .map

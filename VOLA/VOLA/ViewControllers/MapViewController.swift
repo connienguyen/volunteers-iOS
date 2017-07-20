@@ -14,11 +14,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
 
-    var events: [Event] = [] {
-        didSet {
-            self.reloadLocationMarkers()
-        }
-    }
+    var events: [Event] = []
     /// There can only be one marker tapped at a time
     var tappedMarker = GMSMarker()
     /// Currently displayed infoWindow, only one is displayed at a time
@@ -32,6 +28,8 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         mapView.delegate = self
+
+        addNotificationObserver(NotificationName.availableEventsUpdated, selector: #selector(eventsDidUpdate(_:)))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +47,8 @@ class MapViewController: UIViewController {
             let location = event.location
             // Only place markers for locations with valid latitude/longitude (not (0,0))
             if location.latitude != 0.0 && location.longitude != 0.0 {
-                let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
+                let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.latitude,
+                            longitude: location.longitude))
                 marker.title = String(event.eventID)
                 marker.map = mapView
             }
@@ -62,6 +61,11 @@ class MapViewController: UIViewController {
         eventDetailVC.event = event
         show(eventDetailVC, sender: self)
     }
+
+    deinit {
+        // Removed here instead of viewWillDisappear so non-active child view controller can still get notifications
+        removeNotificationObserver(NotificationName.availableEventsUpdated)
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -71,7 +75,8 @@ extension MapViewController: CLLocationManagerDelegate {
             return
         }
 
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: GoogleMapsSettings.cameraZoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                    longitude: location.coordinate.longitude, zoom: GoogleMapsSettings.cameraZoomLevel)
         self.mapView?.animate(to: camera)
 
         // Stop updating location so map camera does not move with user
@@ -137,5 +142,18 @@ extension MapViewController: EventMapInfoWindowDelegate {
             // Show detail view controller
             showEventDetail(event)
         }
+    }
+}
+
+// MARK: - Notification Observer
+extension MapViewController {
+    /// Reload location markers to match updated events from notification
+    func eventsDidUpdate(_ notification: NSNotification) {
+        guard let updatedEvents = notification.object as? [Event] else {
+            return
+        }
+
+        events = updatedEvents
+        reloadLocationMarkers()
     }
 }

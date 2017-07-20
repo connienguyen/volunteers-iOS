@@ -19,5 +19,12 @@ class CalendarNavigationController: HiddenBackTextNavigationController {
         let eventTable = EventTableViewController.instantiateFromXib()
         eventTable.tableType = .calendar
         setViewControllers([eventTable], animated: true)
+
+        ETouchesAPIService.shared.getAvailableEvents()
+            .then { (events) -> Void in
+                NotificationCenter.default.post(name: NotificationName.calendarEventsUpdated, object: events)
+            }.catch { error in
+                Logger.error(error)
+            }
     }
 }

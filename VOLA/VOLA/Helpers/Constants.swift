@@ -10,6 +10,8 @@ import Foundation
 
 struct NotificationName {
     static let googleDidSignIn = Notification.Name("googleDidSignIn")
+    static let availableEventsUpdated = Notification.Name("availableEventsUpdated")
+    static let calendarEventsUpdated = Notification.Name("calendarEventsUpdated")
 }
 
 enum DefaultsKey: String {

@@ -38,11 +38,7 @@ class HomeContainerViewController: UIViewController {
     @IBOutlet weak var container: UIView!
 
     let searchPromptKey = "search.prompt.label"
-    var events: [Event] = [] {
-        didSet {
-            NotificationCenter.default.post(name: NotificationName.availableEventsUpdated, object: events)
-        }
-    }
+    var viewModel: EventsViewModel!
     private var currentController: ChildControllers = .map
 
     override func viewDidLoad() {
@@ -66,12 +62,9 @@ class HomeContainerViewController: UIViewController {
         mapEventsVC.didMove(toParentViewController: self)
         currentController = .map
 
-        ETouchesAPIService.shared.getAvailableEvents()
-            .then { events in
-                self.events = events
-            }.catch { error in
-                Logger.error(error)
-            }
+        viewModel = EventsViewModel(callback: reloadEvents)
+        eventTablesVC.viewModel = viewModel
+        mapEventsVC.viewModel = viewModel
     }
 
     /// Toggle between the table and map children controllers
@@ -112,4 +105,16 @@ class HomeContainerViewController: UIViewController {
 // MARK: - UISearchBarDelegate
 extension HomeContainerViewController: UISearchBarDelegate {
     // TODO: Update events based on search terms/filter
+}
+
+// MARK: - Coordinate viewModel updates in child controllers
+extension HomeContainerViewController {
+    func reloadEvents() {
+        guard let eventTablesVC = firstChildController(.table) as? EventTableViewController,
+            let mapVC = firstChildController(.map) as? MapViewController else {
+                return
+        }
+        eventTablesVC.tableView.reloadData()
+        mapVC.reloadLocationMarkers()
+    }
 }

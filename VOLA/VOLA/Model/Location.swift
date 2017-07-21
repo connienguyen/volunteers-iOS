@@ -45,6 +45,9 @@ class Location {
         let mainAddressArray: [String] = [name, address1, address2, city].filter({ !$0.trimmed.isEmpty})
         return mainAddressArray.joined(separator: "\n").trimmed
     }
+    var isDefaultCoords: Bool {
+        return latitude == 0.0 && longitude == 0.0
+    }
 
     required init?(map: Map) {
         // Required to conform to protocol

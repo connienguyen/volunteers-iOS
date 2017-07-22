@@ -8,6 +8,7 @@
 
 import Foundation
 import FBSDKLoginKit
+import FirebaseAuth
 import PromiseKit
 
 /// Manager for handling the available login methods
@@ -46,8 +47,16 @@ final class LoginManager {
         case .google:
             GIDSignIn.sharedInstance().signOut()
         case .manual:
-            // TODO: Print statement used as placeholder for manual logOut
-            print("Manual logout")
+            guard let firebaseAuth = FIRAuth.auth() else {
+                Logger.error(AuthenticationError.invalidFirebaseAuth)
+                return
+            }
+
+            do {
+                try firebaseAuth.signOut()
+            } catch let signOutError {
+                Logger.error(signOutError)
+            }
         }
         DataManager.shared.setUser(nil)
     }

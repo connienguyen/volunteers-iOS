@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import FirebaseAuth
 
 /**
     Track how the user logged in, by social network or manually
@@ -31,6 +32,11 @@ class User: Object {
     }
     var imageURL: URL? {
         return URL(string: imageURLString)
+    }
+
+    /// Primary key for Realm object so that it can up updated in data store
+    override static func primaryKey() -> String? {
+        return "email"
     }
 
     /**
@@ -79,5 +85,19 @@ class User: Object {
                 return
         }
         imageURLString = String(format: FBRequest.imageURLFormat, fbID)
+    }
+
+    /**
+    Initializer for User from manual login via Firebase
+     
+    - Parameters:
+        - firebaseUser: FIRUser object response from Firebase API
+    */
+    convenience init(firebaseUser: FIRUser) {
+        self.init()
+        name = firebaseUser.displayName ?? ""
+        email = firebaseUser.email ?? ""
+        userTypeRaw = UserType.manual.rawValue
+        imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
     }
 }

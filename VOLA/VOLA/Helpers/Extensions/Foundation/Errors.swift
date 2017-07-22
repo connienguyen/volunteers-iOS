@@ -8,25 +8,15 @@
 
 import Foundation
 
-public enum AuthenticationError: Error {
-    case invalidFacebookToken
-    case invalidFacebookResponse
-    case invalidGoogleUser
-    case notLoggedIn
-}
+enum AuthenticationError: String, LocalizedError {
+    case invalidFacebookToken = "error.invalid-facebook-token"
+    case invalidFacebookResponse = "error.invalid-facebook-response"
+    case invalidGoogleUser = "error.invalid-google-user"
+    case invalidFirebaseAuth = "error.invalid-firebase-auth"
+    case notLoggedIn = "error.not-logged-in"
 
-extension AuthenticationError: LocalizedError {
-    public var errorDescription: String? {
-        switch self {
-        case .invalidFacebookToken:
-            return "error.invalid-facebook-token".localized
-        case .invalidFacebookResponse:
-            return "error.invalid-facebook-response".localized
-        case .invalidGoogleUser:
-            return "error.invalid-google-user".localized
-        case .notLoggedIn:
-            return "error.not-logged-in".localized
-        }
+    var errorDescription: String? {
+        return rawValue.localized
     }
 }
 

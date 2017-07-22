@@ -11,6 +11,7 @@
 "error.invalid-facebook-response" = "Could not cast Facebook response to [String: Any].";
 "error.invalid-google-user" = "Could not log in with this Google account.";
 "error.not-logged-in" = "Action could not be completed because user is not logged in.";
+"error.invalid-firebase-auth" = "Action could not be completed due to invalid Firebase auth object.";
 "error.invalid-email" = "Please provide a valid email address.";
 "error.invalid-name" = "Please enter your first and last name.";
 "error.invalid-password" = "Please enter a password that is at least 8 characters long and includes a lowercase, uppercase, and a number.";
@@ -78,6 +79,7 @@
 "signup.prompt.title.label" = "Sign up now.";
 "login-facebook.prompt.label"  = "Log in with Facebook";
 "login-email.prompt.label" = "Log in with Email";
+"login-error.title.label" = "Log In Error";
 
 // LoginManualViewController
 "login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
@@ -95,4 +97,5 @@
 "signup-agree.title.label" = "By signing up you agree to the Terms of Service. You can also view the Privacy Policy.";
 "tos.title.label" = "Terms of Service.";
 "privacy.title.label" = "Privacy Policy.";
+"signup-error.title.label" = "Sign Up Error";
 

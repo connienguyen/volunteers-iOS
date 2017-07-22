@@ -17,13 +17,14 @@ final class SecretKeyManager {
     }
     static let shared = SecretKeyManager()
 
-    lazy var keys: [String:String] = {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "plist") else {
+    lazy var keys: [String: String] = {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "plist"),
+            let keyDict = NSDictionary(contentsOfFile: path) as? [String: String] else {
             Logger.error(VLError.loadPlistData)
             return [:]
         }
 
-        return NSDictionary(contentsOfFile: path) as? [String: String] ?? [:]
+        return keyDict
     }()
 
     private init() { /* Intentionally left blank */ }

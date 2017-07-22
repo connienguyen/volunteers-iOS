@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let animationDuration: TimeInterval = 0.5
+
 class HomeContainerViewController: UIViewController {
     /**
     Possible child controllers for HomeContainerViewController
@@ -76,7 +78,7 @@ class HomeContainerViewController: UIViewController {
         currentVC.willMove(toParentViewController: nil)
         newVC.view.frame = CGRect(x: 0, y: 0, width: container.frame.width, height: container.frame.height)
         newVC.willMove(toParentViewController: self)
-        transition(from: currentVC, to: newVC, duration: 0.5, options: .curveEaseIn, animations: nil, completion: { _ in
+        transition(from: currentVC, to: newVC, duration: animationDuration, options: .curveEaseIn, animations: nil, completion: { _ in
             self.currentController = self.currentController.controllerToToggleTo
             self.navigationItem.rightBarButtonItem?.title = self.currentController.localizedToggleButtonText
         })

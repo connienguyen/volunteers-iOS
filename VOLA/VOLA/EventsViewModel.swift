@@ -10,6 +10,7 @@ import Foundation
 
 /// Protocol for views displaying changes on EventsViewModel
 protocol EventsViewModelDelegate: class {
+    /// Reload view displaying data from EventsViewModel to reflect changes to viewmodel data
     func reloadEventsView()
 }
 
@@ -18,7 +19,7 @@ ViewModel for view controllers that display information from an array of Events
  (e.g. EventTableViewController, MapViewController)
 */
 class EventsViewModel {
-    private var _events: [Event]
+    private var _events: [Event] = []
     weak var delegate: EventsViewModelDelegate?
     /// Publically accessible array of event models
     var events: [Event] {
@@ -31,7 +32,6 @@ class EventsViewModel {
 
     /// Initialize view model and retrieve available events
     init() {
-        self._events = []
         retrieveAvailableEvents()
     }
 

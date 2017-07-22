@@ -70,6 +70,15 @@ class HomeContainerViewController: UIViewController {
         mapEventsVC.viewModel = viewModel
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // Prompt user to edit location settings if not given and map is current child
+        if currentController == .map, let mapVC = firstChildController(currentController) as? MapViewController {
+            mapVC.editLocationSettingsIfNeccessary()
+        }
+    }
+
     /// Toggle between the table and map children controllers
     func toggleChildView() {
         let currentVC = firstChildController(currentController)

@@ -12,6 +12,10 @@ import GoogleMaps
 
 fileprivate let defaultMarkerTitle: String = ""
 
+fileprivate let locationAccessTitleKey: String = "edit-location-settings.title.label"
+fileprivate let locationAccessPromptKey: String = "edit-location-settings.prompt.label"
+fileprivate let editSettingsKey: String = "edit-settings.prompt.label"
+
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
@@ -25,6 +29,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+
         mapView.delegate = self
     }
 
@@ -57,6 +62,39 @@ class MapViewController: UIViewController {
         let eventDetailVC = EventDetailViewController.instantiateFromXib()
         eventDetailVC.event = event
         show(eventDetailVC, sender: self)
+    }
+
+    deinit {
+        // Removed here instead of viewWillDisappear so non-active child view controller can still get notifications
+        removeNotificationObserver(NotificationName.availableEventsUpdated)
+    }
+
+    /**
+    Prompt user for access to location if permission was previously denied
+    */
+    func editLocationSettingsIfNeccessary() {
+        guard CLLocationManager.locationServicesEnabled() else {
+            // User as not yet been prompted for location access
+            return
+        }
+
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined, .restricted, .denied:
+            let alert = UIAlertController(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized, preferredStyle: .alert)
+            let openSettingsAction = UIAlertAction(title: editSettingsKey.localized, style: .default, handler: { (_) in
+                guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
+                    return
+                }
+
+                URL.applicationOpen(url: settingsURL)
+            })
+            let cancelAction = UIAlertAction(title: UIDisplay.cancel.localized, style: .cancel, handler: nil)
+            alert.addAction(openSettingsAction)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+        default:
+            break
+        }
     }
 }
 

@@ -28,6 +28,12 @@
 		E2973DB6364E285E30C54E40 /* Pods_VOLA_VOLATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */; };
 		F90824EE1F2157810070B5D0 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824ED1F2157810070B5D0 /* EventsViewModel.swift */; };
 		F90824EF1F2157810070B5D0 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824ED1F2157810070B5D0 /* EventsViewModel.swift */; };
+		F90824F11F2395630070B5D0 /* UserUpdateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824F01F2395630070B5D0 /* UserUpdateStrategy.swift */; };
+		F90824F21F2395630070B5D0 /* UserUpdateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824F01F2395630070B5D0 /* UserUpdateStrategy.swift */; };
+		F90824F41F23B9C60070B5D0 /* LoginUpsellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */; };
+		F90824F51F23B9C60070B5D0 /* LoginUpsellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */; };
+		F90824F71F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */; };
+		F90824F81F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */; };
 		F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */; };
 		F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
 		F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
@@ -246,6 +252,9 @@
 		EB55B0D26C1CF1A5FB0296E2 /* Pods-VOLA-VOLATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA-VOLATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests.release.xcconfig"; sourceTree = "<group>"; };
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90824ED1F2157810070B5D0 /* EventsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		F90824F01F2395630070B5D0 /* UserUpdateStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateStrategy.swift; sourceTree = "<group>"; };
+		F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginUpsellView.xib; sourceTree = "<group>"; };
+		F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUpsellView.swift; sourceTree = "<group>"; };
 		F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEvents.json; sourceTree = "<group>"; };
 		F9259D491F0EDEA100CE7954 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredLabel.swift; sourceTree = "<group>"; };
@@ -435,6 +444,7 @@
 				F92856151F17900F00D461B1 /* SecretKeyManager.swift */,
 				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
 				F98294C81F21139600F9152B /* DataStoreManager.swift */,
+				F90824F01F2395630070B5D0 /* UserUpdateStrategy.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -516,6 +526,8 @@
 				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
 				F94B4A861F10330800AEB13A /* RoundedImageView.swift */,
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
+				F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */,
+				F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -791,6 +803,7 @@
 				F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
 				F98807F51EF412F700589A23 /* EventCell.xib in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
+				F90824F41F23B9C60070B5D0 /* LoginUpsellView.xib in Resources */,
 				F928561D1F18141700D461B1 /* GoogleService-Info.plist in Resources */,
 				F928561F1F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
@@ -817,6 +830,7 @@
 				F98807F61EF412F700589A23 /* EventCell.xib in Resources */,
 				F9A5021D1EEED03800AB7E9E /* Login.storyboard in Resources */,
 				F9A502211EEED34100AB7E9E /* LaunchScreen.storyboard in Resources */,
+				F90824F51F23B9C60070B5D0 /* LoginUpsellView.xib in Resources */,
 				F9A5021E1EEED03D00AB7E9E /* Main.storyboard in Resources */,
 				F92856201F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F9A501F91EEEC59C00AB7E9E /* Home.storyboard in Resources */,
@@ -971,6 +985,7 @@
 				F92855EB1F11103300D461B1 /* VolunteersNeededLabel.swift in Sources */,
 				F90824EE1F2157810070B5D0 /* EventsViewModel.swift in Sources */,
 				F9A501E01EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
+				F90824F71F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */,
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
 				F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
@@ -1006,6 +1021,7 @@
 				754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */,
 				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,
 				F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */,
+				F90824F11F2395630070B5D0 /* UserUpdateStrategy.swift in Sources */,
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
 				F92855F11F1111C500D461B1 /* UILabel.swift in Sources */,
@@ -1031,6 +1047,7 @@
 				F9A502021EEED00600AB7E9E /* ReachabilityManager.swift in Sources */,
 				F92855E91F10DDA600D461B1 /* TitleLabel.swift in Sources */,
 				F928562C1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */,
+				F90824F81F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */,
 				F92856261F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9A502301EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
@@ -1048,6 +1065,7 @@
 				F9DD11D41F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,
 				F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */,
+				F90824F21F2395630070B5D0 /* UserUpdateStrategy.swift in Sources */,
 				F92920481EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F92856231F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */,
 				F929203E1EF003D60055DA69 /* Event.swift in Sources */,

@@ -36,10 +36,12 @@
 "yes-short.prompt.label" = "Y";
 "no-short.prompt.label" = "N";
 "default-name.label" = "Default Name";
+"cancel.prompt.label" = "Cancel";
 
 // EditProfileViewController
 "edit-profile.title.label" = "Edit Profile";
 "save-changes.prompt.label" = "Save Changes";
+"save-error.title.label" = "Edit Profile Error";
 
 // EventRegistrationViewController
 "registration.title.label" = "Event Registration";
@@ -83,6 +85,11 @@
 
 // LoginManualViewController
 "login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
+
+// MapViewController
+"edit-location-settings.title.label" = "Allow Location Access";
+"edit-location-settings.prompt.label" = "Allow VOLA access to your location to easily find events in your area.";
+"edit-settings.prompt.label" = "Edit Settings";
 
 // ProfileViewController
 "profile.title.label" = "Profile";

@@ -42,6 +42,10 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // Reload data in table in case controller was a not visible child controller
+        //  transitioning to a visible child controller
+        tableView.reloadData()
+
         // Since view controller is instantiated from XIB file, need to do first load
         // UI setup here (set title, retrieve events for data source)
         guard !isShown else {
@@ -74,5 +78,12 @@ extension EventTableViewController {
         let eventDetailVC = EventDetailViewController.instantiateFromXib()
         eventDetailVC.event = event
         self.navigationController?.show(eventDetailVC, sender: self)
+    }
+}
+
+// MARK: - EventsViewModelDelegate
+extension EventTableViewController: EventsViewModelDelegate {
+    func reloadEventsView() {
+        tableView.reloadData()
     }
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+fileprivate let fileName: String = "SecretKeys"
+
 /// Manager for reading secret keys from a plist file
 final class SecretKeyManager {
     enum KeyName: String {
@@ -15,19 +17,24 @@ final class SecretKeyManager {
     }
     static let shared = SecretKeyManager()
 
-    private let fileName = "SecretKeys"
+    lazy var keys: [String:String] = {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "plist") else {
+            Logger.error(VLError.loadPlistData)
+            return [:]
+        }
+
+        return NSDictionary(contentsOfFile: path) as? [String: String] ?? [:]
+    }()
 
     private init() { /* Intentionally left blank */ }
 
     /// Retrieve secret API key value
-    func value(forKey: KeyName) -> String {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "plist"),
-        let keys = NSDictionary(contentsOfFile: path) else {
-            Logger.error(VLError.loadPlistData)
+    func value(for key: KeyName) -> String {
+        guard let value = keys[key.rawValue] else {
+            Logger.error(VLError.secretKey)
             return ""
         }
 
-        // Return empty string as a default value
-        return keys[forKey.rawValue] as? String ?? ""
+        return value
     }
 }

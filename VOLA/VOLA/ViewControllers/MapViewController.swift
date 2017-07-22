@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
+fileprivate let defaultMarkerTitle: String = ""
+
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
@@ -28,6 +30,9 @@ class MapViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // As child viewcontroller becoming visible again, reload markers
+        reloadLocationMarkers()
 
         // Start updating location whenever returning to view
         locationManager.startUpdatingLocation()
@@ -76,7 +81,7 @@ extension MapViewController: GMSMapViewDelegate {
     /// Return an empty view so default Google infoWindow is not used
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let mapInfoWindow = EventMapInfoWindow.instantiateFromXib()
-        if let event = viewModel.event(with: marker.title ?? "") {
+        if let event = viewModel.event(with: marker.title ?? defaultMarkerTitle) {
             mapInfoWindow.configureInfoWindow(event: event)
         }
 
@@ -85,7 +90,7 @@ extension MapViewController: GMSMapViewDelegate {
 
     /// Show event detail if user taps on infoWindow
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        guard let event = viewModel.event(with: marker.title ?? "") else {
+        guard let event = viewModel.event(with: marker.title ?? defaultMarkerTitle) else {
             Logger.error("Cannot view more detail for associated event.")
             return
         }

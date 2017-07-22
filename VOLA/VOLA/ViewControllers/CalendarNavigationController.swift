@@ -18,7 +18,8 @@ class CalendarNavigationController: HiddenBackTextNavigationController {
 
         let eventTable = EventTableViewController.instantiateFromXib()
         eventTable.tableType = .calendar
-        eventTable.viewModel = EventsViewModel(callback: eventTable.tableView.reloadData)
+        eventTable.viewModel = EventsViewModel()
+        eventTable.viewModel.delegate = eventTable
         setViewControllers([eventTable], animated: true)
     }
 }

@@ -39,7 +39,7 @@ class HomeContainerViewController: UIViewController {
 
     let searchPromptKey = "search.prompt.label"
     var viewModel: EventsViewModel!
-    private var currentController: ChildControllers = .map
+    var currentController: ChildControllers = .map
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,8 @@ class HomeContainerViewController: UIViewController {
         mapEventsVC.didMove(toParentViewController: self)
         currentController = .map
 
-        viewModel = EventsViewModel(callback: reloadEvents)
+        viewModel = EventsViewModel()
+        viewModel.delegate = self
         eventTablesVC.viewModel = viewModel
         mapEventsVC.viewModel = viewModel
     }
@@ -71,14 +72,11 @@ class HomeContainerViewController: UIViewController {
     func toggleChildView() {
         let currentVC = firstChildController(currentController)
         let newVC = firstChildController(currentController.controllerToToggleTo)
-        guard let currentChild = currentVC, let newChild = newVC else {
-            return
-        }
 
-        currentChild.willMove(toParentViewController: nil)
-        newChild.view.frame = CGRect(x: 0, y: 0, width: container.frame.width, height: container.frame.height)
-        newChild.willMove(toParentViewController: self)
-        transition(from: currentChild, to: newChild, duration: 0.5, options: .curveEaseIn, animations: nil, completion: { _ in
+        currentVC.willMove(toParentViewController: nil)
+        newVC.view.frame = CGRect(x: 0, y: 0, width: container.frame.width, height: container.frame.height)
+        newVC.willMove(toParentViewController: self)
+        transition(from: currentVC, to: newVC, duration: 0.5, options: .curveEaseIn, animations: nil, completion: { _ in
             self.currentController = self.currentController.controllerToToggleTo
             self.navigationItem.rightBarButtonItem?.title = self.currentController.localizedToggleButtonText
         })
@@ -92,12 +90,12 @@ class HomeContainerViewController: UIViewController {
      
     - Returns: Child view controller matching specified type
     */
-    func firstChildController(_ childController: ChildControllers) -> UIViewController? {
+    func firstChildController(_ childController: ChildControllers) -> UIViewController {
         switch childController {
         case .table:
-            return childViewControllers.first(where: { $0 is EventTableViewController })
+            return childViewControllers.first(where: { $0 is EventTableViewController })!
         case .map:
-            return childViewControllers.first(where: { $0 is MapViewController })
+            return childViewControllers.first(where: { $0 is MapViewController })!
         }
     }
 }
@@ -107,14 +105,15 @@ extension HomeContainerViewController: UISearchBarDelegate {
     // TODO: Update events based on search terms/filter
 }
 
-// MARK: - Coordinate viewModel updates in child controllers
-extension HomeContainerViewController {
-    func reloadEvents() {
-        guard let eventTablesVC = firstChildController(.table) as? EventTableViewController,
-            let mapVC = firstChildController(.map) as? MapViewController else {
-                return
+// MARK: - EventsViewModelDelegate
+extension HomeContainerViewController: EventsViewModelDelegate {
+    /// Realod the events data for currently visible child view controller
+    func reloadEventsView() {
+        let currentVC = firstChildController(currentController)
+        if let eventTablesVC = currentVC as? EventTableViewController {
+            eventTablesVC.tableView.reloadData()
+        } else if let mapVC = currentVC as? MapViewController {
+            mapVC.reloadLocationMarkers()
         }
-        eventTablesVC.tableView.reloadData()
-        mapVC.reloadLocationMarkers()
     }
 }

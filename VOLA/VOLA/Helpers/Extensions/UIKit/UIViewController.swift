@@ -64,4 +64,43 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: DictKeys.ok.rawValue, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+
+    /// Current login upsell view if there is one
+    var loginUpsellView: LoginUpsellView? {
+        return view.subviews.first(where: {$0 is LoginUpsellView }) as? LoginUpsellView
+    }
+
+    /**
+    Shows login upsell view if there is already not one on the view controller and sets
+     up target for the button on the upsell
+    */
+    func showUpsell() {
+        guard loginUpsellView == nil else {
+            return
+        }
+
+        let newUpsell = LoginUpsellView.instantiateFromXib()
+        let viewFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        newUpsell.frame = viewFrame
+        newUpsell.layer.zPosition += 1
+        newUpsell.loginButton.addTarget(self, action: #selector(presentLoginFromUpsell), for: .touchUpInside)
+        view.addSubview(newUpsell)
+        addNotificationObserver(NotificationName.userLogin, selector: #selector(removeUpsell))
+    }
+
+    /// Remove login upsell if there is one active on view controller
+    func removeUpsell() {
+        guard let upsellView = loginUpsellView else {
+            return
+        }
+
+        upsellView.removeFromSuperview()
+        removeNotificationObserver(NotificationName.userLogin)
+    }
+
+    /// Present login flow where use can log in through a social network or manually with email
+    func presentLoginFromUpsell() {
+        let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
+        present(loginNavVC, animated: true, completion: nil)
+    }
 }

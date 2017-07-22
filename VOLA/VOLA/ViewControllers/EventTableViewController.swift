@@ -46,8 +46,8 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if tableType == .calendar {
-            addNotificationObserver(NotificationName.calendarEventsUpdated, selector: #selector(eventsDidUpdate(_:)))
+        if tableType == .calendar && !DataManager.shared.isLoggedIn {
+            showUpsell()
         }
         // Since view controller is instantiated from XIB file, need to do first load
         // UI setup here (set title, retrieve events for data source)
@@ -65,6 +65,12 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
         if tableType == .calendar {
             removeNotificationObserver(NotificationName.calendarEventsUpdated)
         }
+    }
+
+    override func removeUpsell() {
+        super.removeUpsell()
+
+        tableView.reloadData()
     }
 
     deinit {

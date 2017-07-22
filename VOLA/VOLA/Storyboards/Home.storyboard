@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="aYH-uM-SWg" customClass="HomeNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="nzh-V4-Z8T"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dZa-Yo-2iB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dZa-Yo-2iB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -182,6 +182,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="register.prompt.label"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onRegisterPressed:" destination="l4d-bh-Ksq" eventType="touchUpInside" id="5Xh-E7-fzk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

@@ -69,8 +69,8 @@ class EventRegistrationViewController: UIViewController {
 extension EventRegistrationViewController {
     @IBAction func onRegisterPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
-        guard let _ = nameTextField.text,
-            let _ = emailTextField.text,
+        guard let name = nameTextField.text,
+            let email = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.joinLocalized()
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
@@ -78,6 +78,7 @@ extension EventRegistrationViewController {
         }
 
         // TODO event registration API call
+        navigationController?.popViewController(animated: true)
     }
 }
 

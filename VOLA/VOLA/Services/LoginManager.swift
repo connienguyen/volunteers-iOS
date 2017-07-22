@@ -29,6 +29,7 @@ final class LoginManager {
         return strategy.login()
             .then { user -> Bool in
                 DataManager.shared.setUser(user)
+                NotificationCenter.default.post(name: NotificationName.userLogin, object: nil)
                 return true
         }
     }
@@ -61,17 +62,19 @@ final class LoginManager {
         DataManager.shared.setUser(nil)
     }
 
-    func updateUser(name: String, email: String, completion: @escaping ErrorCompletionBlock) {
-        // TODO - currently saving changes as if successful
-        guard let currentUser = DataManager.shared.currentUser else {
-            let error: Error = AuthenticationError.notLoggedIn
-            completion(error)
-            return
-        }
-
-        currentUser.name = name
-        currentUser.email = email
-        DataManager.shared.setUser(currentUser)
-        completion(nil)
+    /**
+    Update user data on remote server and then update local data to match given a strategy
+ 
+    - Parameters:
+        - strategy: User update strategy to update user data with
+     
+    - Returns: Boolean promise whether or not user update was successful
+    */
+    func updateUser(_ strategy: AvailableUserUpdateStrategies) -> Promise<Bool> {
+        return strategy.update()
+            .then { user -> Bool in
+                DataManager.shared.setUser(user)
+                return true
+            }
     }
 }

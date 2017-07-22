@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(SecretKeyManager.shared.value(forKey: .googleMaps))
         FIRApp.configure()
 
+        DataManager.shared.loadUserIfExists()
         ThemeManager.shared.apply()
         return true
     }

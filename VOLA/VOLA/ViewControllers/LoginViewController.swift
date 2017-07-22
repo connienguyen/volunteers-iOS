@@ -107,8 +107,13 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 }
 
                 self.onCancelPressed()
-            }.catch { error in
+            }.catch { [weak self] error in
                 Logger.error(error)
+                guard let `self` = self else {
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
             }
     }
 
@@ -128,8 +133,13 @@ extension LoginViewController {
                 }
 
                 self.onCancelPressed()
-            }.catch { error in
+            }.catch { [weak self] error in
                 Logger.error(error)
+                guard let `self` = self else {
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
             }
     }
 }

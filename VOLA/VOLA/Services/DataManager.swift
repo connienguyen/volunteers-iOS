@@ -33,9 +33,23 @@ final class DataManager {
         - user: User model to set the current user to (nil to log out)
     */
     func setUser(_ user: User?) {
-        if let saveUser = user, _currentUser == nil {
-            DataStoreManager.shared.save(saveUser)
+        if let saveUser = user {
+            // Create or update user in data store
+            DataStoreManager.shared.save(saveUser, replace: true)
+        } else if _currentUser != nil {
+            // _currentUser is being set to nil (log out), clear data store of Users
+            DataStoreManager.shared.deleteAll(of: User.self)
         }
+
         _currentUser = user
+    }
+
+    /// Load user from data store if one exists and set it as the current user
+    func loadUserIfExists() {
+        guard let savedUser = DataStoreManager.shared.loadFirst(of: User.self) else {
+            return
+        }
+
+        _currentUser = savedUser
     }
 }

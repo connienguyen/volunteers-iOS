@@ -45,6 +45,7 @@ enum UIDisplay: String {
     case yes = "yes-short.prompt.label"
     case no = "no-short.prompt.label"
     case defaultName = "default-name.label"
+    case loginErrorTitle = "login-error.title.label"
 
     var localized: String {
         return rawValue.localized

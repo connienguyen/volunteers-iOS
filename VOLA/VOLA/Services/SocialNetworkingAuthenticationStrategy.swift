@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import FirebaseAuth
 
 /// Protocol for user authentication (social login and manual) for user with LoginManager
 protocol SocialNetworkingAuthenticationStrategy {
@@ -132,10 +133,31 @@ struct ManualSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     - Returns: User promise populated with new user data if successful
     */
     func login() -> Promise<User> {
-        return Promise { fulfill, _ in
-            // TODO: - Need  API access + documentation to save created user on backend
-            // temporarily saving the user and returning
-            fulfill(User(name: name, email: email, userType: .manual))
+        return Promise { fulfill, reject in
+            guard let firebaseAuth = FIRAuth.auth() else {
+                reject(AuthenticationError.invalidFirebaseAuth)
+                return
+            }
+
+            firebaseAuth.createUser(withEmail: email, password: password, completion: { (user, signUpError) in
+                guard let firebaseUser = user else {
+                    let error = signUpError ?? AuthenticationError.invalidFirebaseAuth
+                    reject(error)
+                    return
+                }
+
+                let changeRequest = firebaseUser.profileChangeRequest()
+                changeRequest.displayName = self.name
+                changeRequest.commitChanges(completion: { (profileError) in
+                    guard profileError == nil else {
+                        let error = profileError ?? AuthenticationError.invalidFirebaseAuth
+                        reject(error)
+                        return
+                    }
+
+                    fulfill(User(firebaseUser: firebaseUser))
+                })
+            })
         }
     }
 }
@@ -157,10 +179,21 @@ struct ManualLoginStrategy: SocialNetworkingAuthenticationStrategy {
     - Returns: User promise populated with user data if successful
     */
     func login() -> Promise<User> {
-        return Promise { fulfill, _ in
-            // TODO: - Need API access + documentation to log in user on backend
-            // temporarily saving the user and returning (Gives user a default name for now)
-            fulfill(User(name: UIDisplay.defaultName.localized, email: email, userType: .manual))
+        return Promise { fulfill, reject in
+            guard let firebaseAuth = FIRAuth.auth() else {
+                reject(AuthenticationError.invalidFirebaseAuth)
+                return
+            }
+
+            firebaseAuth.signIn(withEmail: email, password: password, completion: { (user, loginError) in
+                guard let firebaseUser = user else {
+                    let error = loginError ?? AuthenticationError.invalidFirebaseAuth
+                    reject(error)
+                    return
+                }
+
+                fulfill(User(firebaseUser: firebaseUser))
+            })
         }
     }
 }

@@ -8,17 +8,22 @@
 
 import Foundation
 
-fileprivate let fileName: String = "SecretKeys"
+/// Protocol method for class definition of SecretKeyManager and mocking for unit tests
+protocol SecretKeyManagerProtocol {
+    var keys: [String: String] { get }
+}
 
 /// Manager for reading secret keys from a plist file
-final class SecretKeyManager {
+final class SecretKeyManager: SecretKeyManagerProtocol {
     enum KeyName: String {
         case googleMaps = "GoogleMapsAPIKey"
     }
     static let shared = SecretKeyManager()
 
+    private let fileName: String = "SecretKeys"
+
     lazy var keys: [String: String] = {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "plist"),
+        guard let path = Bundle.main.path(forResource: self.fileName, ofType: "plist"),
             let keyDict = NSDictionary(contentsOfFile: path) as? [String: String] else {
             Logger.error(VLError.loadPlistData)
             return [:]

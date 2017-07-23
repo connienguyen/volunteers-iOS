@@ -198,6 +198,11 @@
 		F9DD11D41F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */; };
 		F9DD11DA1F0E35AB006C029A /* GetEventDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = F9DD11D91F0E35AB006C029A /* GetEventDetail.json */; };
 		F9DD11DC1F0E368F006C029A /* JSONFileNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */; };
+		F9F076FB1F241D77004DE558 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929204D1EF181B10055DA69 /* String.swift */; };
+		F9F076FC1F241DF3004DE558 /* SecretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561A1F17A99700D461B1 /* SecretKeys.plist */; };
+		F9F076FD1F241DF8004DE558 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561C1F18141700D461B1 /* GoogleService-Info.plist */; };
+		F9F076FF1F242180004DE558 /* SecretTestKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9F076FE1F242180004DE558 /* SecretTestKeys.plist */; };
+		F9F077011F242215004DE558 /* SecretKeysManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +328,8 @@
 		F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ETouchesAPIService+Events.swift"; sourceTree = "<group>"; };
 		F9DD11D91F0E35AB006C029A /* GetEventDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetail.json; sourceTree = "<group>"; };
 		F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFileNames.swift; sourceTree = "<group>"; };
+		F9F076FE1F242180004DE558 /* SecretTestKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SecretTestKeys.plist; sourceTree = "<group>"; };
+		F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeysManagerUnitTests.swift; sourceTree = "<group>"; };
 		FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBFBF714F6D6E9CF92AE47F5 /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
 		FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLATests/Pods-VOLATests.release.xcconfig"; sourceTree = "<group>"; };
@@ -390,14 +397,15 @@
 		754C461D1EDED11400E2F848 /* VOLATests */ = {
 			isa = PBXGroup;
 			children = (
-				F9DD11D81F0E34EA006C029A /* Fixtures */,
+				754C46201EDED11400E2F848 /* Info.plist */,
 				F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */,
 				754C461E1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift */,
-				754C46201EDED11400E2F848 /* Info.plist */,
 				F9A501FD1EEECCE200AB7E9E /* InputValidationUnitTests.swift */,
 				F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */,
 				F929204B1EF14B7D0055DA69 /* LoginManagerUnitTests.swift */,
+				F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */,
 				F98807FD1F05995C00589A23 /* TestConstants.swift */,
+				F9DD11D81F0E34EA006C029A /* Fixtures */,
 			);
 			path = VOLATests;
 			sourceTree = "<group>";
@@ -672,6 +680,7 @@
 			children = (
 				F928560F1F15733A00D461B1 /* GetAvailableEvents */,
 				F928560E1F15731800D461B1 /* GetEventDetail */,
+				F9F076FE1F242180004DE558 /* SecretTestKeys.plist */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -794,6 +803,7 @@
 				F98807F11EF4067E00589A23 /* EventDetailViewController.xib in Resources */,
 				F92856011F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
 				F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */,
+				F9F076FF1F242180004DE558 /* SecretTestKeys.plist in Resources */,
 				F9DD11DA1F0E35AB006C029A /* GetEventDetail.json in Resources */,
 				F9A501FC1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
 				F92855FE1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
@@ -806,7 +816,9 @@
 				F9A5021E1EEED03D00AB7E9E /* Main.storyboard in Resources */,
 				F92856201F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F9A501F91EEEC59C00AB7E9E /* Home.storyboard in Resources */,
+				F9F076FC1F241DF3004DE558 /* SecretKeys.plist in Resources */,
 				F9A501E71EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
+				F9F076FD1F241DF8004DE558 /* GoogleService-Info.plist in Resources */,
 				F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
 				F9A502201EEED33D00AB7E9E /* Assets.xcassets in Resources */,
 			);
@@ -1068,6 +1080,7 @@
 				F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
 				F9A502131EEED01F00AB7E9E /* UIColor.swift in Sources */,
 				754C461F1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift in Sources */,
+				F9F076FB1F241D77004DE558 /* String.swift in Sources */,
 				F92855EC1F11103300D461B1 /* VolunteersNeededLabel.swift in Sources */,
 				F98807FC1EF41A5100589A23 /* CalendarNavigationController.swift in Sources */,
 				F98808051F0863D800589A23 /* ETouchesAccessToken.swift in Sources */,
@@ -1081,6 +1094,7 @@
 				F92920451EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
 				F9A501BA1EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */,
 				F98808011F05A96700589A23 /* Constants+Error.swift in Sources */,
+				F9F077011F242215004DE558 /* SecretKeysManagerUnitTests.swift in Sources */,
 				F9A5021C1EEED02300AB7E9E /* Errors.swift in Sources */,
 				F9A502151EEED01F00AB7E9E /* UIStoryboard.swift in Sources */,
 				F9A502121EEED01F00AB7E9E /* AppDelegateExtension.swift in Sources */,

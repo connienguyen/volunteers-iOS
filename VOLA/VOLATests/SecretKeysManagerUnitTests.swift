@@ -28,12 +28,11 @@ class SecretKeysManagerUnitTests: XCTestCase {
         }()
 
         /// Stubbed function for retreiving value from stored plist
-        func value(for key: String) -> String {
+        func value(for key: String) throws -> String {
             guard let value = keys[key] else {
-                return ""
+                throw VLError.secretKey
             }
 
-            print(keys)
             return value
         }
     }
@@ -53,20 +52,41 @@ class SecretKeysManagerUnitTests: XCTestCase {
 
     /// Test case where a valid key in plist returns a valid secret value stored in plist
     func testSuccessValidKeyShouldReturnSecret() {
-        let retrievedValue = keyManager.value(for: SecretKeysConstants.secretKey)
-        XCTAssertEqual(retrievedValue, SecretKeysConstants.secretValue)
+        do {
+            let retrievedValue = try keyManager.value(for: SecretKeysConstants.secretKey)
+            XCTAssertEqual(retrievedValue, SecretKeysConstants.secretValue)
+        } catch {
+            XCTFail("Should have retrieved valid value given valid key.")
+        }
     }
 
     /// Test case where manager tries to access value for a key not stored in plist
     func testFailureInvalidKeyShouldReturnEmptyString() {
-        let retrievedValue = keyManager.value(for: SecretKeysConstants.invalidSecretKey)
-        XCTAssertEqual(retrievedValue, "")
+        let exp = expectation(description: "Attempt to retrieve invalid value from plist.")
+        do {
+            _ = try keyManager.value(for: SecretKeysConstants.invalidSecretKey)
+            exp.fulfill()
+            XCTFail("Should have gotten VLError.secretKey for value not in plist.")
+        } catch {
+            exp.fulfill()
+            XCTAssertTrue(error as? VLError == VLError.secretKey)
+        }
+        waitForExpectations(timeout: 10, handler: nil)
     }
 
     /// Test case where manager tries to access values from an invalid plist
     func testFailureInvalidFileShouldReturnEmptryString() {
         keyManager.fileName = SecretKeysConstants.invalidFileName
-        let retrievedValue = keyManager.value(for: SecretKeysConstants.secretKey)
-        XCTAssertEqual(retrievedValue, "")
+        let exp = expectation(description: "Attempt to retrieve value from invalid file.")
+        do {
+            _ = try keyManager.value(for: SecretKeysConstants.secretKey)
+            exp.fulfill()
+            XCTFail("Should have gotten VLError.secretKey for invalid plist file.")
+        } catch {
+            exp.fulfill()
+            XCTAssertTrue(error as? VLError == VLError.secretKey)
+        }
+
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }

@@ -29,7 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance().delegate = self
 
         // Set up Google Maps API
-        GMSServices.provideAPIKey(SecretKeyManager.shared.value(for: .googleMaps))
+        do {
+            let googleMapsKey = try SecretKeyManager.shared.value(for: .googleMaps)
+            GMSServices.provideAPIKey(googleMapsKey)
+        } catch {
+            Logger.error(error)
+        }
         FIRApp.configure()
 
         ThemeManager.shared.apply()

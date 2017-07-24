@@ -35,10 +35,9 @@ final class SecretKeyManager: SecretKeyManagerProtocol {
     private init() { /* Intentionally left blank */ }
 
     /// Retrieve secret API key value
-    func value(for key: KeyName) -> String {
+    func value(for key: KeyName) throws -> String {
         guard let value = keys[key.rawValue] else {
-            Logger.error(VLError.secretKey)
-            return ""
+            throw VLError.secretKey
         }
 
         return value

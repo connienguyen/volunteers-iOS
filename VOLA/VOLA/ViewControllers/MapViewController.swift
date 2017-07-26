@@ -82,7 +82,7 @@ class MapViewController: UIViewController {
         }
 
         switch CLLocationManager.authorizationStatus() {
-        case .notDetermined, .restricted, .denied:
+        case .restricted, .denied:
             let alert = UIAlertController(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized, preferredStyle: .alert)
             let openSettingsAction = UIAlertAction(title: editSettingsKey.localized, style: .default, handler: { (_) in
                 guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {

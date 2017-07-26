@@ -15,8 +15,6 @@ View controller where user can view their profile if they are logged in, otherwi
 */
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var currentUserView: UIView!
-    @IBOutlet weak var anonUserView: UIView!
     @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -32,7 +30,12 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        switchUserView()
+        if DataManager.shared.isLoggedIn {
+            configureUserView()
+        } else {
+            showUpsell()
+            showEditButton(false)
+        }
     }
 
     /// Segue to EditProfileViewController
@@ -40,24 +43,31 @@ class ProfileViewController: UIViewController {
         performSegue(withIdentifier: Segue.showEditProfile.identifier, sender: self)
     }
 
-    /// Configure display based on whether or not user is logged in or not
-    func switchUserView() {
-        currentUserView.isHidden = !DataManager.shared.isLoggedIn
-        anonUserView.isHidden = DataManager.shared.isLoggedIn
-
-        // Hide or show edit button - Should only be shown if logged in AND a manual user
-        let loggedInManual = DataManager.shared.currentUser?.userType == .manual
-        navigationItem.rightBarButtonItem?.isEnabled = loggedInManual
-        navigationItem.rightBarButtonItem?.title = loggedInManual ? "Edit" : nil
-
+    /// Configure UI elements to match details of current user
+    func configureUserView() {
         profileImageView.image = nil    // Ensure last user's image is not shown
-        if let user = DataManager.shared.currentUser {
-            nameLabel.text = user.name
-            emailLabel.text = user.email
-            if let imageURL = user.imageURL {
-                profileImageView.kf.setImage(with: imageURL)
-            }
+        guard let user = DataManager.shared.currentUser else {
+            return
         }
+
+        let loggedInManual = user.userType == .manual
+        showEditButton(loggedInManual)
+        nameLabel.text = user.name
+        emailLabel.text = user.email
+        if let imageURL = user.imageURL {
+            profileImageView.kf.setImage(with: imageURL)
+        }
+    }
+
+    /**
+    Show or hide edit button
+    
+    - Parameters:
+        - show: Boolean value of whether or not to show edit button
+    */
+    func showEditButton(_ show: Bool) {
+        navigationItem.rightBarButtonItem?.isEnabled = show
+        navigationItem.rightBarButtonItem?.title = show ? "Edit" : nil
     }
 }
 
@@ -66,7 +76,7 @@ extension ProfileViewController {
     /// Log out user and update display accordingly
     @IBAction func onLogoutPressed(_ sender: Any) {
         LoginManager.shared.logOut()
-        switchUserView()
+        showUpsell()
     }
 
     /// Show login user flow

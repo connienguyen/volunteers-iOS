@@ -35,10 +35,18 @@ final class DataManager {
     func setUser(_ user: User?) {
         if let saveUser = user {
             // Create or update user in data store
-            DataStoreManager.shared.save(saveUser, replace: true)
+            do {
+                try DataStoreManager.shared.save(saveUser, replace: true)
+            } catch {
+                Logger.error(error)
+            }
         } else if _currentUser != nil {
             // _currentUser is being set to nil (log out), clear data store of Users
-            DataStoreManager.shared.deleteAll(of: User.self)
+            do {
+                try DataStoreManager.shared.deleteAll(of: User.self)
+            } catch {
+                Logger.error(error)
+            }
         }
 
         _currentUser = user

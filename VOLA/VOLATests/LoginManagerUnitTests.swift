@@ -8,6 +8,7 @@
 
 import XCTest
 import PromiseKit
+@testable import VOLA
 
 class LoginManagerUnitTests: XCTestCase {
     

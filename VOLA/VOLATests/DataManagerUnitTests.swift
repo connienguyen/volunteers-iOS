@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import VOLA
 
 class DataManagerUnitTests: XCTestCase {
 

@@ -12,12 +12,4 @@ import UIKit
 Navigation controller that sets the root view controller for the home tab on the
  tab bar navigation
 */
-class HomeNavigationController: HiddenBackTextNavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let eventTable = EventTableViewController.instantiateFromXib()
-        setViewControllers([eventTable], animated: true)
-    }
-}
+class HomeNavigationController: HiddenBackTextNavigationController {}

@@ -43,3 +43,11 @@ struct EventStubURI {
     static let getAvailableEvents = ETouchesURL.baseURL + ETouchesURL.listEventsAddOn +
             "{?\(ETouchesKeys.accessToken.forURL),\(ETouchesKeys.fields.forURL)}"
 }
+
+struct SecretKeysConstants {
+    static let fileName = "SecretTestKeys"
+    static let invalidFileName = "DoesNotExist"
+    static let secretKey = "TestAPI"
+    static let secretValue = "testAPIkeyVaLuE123"
+    static let invalidSecretKey = "testAPI"
+}

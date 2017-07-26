@@ -24,6 +24,8 @@
 "error.etouches-no-data" = "Could not retrieve data from eTouches.";
 "error.load-json-data" = "Could not load JSON data from file.";
 "error.invalid-url" = "Could not open URL";
+"error.load-plist-data" = "Could not open .plist file";
+"error.secret-key" = "Could not access secret key";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";
@@ -50,6 +52,11 @@
 
 // EventDetailViewController
 "event-detail.title.label" = "Event Detail";
+
+// HomeContainerViewController
+"list.prompt.label" = "List";
+"map.prompt.label" = "Map";
+"search.prompt.label" = "Search for events";
 
 // HomeViewController
 "home.title.label" = "Home";

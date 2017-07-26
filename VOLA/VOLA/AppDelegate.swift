@@ -8,6 +8,8 @@
 
 import UIKit
 import FBSDKCoreKit
+import GoogleMaps
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,9 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configError: NSError?
         GGLContext.sharedInstance().configureWithError(&configError)
         assert(configError == nil, "Error configuring Google services: \(configError)")
-
         GIDSignIn.sharedInstance().delegate = self
-        ThemeManager.shared.apply(ThemeManager.shared.currentTheme)
+
+        // Set up Google Maps API
+        do {
+            let googleMapsKey = try SecretKeyManager.shared.value(for: .googleMaps)
+            GMSServices.provideAPIKey(googleMapsKey)
+        } catch {
+            Logger.error(error)
+        }
+        FIRApp.configure()
+
+        ThemeManager.shared.apply()
         return true
     }
 

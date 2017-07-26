@@ -29,15 +29,12 @@ final class ThemeManager {
     }
 
     /**
-    Change theme and apply changes to UI immediately
+    Change theme and apply changes to UI immediately. Can be used to preview a theme.
     
     - Parameters:
         - theme: New theme
     */
-    func apply(_ theme: Theme) {
-        Defaults.setObject(forKey: .selectedTheme, object: theme.rawValue)
-        _currentTheme = theme
-
+    func apply(_ theme: Theme = ThemeManager.shared.currentTheme) {
         UINavigationBar.appearance().barStyle = theme.barStyle
         UINavigationBar.appearance().backgroundColor = theme.primaryColor
         UINavigationBar.appearance().tintColor = theme.tintColor
@@ -60,5 +57,16 @@ final class ThemeManager {
         RegisteredLabel.appearance().textColor = theme.tintColor
         TitleLabel.appearance().textColor = theme.textColor
         TextLabel.appearance().textColor = theme.textColor
+    }
+
+    /**
+    Save a theme to user defaults; used after previewing a theme.
+     
+    - Paramters:
+        - theme: Theme to save
+    */
+    func saveTheme(_ theme: Theme) {
+        Defaults.setObject(forKey: .selectedTheme, object: theme.rawValue)
+        _currentTheme = theme
     }
 }

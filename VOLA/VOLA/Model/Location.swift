@@ -20,6 +20,8 @@ enum LocationMappable: String {
     case postCode
     case country
     case phone
+    case latitude
+    case longitude
 
     /// JSON key to map from
     var mapping: String {
@@ -36,10 +38,15 @@ class Location {
     var postCode: String = ""
     var country: String = ""
     var phone: String = ""
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
 
     var addressString: String {
         let mainAddressArray: [String] = [name, address1, address2, city].filter({ !$0.trimmed.isEmpty})
         return mainAddressArray.joined(separator: "\n").trimmed
+    }
+    var isDefaultCoords: Bool {
+        return latitude == 0.0 && longitude == 0.0
     }
 
     required init?(map: Map) {
@@ -60,5 +67,7 @@ extension Location: Mappable {
         postCode    <- map[LocationMappable.postCode.mapping]
         country     <- map[LocationMappable.country.mapping]
         phone       <- map[LocationMappable.phone.mapping]
+        latitude    <- map[LocationMappable.latitude.mapping]
+        longitude   <- map[LocationMappable.longitude.mapping]
     }
 }

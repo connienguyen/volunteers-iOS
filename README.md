@@ -9,6 +9,6 @@ cd VOLA/
 pod install
 ```
 
-Request access to the `GoogleService-Info.plist` file and add the file to the root of the project in XCode. Project can now be compiled and run.
+Request access to the `GoogleService-Info.plist` and `SecretKeys.plist` files and add the files to the root of the project in XCode. Project can now be compiled and run.
 
 You may get an error when trying to log into Facebook if you are not on the list of the app's approved testers. To become a test user or developer user, request to become one and provide your facebook ID or username.

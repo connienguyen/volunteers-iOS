@@ -25,6 +25,9 @@
 		754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46521EDED42F00E2F848 /* Theme+Colors.swift */; };
 		754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46561EDED48800E2F848 /* Theme+Fonts.swift */; };
 		754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754C46591EDED5B300E2F848 /* UITableView.swift */; };
+		E2973DB6364E285E30C54E40 /* Pods_VOLA_VOLATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */; };
+		F90824EE1F2157810070B5D0 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824ED1F2157810070B5D0 /* EventsViewModel.swift */; };
+		F90824EF1F2157810070B5D0 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90824ED1F2157810070B5D0 /* EventsViewModel.swift */; };
 		F9259D481F0E468A00CE7954 /* GetAvailableEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */; };
 		F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
 		F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9259D491F0EDEA100CE7954 /* CircleImageView.swift */; };
@@ -52,6 +55,20 @@
 		F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */ = {isa = PBXBuildFile; fileRef = F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */; };
 		F92856111F16B25C00D461B1 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856101F16B25C00D461B1 /* URL.swift */; };
 		F92856121F16B25C00D461B1 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856101F16B25C00D461B1 /* URL.swift */; };
+		F92856161F17900F00D461B1 /* SecretKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856151F17900F00D461B1 /* SecretKeyManager.swift */; };
+		F92856171F17900F00D461B1 /* SecretKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856151F17900F00D461B1 /* SecretKeyManager.swift */; };
+		F928561B1F17A99700D461B1 /* SecretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561A1F17A99700D461B1 /* SecretKeys.plist */; };
+		F928561D1F18141700D461B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561C1F18141700D461B1 /* GoogleService-Info.plist */; };
+		F928561F1F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */; };
+		F92856201F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */; };
+		F92856221F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */; };
+		F92856231F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */; };
+		F92856251F18ECA100D461B1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856241F18ECA100D461B1 /* MapViewController.swift */; };
+		F92856261F18ECA100D461B1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856241F18ECA100D461B1 /* MapViewController.swift */; };
+		F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */; };
+		F92856291F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */; };
+		F928562B1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */; };
+		F928562C1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */; };
 		F928562E1F1E474100D461B1 /* HiddenBackTextNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */; };
 		F928562F1F1E474100D461B1 /* HiddenBackTextNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */; };
 		F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */; };
@@ -77,7 +94,6 @@
 		F94B4A871F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F94B4A881F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
-		F98807E41EF1D7BE00589A23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */; };
 		F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
 		F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
 		F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E91EF3DF9700589A23 /* VLCheckbox.swift */; };
@@ -124,8 +140,6 @@
 		F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */; };
 		F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
 		F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */; };
-		F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
-		F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */; };
 		F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */; };
 		F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */; };
 		F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A501F71EEEC59C00AB7E9E /* Home.storyboard */; };
@@ -184,6 +198,11 @@
 		F9DD11D41F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */; };
 		F9DD11DA1F0E35AB006C029A /* GetEventDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = F9DD11D91F0E35AB006C029A /* GetEventDetail.json */; };
 		F9DD11DC1F0E368F006C029A /* JSONFileNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */; };
+		F9F076FB1F241D77004DE558 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F929204D1EF181B10055DA69 /* String.swift */; };
+		F9F076FC1F241DF3004DE558 /* SecretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561A1F17A99700D461B1 /* SecretKeys.plist */; };
+		F9F076FD1F241DF8004DE558 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F928561C1F18141700D461B1 /* GoogleService-Info.plist */; };
+		F9F076FF1F242180004DE558 /* SecretTestKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9F076FE1F242180004DE558 /* SecretTestKeys.plist */; };
+		F9F077011F242215004DE558 /* SecretKeysManagerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,8 +240,10 @@
 		754C46561EDED48800E2F848 /* Theme+Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Fonts.swift"; sourceTree = "<group>"; };
 		754C46591EDED5B300E2F848 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.release.xcconfig"; sourceTree = "<group>"; };
-		B941B6464B2192AB0FC8614A /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
+		A03E623B837988ED74FC9459 /* Pods-VOLA-VOLATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA-VOLATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB55B0D26C1CF1A5FB0296E2 /* Pods-VOLA-VOLATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA-VOLATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests.release.xcconfig"; sourceTree = "<group>"; };
 		F30427E5F3B6509DF0ECBD20 /* Pods_VOLA_VOLATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA_VOLATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F90824ED1F2157810070B5D0 /* EventsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		F9259D471F0E468A00CE7954 /* GetAvailableEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEvents.json; sourceTree = "<group>"; };
 		F9259D491F0EDEA100CE7954 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		F92855E11F103DAD00D461B1 /* RegisteredLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredLabel.swift; sourceTree = "<group>"; };
@@ -237,6 +258,14 @@
 		F92855FF1F15585000D461B1 /* GetEventDetailMissing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetailMissing.json; sourceTree = "<group>"; };
 		F928560B1F155D3900D461B1 /* GetAvailableEventsInvalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAvailableEventsInvalid.json; sourceTree = "<group>"; };
 		F92856101F16B25C00D461B1 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		F92856151F17900F00D461B1 /* SecretKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeyManager.swift; sourceTree = "<group>"; };
+		F928561A1F17A99700D461B1 /* SecretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SecretKeys.plist; sourceTree = "<group>"; };
+		F928561C1F18141700D461B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventMapInfoWindow.xib; sourceTree = "<group>"; };
+		F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapInfoWindow.swift; sourceTree = "<group>"; };
+		F92856241F18ECA100D461B1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerViewController.swift; sourceTree = "<group>"; };
+		F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+GoogleMaps.swift"; sourceTree = "<group>"; };
 		F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenBackTextNavigationController.swift; sourceTree = "<group>"; };
 		F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerUnitTests.swift; sourceTree = "<group>"; };
 		F92920301EEFF18B0055DA69 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +281,6 @@
 		F94B4A831F0FFE1900AEB13A /* VLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLButton.swift; sourceTree = "<group>"; };
 		F94B4A861F10330800AEB13A /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
-		F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		F98807E91EF3DF9700589A23 /* VLCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLCheckbox.swift; sourceTree = "<group>"; };
@@ -271,7 +299,7 @@
 		F9A501C01EE7600100AB7E9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9A501C21EE7600400AB7E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F9A501CB1EE7659300AB7E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
-		F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VLHyperLabel.swift; path = ../VLHyperLabel.swift; sourceTree = "<group>"; };
+		F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLHyperLabel.swift; sourceTree = "<group>"; };
 		F9A501D11EE7E97B00AB7E9E /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		F9A501D51EE871BE00AB7E9E /* VLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLTextField.swift; sourceTree = "<group>"; };
 		F9A501D71EE8728800AB7E9E /* InputValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidation.swift; sourceTree = "<group>"; };
@@ -281,7 +309,6 @@
 		F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroSlideView.xib; sourceTree = "<group>"; };
 		F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroSlideView.swift; sourceTree = "<group>"; };
 		F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLTabBarController.swift; sourceTree = "<group>"; };
-		F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F9A501F41EEEC39F00AB7E9E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F9A501F71EEEC59C00AB7E9E /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F9A501FA1EEEC67700AB7E9E /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -301,7 +328,10 @@
 		F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ETouchesAPIService+Events.swift"; sourceTree = "<group>"; };
 		F9DD11D91F0E35AB006C029A /* GetEventDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventDetail.json; sourceTree = "<group>"; };
 		F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFileNames.swift; sourceTree = "<group>"; };
+		F9F076FE1F242180004DE558 /* SecretTestKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SecretTestKeys.plist; sourceTree = "<group>"; };
+		F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeysManagerUnitTests.swift; sourceTree = "<group>"; };
 		FAB96D24D46EF19DA208E1B1 /* Pods_VOLA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VOLA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBFBF714F6D6E9CF92AE47F5 /* Pods-VOLA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VOLA/Pods-VOLA.debug.xcconfig"; sourceTree = "<group>"; };
 		FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VOLATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VOLATests/Pods-VOLATests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -318,6 +348,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2973DB6364E285E30C54E40 /* Pods_VOLA_VOLATests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,14 +379,16 @@
 			children = (
 				754C462B1EDED1CC00E2F848 /* Helpers */,
 				754C46291EDED1AA00E2F848 /* Model */,
+				F90824EC1F2157570070B5D0 /* ViewModels */,
 				754C462C1EDED1D500E2F848 /* Resources */,
 				754C462A1EDED1AE00E2F848 /* Services */,
 				754C462D1EDED1E800E2F848 /* Storyboards */,
 				754C462E1EDED1F600E2F848 /* ViewControllers */,
 				754C462F1EDED20200E2F848 /* Views */,
 				754C46091EDED11400E2F848 /* AppDelegate.swift */,
-				F98807E31EF1D7BE00589A23 /* GoogleService-Info.plist */,
+				F928561C1F18141700D461B1 /* GoogleService-Info.plist */,
 				754C46151EDED11400E2F848 /* Info.plist */,
+				F928561A1F17A99700D461B1 /* SecretKeys.plist */,
 				F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */,
 			);
 			path = VOLA;
@@ -364,14 +397,15 @@
 		754C461D1EDED11400E2F848 /* VOLATests */ = {
 			isa = PBXGroup;
 			children = (
-				F9DD11D81F0E34EA006C029A /* Fixtures */,
+				754C46201EDED11400E2F848 /* Info.plist */,
 				F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */,
 				754C461E1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift */,
-				754C46201EDED11400E2F848 /* Info.plist */,
 				F9A501FD1EEECCE200AB7E9E /* InputValidationUnitTests.swift */,
 				F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */,
 				F929204B1EF14B7D0055DA69 /* LoginManagerUnitTests.swift */,
+				F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */,
 				F98807FD1F05995C00589A23 /* TestConstants.swift */,
+				F9DD11D81F0E34EA006C029A /* Fixtures */,
 			);
 			path = VOLATests;
 			sourceTree = "<group>";
@@ -395,6 +429,7 @@
 				F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */,
 				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
+				F92856151F17900F00D461B1 /* SecretKeyManager.swift */,
 				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
 			);
 			path = Services;
@@ -406,6 +441,7 @@
 				754C465C1EDED8F900E2F848 /* Extensions */,
 				754C46471EDED36200E2F848 /* Util */,
 				F98807FF1F05A96700589A23 /* Constants+Error.swift */,
+				F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */,
 				F98808061F0864AF00589A23 /* Constants+eTouches.swift */,
 				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 				F9A502281EEEFBA000AB7E9E /* Intro.swift */,
@@ -423,7 +459,6 @@
 				754C46521EDED42F00E2F848 /* Theme+Colors.swift */,
 				754C46561EDED48800E2F848 /* Theme+Fonts.swift */,
 				F94B4A7C1F0FD00400AEB13A /* Theme.swift */,
-				F94B4A7F1F0FD13300AEB13A /* ThemeManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -450,16 +485,17 @@
 				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
 				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
 				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
+				F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */,
+				F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */,
 				F98808091F0864DF00589A23 /* HomeNavigationController.swift */,
-				F9A501F11EEC4B7800AB7E9E /* HomeViewController.swift */,
 				F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */,
 				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
 				F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */,
 				F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */,
+				F92856241F18ECA100D461B1 /* MapViewController.swift */,
 				F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */,
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
-				F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -492,6 +528,8 @@
 		754C46311EDED20B00E2F848 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				F92856211F1824A000D461B1 /* EventMapInfoWindow.swift */,
+				F928561E1F18222D00D461B1 /* EventMapInfoWindow.xib */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -504,8 +542,8 @@
 				754C46331EDED23A00E2F848 /* Int+Date.swift */,
 				754C46401EDED30A00E2F848 /* NSObject.swift */,
 				F929204D1EF181B10055DA69 /* String.swift */,
-				F9A5022B1EEF0D3F00AB7E9E /* UserDefaults.swift */,
 				F92856101F16B25C00D461B1 /* URL.swift */,
+				F9A5022B1EEF0D3F00AB7E9E /* UserDefaults.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -541,6 +579,7 @@
 				F9A501D71EE8728800AB7E9E /* InputValidation.swift */,
 				754C464C1EDED39800E2F848 /* Logger.swift */,
 				754C46451EDED34C00E2F848 /* ReachabilityManager.swift */,
+				F94B4A7F1F0FD13300AEB13A /* ThemeManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -579,9 +618,19 @@
 				7A7E854153F3750AF668D610 /* Pods-VOLA.release.xcconfig */,
 				192A5878F35DB0A7174DE67C /* Pods-VOLATests.debug.xcconfig */,
 				FCC641EE8F46B0B639D1C5E0 /* Pods-VOLATests.release.xcconfig */,
-				B941B6464B2192AB0FC8614A /* Pods-VOLA.debug.xcconfig */,
+				FBFBF714F6D6E9CF92AE47F5 /* Pods-VOLA.debug.xcconfig */,
+				A03E623B837988ED74FC9459 /* Pods-VOLA-VOLATests.debug.xcconfig */,
+				EB55B0D26C1CF1A5FB0296E2 /* Pods-VOLA-VOLATests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F90824EC1F2157570070B5D0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F90824ED1F2157810070B5D0 /* EventsViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		F92855E01F103D3100D461B1 /* Labels */ = {
@@ -592,8 +641,8 @@
 				F92855F31F11249500D461B1 /* TextLabel.swift */,
 				F92855F61F11262800D461B1 /* ThinLabel.swift */,
 				F92855E71F10DDA600D461B1 /* TitleLabel.swift */,
-				F92855EA1F11103300D461B1 /* VolunteersNeededLabel.swift */,
 				F9A501CF1EE7689400AB7E9E /* VLHyperLabel.swift */,
+				F92855EA1F11103300D461B1 /* VolunteersNeededLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -631,6 +680,7 @@
 			children = (
 				F928560F1F15733A00D461B1 /* GetAvailableEvents */,
 				F928560E1F15731800D461B1 /* GetEventDetail */,
+				F9F076FE1F242180004DE558 /* SecretTestKeys.plist */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -663,9 +713,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 754C46261EDED11400E2F848 /* Build configuration list for PBXNativeTarget "VOLATests" */;
 			buildPhases = (
+				F4838C413E0420D8397D1194 /* [CP] Check Pods Manifest.lock */,
 				754C46161EDED11400E2F848 /* Sources */,
 				754C46171EDED11400E2F848 /* Frameworks */,
 				754C46181EDED11400E2F848 /* Resources */,
+				55602FD6F8AE376CF310B6F9 /* [CP] Embed Pods Frameworks */,
+				332B929763DE52BE30B22561 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -722,11 +775,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F98807E41EF1D7BE00589A23 /* GoogleService-Info.plist in Resources */,
 				754C46141EDED11400E2F848 /* LaunchScreen.storyboard in Resources */,
 				F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */,
 				F928560C1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */,
 				F9A501F51EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
+				F928561B1F17A99700D461B1 /* SecretKeys.plist in Resources */,
 				F92920331EEFF18B0055DA69 /* EventTableViewController.xib in Resources */,
 				F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */,
 				F9A501F81EEEC59C00AB7E9E /* Home.storyboard in Resources */,
@@ -734,6 +787,8 @@
 				F92856001F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
 				F98807F51EF412F700589A23 /* EventCell.xib in Resources */,
 				754C46111EDED11400E2F848 /* Assets.xcassets in Resources */,
+				F928561D1F18141700D461B1 /* GoogleService-Info.plist in Resources */,
+				F928561F1F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F92855FD1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
 				754C460F1EDED11400E2F848 /* Main.storyboard in Resources */,
 				F9A501FB1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
@@ -748,6 +803,7 @@
 				F98807F11EF4067E00589A23 /* EventDetailViewController.xib in Resources */,
 				F92856011F15585000D461B1 /* GetEventDetailMissing.json in Resources */,
 				F928560D1F155D3900D461B1 /* GetAvailableEventsInvalid.json in Resources */,
+				F9F076FF1F242180004DE558 /* SecretTestKeys.plist in Resources */,
 				F9DD11DA1F0E35AB006C029A /* GetEventDetail.json in Resources */,
 				F9A501FC1EEEC67700AB7E9E /* Calendar.storyboard in Resources */,
 				F92855FE1F1557D800D461B1 /* GetEventDetailInvalid.json in Resources */,
@@ -758,8 +814,11 @@
 				F9A5021D1EEED03800AB7E9E /* Login.storyboard in Resources */,
 				F9A502211EEED34100AB7E9E /* LaunchScreen.storyboard in Resources */,
 				F9A5021E1EEED03D00AB7E9E /* Main.storyboard in Resources */,
+				F92856201F18222D00D461B1 /* EventMapInfoWindow.xib in Resources */,
 				F9A501F91EEEC59C00AB7E9E /* Home.storyboard in Resources */,
+				F9F076FC1F241DF3004DE558 /* SecretKeys.plist in Resources */,
 				F9A501E71EEC463500AB7E9E /* IntroSlideView.xib in Resources */,
+				F9F076FD1F241DF8004DE558 /* GoogleService-Info.plist in Resources */,
 				F9A501F61EEEC39F00AB7E9E /* Profile.storyboard in Resources */,
 				F9A502201EEED33D00AB7E9E /* Assets.xcassets in Resources */,
 			);
@@ -781,6 +840,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		332B929763DE52BE30B22561 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55602FD6F8AE376CF310B6F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		754C465B1EDED88700E2F848 /* ShellScript */ = {
@@ -826,6 +915,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F4838C413E0420D8397D1194 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -853,16 +957,19 @@
 				F9B234991EE7532F00884E4E /* LoginManager.swift in Sources */,
 				F929203D1EF003D60055DA69 /* Event.swift in Sources */,
 				F928562E1F1E474100D461B1 /* HiddenBackTextNavigationController.swift in Sources */,
+				F928562B1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */,
 				754C46461EDED34C00E2F848 /* ReachabilityManager.swift in Sources */,
 				F92855E21F103DAD00D461B1 /* RegisteredLabel.swift in Sources */,
 				754C463E1EDED2D600E2F848 /* UIColor.swift in Sources */,
 				F94B4A841F0FFE1900AEB13A /* VLButton.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
 				F92855EB1F11103300D461B1 /* VolunteersNeededLabel.swift in Sources */,
+				F90824EE1F2157810070B5D0 /* EventsViewModel.swift in Sources */,
 				F9A501E01EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
 				F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
+				F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F9A502291EEEFBA000AB7E9E /* Intro.swift in Sources */,
 				F9A502261EEEDC2A00AB7E9E /* UIScrollView.swift in Sources */,
 				F94B4A871F10330800AEB13A /* RoundedImageView.swift in Sources */,
@@ -873,19 +980,21 @@
 				F92855F41F11249500D461B1 /* TextLabel.swift in Sources */,
 				F9A5022C1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
+				F92856251F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
 				F92855F71F11262800D461B1 /* ThinLabel.swift in Sources */,
 				F92920441EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
+				F92856161F17900F00D461B1 /* SecretKeyManager.swift in Sources */,
 				F98807EE1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
 				F9DD11D31F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
-				F9A501F21EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
 				F98808041F0863D800589A23 /* ETouchesAccessToken.swift in Sources */,
 				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
+				F92856221F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */,
 				F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */,
 				F9A501D21EE7E97B00AB7E9E /* Errors.swift in Sources */,
 				754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */,
@@ -916,6 +1025,8 @@
 				F9A5021A1EEED02300AB7E9E /* Date.swift in Sources */,
 				F9A502021EEED00600AB7E9E /* ReachabilityManager.swift in Sources */,
 				F92855E91F10DDA600D461B1 /* TitleLabel.swift in Sources */,
+				F928562C1F1E17DC00D461B1 /* Constants+GoogleMaps.swift in Sources */,
+				F92856261F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9A502301EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F9A501E41EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F94B4A881F10330800AEB13A /* RoundedImageView.swift in Sources */,
@@ -927,11 +1038,13 @@
 				F92855F51F11249500D461B1 /* TextLabel.swift in Sources */,
 				F98807F01EF4063500589A23 /* VLCheckbox.swift in Sources */,
 				F92855E61F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */,
+				F90824EF1F2157810070B5D0 /* EventsViewModel.swift in Sources */,
 				F9A377FC1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F9DD11D41F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A502111EEED01F00AB7E9E /* UIView.swift in Sources */,
 				F9A5022A1EEEFBA000AB7E9E /* Intro.swift in Sources */,
 				F92920481EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
+				F92856231F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */,
 				F929203E1EF003D60055DA69 /* Event.swift in Sources */,
 				F9A502241EEED34500AB7E9E /* Theme+Fonts.swift in Sources */,
 				F94B4A851F0FFE1900AEB13A /* VLButton.swift in Sources */,
@@ -944,6 +1057,7 @@
 				F9A501F01EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,
 				F9A5022D1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F94B4A811F0FD13300AEB13A /* ThemeManager.swift in Sources */,
+				F92856291F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F94B4A7E1F0FD00400AEB13A /* Theme.swift in Sources */,
 				F9B2349A1EE7532F00884E4E /* LoginManager.swift in Sources */,
 				F9A502191EEED02300AB7E9E /* NSObject.swift in Sources */,
@@ -957,7 +1071,7 @@
 				F9A5021F1EEED06C00AB7E9E /* AppDelegate.swift in Sources */,
 				F9A501EA1EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				F9ADA1331EE33CEE006C7FF1 /* User.swift in Sources */,
-				F9A501F31EEC4B7800AB7E9E /* HomeViewController.swift in Sources */,
+				F92856171F17900F00D461B1 /* SecretKeyManager.swift in Sources */,
 				F98807EF1EF405A700589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
 				F9A501E11EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				F928562F1F1E474100D461B1 /* HiddenBackTextNavigationController.swift in Sources */,
@@ -966,6 +1080,7 @@
 				F9259D4B1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
 				F9A502131EEED01F00AB7E9E /* UIColor.swift in Sources */,
 				754C461F1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift in Sources */,
+				F9F076FB1F241D77004DE558 /* String.swift in Sources */,
 				F92855EC1F11103300D461B1 /* VolunteersNeededLabel.swift in Sources */,
 				F98807FC1EF41A5100589A23 /* CalendarNavigationController.swift in Sources */,
 				F98808051F0863D800589A23 /* ETouchesAccessToken.swift in Sources */,
@@ -979,6 +1094,7 @@
 				F92920451EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
 				F9A501BA1EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */,
 				F98808011F05A96700589A23 /* Constants+Error.swift in Sources */,
+				F9F077011F242215004DE558 /* SecretKeysManagerUnitTests.swift in Sources */,
 				F9A5021C1EEED02300AB7E9E /* Errors.swift in Sources */,
 				F9A502151EEED01F00AB7E9E /* UIStoryboard.swift in Sources */,
 				F9A502121EEED01F00AB7E9E /* AppDelegateExtension.swift in Sources */,
@@ -1132,7 +1248,7 @@
 		};
 		754C46241EDED11400E2F848 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B941B6464B2192AB0FC8614A /* Pods-VOLA.debug.xcconfig */;
+			baseConfigurationReference = FBFBF714F6D6E9CF92AE47F5 /* Pods-VOLA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VOLA/Info.plist;
@@ -1162,6 +1278,7 @@
 		};
 		754C46271EDED11400E2F848 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A03E623B837988ED74FC9459 /* Pods-VOLA-VOLATests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1177,6 +1294,7 @@
 		};
 		754C46281EDED11400E2F848 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB55B0D26C1CF1A5FB0296E2 /* Pods-VOLA-VOLATests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -32,6 +25,7 @@
 			<array>
 				<string>fb1281386311910430</string>
 				<string>com.googleusercontent.apps.516716414975-olimfb8hbnsl2pli4edcd33vmm79a21l</string>
+				<string>com.googleusercontent.apps.713910804615-7ge0i9fopjh6tgbtm2f1nduv6g8p826r</string>
 			</array>
 		</dict>
 		<dict>
@@ -53,6 +47,8 @@
 	<string>1281386311910430</string>
 	<key>FacebookDisplayName</key>
 	<string>VOLA - temp</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -61,6 +57,13 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Easily find events available in your area.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -27,6 +27,7 @@ Table view controller displays events in a list (table format). View controller 
 class EventTableViewController: UITableViewController, XIBInstantiable {
 
     var events: [Event] = []
+    var viewModel: EventsViewModel!
     var tableType: EventTableType = .home
     private var isShown: Bool = false
 
@@ -41,6 +42,10 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // Reload data in table in case controller was a not visible child controller
+        //  transitioning to a visible child controller
+        tableView.reloadData()
+
         // Since view controller is instantiated from XIB file, need to do first load
         // UI setup here (set title, retrieve events for data source)
         guard !isShown else {
@@ -49,38 +54,18 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
 
         isShown = true
         self.title = tableType.rawValue
-        displayActivityIndicator()
-        // TODO - Switch case on self.tableType to determine which ETouchesAPIService call to return
-        // Not done yet since API call for a user's registered events is still ambiguous
-        ETouchesAPIService.shared.getAvailableEvents()
-            .then { [weak self] (events) -> Void in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.events = events
-                self.tableView.reloadData()
-            }.always { [weak self] in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.removeActivityIndicator()
-            }.catch { error in
-                Logger.error(error)
-            }
     }
 }
 
 // MARK: - Table view data source
 extension EventTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return viewModel.eventCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(indexPath, cellType: EventCell.self)
-        let event = events[indexPath.row]
+        let event = viewModel.event(at: indexPath.row)
         cell.configureCell(event: event)
         return cell
     }
@@ -89,9 +74,16 @@ extension EventTableViewController {
 // MARK: - Table view delegate
 extension EventTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let event = events[indexPath.row]
+        let event = viewModel.event(at: indexPath.row)
         let eventDetailVC = EventDetailViewController.instantiateFromXib()
         eventDetailVC.event = event
         self.navigationController?.show(eventDetailVC, sender: self)
+    }
+}
+
+// MARK: - EventsViewModelDelegate
+extension EventTableViewController: EventsViewModelDelegate {
+    func reloadEventsView() {
+        tableView.reloadData()
     }
 }

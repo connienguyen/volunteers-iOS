@@ -17,4 +17,5 @@ struct ThemeColors {
     static let lightGrey = UIColor(hex: 0xB1B3B3)
     static let white = UIColor(hex: 0xFFFFFF)
     static let emerald = UIColor(hex: 0x00833E)
+    static let marineBlue = UIColor(hex: 0x0076A9)
 }

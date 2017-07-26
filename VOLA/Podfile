@@ -32,8 +32,8 @@ target 'VOLA' do
     pod 'Google/SignIn', '~> 3.0.3'
 
     pod 'GoogleMaps', '~> 2.3.0'
-    pod 'Firebase/Core', '~> 3.17.0'
-    pod 'Firebase/Auth' '~> 3.1.1'
+    pod 'Firebase/Core', '~> 3.15.0'
+    pod 'Firebase/Auth', '~> 3.15.0'
     pod 'RealmSwift', '~> 2.7.0'
 
     # Testing

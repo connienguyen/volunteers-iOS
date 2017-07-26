@@ -77,8 +77,25 @@ extension EventRegistrationViewController {
                 return
         }
 
-        // TODO event registration API call
-        navigationController?.popViewController(animated: true)
+        ETouchesAPIService.shared.registerForEvent(eventID: event.eventID,
+                                                   name: name,
+                                                   email: email,
+                                                   volunteering: volunteerCheckbox.isChecked,
+                                                   accommodation: accommodationTextView.text)
+            .then { [weak self] (event) -> Void in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.navigationController?.popViewController(animated: true)
+            }.catch { [weak self] error in
+                Logger.error(error)
+                guard let `self` = self else {
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: "Could not register for event", errorMessage: error.localizedDescription)
+            }
     }
 }
 

@@ -55,24 +55,10 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
         self.title = tableType.rawValue
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if tableType == .calendar {
-            removeNotificationObserver(NotificationName.calendarEventsUpdated)
-        }
-    }
-
     override func removeUpsell() {
         super.removeUpsell()
 
         tableView.reloadData()
-    }
-
-    deinit {
-        // Remove notification here instead of viewWillDisappear so non-active child viewcontroller
-        // can still receive notification
-        removeNotificationObserver(NotificationName.availableEventsUpdated)
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import VOLA
 
 class SecretKeysManagerUnitTests: XCTestCase {
     /// Mock of SecretKeyManager class for testing purposes

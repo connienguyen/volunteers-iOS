@@ -64,11 +64,6 @@ class MapViewController: UIViewController {
         show(eventDetailVC, sender: self)
     }
 
-    deinit {
-        // Removed here instead of viewWillDisappear so non-active child view controller can still get notifications
-        removeNotificationObserver(NotificationName.availableEventsUpdated)
-    }
-
     /**
     Prompt user for access to location if permission was previously denied
     */

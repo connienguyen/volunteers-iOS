@@ -8,11 +8,13 @@
 
 import UIKit
 
+fileprivate let imageCornerRadius: CGFloat = 5.0
+
 /// Stylized image view to display image in a rounder rectangular view
 class RoundedImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = ThemeManager.shared.currentTheme.accentColor
-        layer.cornerRadius = 5.0
+        layer.cornerRadius = imageCornerRadius
     }
 }

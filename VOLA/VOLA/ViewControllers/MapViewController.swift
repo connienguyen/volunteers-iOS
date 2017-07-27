@@ -68,8 +68,8 @@ class MapViewController: UIViewController {
     Prompt user for access to location if permission was previously denied
     */
     func editLocationSettingsIfNeccessary() {
+        // User has not yet been prompted for location access, so no need to show alert to change settings
         guard CLLocationManager.locationServicesEnabled() else {
-            // User as not yet been prompted for location access
             return
         }
 

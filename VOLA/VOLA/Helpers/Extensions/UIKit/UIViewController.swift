@@ -75,6 +75,7 @@ extension UIViewController {
      up target for the button on the upsell
     */
     func showUpsell() {
+        // Guard against showing multiple upsells on the same view controller
         guard loginUpsellView == nil else {
             return
         }
@@ -90,6 +91,7 @@ extension UIViewController {
 
     /// Remove login upsell if there is one active on view controller
     func removeUpsell() {
+        // Guard against removing upsell view from view controller when there is none
         guard let upsellView = loginUpsellView else {
             return
         }

@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         FIRApp.configure()
 
-        DataManager.shared.loadUserIfExists()
         ThemeManager.shared.apply()
         return true
     }

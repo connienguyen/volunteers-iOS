@@ -63,6 +63,7 @@ extension EditProfileViewController {
         LoginManager.shared.updateUser(.firebase(name, email))
             .then { [weak self] (success) -> Void in
                 guard let `self` = self, success else {
+                    Logger.error(VLError.invalidFirebaseAction)
                     return
                 }
 

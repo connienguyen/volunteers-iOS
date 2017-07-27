@@ -63,4 +63,6 @@ final class DataStoreManager: DataStoreManagerProtocol {
     static let shared = DataStoreManager()
 
     var realm = try! Realm()
+
+    private init() { /* intentionally left blank */ }
 }

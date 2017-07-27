@@ -46,6 +46,8 @@ class HomeContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DataManager.shared.loadUserIfExists()
+
         let searchBar = UISearchBar()
         searchBar.placeholder = searchPromptKey.localized
         let toggleButton = UIBarButtonItem(title: ChildControllers.map.localizedToggleButtonText,

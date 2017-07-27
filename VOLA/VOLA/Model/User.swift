@@ -28,6 +28,7 @@ class User: Object {
     dynamic var imageURLString: String = ""
     // Computed values since their types are unsupported by Realm
     var userType: UserType {
+        // If userTypeRaw is not specified, return .manual as default value
         return UserType(rawValue: userTypeRaw) ?? .manual
     }
     var imageURL: URL? {

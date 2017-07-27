@@ -14,7 +14,6 @@ fileprivate let defaultMarkerTitle: String = ""
 
 fileprivate let locationAccessTitleKey: String = "edit-location-settings.title.label"
 fileprivate let locationAccessPromptKey: String = "edit-location-settings.prompt.label"
-fileprivate let editSettingsKey: String = "edit-settings.prompt.label"
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
@@ -75,18 +74,7 @@ class MapViewController: UIViewController {
 
         switch CLLocationManager.authorizationStatus() {
         case .restricted, .denied:
-            let alert = UIAlertController(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized, preferredStyle: .alert)
-            let openSettingsAction = UIAlertAction(title: editSettingsKey.localized, style: .default, handler: { (_) in
-                guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
-                    return
-                }
-
-                URL.applicationOpen(url: settingsURL)
-            })
-            let cancelAction = UIAlertAction(title: UIDisplay.cancel.localized, style: .cancel, handler: nil)
-            alert.addAction(openSettingsAction)
-            alert.addAction(cancelAction)
-            present(alert, animated: true, completion: nil)
+            showEditSettingsAlert(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized)
         default:
             break
         }
@@ -95,6 +83,7 @@ class MapViewController: UIViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
+    /// Animate map to last updated location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
@@ -106,6 +95,16 @@ extension MapViewController: CLLocationManagerDelegate {
 
         // Stop updating location so map camera does not move with user
         self.locationManager.stopUpdatingLocation()
+    }
+
+    /// Show alert to edit location authorization if authorization status was changed
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted, .denied:
+            showEditSettingsAlert(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized)
+        default:
+            break
+        }
     }
 }
 

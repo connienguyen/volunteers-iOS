@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate let normalBorderWidth: CGFloat = 0.5
 fileprivate let errorBorderWidth: CGFloat = 1.0
-fileprivate let cornerRadius: CGFloat = 3.0
+fileprivate let fieldCornerRadius: CGFloat = 3.0
 
 /// Stylized custom text field enabled with input validation
 class VLTextField: UITextField {
@@ -31,7 +31,7 @@ class VLTextField: UITextField {
 
         layer.borderColor = ThemeManager.shared.currentTheme.inputBorderColor.cgColor
         layer.borderWidth = normalBorderWidth
-        layer.cornerRadius = cornerRadius
+        layer.cornerRadius = fieldCornerRadius
     }
 
     /// Validate current text input and update border display accordingly

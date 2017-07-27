@@ -21,7 +21,7 @@ enum Theme: Int {
     var primaryColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.sublime
+            return ThemeColors.marineBlue
         }
     }
 
@@ -29,7 +29,7 @@ enum Theme: Int {
     var secondaryColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.caribbean
+            return ThemeColors.emerald
         }
     }
 
@@ -58,7 +58,7 @@ enum Theme: Int {
     var tintContrastColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.emerald
+            return ThemeColors.caribbean
         }
     }
 
@@ -74,7 +74,7 @@ enum Theme: Int {
     var linkColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.caribbean
+            return ThemeColors.tangerine
         }
     }
 

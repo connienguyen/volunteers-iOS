@@ -13,7 +13,7 @@ import ObjectMapper
 
 // MARK: - ETouchesAPIService extension for registration related API requests
 extension ETouchesAPIService {
-    func registerForEvent(eventID: Int, name: String, email: String, volunteering: Bool, accommodation: String?) -> Promise<Event> {
+    func registerForEvent(eventID: String, name: String, email: String, volunteering: Bool, accommodation: String?) -> Promise<Event> {
         return Promise { fulfill, reject in
             // TODO: Incomplete call, needs to work with Firebase
             let URL = ETouchesURL.baseURL + ETouchesURL.eventRegistrationAddOn

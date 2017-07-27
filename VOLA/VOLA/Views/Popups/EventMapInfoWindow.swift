@@ -8,23 +8,34 @@
 
 import Foundation
 
-fileprivate let borderWidth: CGFloat = 1.0
-fileprivate let cornerRadius: CGFloat = 7.0
+fileprivate let windowBorderWidth: CGFloat = 1.0
+fileprivate let windowCornerRadius: CGFloat = 7.0
+fileprivate let windowWidth: CGFloat = 295.0
 
 /// Popup view shown when map marker is clicked
 class EventMapInfoWindow: UIView, XIBInstantiable {
+    /// Offset value for Y position of associated marker on map view
+    static let mapYOffset: CGFloat = 65.0
+
     @IBOutlet weak var nameLabel: TitleLabel!
     @IBOutlet weak var dateAddressLabel: TextLabel!
     @IBOutlet weak var registrationLabel: TextLabel!
-
-    var eventID: Int = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         layer.borderColor = ThemeManager.shared.currentTheme.inputBorderColor.cgColor
-        layer.borderWidth = borderWidth
-        layer.cornerRadius = cornerRadius
+        layer.borderWidth = windowBorderWidth
+        layer.cornerRadius = windowCornerRadius
+        translatesAutoresizingMaskIntoConstraints = false
+        let widthConstraint = NSLayoutConstraint(item: self,
+                                                 attribute: .width,
+                                                 relatedBy: .equal,
+                                                 toItem: nil,
+                                                 attribute: .notAnAttribute,
+                                                 multiplier: 1,
+                                                 constant: windowWidth)
+        addConstraint(widthConstraint)
     }
 
     /**
@@ -34,8 +45,7 @@ class EventMapInfoWindow: UIView, XIBInstantiable {
         - event: Event model to display data from
     */
     func configureInfoWindow(event: Event) {
-        eventID = event.eventID
         nameLabel.text = event.name
-        dateAddressLabel.text = event.location.addressString
+        dateAddressLabel.text = event.location.shortAddressString
     }
 }

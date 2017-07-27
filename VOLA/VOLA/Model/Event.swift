@@ -47,7 +47,7 @@ enum EventMapable: String {
 
 /// Model for Event data
 class Event {
-    var eventID: Int = 0
+    var eventID: String = ""
     var name: String = ""
     var description: String = ""
     var location: Location = Location()

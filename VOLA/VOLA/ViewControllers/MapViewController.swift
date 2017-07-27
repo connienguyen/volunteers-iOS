@@ -28,6 +28,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
 
         mapView.delegate = self
     }
@@ -37,9 +38,6 @@ class MapViewController: UIViewController {
 
         // As child viewcontroller becoming visible again, reload markers
         reloadLocationMarkers()
-
-        // Start updating location whenever returning to view
-        locationManager.startUpdatingLocation()
     }
 
     /// Clear map view of current markers and load markers from events array
@@ -110,7 +108,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 // MARK: - GMSMapViewDelegate
 extension MapViewController: GMSMapViewDelegate {
-    /// Return an empty view so default Google infoWindow is not used
+    /// Configure and return info window with associated event info
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let mapInfoWindow = EventMapInfoWindow.instantiateFromXib()
         if let event = viewModel.event(with: marker.title ?? defaultMarkerTitle) {
@@ -128,5 +126,18 @@ extension MapViewController: GMSMapViewDelegate {
         }
 
         showEventDetail(event)
+    }
+
+    /// Calculate new camera position with offset for info window and open info window for tapped marker
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let markerProjection = mapView.projection.point(for: marker.position)
+        let mapCenter = CGPoint(x: markerProjection.x, y: markerProjection.y - EventMapInfoWindow.mapYOffset)
+        let mapCenterCoords = mapView.projection.coordinate(for: mapCenter)
+        let cameraUpdate = GMSCameraUpdate.setTarget(mapCenterCoords)
+        mapView.animate(with: cameraUpdate)
+        mapView.selectedMarker = marker
+
+        // Return true to override default Google actions for didTap marker
+        return true
     }
 }

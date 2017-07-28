@@ -28,7 +28,7 @@ final class LoginManager {
     func login(_ strategy: AvailableLoginStrategies) -> Promise<Bool> {
         return strategy.login()
             .then { user -> Bool in
-                DataManager.shared.setUser(user)
+                DataManager.shared.setUserUpdateStoredUser(user)
                 NotificationCenter.default.post(name: NotificationName.userLogin, object: nil)
                 return true
         }
@@ -59,7 +59,7 @@ final class LoginManager {
                 Logger.error(signOutError)
             }
         }
-        DataManager.shared.setUser(nil)
+        DataManager.shared.setUserUpdateStoredUser(nil)
     }
 
     /**
@@ -73,7 +73,7 @@ final class LoginManager {
     func updateUser(_ strategy: AvailableUserUpdateStrategies) -> Promise<Bool> {
         return strategy.update()
             .then { user -> Bool in
-                DataManager.shared.setUser(user)
+                DataManager.shared.setUserUpdateStoredUser(user)
                 return true
             }
     }

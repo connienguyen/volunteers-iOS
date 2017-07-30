@@ -18,23 +18,32 @@ final class ETouchesAPIService {
 
     private init() { /* Intentionally left empty */ }
 
-    private func retrieveAccessToken() {
+    func retrieveAccessToken() {
         let URL = ETouchesURL.baseURL + ETouchesURL.accessTokenAddOn
-        // TODO read secret keys from plist
-        /*
-         let parameters: [String: Any] = [
-            ETouchesParameters.accountID.forURL: //,
-            ETouchesParameters.key.forURL: //
-         ]
-        */
-        Alamofire.request(URL).validate().responseObject { (response: DataResponse<ETouchesAccessToken>) in
-            let accessTokenResponse = response.result.value
-            guard let eTouchesToken = accessTokenResponse else {
-                Logger.error("Could not retrieve eTouches access token")
-                return
-            }
+        var accountID: String
+        var accountKey: String
+        do {
+            accountID = try SecretKeyManager.shared.value(for: .eTouchesAccount)
+            accountKey = try SecretKeyManager.shared.value(for: .eTouchesKey)
+        } catch {
+            Logger.error(error)
+            return
+        }
 
-            self.accessToken = eTouchesToken.accessToken
+        let parameters: [String: Any] = [
+            ETouchesKeys.accountID.forURL: accountID,
+            ETouchesKeys.key.forURL: accountKey
+        ]
+
+        Alamofire.request(URL, parameters: parameters, encoding: URLEncoding.default)
+            .validate().responseObject { (response: DataResponse<ETouchesAccessToken>) in
+                let accessTokenResponse = response.result.value
+                guard let eTouchesToken = accessTokenResponse else {
+                    Logger.error("Could not retrieve eTouches access token")
+                    return
+                }
+
+                self.accessToken = eTouchesToken.accessToken
         }
     }
 }

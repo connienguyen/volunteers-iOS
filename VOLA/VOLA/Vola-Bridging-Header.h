@@ -12,5 +12,6 @@
 
 #import <Google/SignIn.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <CommonCrypto/CommonCrypto.h>
 
 #endif /* Vola_Bridging_Header_h */

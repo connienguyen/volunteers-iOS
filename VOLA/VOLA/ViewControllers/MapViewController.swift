@@ -26,12 +26,18 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Set up location manager and map view
-        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
 
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
         mapView.delegate = self
+
+        if let location = locationManager.location {
+            let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: GoogleMapsSettings.cameraZoomLevel)
+            mapView.animate(to: camera)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -88,22 +94,6 @@ class MapViewController: UIViewController {
         default:
             break
         }
-    }
-}
-
-// MARK: - CLLocationManagerDelegate
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
-        }
-
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                    longitude: location.coordinate.longitude, zoom: GoogleMapsSettings.cameraZoomLevel)
-        self.mapView?.animate(to: camera)
-
-        // Stop updating location so map camera does not move with user
-        self.locationManager.stopUpdatingLocation()
     }
 }
 

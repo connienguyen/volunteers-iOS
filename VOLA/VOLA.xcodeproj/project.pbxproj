@@ -83,6 +83,7 @@
 		F98808041F0863D800589A23 /* ETouchesAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98808031F0863D800589A23 /* ETouchesAccessToken.swift */; };
 		F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98808061F0864AF00589A23 /* Constants+eTouches.swift */; };
 		F988080A1F0864DF00589A23 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98808091F0864DF00589A23 /* HomeNavigationController.swift */; };
+		F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -224,6 +225,7 @@
 		F98808031F0863D800589A23 /* ETouchesAccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETouchesAccessToken.swift; sourceTree = "<group>"; };
 		F98808061F0864AF00589A23 /* Constants+eTouches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+eTouches.swift"; sourceTree = "<group>"; };
 		F98808091F0864DF00589A23 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
 				F90824F01F2395630070B5D0 /* UserUpdateStrategy.swift */,
 				F9F077021F275C79004DE558 /* ETouchesAPIServices+Registration.swift */,
+				F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,
 				F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */,
 				F90824F11F2395630070B5D0 /* UserUpdateStrategy.swift in Sources */,
+				F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */,
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
 				F92855F11F1111C500D461B1 /* UILabel.swift in Sources */,

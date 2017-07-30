@@ -25,12 +25,18 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Set up location manager and map view
-        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
 
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
         mapView.delegate = self
+
+        if let location = locationManager.location {
+            let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: GoogleMapsSettings.cameraZoomLevel)
+            mapView.animate(to: camera)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

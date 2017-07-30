@@ -17,6 +17,8 @@ protocol SecretKeyManagerProtocol {
 final class SecretKeyManager: SecretKeyManagerProtocol {
     enum KeyName: String {
         case googleMaps = "GoogleMapsAPIKey"
+        case eTouchesAccount = "ETouchesAccountID"
+        case eTouchesKey = "ETouchesKey"
     }
     static let shared = SecretKeyManager()
 

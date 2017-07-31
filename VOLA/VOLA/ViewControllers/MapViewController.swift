@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Set up location manager and map view
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()

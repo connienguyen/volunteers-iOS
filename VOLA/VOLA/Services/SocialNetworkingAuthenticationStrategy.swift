@@ -146,7 +146,8 @@ struct ManualSignUpStrategy: SocialNetworkingAuthenticationStrategy {
                     return
                 }
 
-                FirebaseDataManager.shared.setUser(email: self.email)
+                // TODO: Save/set user to Firebase
+                //FirebaseDataManager.shared.setUser(email: self.email)
                 let changeRequest = firebaseUser.profileChangeRequest()
                 changeRequest.displayName = self.name
                 changeRequest.commitChanges(completion: { (profileError) in

@@ -11,7 +11,6 @@ import CoreLocation
 import GoogleMaps
 
 fileprivate let defaultMarkerTitle: String = ""
-
 fileprivate let locationAccessTitleKey: String = "edit-location-settings.title.label"
 fileprivate let locationAccessPromptKey: String = "edit-location-settings.prompt.label"
 fileprivate let editSettingsKey: String = "edit-settings.prompt.label"

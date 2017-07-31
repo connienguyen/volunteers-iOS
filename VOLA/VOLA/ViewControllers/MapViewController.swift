@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Set up location manager and map view
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -86,20 +87,6 @@ class MapViewController: UIViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
-    /// Animate map to last updated location
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
-        }
-
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                    longitude: location.coordinate.longitude, zoom: GoogleMapsSettings.cameraZoomLevel)
-        self.mapView?.animate(to: camera)
-
-        // Stop updating location so map camera does not move with user
-        self.locationManager.stopUpdatingLocation()
-    }
-
     /// Show alert to edit location authorization if authorization status was changed
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {

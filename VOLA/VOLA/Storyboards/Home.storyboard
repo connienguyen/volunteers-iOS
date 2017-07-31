@@ -146,7 +146,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="accommodations-description.title.label"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Exp-di-gUO">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Exp-di-gUO" customClass="VLInputTextView" customModule="VOLA" customModuleProvider="target">
                                         <rect key="frame" x="40" y="375.5" width="295" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

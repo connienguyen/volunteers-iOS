@@ -9,11 +9,12 @@
 import Foundation
 import FirebaseDatabase
 
+/// Class for managing reading from and writing to Firebase realtime database
 class FirebaseDataManager {
-    enum FirebaseTables: String {
-        case users
+    enum UserTableField: String {
+        case email
 
-        var tableName: String {
+        var key: String {
             return rawValue
         }
     }
@@ -24,8 +25,15 @@ class FirebaseDataManager {
 
     private init() { /* intentionally left blank */ }
 
+    /**
+    Save user to users table on Firebase and set email value to user's email
+     https://github.com/systers/volunteers-android/wiki/Firebase-Documentation---Volunteers-Android
+     
+    - Parameters:
+        - email: Email address of user to save to database
+    */
     func setUser(email: String) {
         let emailHash = email.sha1HexString()
-        reference.child(FirebaseTables.users.tableName).child(emailHash).child("user_email_id").setValue(email)
+        reference.table(.users).child(emailHash).child(UserTableField.email.key).setValue(email)
     }
 }

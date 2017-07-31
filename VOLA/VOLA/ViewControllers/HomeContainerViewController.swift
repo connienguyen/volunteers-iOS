@@ -46,6 +46,8 @@ class HomeContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DataManager.shared.loadUserIfExists()
+
         let searchBar = UISearchBar()
         searchBar.placeholder = searchPromptKey.localized
         let toggleButton = UIBarButtonItem(title: ChildControllers.map.localizedToggleButtonText,
@@ -68,6 +70,15 @@ class HomeContainerViewController: UIViewController {
         viewModel.delegate = self
         eventTablesVC.viewModel = viewModel
         mapEventsVC.viewModel = viewModel
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // Prompt user to edit location settings if not given and map is current child
+        if currentController == .map, let mapVC = firstChildController(currentController) as? MapViewController {
+            mapVC.editLocationSettingsIfNeccessary()
+        }
     }
 
     /// Toggle between the table and map children controllers

@@ -12,6 +12,9 @@ import GoogleMaps
 
 fileprivate let defaultMarkerTitle: String = ""
 
+fileprivate let locationAccessTitleKey: String = "edit-location-settings.title.label"
+fileprivate let locationAccessPromptKey: String = "edit-location-settings.prompt.label"
+
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
@@ -25,6 +28,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+
         mapView.delegate = self
     }
 
@@ -58,10 +62,28 @@ class MapViewController: UIViewController {
         eventDetailVC.event = event
         show(eventDetailVC, sender: self)
     }
+
+    /**
+    Prompt user for access to location if permission was previously denied
+    */
+    func editLocationSettingsIfNeccessary() {
+        // User has not yet been prompted for location access, so no need to show alert to change settings
+        guard CLLocationManager.locationServicesEnabled() else {
+            return
+        }
+
+        switch CLLocationManager.authorizationStatus() {
+        case .restricted, .denied:
+            showEditSettingsAlert(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
+    /// Animate map to last updated location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
@@ -73,6 +95,16 @@ extension MapViewController: CLLocationManagerDelegate {
 
         // Stop updating location so map camera does not move with user
         self.locationManager.stopUpdatingLocation()
+    }
+
+    /// Show alert to edit location authorization if authorization status was changed
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted, .denied:
+            showEditSettingsAlert(title: locationAccessTitleKey.localized, message: locationAccessPromptKey.localized)
+        default:
+            break
+        }
     }
 }
 

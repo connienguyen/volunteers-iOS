@@ -12,6 +12,7 @@ struct NotificationName {
     static let googleDidSignIn = Notification.Name("googleDidSignIn")
     static let availableEventsUpdated = Notification.Name("availableEventsUpdated")
     static let calendarEventsUpdated = Notification.Name("calendarEventsUpdated")
+    static let userLogin = Notification.Name("userLogin")
 }
 
 enum DefaultsKey: String {
@@ -45,6 +46,9 @@ enum UIDisplay: String {
     case yes = "yes-short.prompt.label"
     case no = "no-short.prompt.label"
     case defaultName = "default-name.label"
+    case loginErrorTitle = "login-error.title.label"
+    case cancel = "cancel.prompt.label"
+    case editSettings = "edit-settings.prompt.label"
 
     var localized: String {
         return rawValue.localized

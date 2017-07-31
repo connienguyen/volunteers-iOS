@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import VOLA
 
 /// Handler to load specific JSON files for unit testing (mocking API responses)
 enum JSONFileNames: String {

@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="1id-Am-XBm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Dy9-J2-Dsl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JX5-yM-1e8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JX5-yM-1e8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -35,145 +35,93 @@
                         <viewControllerLayoutGuide type="bottom" id="SL8-N6-fB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A9g-5O-V2g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gS-UR-koe" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ypP-Bb-bYN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="501.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-P7-Hln">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-P7-Hln">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-rh-tJ6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="137" y="25" width="100" height="100"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="8NH-Pi-N7M"/>
-                                                            <constraint firstAttribute="width" secondItem="7JJ-rh-tJ6" secondAttribute="height" multiplier="1:1" id="N3Y-OF-utK"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname LastName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om7-yh-022" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="30" y="150" width="315" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="first-last.title.label"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.org" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-U2-Iap" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="30" y="185.5" width="315" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="sample-email.title.label"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-zu-yEa" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="50" y="231" width="275" height="34"/>
-                                                        <state key="normal" title="Log Out"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="logout.prompt.label"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onLogoutPressed:" destination="I0W-Dr-Qb6" eventType="touchUpInside" id="DH3-Ia-a4c"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-rh-tJ6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="137.5" y="25" width="100" height="100"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="alR-U2-Iap" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="4gh-Cz-wxq"/>
-                                                    <constraint firstItem="7JJ-rh-tJ6" firstAttribute="top" secondItem="VPV-P7-Hln" secondAttribute="top" constant="25" id="CAR-3T-F89"/>
-                                                    <constraint firstItem="mbS-zu-yEa" firstAttribute="top" secondItem="alR-U2-Iap" secondAttribute="bottom" constant="25" id="Inq-Wf-rXZ"/>
-                                                    <constraint firstItem="mbS-zu-yEa" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="50" id="OtQ-Ff-M5U"/>
-                                                    <constraint firstItem="Om7-yh-022" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="bj4-Wx-VCq"/>
-                                                    <constraint firstItem="alR-U2-Iap" firstAttribute="top" secondItem="Om7-yh-022" secondAttribute="bottom" constant="15" id="cVC-LS-Rr5"/>
-                                                    <constraint firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" constant="50" id="gwY-YH-Bd5"/>
-                                                    <constraint firstAttribute="bottom" secondItem="mbS-zu-yEa" secondAttribute="bottom" priority="999" constant="25" id="l8x-Fw-169"/>
-                                                    <constraint firstItem="7JJ-rh-tJ6" firstAttribute="centerX" secondItem="VPV-P7-Hln" secondAttribute="centerX" id="p5Y-Re-kfN"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Om7-yh-022" secondAttribute="trailing" constant="30" id="uQm-wg-zNZ"/>
-                                                    <constraint firstItem="Om7-yh-022" firstAttribute="top" secondItem="7JJ-rh-tJ6" secondAttribute="bottom" constant="25" id="upr-Gk-dwr"/>
-                                                    <constraint firstAttribute="trailing" secondItem="alR-U2-Iap" secondAttribute="trailing" constant="30" id="zzU-e3-hp4"/>
+                                                    <constraint firstAttribute="width" constant="100" id="8NH-Pi-N7M"/>
+                                                    <constraint firstAttribute="width" secondItem="7JJ-rh-tJ6" secondAttribute="height" multiplier="1:1" id="N3Y-OF-utK"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-It-y0E">
-                                                <rect key="frame" x="0.0" y="290" width="375" height="211.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not logged in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f14-sk-eWS" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="30" y="25" width="315" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="not-logged-in.title.label"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to view your profile, enabled quick event registration, and view your registered events." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npA-TT-ogB" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="30" y="70.5" width="315" height="61"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="login-to-view.title.label"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B6-61-vUN" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                        <rect key="frame" x="50" y="156.5" width="275" height="30"/>
-                                                        <state key="normal" title="Log In"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="login.prompt.label"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="onLoginPressed:" destination="I0W-Dr-Qb6" eventType="touchUpInside" id="qKe-nU-TVe"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="2B6-61-vUN" secondAttribute="trailing" constant="50" id="GPt-zy-eI1"/>
-                                                    <constraint firstItem="f14-sk-eWS" firstAttribute="top" secondItem="cdt-It-y0E" secondAttribute="top" constant="25" id="GgJ-r2-TB1"/>
-                                                    <constraint firstAttribute="bottom" secondItem="2B6-61-vUN" secondAttribute="bottom" priority="999" constant="25" id="K87-kc-LUn"/>
-                                                    <constraint firstItem="npA-TT-ogB" firstAttribute="leading" secondItem="cdt-It-y0E" secondAttribute="leading" constant="30" id="Kah-Q6-yhy"/>
-                                                    <constraint firstItem="2B6-61-vUN" firstAttribute="leading" secondItem="cdt-It-y0E" secondAttribute="leading" constant="50" id="Lyu-Jl-HDa"/>
-                                                    <constraint firstItem="npA-TT-ogB" firstAttribute="top" secondItem="f14-sk-eWS" secondAttribute="bottom" constant="25" id="Qs0-YS-Ims"/>
-                                                    <constraint firstItem="2B6-61-vUN" firstAttribute="top" secondItem="npA-TT-ogB" secondAttribute="bottom" constant="25" id="SyX-eh-jhO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="npA-TT-ogB" secondAttribute="trailing" constant="30" id="VOR-Eh-TL4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="f14-sk-eWS" secondAttribute="trailing" constant="30" id="e1u-AG-IbQ"/>
-                                                    <constraint firstItem="f14-sk-eWS" firstAttribute="leading" secondItem="cdt-It-y0E" secondAttribute="leading" constant="30" id="laO-o5-ZJ4"/>
-                                                </constraints>
-                                            </view>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname LastName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om7-yh-022" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="150" width="315" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="first-last.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.org" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-U2-Iap" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="185.5" width="315" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="sample-email.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-zu-yEa" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="231" width="275" height="30"/>
+                                                <state key="normal" title="Log Out"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="logout.prompt.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onLogoutPressed:" destination="I0W-Dr-Qb6" eventType="touchUpInside" id="DH3-Ia-a4c"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="alR-U2-Iap" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="4gh-Cz-wxq"/>
+                                            <constraint firstItem="7JJ-rh-tJ6" firstAttribute="top" secondItem="VPV-P7-Hln" secondAttribute="top" constant="25" id="CAR-3T-F89"/>
+                                            <constraint firstItem="mbS-zu-yEa" firstAttribute="top" secondItem="alR-U2-Iap" secondAttribute="bottom" constant="25" id="Inq-Wf-rXZ"/>
+                                            <constraint firstItem="mbS-zu-yEa" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="50" id="OtQ-Ff-M5U"/>
+                                            <constraint firstItem="Om7-yh-022" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="bj4-Wx-VCq"/>
+                                            <constraint firstItem="alR-U2-Iap" firstAttribute="top" secondItem="Om7-yh-022" secondAttribute="bottom" constant="15" id="cVC-LS-Rr5"/>
+                                            <constraint firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" constant="50" id="gwY-YH-Bd5"/>
+                                            <constraint firstAttribute="bottom" secondItem="mbS-zu-yEa" secondAttribute="bottom" priority="999" constant="25" id="l8x-Fw-169"/>
+                                            <constraint firstItem="7JJ-rh-tJ6" firstAttribute="centerX" secondItem="VPV-P7-Hln" secondAttribute="centerX" id="p5Y-Re-kfN"/>
+                                            <constraint firstAttribute="trailing" secondItem="Om7-yh-022" secondAttribute="trailing" constant="30" id="uQm-wg-zNZ"/>
+                                            <constraint firstItem="Om7-yh-022" firstAttribute="top" secondItem="7JJ-rh-tJ6" secondAttribute="bottom" constant="25" id="upr-Gk-dwr"/>
+                                            <constraint firstAttribute="trailing" secondItem="alR-U2-Iap" secondAttribute="trailing" constant="30" id="zzU-e3-hp4"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ypP-Bb-bYN" secondAttribute="bottom" id="OBn-A9-N1e"/>
-                                    <constraint firstItem="ypP-Bb-bYN" firstAttribute="top" secondItem="6gS-UR-koe" secondAttribute="top" id="Q8W-4d-1ez"/>
-                                    <constraint firstAttribute="trailing" secondItem="ypP-Bb-bYN" secondAttribute="trailing" id="cfj-Xg-sTe"/>
-                                    <constraint firstItem="ypP-Bb-bYN" firstAttribute="leading" secondItem="6gS-UR-koe" secondAttribute="leading" id="dvy-ZO-Ojg"/>
-                                    <constraint firstItem="ypP-Bb-bYN" firstAttribute="width" secondItem="6gS-UR-koe" secondAttribute="width" id="f66-ZV-q2X"/>
+                                    <constraint firstAttribute="bottom" secondItem="VPV-P7-Hln" secondAttribute="bottom" id="3YH-9t-dXY"/>
+                                    <constraint firstItem="VPV-P7-Hln" firstAttribute="top" secondItem="6gS-UR-koe" secondAttribute="top" id="XfK-Y9-WTj"/>
+                                    <constraint firstAttribute="trailing" secondItem="VPV-P7-Hln" secondAttribute="trailing" id="bbB-b8-OcT"/>
+                                    <constraint firstItem="VPV-P7-Hln" firstAttribute="leading" secondItem="6gS-UR-koe" secondAttribute="leading" id="yj6-JR-d42"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VPV-P7-Hln" firstAttribute="width" secondItem="A9g-5O-V2g" secondAttribute="width" id="9bV-Pv-lNU"/>
                             <constraint firstAttribute="bottom" secondItem="6gS-UR-koe" secondAttribute="bottom" id="CIf-f0-9mw"/>
                             <constraint firstItem="6gS-UR-koe" firstAttribute="leading" secondItem="A9g-5O-V2g" secondAttribute="leading" id="DEN-7U-szL"/>
                             <constraint firstAttribute="trailing" secondItem="6gS-UR-koe" secondAttribute="trailing" id="NA9-1k-Sv1"/>
                             <constraint firstItem="6gS-UR-koe" firstAttribute="top" secondItem="A9g-5O-V2g" secondAttribute="top" id="qXY-T2-IeF"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Profile" id="l6Z-s1-mQe"/>
                     <navigationItem key="navigationItem" id="bYh-mU-fgS"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="profile.title.label"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="anonUserView" destination="cdt-It-y0E" id="dOC-7B-x1J"/>
-                        <outlet property="currentUserView" destination="VPV-P7-Hln" id="78z-oh-Ik2"/>
                         <outlet property="emailLabel" destination="alR-U2-Iap" id="A20-fh-h5w"/>
                         <outlet property="nameLabel" destination="Om7-yh-022" id="TxP-YA-2ih"/>
                         <outlet property="profileImageView" destination="7JJ-rh-tJ6" id="97R-Vf-QoZ"/>
@@ -242,7 +190,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCA-8d-Gqy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCA-8d-Gqy" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="315" width="335" height="30"/>
                                                 <state key="normal" title="Save Changes"/>
                                                 <userDefinedRuntimeAttributes>

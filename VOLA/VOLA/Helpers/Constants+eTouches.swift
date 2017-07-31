@@ -19,6 +19,7 @@ struct ETouchesURL {
     static let accessTokenAddOn = "global/authorize.json"
     static let getEventAddOn = "ereg/getEvent.json"
     static let listEventsAddOn = "global/listEvents.json"
+    static let eventRegistrationAddOn = "ereg/createAttendee.json"
 }
 
 /// Parameter keys used with eTouches API requests
@@ -29,6 +30,10 @@ enum ETouchesKeys: String {
     case eventID
     case customFields
     case fields
+    case accommodation
+    case categoryID
+    case email
+    case fullName
 
     /// URL query parameter key
     var forURL: String {

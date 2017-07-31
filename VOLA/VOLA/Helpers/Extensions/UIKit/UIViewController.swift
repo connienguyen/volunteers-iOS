@@ -64,4 +64,67 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: DictKeys.ok.rawValue, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+
+    /// Current login upsell view if there is one
+    var loginUpsellView: LoginUpsellView? {
+        return view.subviews.first(where: {$0 is LoginUpsellView }) as? LoginUpsellView
+    }
+
+    /**
+    Shows login upsell view if there is already not one on the view controller and sets
+     up target for the button on the upsell
+    */
+    func showUpsell() {
+        // Guard against showing multiple upsells on the same view controller
+        guard loginUpsellView == nil else {
+            return
+        }
+
+        let newUpsell = LoginUpsellView.instantiateFromXib()
+        let viewFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        newUpsell.frame = viewFrame
+        newUpsell.layer.zPosition += 1
+        newUpsell.loginButton.addTarget(self, action: #selector(presentLoginFromUpsell), for: .touchUpInside)
+        view.addSubview(newUpsell)
+        addNotificationObserver(NotificationName.userLogin, selector: #selector(removeUpsell))
+    }
+
+    /// Remove login upsell if there is one active on view controller
+    func removeUpsell() {
+        // Guard against removing upsell view from view controller when there is none
+        guard let upsellView = loginUpsellView else {
+            return
+        }
+
+        upsellView.removeFromSuperview()
+        removeNotificationObserver(NotificationName.userLogin)
+    }
+
+    /// Present login flow where use can log in through a social network or manually with email
+    func presentLoginFromUpsell() {
+        let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
+        present(loginNavVC, animated: true, completion: nil)
+    }
+
+    /**
+    Show alert that user can dismiss or use as a shortcut to Settings to edit app permissions
+     
+    - Parameters:
+        - title: Title of the alert (suggested to use title of permission that needs access)
+        - message: Message of the alert (suggested to use an explaination for permission access)
+    */
+    func showEditSettingsAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let openSettingsAction = UIAlertAction(title: UIDisplay.editSettings.localized, style: .default, handler: { (_) in
+            guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+
+            URL.applicationOpen(url: settingsURL)
+        })
+        let cancelAction = UIAlertAction(title: UIDisplay.cancel.localized, style: .cancel, handler: nil)
+        alert.addAction(openSettingsAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
 }

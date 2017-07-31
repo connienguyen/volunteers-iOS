@@ -69,15 +69,33 @@ class EventRegistrationViewController: UIViewController {
 extension EventRegistrationViewController {
     @IBAction func onRegisterPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
-        guard let _ = nameTextField.text,
-            let _ = emailTextField.text,
+        guard let name = nameTextField.text,
+            let email = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.joinLocalized()
                 showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
                 return
         }
 
-        // TODO event registration API call
+        ETouchesAPIService.shared.registerForEvent(eventID: event.eventID,
+                                                   name: name,
+                                                   email: email,
+                                                   volunteering: volunteerCheckbox.isChecked,
+                                                   accommodation: accommodationTextView.text)
+            .then { [weak self] (event) -> Void in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.navigationController?.popViewController(animated: true)
+            }.catch { [weak self] error in
+                Logger.error(error)
+                guard let `self` = self else {
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: "Could not register for event", errorMessage: error.localizedDescription)
+            }
     }
 }
 

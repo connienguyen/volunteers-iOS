@@ -42,10 +42,9 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Reload data in table in case controller was a not visible child controller
-        //  transitioning to a visible child controller
-        tableView.reloadData()
-
+        if tableType == .calendar && !DataManager.shared.isLoggedIn {
+            showUpsell()
+        }
         // Since view controller is instantiated from XIB file, need to do first load
         // UI setup here (set title, retrieve events for data source)
         guard !isShown else {
@@ -54,6 +53,12 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
 
         isShown = true
         self.title = tableType.rawValue
+    }
+
+    override func removeUpsell() {
+        super.removeUpsell()
+
+        tableView.reloadData()
     }
 }
 

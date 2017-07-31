@@ -8,6 +8,7 @@
 
 import Foundation
 import FBSDKLoginKit
+import FirebaseAuth
 import PromiseKit
 
 /// Manager for handling the available login methods
@@ -27,7 +28,8 @@ final class LoginManager {
     func login(_ strategy: AvailableLoginStrategies) -> Promise<Bool> {
         return strategy.login()
             .then { user -> Bool in
-                DataManager.shared.setUser(user)
+                DataManager.shared.setUserUpdateStoredUser(user)
+                NotificationCenter.default.post(name: NotificationName.userLogin, object: nil)
                 return true
         }
     }
@@ -46,23 +48,33 @@ final class LoginManager {
         case .google:
             GIDSignIn.sharedInstance().signOut()
         case .manual:
-            // TODO: Print statement used as placeholder for manual logOut
-            print("Manual logout")
+            guard let firebaseAuth = FIRAuth.auth() else {
+                Logger.error(AuthenticationError.invalidFirebaseAuth)
+                return
+            }
+
+            do {
+                try firebaseAuth.signOut()
+            } catch let signOutError {
+                Logger.error(signOutError)
+            }
         }
-        DataManager.shared.setUser(nil)
+        DataManager.shared.setUserUpdateStoredUser(nil)
     }
 
-    func updateUser(name: String, email: String, completion: @escaping ErrorCompletionBlock) {
-        // TODO - currently saving changes as if successful
-        guard let currentUser = DataManager.shared.currentUser else {
-            let error: Error = AuthenticationError.notLoggedIn
-            completion(error)
-            return
-        }
-
-        currentUser.name = name
-        currentUser.email = email
-        DataManager.shared.setUser(currentUser)
-        completion(nil)
+    /**
+    Update user data on remote server and then update local data to match given a strategy
+ 
+    - Parameters:
+        - strategy: User update strategy to update user data with
+     
+    - Returns: Boolean promise whether or not user update was successful
+    */
+    func updateUser(_ strategy: AvailableUserUpdateStrategies) -> Promise<Bool> {
+        return strategy.update()
+            .then { user -> Bool in
+                DataManager.shared.setUserUpdateStoredUser(user)
+                return true
+            }
     }
 }

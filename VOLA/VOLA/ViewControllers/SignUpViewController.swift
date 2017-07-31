@@ -9,6 +9,11 @@
 import UIKit
 import FRHyperLabel
 
+let agreeLabelKey = "signup-agree.title.label"
+let tosPromptKey = "tos.title.label"
+let privacyPromptKey = "privacy.title.label"
+let signUpErrorKey = "signup-error.title.label"
+
 /// View controller allows user to sign up for an account
 class SignUpViewController: UIViewController {
 
@@ -17,10 +22,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: VLTextField!
     @IBOutlet weak var confirmTextField: VLTextField!
     @IBOutlet weak var signUpAgreeLabel: VLHyperLabel!
-
-    let agreeLabelKey = "signup-agree.title.label"
-    let tosPromptKey = "tos.title.label"
-    let privacyPromptKey = "privacy.title.label"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,8 +83,13 @@ extension SignUpViewController {
                 }
 
                 self.dismiss(animated: true, completion: nil)
-            }.catch { error in
+            }.catch { [weak self] error in
                 Logger.error(error)
+                guard let `self` = self else {
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: signUpErrorKey.localized, errorMessage: error.localizedDescription)
             }
     }
 }

@@ -33,6 +33,8 @@ target 'VOLA' do
 
     pod 'GoogleMaps', '~> 2.3.0'
     pod 'Firebase/Core', '~> 3.15.0'
+    pod 'Firebase/Auth', '~> 3.15.0'
+    pod 'RealmSwift', '~> 2.7.0'
 
     # Testing
     target 'VOLATests' do

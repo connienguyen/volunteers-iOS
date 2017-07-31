@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import VOLA
 
 struct InputConstants {
     static let validEmail = "systers.volunteers@gmail.com"

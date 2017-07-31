@@ -9,6 +9,8 @@
 import UIKit
 import Kingfisher
 
+fileprivate let saveErrorKey: String = "save-error.title.label"
+
 /// View controller where a logged in user can edit their profile.
 class EditProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircleImageView!
@@ -58,14 +60,22 @@ extension EditProfileViewController {
                 return
         }
 
-        LoginManager.shared.updateUser(name: name, email: email) { (loginError) in
-            guard loginError == nil else {
-                Logger.error(loginError?.localizedDescription ?? VLError.userUpdate.localizedDescription)
-                return
-            }
+        LoginManager.shared.updateUser(.firebase(name, email))
+            .then { [weak self] (success) -> Void in
+                guard let `self` = self, success else {
+                    Logger.error(VLError.invalidFirebaseAction)
+                    return
+                }
 
-            self.navigationController?.popViewController(animated: true)
-        }
+                self.navigationController?.popViewController(animated: true)
+            }.catch { [weak self] (error) in
+                Logger.error(error)
+                guard let `self` = self else {
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: saveErrorKey.localized, errorMessage: error.localizedDescription)
+            }
     }
 }
 

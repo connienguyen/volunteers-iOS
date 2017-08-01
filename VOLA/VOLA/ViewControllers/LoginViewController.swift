@@ -86,7 +86,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 // MARK: - IBActions
 extension LoginViewController {
     @IBAction func onLoginWithEmailPressed(_ sender: Any) {
-        performSegue(.showLoginManual)
+        performSegue(.showLoginManual, sender: self)
     }
 }
 

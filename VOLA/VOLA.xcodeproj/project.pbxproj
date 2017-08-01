@@ -86,6 +86,8 @@
 		F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */; };
 		F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */; };
 		F99F8D591F2F40C300C4E97A /* VLInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */; };
+		F99F8D5B1F308FAF00C4E97A /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */; };
+		F99F8D5D1F30900900C4E97A /* ProfileNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -230,6 +232,8 @@
 		F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLInputTextView.swift; sourceTree = "<group>"; };
+		F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigationViewController.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */,
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
+				F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */,
+				F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -909,6 +915,7 @@
 				F94B4A841F0FFE1900AEB13A /* VLButton.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
 				F92855EB1F11103300D461B1 /* VolunteersNeededLabel.swift in Sources */,
+				F99F8D5D1F30900900C4E97A /* ProfileNavigationViewController.swift in Sources */,
 				F90824EE1F2157810070B5D0 /* EventsViewModel.swift in Sources */,
 				F9A501E01EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				F90824F71F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */,
@@ -959,6 +966,7 @@
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
 				F9A501E91EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */,
+				F99F8D5B1F308FAF00C4E97A /* SettingsTableViewController.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
 				754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */,
 				F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,

@@ -12,9 +12,9 @@
         <!--Profile-->
         <scene sceneID="pdV-bX-gF8">
             <objects>
-                <navigationController id="1id-Am-XBm" sceneMemberID="viewController">
+                <navigationController id="1id-Am-XBm" customClass="ProfileNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Dy9-J2-Dsl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JX5-yM-1e8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JX5-yM-1e8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-P7-Hln">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="396"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-rh-tJ6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="137.5" y="25" width="100" height="100"/>
@@ -71,7 +71,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-zu-yEa" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="231" width="275" height="30"/>
+                                                <rect key="frame" x="50" y="286" width="275" height="30"/>
                                                 <state key="normal" title="Log Out"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="logout.prompt.label"/>
@@ -80,18 +80,31 @@
                                                     <action selector="onLogoutPressed:" destination="I0W-Dr-Qb6" eventType="touchUpInside" id="DH3-Ia-a4c"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cft-re-wJx" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="231" width="275" height="30"/>
+                                                <state key="normal" title="Edit Profile"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="edit-profile.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onEditProfilePressed:" destination="I0W-Dr-Qb6" eventType="touchUpInside" id="SFt-zI-KqO"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="mbS-zu-yEa" secondAttribute="bottom" constant="80" id="06a-GH-ca2"/>
                                             <constraint firstItem="alR-U2-Iap" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="4gh-Cz-wxq"/>
                                             <constraint firstItem="7JJ-rh-tJ6" firstAttribute="top" secondItem="VPV-P7-Hln" secondAttribute="top" constant="25" id="CAR-3T-F89"/>
-                                            <constraint firstItem="mbS-zu-yEa" firstAttribute="top" secondItem="alR-U2-Iap" secondAttribute="bottom" constant="25" id="Inq-Wf-rXZ"/>
-                                            <constraint firstItem="mbS-zu-yEa" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="50" id="OtQ-Ff-M5U"/>
+                                            <constraint firstItem="cft-re-wJx" firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" id="D7E-nW-VBO"/>
+                                            <constraint firstItem="cft-re-wJx" firstAttribute="top" secondItem="alR-U2-Iap" secondAttribute="bottom" constant="25" id="LEb-fC-lqr"/>
+                                            <constraint firstItem="mbS-zu-yEa" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="50" id="Ps3-fZ-m2D"/>
+                                            <constraint firstItem="mbS-zu-yEa" firstAttribute="top" secondItem="cft-re-wJx" secondAttribute="bottom" constant="25" id="aB0-VT-9p1"/>
                                             <constraint firstItem="Om7-yh-022" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="bj4-Wx-VCq"/>
                                             <constraint firstItem="alR-U2-Iap" firstAttribute="top" secondItem="Om7-yh-022" secondAttribute="bottom" constant="15" id="cVC-LS-Rr5"/>
-                                            <constraint firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" constant="50" id="gwY-YH-Bd5"/>
-                                            <constraint firstAttribute="bottom" secondItem="mbS-zu-yEa" secondAttribute="bottom" priority="999" constant="25" id="l8x-Fw-169"/>
                                             <constraint firstItem="7JJ-rh-tJ6" firstAttribute="centerX" secondItem="VPV-P7-Hln" secondAttribute="centerX" id="p5Y-Re-kfN"/>
+                                            <constraint firstItem="cft-re-wJx" firstAttribute="leading" secondItem="mbS-zu-yEa" secondAttribute="leading" id="pPe-jD-x2Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" constant="50" id="sEN-Xx-6DF"/>
                                             <constraint firstAttribute="trailing" secondItem="Om7-yh-022" secondAttribute="trailing" constant="30" id="uQm-wg-zNZ"/>
                                             <constraint firstItem="Om7-yh-022" firstAttribute="top" secondItem="7JJ-rh-tJ6" secondAttribute="bottom" constant="25" id="upr-Gk-dwr"/>
                                             <constraint firstAttribute="trailing" secondItem="alR-U2-Iap" secondAttribute="trailing" constant="30" id="zzU-e3-hp4"/>
@@ -128,6 +141,7 @@
                         <segue destination="FvQ-0x-d8p" kind="show" identifier="showEditProfile" id="dbv-Ea-Bma">
                             <nil key="action"/>
                         </segue>
+                        <segue destination="Bh5-Ak-Xrw" kind="show" identifier="showSettings" id="3S8-Nu-NYP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AI3-XY-XHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,6 +266,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5o-LD-MSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="724" y="1216"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="unk-1y-lXP">
+            <objects>
+                <tableViewController id="Bh5-Ak-Xrw" customClass="SettingsTableViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="L00-Lz-Lwc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nqB-9g-fW3">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqB-9g-fW3" id="pEx-HS-yZK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bh5-Ak-Xrw" id="jtP-l5-uvz"/>
+                            <outlet property="delegate" destination="Bh5-Ak-Xrw" id="ZMj-mu-Un2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8L-Ew-EjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="1981"/>
         </scene>
     </scenes>
 </document>

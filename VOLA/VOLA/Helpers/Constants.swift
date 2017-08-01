@@ -24,6 +24,7 @@ enum DefaultsKey: String {
 enum Segue: String {
     case showLoginManual
     case showEditProfile
+    case showSettings
 
     /// Storyboard segue identifier
     var identifier: String {

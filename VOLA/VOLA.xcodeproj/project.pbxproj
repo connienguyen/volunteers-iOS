@@ -88,6 +88,9 @@
 		F99F8D591F2F40C300C4E97A /* VLInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */; };
 		F99F8D5B1F308FAF00C4E97A /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */; };
 		F99F8D5D1F30900900C4E97A /* ProfileNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */; };
+		F99F8D5F1F30961100C4E97A /* ManageLoginsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */; };
+		F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */; };
+		F99F8D651F30DBC400C4E97A /* ConnectedLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -234,6 +237,9 @@
 		F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLInputTextView.swift; sourceTree = "<group>"; };
 		F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigationViewController.swift; sourceTree = "<group>"; };
+		F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageLoginsCell.swift; sourceTree = "<group>"; };
+		F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginsManagerTableViewController.swift; sourceTree = "<group>"; };
+		F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginCell.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -429,23 +435,24 @@
 				F98807FA1EF41A5100589A23 /* CalendarNavigationController.swift */,
 				F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */,
 				F98807E71EF26A2800589A23 /* EventDetailViewController.swift */,
-				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
 				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
 				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
-				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 				F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */,
 				F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */,
 				F98808091F0864DF00589A23 /* HomeNavigationController.swift */,
 				F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */,
 				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
 				F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */,
+				F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */,
 				F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */,
 				F92856241F18ECA100D461B1 /* MapViewController.swift */,
+				F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */,
 				F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */,
+				F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */,
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
-				F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */,
-				F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */,
+				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
+				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -474,6 +481,8 @@
 			children = (
 				F98807F71EF4173E00589A23 /* EventCell.swift */,
 				F98807F41EF412F700589A23 /* EventCell.xib */,
+				F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */,
+				F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -937,12 +946,15 @@
 				F92856251F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
+				F99F8D5F1F30961100C4E97A /* ManageLoginsCell.swift in Sources */,
 				F92855F71F11262800D461B1 /* ThinLabel.swift in Sources */,
 				F92920441EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
 				F92856161F17900F00D461B1 /* SecretKeyManager.swift in Sources */,
 				F98807EE1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
+				F99F8D651F30DBC400C4E97A /* ConnectedLoginCell.swift in Sources */,
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
+				F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
 				F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */,
 				F9DD11D31F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,

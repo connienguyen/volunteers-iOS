@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="1id-Am-XBm" customClass="ProfileNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Dy9-J2-Dsl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JX5-yM-1e8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JX5-yM-1e8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,12 +276,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nqB-9g-fW3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ManageLoginsCell" id="nqB-9g-fW3" customClass="ManageLoginsCell" customModule="VOLA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqB-9g-fW3" id="pEx-HS-yZK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage connected logins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiZ-9h-VaB" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="12" width="187" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="manage-logins.prompt.label"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jiZ-9h-VaB" firstAttribute="centerY" secondItem="pEx-HS-yZK" secondAttribute="centerY" id="5fe-qt-5WD"/>
+                                        <constraint firstItem="jiZ-9h-VaB" firstAttribute="leading" secondItem="pEx-HS-yZK" secondAttribute="leading" constant="20" id="zSH-tZ-pv3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -290,10 +305,73 @@
                             <outlet property="delegate" destination="Bh5-Ak-Xrw" id="ZMj-mu-Un2"/>
                         </connections>
                     </tableView>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="settings.title.label"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="fO4-SM-PiK" kind="show" identifier="showLoginsManager" id="Sel-oP-gZF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8L-Ew-EjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="724" y="1981"/>
+        </scene>
+        <!--Logins Manager Table View Controller-->
+        <scene sceneID="mN8-GM-RpU">
+            <objects>
+                <tableViewController id="fO4-SM-PiK" customClass="LoginsManagerTableViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SMS-JT-wHK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectedLoginCell" rowHeight="75" id="cUu-rk-dZF" customClass="ConnectedLoginCell" customModule="VOLA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cUu-rk-dZF" id="sXk-rG-KC9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYH-7j-Y59" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="12.5" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="AYH-7j-Y59" secondAttribute="height" multiplier="1:1" id="61t-Xh-ob9"/>
+                                                <constraint firstAttribute="width" constant="50" id="nx8-hK-QKL"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp6-8F-zIW" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                            <rect key="frame" x="90" y="27" width="265" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rp6-8F-zIW" firstAttribute="leading" secondItem="AYH-7j-Y59" secondAttribute="trailing" constant="20" id="4Zx-Qx-Nbe"/>
+                                        <constraint firstItem="rp6-8F-zIW" firstAttribute="centerY" secondItem="AYH-7j-Y59" secondAttribute="centerY" id="6h8-DU-Sfz"/>
+                                        <constraint firstAttribute="trailing" secondItem="rp6-8F-zIW" secondAttribute="trailing" constant="20" id="6iF-lX-w5R"/>
+                                        <constraint firstItem="AYH-7j-Y59" firstAttribute="centerY" secondItem="sXk-rG-KC9" secondAttribute="centerY" id="8de-Pj-cun"/>
+                                        <constraint firstItem="AYH-7j-Y59" firstAttribute="leading" secondItem="sXk-rG-KC9" secondAttribute="leading" constant="20" id="IrF-z3-ntc"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectedLoginImage" destination="AYH-7j-Y59" id="TjG-y2-Uni"/>
+                                    <outlet property="connectedLoginStatus" destination="rp6-8F-zIW" id="Sm7-o3-fNV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fO4-SM-PiK" id="BDo-JO-eVD"/>
+                            <outlet property="delegate" destination="fO4-SM-PiK" id="H99-pg-RQJ"/>
+                        </connections>
+                    </tableView>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="login-manager.title.label"/>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6J7-Uf-48r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1669.5999999999999" y="1979.4602698650676"/>
         </scene>
     </scenes>
 </document>

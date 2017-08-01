@@ -25,6 +25,7 @@ enum Segue: String {
     case showLoginManual
     case showEditProfile
     case showSettings
+    case showLoginsManager
 
     /// Storyboard segue identifier
     var identifier: String {

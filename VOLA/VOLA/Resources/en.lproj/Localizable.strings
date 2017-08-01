@@ -76,6 +76,12 @@
 "slide-2.title.label" = "Track Events";
 "slide-2.detail.label" = "View events registered with your profile.";
 
+// LoginManualViewController
+"login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
+
+// LoginsManagerTableViewController
+"login-manager.title.label" = "Manage Logins";
+
 // LoginViewController
 "enable-event-login.title.label" = "Enable quick event registration and saved events by logging in";
 "signup.title.label" = "Don't have a Vola account yet? Sign up now.";
@@ -83,9 +89,6 @@
 "login-facebook.prompt.label"  = "Log in with Facebook";
 "login-email.prompt.label" = "Log in with Email";
 "login-error.title.label" = "Log In Error";
-
-// LoginManualViewController
-"login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
 
 // MapViewController
 "edit-location-settings.title.label" = "Allow Location Access";
@@ -98,6 +101,10 @@
 "sample-email.title.label" = "email@address.org";
 "not-logged-in.title.label" = "You are not logged in";
 "login-to-view.title.label" = "Log in to view your profile, enable quick event registration, and view your registered events.";
+
+// SettingsTableViewController
+"settings.title.label" = "Settings";
+"manage-logins.prompt.label" = "Manage connected logins";
 
 // SignUpViewController
 "create-account.title.label" = "Create an account to view and manage volunteer opportunities in your area.";

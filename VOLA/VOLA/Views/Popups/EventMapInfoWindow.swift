@@ -14,9 +14,6 @@ fileprivate let windowWidth: CGFloat = 295.0
 
 /// Popup view shown when map marker is clicked
 class EventMapInfoWindow: UIView, XIBInstantiable {
-    /// Offset value for Y position of associated marker on map view
-    static let mapYOffset: CGFloat = 65.0
-
     @IBOutlet weak var nameLabel: TitleLabel!
     @IBOutlet weak var dateAddressLabel: TextLabel!
     @IBOutlet weak var registrationLabel: TextLabel!

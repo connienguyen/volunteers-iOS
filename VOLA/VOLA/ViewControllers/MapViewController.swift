@@ -11,7 +11,6 @@ import CoreLocation
 import GoogleMaps
 
 fileprivate let defaultMarkerTitle: String = ""
-
 fileprivate let locationAccessTitleKey: String = "edit-location-settings.title.label"
 fileprivate let locationAccessPromptKey: String = "edit-location-settings.prompt.label"
 
@@ -28,8 +27,16 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
 
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
         mapView.delegate = self
+
+        if let location = locationManager.location {
+            let camera = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: GoogleMapsSettings.cameraZoomLevel)
+            mapView.animate(to: camera)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,9 +44,6 @@ class MapViewController: UIViewController {
 
         // As child viewcontroller becoming visible again, reload markers
         reloadLocationMarkers()
-
-        // Start updating location whenever returning to view
-        locationManager.startUpdatingLocation()
     }
 
     /// Clear map view of current markers and load markers from events array
@@ -83,20 +87,6 @@ class MapViewController: UIViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
-    /// Animate map to last updated location
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
-        }
-
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                    longitude: location.coordinate.longitude, zoom: GoogleMapsSettings.cameraZoomLevel)
-        self.mapView?.animate(to: camera)
-
-        // Stop updating location so map camera does not move with user
-        self.locationManager.stopUpdatingLocation()
-    }
-
     /// Show alert to edit location authorization if authorization status was changed
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -110,7 +100,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 // MARK: - GMSMapViewDelegate
 extension MapViewController: GMSMapViewDelegate {
-    /// Return an empty view so default Google infoWindow is not used
+    /// Configure and return info window with associated event info
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let mapInfoWindow = EventMapInfoWindow.instantiateFromXib()
         if let event = viewModel.event(with: marker.title ?? defaultMarkerTitle) {
@@ -128,5 +118,18 @@ extension MapViewController: GMSMapViewDelegate {
         }
 
         showEventDetail(event)
+    }
+
+    /// Calculate new camera position with offset for info window and open info window for tapped marker
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let markerProjection = mapView.projection.point(for: marker.position)
+        let mapCenter = CGPoint(x: markerProjection.x, y: markerProjection.y - EventMapInfoWindow.mapYOffset)
+        let mapCenterCoords = mapView.projection.coordinate(for: mapCenter)
+        let cameraUpdate = GMSCameraUpdate.setTarget(mapCenterCoords)
+        mapView.animate(with: cameraUpdate)
+        mapView.selectedMarker = marker
+
+        // Return true to override default Google actions for didTap marker
+        return true
     }
 }

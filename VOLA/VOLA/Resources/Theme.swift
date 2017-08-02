@@ -16,12 +16,15 @@ import UIKit
 enum Theme: Int {
     // TODO: Add dark theme for accessibility
     case normal
+    case colorblind
 
     /// Main color of the app; used for navigational elements
     var primaryColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.sublime
+            return ThemeColors.marineBlue
+        case .colorblind:
+            return ThemeColors.richBlack
         }
     }
 
@@ -29,7 +32,9 @@ enum Theme: Int {
     var secondaryColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.caribbean
+            return ThemeColors.emerald
+        case .colorblind:
+            return ThemeColors.mediumGrey
         }
     }
 
@@ -38,6 +43,8 @@ enum Theme: Int {
         switch self {
         case .normal:
             return ThemeColors.tangerine
+        case .colorblind:
+            return ThemeColors.mediumGrey
         }
     }
 
@@ -49,7 +56,7 @@ enum Theme: Int {
     /// Color for clickable elements on navbar; color for active tab on tabbar
     var tintColor: UIColor {
         switch self {
-        case .normal:
+        case .normal, .colorblind:
             return ThemeColors.white
         }
     }
@@ -58,14 +65,16 @@ enum Theme: Int {
     var tintContrastColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.emerald
+            return ThemeColors.caribbean
+        case .colorblind:
+            return ThemeColors.white
         }
     }
 
     /// Color for body text in app
     var textColor: UIColor {
         switch self {
-        case .normal:
+        case .normal, .colorblind:
             return ThemeColors.richBlack
         }
     }
@@ -74,14 +83,36 @@ enum Theme: Int {
     var linkColor: UIColor {
         switch self {
         case .normal:
-            return ThemeColors.caribbean
+            return ThemeColors.tangerine
+        case .colorblind:
+            return ThemeColors.crimson
+        }
+    }
+
+    /// Color used for icon elements
+    var iconColor: UIColor {
+        switch self {
+        case .normal:
+            return ThemeColors.white
+        case .colorblind:
+            return ThemeColors.crimson
+        }
+    }
+
+    /// Color used for button elements
+    var buttonColor: UIColor {
+        switch self {
+        case .normal:
+            return ThemeColors.emerald
+        case .colorblind:
+            return ThemeColors.crimson
         }
     }
 
     /// Color for input borders
     var inputBorderColor: UIColor {
         switch self {
-        case .normal:
+        case .normal, .colorblind:
             return ThemeColors.lightGrey
         }
     }
@@ -89,7 +120,7 @@ enum Theme: Int {
     /// Bar style of status bar for theme
     var barStyle: UIBarStyle {
         switch self {
-        case .normal:
+        case .normal, .colorblind:
             return .black
         }
     }

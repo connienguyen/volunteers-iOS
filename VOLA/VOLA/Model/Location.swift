@@ -41,10 +41,18 @@ class Location {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
 
+    /// Full address as one string, separated by newlines
     var addressString: String {
         let mainAddressArray: [String] = [name, address1, address2, city].filter({ !$0.trimmed.isEmpty})
         return mainAddressArray.joined(separator: "\n").trimmed
     }
+
+    /// Shortened address as one string, separated by newlines
+    var shortAddressString: String {
+        let shortAddressArray: [String] = [name, address1, address2].filter({ !$0.trimmed.isEmpty })
+        return shortAddressArray.joined(separator: "\n").trimmed
+    }
+
     var isDefaultCoords: Bool {
         return latitude == 0.0 && longitude == 0.0
     }

@@ -83,6 +83,9 @@
 		F98808041F0863D800589A23 /* ETouchesAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98808031F0863D800589A23 /* ETouchesAccessToken.swift */; };
 		F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98808061F0864AF00589A23 /* Constants+eTouches.swift */; };
 		F988080A1F0864DF00589A23 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98808091F0864DF00589A23 /* HomeNavigationController.swift */; };
+		F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */; };
+		F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */; };
+		F99F8D591F2F40C300C4E97A /* VLInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -224,6 +227,9 @@
 		F98808031F0863D800589A23 /* ETouchesAccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETouchesAccessToken.swift; sourceTree = "<group>"; };
 		F98808061F0864AF00589A23 /* Constants+eTouches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+eTouches.swift"; sourceTree = "<group>"; };
 		F98808091F0864DF00589A23 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
+		F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
+		F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLInputTextView.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -312,11 +318,11 @@
 			children = (
 				754C462B1EDED1CC00E2F848 /* Helpers */,
 				754C46291EDED1AA00E2F848 /* Model */,
-				F90824EC1F2157570070B5D0 /* ViewModels */,
 				754C462C1EDED1D500E2F848 /* Resources */,
 				754C462A1EDED1AE00E2F848 /* Services */,
 				754C462D1EDED1E800E2F848 /* Storyboards */,
 				754C462E1EDED1F600E2F848 /* ViewControllers */,
+				F90824EC1F2157570070B5D0 /* ViewModels */,
 				754C462F1EDED20200E2F848 /* Views */,
 				754C46091EDED11400E2F848 /* AppDelegate.swift */,
 				F928561C1F18141700D461B1 /* GoogleService-Info.plist */,
@@ -330,16 +336,16 @@
 		754C461D1EDED11400E2F848 /* VOLATests */ = {
 			isa = PBXGroup;
 			children = (
-				754C46201EDED11400E2F848 /* Info.plist */,
+				F9DD11D81F0E34EA006C029A /* Fixtures */,
 				F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */,
+				F9F077051F28925F004DE558 /* DataStoreManagerUnitTests.swift */,
 				754C461E1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift */,
+				754C46201EDED11400E2F848 /* Info.plist */,
 				F9A501FD1EEECCE200AB7E9E /* InputValidationUnitTests.swift */,
 				F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */,
 				F929204B1EF14B7D0055DA69 /* LoginManagerUnitTests.swift */,
 				F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */,
 				F98807FD1F05995C00589A23 /* TestConstants.swift */,
-				F9DD11D81F0E34EA006C029A /* Fixtures */,
-				F9F077051F28925F004DE558 /* DataStoreManagerUnitTests.swift */,
 			);
 			path = VOLATests;
 			sourceTree = "<group>";
@@ -361,13 +367,14 @@
 				F9A377FA1EE5818900299FD3 /* DataManager.swift */,
 				F98294C81F21139600F9152B /* DataStoreManager.swift */,
 				F92855F91F154D9400D461B1 /* DefaultManager.swift */,
-				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
 				F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */,
+				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
+				F9F077021F275C79004DE558 /* ETouchesAPIServices+Registration.swift */,
+				F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
 				F92856151F17900F00D461B1 /* SecretKeyManager.swift */,
 				F98807ED1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift */,
 				F90824F01F2395630070B5D0 /* UserUpdateStrategy.swift */,
-				F9F077021F275C79004DE558 /* ETouchesAPIServices+Registration.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -447,10 +454,11 @@
 				F9259D491F0EDEA100CE7954 /* CircleImageView.swift */,
 				F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */,
 				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
+				F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */,
+				F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */,
 				F94B4A861F10330800AEB13A /* RoundedImageView.swift */,
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
-				F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */,
-				F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */,
+				F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -507,6 +515,7 @@
 		754C46441EDED31500E2F848 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -569,7 +578,7 @@
 			children = (
 				F90824ED1F2157810070B5D0 /* EventsViewModel.swift */,
 			);
-			name = ViewModels;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F92855E01F103D3100D461B1 /* Labels */ = {
@@ -914,6 +923,7 @@
 				F98807FB1EF41A5100589A23 /* CalendarNavigationController.swift in Sources */,
 				F92920401EF0051F0055DA69 /* Location.swift in Sources */,
 				F92855FA1F154D9400D461B1 /* DefaultManager.swift in Sources */,
+				F99F8D591F2F40C300C4E97A /* VLInputTextView.swift in Sources */,
 				F92855F41F11249500D461B1 /* TextLabel.swift in Sources */,
 				F9A5022C1EEF0D3F00AB7E9E /* UserDefaults.swift in Sources */,
 				F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */,
@@ -927,6 +937,7 @@
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
+				F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */,
 				F9DD11D31F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
 				F9F077031F275C79004DE558 /* ETouchesAPIServices+Registration.swift in Sources */,
@@ -940,6 +951,7 @@
 				F9ADA1281EDF39D4006C7FF1 /* LoginViewController.swift in Sources */,
 				F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */,
 				F90824F11F2395630070B5D0 /* UserUpdateStrategy.swift in Sources */,
+				F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */,
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
 				F92855F11F1111C500D461B1 /* UILabel.swift in Sources */,

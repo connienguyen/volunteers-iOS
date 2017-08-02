@@ -46,10 +46,10 @@ final class ThemeManager {
                 NSForegroundColorAttributeName: theme.tintContrastColor
             ], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([
-                NSForegroundColorAttributeName: theme.tintColor
+                NSForegroundColorAttributeName: theme.iconColor
             ], for: .selected)
 
-        VLButton.appearance().backgroundColor = theme.secondaryColor
+        VLButton.appearance().backgroundColor = theme.buttonColor
         VLButton.appearance().tintColor = theme.tintColor
 
         VolunteersNeededLabel.appearance().backgroundColor = theme.accentColor
@@ -57,6 +57,8 @@ final class ThemeManager {
         RegisteredLabel.appearance().textColor = theme.tintColor
         TitleLabel.appearance().textColor = theme.textColor
         TextLabel.appearance().textColor = theme.textColor
+
+        VLInputTextView.appearance().borderColor = theme.inputBorderColor
     }
 
     /**

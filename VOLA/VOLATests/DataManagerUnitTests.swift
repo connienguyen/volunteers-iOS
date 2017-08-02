@@ -15,7 +15,7 @@ class DataManagerUnitTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        DataManager.shared.setUser(nil)
+        DataManager.shared.setUserUpdateStoredUser(nil)
     }
 
     func testSuccessUserSetNilShouldReturnFalse() {
@@ -24,7 +24,7 @@ class DataManagerUnitTests: XCTestCase {
     }
 
     func testSuccessSetUserShouldReturnTrue() {
-        DataManager.shared.setUser(self.user)
+        DataManager.shared.setUserUpdateStoredUser(self.user)
         let loggedIn = DataManager.shared.isLoggedIn
         XCTAssertTrue(loggedIn, "User should be logged in after setting user.")
     }
@@ -33,14 +33,14 @@ class DataManagerUnitTests: XCTestCase {
         var currentUser = DataManager.shared.currentUser
         XCTAssertNil(currentUser, "Start state: no currentUser since no user is logged in.")
 
-        DataManager.shared.setUser(self.user)
+        DataManager.shared.setUserUpdateStoredUser(self.user)
         currentUser = DataManager.shared.currentUser
         XCTAssertNotNil(currentUser, "Current user model should be updated to new user.")
         XCTAssertEqual(currentUser?.name, self.user.name)
         XCTAssertEqual(currentUser?.email, self.user.email)
         XCTAssertEqual(currentUser?.userType, self.user.userType)
 
-        DataManager.shared.setUser(nil)
+        DataManager.shared.setUserUpdateStoredUser(nil)
         currentUser = DataManager.shared.currentUser
         XCTAssertNil(currentUser, "Current user should be unset to nil.")
     }

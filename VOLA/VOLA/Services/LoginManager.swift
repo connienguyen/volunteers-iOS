@@ -77,4 +77,11 @@ final class LoginManager {
                 return true
             }
     }
+
+    /**
+    Link login to user's account
+    */
+    func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) -> Promise<Bool> {
+        return strategy.connectLogin()
+    }
 }

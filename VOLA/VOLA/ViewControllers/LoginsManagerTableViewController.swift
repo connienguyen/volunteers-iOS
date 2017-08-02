@@ -58,6 +58,12 @@ extension LoginsManagerTableViewController {
 // MARK: - NotificationObserver
 extension LoginsManagerTableViewController {
     func googleDidSignIn(_ notification: NSNotification) {
-        // TODO link account
+        LoginManager.shared.addConnectedLogin(.google(notification))
+            .then { _ -> Void in
+                // TODO update table
+                print("Update table")
+            }.catch { error in
+                Logger.error(error)
+            }
     }
 }

@@ -91,6 +91,7 @@
 		F99F8D5F1F30961100C4E97A /* ManageLoginsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */; };
 		F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */; };
 		F99F8D651F30DBC400C4E97A /* ConnectedLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */; };
+		F99F8D671F327A2700C4E97A /* ConnectLoginStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -240,6 +241,7 @@
 		F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageLoginsCell.swift; sourceTree = "<group>"; };
 		F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginsManagerTableViewController.swift; sourceTree = "<group>"; };
 		F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginCell.swift; sourceTree = "<group>"; };
+		F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectLoginStrategy.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		754C462A1EDED1AE00E2F848 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */,
 				F9A377FA1EE5818900299FD3 /* DataManager.swift */,
 				F98294C81F21139600F9152B /* DataStoreManager.swift */,
 				F92855F91F154D9400D461B1 /* DefaultManager.swift */,
@@ -973,6 +976,7 @@
 				F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */,
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
+				F99F8D671F327A2700C4E97A /* ConnectLoginStrategy.swift in Sources */,
 				F92855F11F1111C500D461B1 /* UILabel.swift in Sources */,
 				F94B4A7D1F0FD00400AEB13A /* Theme.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,

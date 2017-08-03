@@ -11,15 +11,6 @@ import RealmSwift
 import FirebaseAuth
 
 /**
-    Track how the user logged in, by social network or manually
-*/
-enum UserType: String {
-    case facebook
-    case google
-    case manual
-}
-
-/**
 Possible login methods used by the user (there must be at least one)
  
  - facebook: Login via Facebook
@@ -40,15 +31,16 @@ enum LoginProvider: String {
 
 /// Model for User data
 class User: Object {
-
+    dynamic var uid: String = ""
     dynamic var name: String = ""
     dynamic var email: String = ""
-    dynamic var userTypeRaw: String = ""
+    dynamic var providersRawJoined: String = ""
     dynamic var imageURLString: String = ""
     // Computed values since their types are unsupported by Realm
-    var userType: UserType {
-        // If userTypeRaw is not specified, return .manual as default value
-        return UserType(rawValue: userTypeRaw) ?? .manual
+    var providers: [LoginProvider?] {
+        return providersRawJoined.components(separatedBy: ",")
+            .map { LoginProvider(rawValue: $0) }
+            .filter { $0 != nil }
     }
     var imageURL: URL? {
         return URL(string: imageURLString)
@@ -56,7 +48,7 @@ class User: Object {
 
     /// Primary key for Realm object so that it can up updated in data store
     override static func primaryKey() -> String? {
-        return "email"
+        return "uid"
     }
 
     /**
@@ -67,11 +59,11 @@ class User: Object {
         - email: Email address of user
         - userType: Method that user logged in
     */
-    convenience init(name: String, email: String, userType: UserType) {
+    convenience init(uid: String, name: String, email: String) {
         self.init()
+        self.uid = uid
         self.name = name
         self.email = email
-        self.userTypeRaw = userType.rawValue
     }
 
     /**
@@ -82,9 +74,13 @@ class User: Object {
     */
     convenience init(firebaseUser: FIRUser) {
         self.init()
+        uid = firebaseUser.uid
         name = firebaseUser.displayName ?? ""
         email = firebaseUser.email ?? ""
-        userTypeRaw = UserType.manual.rawValue
         imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
+        providersRawJoined = firebaseUser.providerData
+            .reduce("") { text, provider in
+                "\(text),\(provider.providerID)"
+            }
     }
 }

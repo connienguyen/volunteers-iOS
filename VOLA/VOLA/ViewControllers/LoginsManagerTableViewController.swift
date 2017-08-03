@@ -9,6 +9,7 @@
 import UIKit
 
 class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelegate {
+    var viewModel = ConnectedLoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +33,14 @@ class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelega
 // MARK: - Table view data source
 extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return LoginProvider.allProviders.count
+        return viewModel.availableLogins.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO account for indexPath
         let cell = tableView.dequeue(indexPath, cellType: ConnectedLoginCell.self)
-        let provider = LoginProvider.allProviders[indexPath.row]
-        cell.configureCell(provider, connectedStatus: false)
+        let provider = viewModel.availableLogins[indexPath.row]
+        let isConnected = viewModel.loginIsConnected(provider)
+        cell.configureCell(provider, connectedStatus: isConnected)
         return cell
     }
 
@@ -53,12 +54,29 @@ extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO open connected login flow
         print("Attempt to connect login")
-        let provider = LoginProvider.allProviders[indexPath.row]
-        switch provider {
-        case .google:
-            GIDSignIn.sharedInstance().signIn()
-        default:
-            break
+        let provider = viewModel.availableLogins[indexPath.row]
+        let isConnected = viewModel.loginIsConnected(provider)
+        let loginsCount = viewModel.connectedLoginsCount()
+        if isConnected && loginsCount > 1 {
+            LoginManager.shared.removeConnectedLogin(provider)
+                .then { [weak self] _ -> Void in
+                    guard let `self` = self else {
+                        return
+                    }
+
+                    self.tableView.reloadData()
+                }.catch { error in
+                    Logger.error(error)
+                }
+        } else if isConnected && loginsCount <= 1 {
+            // Show error message, must have one login
+        } else {
+            switch provider {
+            case .google:
+                GIDSignIn.sharedInstance().signIn()
+            default:
+                break
+            }
         }
     }
 }
@@ -67,9 +85,12 @@ extension LoginsManagerTableViewController {
 extension LoginsManagerTableViewController {
     func googleDidSignIn(_ notification: NSNotification) {
         LoginManager.shared.addConnectedLogin(.google(notification))
-            .then { _ -> Void in
-                // TODO update table
-                print("Update table")
+            .then { [weak self] _ -> Void in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.tableView.reloadData()
             }.catch { error in
                 Logger.error(error)
             }

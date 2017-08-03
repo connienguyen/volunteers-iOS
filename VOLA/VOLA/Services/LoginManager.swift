@@ -85,9 +85,42 @@ final class LoginManager {
     }
 
     /**
-    Link login to user's account
+    Link login to user's Firebase account
+     
+    - Parameters:
+        - strategy: Connected login method for an authentication provider
+     
+    - Returns: Boolean promise of whether or not connection was successful
     */
     func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) -> Promise<Bool> {
         return strategy.connectLogin()
+    }
+
+    /**
+    Unlink a connected login from a user's Firebase account
+     
+    - Parameters:
+        - provider: Login provider to unlink from connected user account on Firebase
+     
+    - Returns: Boolean promise of whether or not removal of connected login was successful
+    */
+    func removeConnectedLogin(_ provider: LoginProvider) -> Promise<Bool> {
+        return Promise { fulfill, reject in
+            guard let currentUser = FIRAuth.auth()?.currentUser else {
+                reject(AuthenticationError.notLoggedIn)
+                return
+            }
+
+            currentUser.unlink(fromProvider: provider.providerID, completion: { (updatedUser, error) in
+                guard let firebaseUser = updatedUser, error == nil else {
+                    let unlinkError = error ?? AuthenticationError.invalidFirebaseAuth
+                    reject(unlinkError)
+                    return
+                }
+
+                DataManager.shared.setUserUpdateStoredUser(User(firebaseUser: firebaseUser))
+                fulfill(true)
+            })
+        }
     }
 }

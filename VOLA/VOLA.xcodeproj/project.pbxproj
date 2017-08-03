@@ -92,6 +92,8 @@
 		F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */; };
 		F99F8D651F30DBC400C4E97A /* ConnectedLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */; };
 		F99F8D671F327A2700C4E97A /* ConnectLoginStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */; };
+		F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */; };
+		F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -242,6 +244,8 @@
 		F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginsManagerTableViewController.swift; sourceTree = "<group>"; };
 		F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginCell.swift; sourceTree = "<group>"; };
 		F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectLoginStrategy.swift; sourceTree = "<group>"; };
+		F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
+		F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginsViewModel.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -546,6 +550,7 @@
 				754C464C1EDED39800E2F848 /* Logger.swift */,
 				754C46451EDED34C00E2F848 /* ReachabilityManager.swift */,
 				F94B4A7F1F0FD13300AEB13A /* ThemeManager.swift */,
+				F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				F90824ED1F2157810070B5D0 /* EventsViewModel.swift */,
+				F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -913,6 +919,7 @@
 				F92855E51F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */,
 				F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F92855E81F10DDA600D461B1 /* TitleLabel.swift in Sources */,
+				F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */,
 				754C463C1EDED2D600E2F848 /* UIView.swift in Sources */,
 				F98294C91F21139600F9152B /* DataStoreManager.swift in Sources */,
 				F9A501DE1EEBED4800AB7E9E /* ProfileViewController.swift in Sources */,
@@ -959,6 +966,7 @@
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
 				F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
+				F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */,
 				F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */,
 				F9DD11D31F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,

@@ -43,8 +43,7 @@ class ProfileViewController: UIViewController {
         guard let user = DataManager.shared.currentUser else {
             return
         }
-
-        let loggedInManual = user.userType == .manual
+        
         nameLabel.text = user.name
         emailLabel.text = user.email
         if let imageURL = user.imageURL {

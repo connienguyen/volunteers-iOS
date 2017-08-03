@@ -8,6 +8,5 @@
 
 import UIKit
 
-class ManageLoginsCell: UITableViewCell {
-
-}
+/// Table cell to give user a status view of currently connected logins
+class ManageLoginsCell: UITableViewCell {}

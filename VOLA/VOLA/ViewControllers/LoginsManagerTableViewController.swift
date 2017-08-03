@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Table view where user can manage their connected logins
 class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelegate {
     var viewModel = ConnectedLoginViewModel()
 
@@ -53,7 +54,6 @@ extension LoginsManagerTableViewController {
 extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO open connected login flow
-        print("Attempt to connect login")
         let provider = viewModel.availableLogins[indexPath.row]
         let isConnected = viewModel.loginIsConnected(provider)
         let loginsCount = viewModel.connectedLoginsCount()
@@ -75,6 +75,7 @@ extension LoginsManagerTableViewController {
             case .google:
                 GIDSignIn.sharedInstance().signIn()
             default:
+                // TODO: Handle connected login case for email and facebook
                 break
             }
         }
@@ -83,6 +84,12 @@ extension LoginsManagerTableViewController {
 
 // MARK: - NotificationObserver
 extension LoginsManagerTableViewController {
+    /**
+    Add connected login after user has successfully signed in with Google
+     
+    - Parameters:
+        - notification: Notification which notifies view controller of Google signin
+    */
     func googleDidSignIn(_ notification: NSNotification) {
         LoginManager.shared.addConnectedLogin(.google(notification))
             .then { [weak self] _ -> Void in

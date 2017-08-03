@@ -8,9 +8,18 @@
 
 import Foundation
 
+/// View model for display information about connected logins
 class ConnectedLoginViewModel {
     let availableLogins = LoginProvider.allProviders
 
+    /**
+    Check whether user has connected login to their account
+     
+    - Parameters:
+        - provider: Login provider to check
+     
+    - Returns: Boolean of whether or not login is connected to Firebase account
+    */
     func loginIsConnected(_ provider: LoginProvider) -> Bool {
         guard let currentUser = DataManager.shared.currentUser else {
             Logger.error(AuthenticationError.notLoggedIn)
@@ -21,6 +30,7 @@ class ConnectedLoginViewModel {
         return foundProvider != nil
     }
 
+    /// Number of connected logins on current user's account
     func connectedLoginsCount() -> Int {
         guard let currentUser = DataManager.shared.currentUser else {
             Logger.error(AuthenticationError.notLoggedIn)

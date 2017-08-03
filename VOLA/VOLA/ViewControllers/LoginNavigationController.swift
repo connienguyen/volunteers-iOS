@@ -8,4 +8,5 @@
 
 import UIKit
 
+/// Navigation controller for login flow
 class LoginNavigationController: HiddenBackTextNavigationController {}

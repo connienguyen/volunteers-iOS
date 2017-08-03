@@ -8,9 +8,8 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
-
-}
+/// Table view controller where user can view and edit their settings
+class SettingsTableViewController: UITableViewController {}
 
 // MARK: - Table view data source
 extension SettingsTableViewController {
@@ -29,6 +28,7 @@ extension SettingsTableViewController {
 // MARK:- Table view delegate
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO perform segue based on corrent settings cell
         performSegue(.showLoginsManager, sender: self)
     }
 }

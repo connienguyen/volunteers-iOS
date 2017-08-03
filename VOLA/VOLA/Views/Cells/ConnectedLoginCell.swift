@@ -16,4 +16,11 @@ class ConnectedLoginCell: UITableViewCell {
     
     @IBOutlet weak var connectedLoginImage: CircleImageView!
     @IBOutlet weak var connectedLoginStatus: TextLabel!
+
+    /// Configure the cell to show login provider connection status
+    func configureCell(_ provider: LoginProvider, connectedStatus: Bool) {
+        var labelText = provider.providerID
+        labelText += connectedStatus ? ": Connected" : ": Not Connected"
+        connectedLoginStatus.text = labelText
+    }
 }

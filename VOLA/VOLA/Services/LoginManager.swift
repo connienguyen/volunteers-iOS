@@ -38,27 +38,33 @@ final class LoginManager {
     Log out current user from social network if applicable and set currentUser on DataManager to nil
     */
     func logOut() {
-        guard let user = DataManager.shared.currentUser else {
+        guard let _ = DataManager.shared.currentUser else {
             Logger.error(VLError.notLoggedIn)
             return
         }
-        switch user.userType {
-        case .facebook:
-            FBSDKLoginManager().logOut()
-        case .google:
-            GIDSignIn.sharedInstance().signOut()
-        case .manual:
-            guard let firebaseAuth = FIRAuth.auth() else {
-                Logger.error(AuthenticationError.invalidFirebaseAuth)
-                return
+
+        /// Log out of any providers
+        if let firebaseUser = FIRAuth.auth()?.currentUser {
+            for provider in firebaseUser.providerData {
+                if let loginProvider = LoginProvider(rawValue: provider.providerID) {
+                    switch loginProvider {
+                    case .facebook:
+                        FBSDKLoginManager().logOut()
+                    case .google:
+                        GIDSignIn.sharedInstance().signOut()
+                    default:
+                        break
+                    }
+                }
             }
 
             do {
-                try firebaseAuth.signOut()
+                try FIRAuth.auth()?.signOut()
             } catch let signOutError {
                 Logger.error(signOutError)
             }
         }
+
         DataManager.shared.setUserUpdateStoredUser(nil)
     }
 

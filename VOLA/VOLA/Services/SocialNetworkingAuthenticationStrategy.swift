@@ -15,6 +15,31 @@ protocol SocialNetworkingAuthenticationStrategy {
     func login() -> Promise<User>
 }
 
+// Extension on SocialNetworkingAuthenticationStrategy of helper functions that are common across strategies
+extension SocialNetworkingAuthenticationStrategy {
+    /**
+    Login to Firebase given a credential to a login provider
+     
+    - Parameters:
+        - credential: Credential for login provider
+     
+    - Returns: User Promise of Firebase user account
+    */
+    func loginToFirebase(_ credential: FIRAuthCredential) -> Promise<User> {
+        return Promise { fulfill, reject in
+            FIRAuth.auth()?.signIn(with: credential, completion: { (firebaseUser, error) in
+                guard let user = firebaseUser, error == nil else {
+                    let signInError = error ?? VLError.invalidFirebaseAction
+                    reject(signInError)
+                    return
+                }
+
+                fulfill(User(firebaseUser: user))
+            })
+        }
+    }
+}
+
 /**
 Available user authentication strategies
 
@@ -27,8 +52,8 @@ Available user authentication strategies
 enum AvailableLoginStrategies {
     case facebook
     case google(NSNotification)
-    case manualSignup(String, String, String)
-    case manualLogin(String, String)
+    case emailSignup(String, String, String)
+    case emailLogin(String, String)
     case custom(Promise<User>)
 }
 
@@ -43,10 +68,10 @@ extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
             return FacebookAuthenticationStrategy().login()
         case .google(let notification):
             return GoogleAuthenticationStrategy(notification: notification).login()
-        case .manualSignup(let name, let email, let password):
-            return ManualSignUpStrategy(name: name, email: email, password: password).login()
-        case .manualLogin(let email, let password):
-            return ManualLoginStrategy(email: email, password: password).login()
+        case .emailSignup(let name, let email, let password):
+            return EmailSignUpStrategy(name: name, email: email, password: password).login()
+        case .emailLogin(let email, let password):
+            return EmailLoginStrategy(email: email, password: password).login()
         case .custom(let promise):
             return promise
         }
@@ -63,26 +88,18 @@ struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard FBSDKAccessToken.current() != nil else {
-                let error: Error = AuthenticationError.invalidFacebookToken
-                reject(error)
+            guard let fbTokenString = FBSDKAccessToken.current().tokenString else {
+                reject(AuthenticationError.invalidFacebookToken)
                 return
             }
 
-            let parameters = [DictKeys.fields.rawValue: FBRequest.graphParameters]
-            FBSDKGraphRequest(graphPath: FBRequest.graphPath, parameters: parameters).start { (_, result, error) in
-                guard error == nil else {
-                    reject(error ?? AuthenticationError.invalidFacebookResponse)
-                    return
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: fbTokenString)
+            loginToFirebase(credential)
+                .then { user -> Void in
+                    fulfill(user)
+                }.catch { error in
+                    reject(error)
                 }
-
-                guard let response = result as? [String: Any] else {
-                    reject(AuthenticationError.invalidFacebookResponse)
-                    return
-                }
-
-                fulfill(User(fbResponse: response))
-            }
         }
     }
 }
@@ -103,13 +120,19 @@ struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser else {
-                let error = AuthenticationError.invalidGoogleUser
-                reject(error)
+            guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser,
+                let authentication = googleUser.authentication else {
+                reject(AuthenticationError.invalidGoogleUser)
                 return
             }
 
-            fulfill(User(googleUser: googleUser))
+            let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            loginToFirebase(credential)
+                .then { user -> Void in
+                    fulfill(user)
+                }.catch { error in
+                    reject(error)
+                }
         }
     }
 }
@@ -122,7 +145,7 @@ Strategy for user authentication by creating a new user account
 - email: Email address to sign up with
 - password: Password to sign up with
 */
-struct ManualSignUpStrategy: SocialNetworkingAuthenticationStrategy {
+struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     let name: String
     let email: String
     let password: String
@@ -171,7 +194,7 @@ Strategy for user authentication by manually logging in
 - email: Email address to log in with
 - password: Password to log in with
 */
-struct ManualLoginStrategy: SocialNetworkingAuthenticationStrategy {
+struct EmailLoginStrategy: SocialNetworkingAuthenticationStrategy {
     let email: String
     let password: String
 
@@ -182,20 +205,13 @@ struct ManualLoginStrategy: SocialNetworkingAuthenticationStrategy {
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let firebaseAuth = FIRAuth.auth() else {
-                reject(AuthenticationError.invalidFirebaseAuth)
-                return
-            }
-
-            firebaseAuth.signIn(withEmail: email, password: password, completion: { (user, loginError) in
-                guard let firebaseUser = user else {
-                    let error = loginError ?? AuthenticationError.invalidFirebaseAuth
+            let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
+            loginToFirebase(credential)
+                .then { user -> Void in
+                    fulfill(user)
+                }.catch { error in
                     reject(error)
-                    return
                 }
-
-                fulfill(User(firebaseUser: firebaseUser))
-            })
         }
     }
 }

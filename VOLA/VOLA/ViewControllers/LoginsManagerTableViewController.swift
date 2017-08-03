@@ -32,12 +32,14 @@ class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelega
 // MARK: - Table view data source
 extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return LoginProvider.allProviders.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // TODO account for indexPath
         let cell = tableView.dequeue(indexPath, cellType: ConnectedLoginCell.self)
+        let provider = LoginProvider.allProviders[indexPath.row]
+        cell.configureCell(provider, connectedStatus: false)
         return cell
     }
 
@@ -51,7 +53,13 @@ extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO open connected login flow
         print("Attempt to connect login")
-        GIDSignIn.sharedInstance().signIn()
+        let provider = LoginProvider.allProviders[indexPath.row]
+        switch provider {
+        case .google:
+            GIDSignIn.sharedInstance().signIn()
+        default:
+            break
+        }
     }
 }
 

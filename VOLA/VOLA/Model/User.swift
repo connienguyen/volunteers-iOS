@@ -19,6 +19,25 @@ enum UserType: String {
     case manual
 }
 
+/**
+Possible login methods used by the user (there must be at least one)
+ 
+ - facebook: Login via Facebook
+ - google: Login via Google
+ - email: Login via email and password
+*/
+enum LoginProvider: String {
+    case facebook = "facebook.com"
+    case google = "google.com"
+    case email = "password"
+
+    static let allProviders: [LoginProvider] = [.facebook, .google, .email]
+
+    var providerID: String {
+        return rawValue
+    }
+}
+
 /// Model for User data
 class User: Object {
 
@@ -53,39 +72,6 @@ class User: Object {
         self.name = name
         self.email = email
         self.userTypeRaw = userType.rawValue
-    }
-
-    /**
-    Initializer for User from logging in through Google
-     
-    - Parameters:
-        - googleUser: GIDGoogleUser object to extract user details from (e.g. name, email)
-    */
-    convenience init(googleUser: GIDGoogleUser) {
-        self.init()
-        name = googleUser.profile.name
-        email = googleUser.profile.email
-        userTypeRaw = UserType.google.rawValue
-        imageURLString = googleUser.profile.imageURL(withDimension: UserNumbers.twiceImageIcon.rawValue).absoluteString
-    }
-
-    /**
-    Initializer for User from logging in through Facebook
-     
-    - Parameters:
-        - fbResponse: Response from Facebook Graph API request for user data
-    */
-    convenience init(fbResponse: [String: Any]) {
-        self.init()
-        name = fbResponse["name"] as? String ?? ""
-        email = fbResponse["email"] as? String ?? ""
-        userTypeRaw = UserType.facebook.rawValue
-
-        guard let fbID = fbResponse["id"] as? String else {
-                Logger.error("Could not format Facebook user imageURL.")
-                return
-        }
-        imageURLString = String(format: FBRequest.imageURLFormat, fbID)
     }
 
     /**

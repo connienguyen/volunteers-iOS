@@ -94,6 +94,7 @@
 		F99F8D671F327A2700C4E97A /* ConnectLoginStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */; };
 		F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */; };
 		F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */; };
+		F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -246,6 +247,7 @@
 		F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectLoginStrategy.swift; sourceTree = "<group>"; };
 		F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
 		F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginsViewModel.swift; sourceTree = "<group>"; };
+		F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -599,8 +601,9 @@
 		F90824EC1F2157570070B5D0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F90824ED1F2157810070B5D0 /* EventsViewModel.swift */,
 				F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */,
+				F90824ED1F2157810070B5D0 /* EventsViewModel.swift */,
+				F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 				F90824F71F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */,
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
 				F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
+				F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
 				F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F9A502291EEEFBA000AB7E9E /* Intro.swift in Sources */,

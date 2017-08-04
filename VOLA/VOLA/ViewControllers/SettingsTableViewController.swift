@@ -9,26 +9,38 @@
 import UIKit
 
 /// Table view controller where user can view and edit their settings
-class SettingsTableViewController: UITableViewController {}
+class SettingsTableViewController: UITableViewController {
+    var viewModel = SettingsViewModel()
+}
 
 // MARK: - Table view data source
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Update with count according to whether or not user is logged in (use viewModel)
-        return 1
+        return viewModel.availableSettings.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Account for indexPath
-        let cell = tableView.dequeue(indexPath, cellType: ManageLoginsCell.self)
+        var cell = UITableViewCell()
+        let setting = viewModel.availableSettings[indexPath.row]
+        switch setting {
+        case .connectedLogins:
+            cell = tableView.dequeue(indexPath, cellType: setting.cellType)
+        default:
+            break
+        }
         return cell
     }
 }
 
-// MARK:- Table view delegate
+// MARK: - Table view delegate
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO perform segue based on corrent settings cell
-        performSegue(.showLoginsManager, sender: self)
+        let setting = viewModel.availableSettings[indexPath.row]
+        switch setting {
+        case .connectedLogins:
+            performSegue(.showLoginsManager, sender: self)
+        default:
+            break
+        }
     }
 }

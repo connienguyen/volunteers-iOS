@@ -39,6 +39,10 @@
 "default-name.label" = "Default Name";
 "cancel.prompt.label" = "Cancel";
 
+// ConnectedLoginCell
+"connected-status.title.label" = "Connected";
+"not-connected-status.title.label" = "Not Connected";
+
 // EditProfileViewController
 "edit-profile.title.label" = "Edit Profile";
 "save-changes.prompt.label" = "Save Changes";

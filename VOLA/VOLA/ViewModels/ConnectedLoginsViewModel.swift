@@ -13,12 +13,12 @@ class ConnectedLoginViewModel {
     let availableLogins = LoginProvider.allProviders
 
     /**
-    Check whether user has connected login to their account
+        Check whether user has connected login to their account
      
-    - Parameters:
-        - provider: Login provider to check
+        - Parameters:
+            - provider: Login provider to check
      
-    - Returns: Boolean of whether or not login is connected to Firebase account
+        - Returns: `Bool` of whether or not login is connected to Firebase account
     */
     func loginIsConnected(_ provider: LoginProvider) -> Bool {
         guard let currentUser = DataManager.shared.currentUser else {

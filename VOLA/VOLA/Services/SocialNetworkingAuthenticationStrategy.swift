@@ -15,15 +15,15 @@ protocol SocialNetworkingAuthenticationStrategy {
     func login() -> Promise<User>
 }
 
-// Extension on SocialNetworkingAuthenticationStrategy of helper functions that are common across strategies
+// Extension of SocialNetworkingAuthenticationStrategy with functions common across different strategies
 extension SocialNetworkingAuthenticationStrategy {
     /**
-    Login to Firebase given a credential to a login provider
+        Login to Firebase using `credential` for a provider login
      
-    - Parameters:
-        - credential: Credential for login provider
+        - Parameters:
+            - credential: Credential for a provider login
      
-    - Returns: User Promise of Firebase user account
+        - Returns: User Promise of connected Firebase user
     */
     func loginToFirebase(_ credential: FIRAuthCredential) -> Promise<User> {
         return Promise { fulfill, reject in
@@ -41,27 +41,25 @@ extension SocialNetworkingAuthenticationStrategy {
 }
 
 /**
-Available user authentication strategies
+    Available user authentication strategies
 
- - facebook: Login through Facebook
- - google: Login through Google
- - manualSignup: Sign up for an account (implicit login)
- - manualLogin: Login using email and password
- - custom: Use for testing/mocking purposes
+    - facebook: Login through Facebook
+    - google: Login through Google
+    - emailSignup: Sign up for an account (implicit login)
+    - emailLogin: Login using email and password
+    - custom: Use for testing/mocking purposes
 */
 enum AvailableLoginStrategies {
     case facebook
     case google(NSNotification)
-    case emailSignup(String, String, String)
-    case emailLogin(String, String)
+    case emailSignup(name: String, email: String, password: String)
+    case emailLogin(email: String, password: String)
     case custom(Promise<User>)
 }
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
-    /**
-    Login based on the selected user authentication method
-    */
+    /// Login based on user authentication strategy
     func login() -> Promise<User> {
         switch self {
         case .facebook:
@@ -82,9 +80,9 @@ extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
 /// Strategy for user authentication via Facebook
 struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     /**
-    Retrieve user data from Facebook
+        Use Facebook access token to login to Firebase connected account
      
-    - Returns: User promise populated with Facebook user data if successful
+        - Returns: User promise populated with data from connected Firebase user if sucessful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
@@ -106,17 +104,17 @@ struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 /**
-Strategy for user authentication via Google
+    Strategy for user authentication via Google
  
-- notification: Notification passed from Google sign in delegate with Google user data
+    - `notification`: Notification passed from Google sign in delegate with Google user data
 */
 struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     let notification: NSNotification
 
     /**
-    Retrieve Google user data passed via notification
+        Use authenticated Google user data from `notification` to login to Firebase connected account
      
-    - Returns: User promise populated with Google user data if successful
+        - Returns: User promise populated with data from connected Firebase user if successful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
@@ -139,11 +137,11 @@ struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 /**
-Strategy for user authentication by creating a new user account
+    Strategy for creating a new user account on Firebase and implicitly logging in through signup
  
-- name: Full name for new user account
-- email: Email address to sign up with
-- password: Password to sign up with
+    - `name`: Full name for new user
+    - `email`: Email address to sign up with and use for login
+    - `password`: Password to sign up with and user for login
 */
 struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     let name: String
@@ -151,9 +149,9 @@ struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     let password: String
 
     /**
-    Retrieve newly created user
+        Create new Firebase user account and updated user information on Firebase to match `name`
      
-    - Returns: User promise populated with new user data if successful
+        - Returns: User promise populated with data from connected Firebase user if successful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
@@ -189,19 +187,19 @@ struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 /**
-Strategy for user authentication by manually logging in
+    Strategy for logging in to a Firebase account manually
  
-- email: Email address to log in with
-- password: Password to log in with
+    - `email`: Email address to login wtih
+    - `password`: Password to login with
 */
 struct EmailLoginStrategy: SocialNetworkingAuthenticationStrategy {
     let email: String
     let password: String
 
     /**
-    Retrieve user from manual login
+        Login to Firebase account given an `email` and `password`
      
-    - Returns: User promise populated with user data if successful
+        - Returns: Use promise populated with data from connected Firebase user if successful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in

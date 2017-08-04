@@ -29,6 +29,10 @@ class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelega
 
         removeNotificationObserver(NotificationName.googleDidSignIn)
     }
+
+    deinit {
+        removeNotificationObserver(NotificationName.googleDidSignIn)
+    }
 }
 
 // MARK: - Table view data source
@@ -53,11 +57,11 @@ extension LoginsManagerTableViewController {
 // MARK: - Table view delegate
 extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO open connected login flow
         let provider = viewModel.availableLogins[indexPath.row]
         let isConnected = viewModel.loginIsConnected(provider)
         let loginsCount = viewModel.connectedLoginsCount()
         if isConnected && loginsCount > 1 {
+            // Can only remove a connected login if there is more than one connected login
             LoginManager.shared.removeConnectedLogin(provider)
                 .then { [weak self] _ -> Void in
                     guard let `self` = self else {
@@ -74,7 +78,7 @@ extension LoginsManagerTableViewController {
             switch provider {
             case .google:
                 GIDSignIn.sharedInstance().signIn()
-            default:
+            case .email, .facebook:
                 // TODO: Handle connected login case for email and facebook
                 break
             }
@@ -85,10 +89,10 @@ extension LoginsManagerTableViewController {
 // MARK: - NotificationObserver
 extension LoginsManagerTableViewController {
     /**
-    Add connected login after user has successfully signed in with Google
+        Add connected login after user has signed in with Google
      
-    - Parameters:
-        - notification: Notification which notifies view controller of Google signin
+        - Parameters:
+            - notification: Notifies view controller of Google signin and holds authenticated Google user data
     */
     func googleDidSignIn(_ notification: NSNotification) {
         LoginManager.shared.addConnectedLogin(.google(notification))

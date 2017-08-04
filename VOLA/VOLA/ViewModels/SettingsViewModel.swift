@@ -24,8 +24,8 @@ enum UserSetting {
 
 class SettingsViewModel {
     static let loggedInSettings: [UserSetting] = [.theme, .connectedLogins]
-    static let anonUserSettings: [UserSetting] = [.theme]
+    static let notLoggedInSettings: [UserSetting] = [.theme]
     var availableSettings: [UserSetting] {
-        return DataManager.shared.isLoggedIn ? SettingsViewModel.loggedInSettings : SettingsViewModel.anonUserSettings
+        return DataManager.shared.isLoggedIn ? SettingsViewModel.loggedInSettings : SettingsViewModel.notLoggedInSettings
     }
 }

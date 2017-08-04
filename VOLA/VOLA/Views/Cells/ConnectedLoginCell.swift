@@ -8,9 +8,11 @@
 
 import UIKit
 
-/**
-Table cell which displays the current status of a connected login
-*/
+
+fileprivate let isConnectedKey = "connected-status.title.label"
+fileprivate let isNotConnectedKey = "not-connected-status.title.label"
+
+/// Table cell which displays the current status of a connected login
 class ConnectedLoginCell: UITableViewCell {
     static let estimatedCellHeight: CGFloat = 75.0
     
@@ -20,7 +22,8 @@ class ConnectedLoginCell: UITableViewCell {
     /// Configure the cell to show login provider connection status
     func configureCell(_ provider: LoginProvider, connectedStatus: Bool) {
         var labelText = provider.providerID
-        labelText += connectedStatus ? ": Connected" : ": Not Connected"
+        let statusText = connectedStatus ? isConnectedKey.localized : isNotConnectedKey.localized
+        labelText += ": " + statusText
         connectedLoginStatus.text = labelText
     }
 }

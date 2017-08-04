@@ -18,12 +18,12 @@ protocol ConnectLoginStrategy {
 // Extension on ConnectLoginStrategy of helper functions that are common across strategies
 extension ConnectLoginStrategy {
     /**
-    Connect authorized provider login to Firebase account given credentials
+        Connect authorized provider login to Firebase account given `credential`
      
-    - Parameters:
-        - credential: Credential for login provider
+        - Parameters:
+            - credential: Credential for login provider
      
-    - Returns: Boolean Promise if connecting provider login to Firebase account was successful
+        - Returns: Boolean Promise if connecting provider login to Firebase account was successful
     */
     func linkToFirebase(_ credential: FIRAuthCredential) -> Promise<Bool> {
         return Promise { fulfill, reject in
@@ -46,23 +46,23 @@ extension ConnectLoginStrategy {
 }
 
 /**
-Available login connection strategies
+    Available login connection strategies
  
- - facebook: Connect facetook login
- - google: Connect google login
- - email: Connect manual login
- - custom: user for testing/mocking purposes
+    - facebook: Connect facetook login
+    - google: Connect google login
+    - email: Connect manual login
+    - custom: user for testing/mocking purposes
 */
 enum AvailableConnectLoginStrategies {
     case facebook
     case google(NSNotification)
-    case email(String, String)
+    case email(email: String, password: String)
     case custom(Promise<Bool>)
 }
 
 // MARK: - ConnectLoginStrategy
 extension AvailableConnectLoginStrategies: ConnectLoginStrategy {
-    /// Connect login to Firebase account based on login method
+    /// Connect login to Firebase account based on available login strategy
     func connectLogin() -> Promise<Bool> {
         switch self {
         case .facebook:
@@ -79,7 +79,7 @@ extension AvailableConnectLoginStrategies: ConnectLoginStrategy {
 
 // MARK: - ConnectLoginStrategy
 /**
-Strategy for connection a Facebook account to Firebase user
+    Strategy for connecting a Facebook login to a Firebase user
 */
 struct FacebookConnectLoginStrategy: ConnectLoginStrategy {
     /// Connect Facebook login to Firebase account
@@ -103,9 +103,9 @@ struct FacebookConnectLoginStrategy: ConnectLoginStrategy {
 
 // MARK: - ConnectLoginStrategy
 /**
-Strategy for connecting a Google account to Firebase user
+    Strategy for connecting a Google login to a Firebase user
  
- - notification: Notification passed from Google sign in delegate with Google user data
+    - `notification`: Notification passed from Google sign in delegate with Google user data
 */
 struct GoogleConnectLoginStrategy: ConnectLoginStrategy {
     let notification: NSNotification
@@ -132,16 +132,16 @@ struct GoogleConnectLoginStrategy: ConnectLoginStrategy {
 
 // MARK: - ConnectLoginStrategy
 /**
-Strategy for connecting an email Firebase account to one Firebase account
+    Strategy for connecting an email/password login to a Firebase account
 
- - email: Email address to login with
- - password: Passowrd to login with
+    - `email`: Email address to login with
+    - `password`: Passowrd to login with
 */
 struct EmailConnectLoginStrategy: ConnectLoginStrategy {
     let email: String
     let password: String
 
-    /// Connect manual login email account to Firebase account
+    /// Connect email/password login to Firebase account
     func connectLogin() -> Promise<Bool> {
         return Promise { fulfill, reject in
             let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)

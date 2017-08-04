@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let minimumLoginsTitleKey = "remove-login-error.title.label"
+
 /// Table view where user can manage their connected logins
 class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelegate {
     var viewModel = ConnectedLoginViewModel()
@@ -57,23 +59,29 @@ extension LoginsManagerTableViewController {
 // MARK: - Table view delegate
 extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let provider = viewModel.availableLogins[indexPath.row]
-        let isConnected = viewModel.loginIsConnected(provider)
-        let loginsCount = viewModel.connectedLoginsCount()
-        if isConnected && loginsCount > 1 {
-            // Can only remove a connected login if there is more than one connected login
-            LoginManager.shared.removeConnectedLogin(provider)
-                .then { [weak self] _ -> Void in
-                    guard let `self` = self else {
-                        return
-                    }
+        toggleProviderLogin(provider)
+    }
 
-                    self.tableView.reloadData()
-                }.catch { error in
-                    Logger.error(error)
-                }
-        } else if isConnected && loginsCount <= 1 {
-            // Show error message, must have one login
+    /**
+        Toggles connected login status and takes user through the appropriate flow for removing a login
+            or adding a connected login
+     
+        - Parameters:
+            - provider: Connected login to toggle
+    */
+    private func toggleProviderLogin(_ provider: LoginProvider) {
+        let isConnected = viewModel.loginIsConnected(provider)
+        if isConnected {
+            let loginsCount = viewModel.connectedLoginsCount()
+            if loginsCount > 1 {
+                // Can only remove login if there is more than one
+                removeConnectedLoginUpdateTable(provider)
+            } else {
+                showErrorAlert(errorTitle: minimumLoginsTitleKey.localized,
+                               errorMessage: VLError.minimumConnectedLogins.localizedDescription)
+            }
         } else {
             switch provider {
             case .google:
@@ -83,6 +91,20 @@ extension LoginsManagerTableViewController {
                 break
             }
         }
+    }
+
+    /// Removes a connected login from account and reflect changes in table
+    private func removeConnectedLoginUpdateTable(_ provider: LoginProvider) {
+        LoginManager.shared.removeConnectedLogin(provider)
+            .then { [weak self] _ -> Void in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.tableView.reloadData()
+            }.catch { error in
+                Logger.error(error)
+            }
     }
 }
 

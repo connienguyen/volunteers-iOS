@@ -28,6 +28,7 @@
 "error.load-plist-data" = "Could not open .plist file";
 "error.secret-key" = "Could not access secret key";
 "error.invalid-firebase-action" = "Could not complete action on Firebase.";
+"error.minimum-connected-logins" = "Your account must have at least one login provider attached to it.";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";
@@ -85,6 +86,7 @@
 
 // LoginsManagerTableViewController
 "login-manager.title.label" = "Manage Logins";
+"remove-login-error.title.label" = "Remove Login Error";
 
 // LoginViewController
 "enable-event-login.title.label" = "Enable quick event registration and saved events by logging in";

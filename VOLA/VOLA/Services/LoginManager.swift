@@ -36,7 +36,7 @@ final class LoginManager {
 
     /// Log out current user from social networks and set `currentUser` on `DataManater` to nil
     func logOut() {
-        guard let _ = DataManager.shared.currentUser else {
+        guard DataManager.shared.currentUser != nil else {
             Logger.error(VLError.notLoggedIn)
             return
         }
@@ -57,9 +57,8 @@ final class LoginManager {
             }
 
             do {
-                if let auth = FIRAuth.auth() {
-                    try auth.signOut()
-                }
+                // Logout from Firebase if `auth` is not nil
+                try FIRAuth.auth()?.signOut()
             } catch let signOutError {
                 Logger.error(signOutError)
             }

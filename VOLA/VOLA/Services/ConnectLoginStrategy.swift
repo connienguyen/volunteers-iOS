@@ -32,13 +32,14 @@ extension ConnectLoginStrategy {
                 return
             }
 
-            currentUser.link(with: credential, completion: { (_, linkError) in
-                guard linkError == nil else {
+            currentUser.link(with: credential, completion: { (updatedUser, linkError) in
+                guard let user = updatedUser, linkError == nil else {
                     let connectError = linkError ?? VLError.invalidFirebaseAction
                     reject(connectError)
                     return
                 }
 
+                DataManager.shared.setUserUpdateStoredUser(User(firebaseUser: user))
                 fulfill(true)
             })
         }

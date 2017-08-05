@@ -20,7 +20,7 @@ class ConnectedLoginViewModel {
      
         - Returns: `Bool` of whether or not login is connected to Firebase account
     */
-    func loginIsConnected(_ provider: LoginProvider) -> Bool {
+    func isConnected(_ provider: LoginProvider) -> Bool {
         guard let currentUser = DataManager.shared.currentUser else {
             Logger.error(AuthenticationError.notLoggedIn)
             return false
@@ -31,7 +31,7 @@ class ConnectedLoginViewModel {
     }
 
     /// Number of connected logins on current user's account
-    func connectedLoginsCount() -> Int {
+    func numberOfConnectedLogins() -> Int {
         guard let currentUser = DataManager.shared.currentUser else {
             Logger.error(AuthenticationError.notLoggedIn)
             return 1

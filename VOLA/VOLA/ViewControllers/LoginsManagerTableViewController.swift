@@ -46,8 +46,7 @@ extension LoginsManagerTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(indexPath, cellType: ConnectedLoginCell.self)
         let provider = viewModel.availableLogins[indexPath.row]
-        let isConnected = viewModel.loginIsConnected(provider)
-        cell.configureCell(provider, connectedStatus: isConnected)
+        cell.configureCell(provider, connectedStatus: viewModel.isConnected(provider))
         return cell
     }
 
@@ -72,10 +71,8 @@ extension LoginsManagerTableViewController {
             - provider: Connected login to toggle
     */
     private func toggleProviderLogin(_ provider: LoginProvider) {
-        let isConnected = viewModel.loginIsConnected(provider)
-        if isConnected {
-            let loginsCount = viewModel.connectedLoginsCount()
-            if loginsCount > 1 {
+        if viewModel.isConnected(provider) {
+            if viewModel.numberOfConnectedLogins() > 1 {
                 // Can only remove login if there is more than one
                 removeConnectedLoginUpdateTable(provider)
             } else {

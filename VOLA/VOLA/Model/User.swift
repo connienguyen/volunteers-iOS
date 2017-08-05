@@ -85,4 +85,26 @@ class User: Object {
                 "\(text),\(provider.providerID)"
             }
     }
+
+    /**
+        Convenience initializer for User via Firebase authentication and data from
+            Firebase database snapshot
+     
+        - Parameters:
+            - firebaseUser: Authenticated user data from Firebase
+            - snapshotDict: User data from Firebase database snapshot
+    */
+    convenience init(firebaseUser: FIRUser, snapshotDict: [String: Any]) {
+        self.init()
+        uid = firebaseUser.uid
+        email = firebaseUser.email ?? ""
+        imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
+        loginProvidersJoined = firebaseUser.providerData
+            .reduce("") { text, provider in
+                "\(text),\(provider.providerID)"
+            }
+        let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String ?? ""
+        let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String ?? ""
+        name = "\(firstName) \(lastName)"
+    }
 }

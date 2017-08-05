@@ -95,6 +95,7 @@
 		F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */; };
 		F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */; };
 		F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */; };
+		F9A1B9681F362670008D4098 /* Constants+Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A1B9671F362670008D4098 /* Constants+Firebase.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -248,6 +249,7 @@
 		F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
 		F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginsViewModel.swift; sourceTree = "<group>"; };
 		F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		F9A1B9671F362670008D4098 /* Constants+Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+Firebase.swift"; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				F98807FF1F05A96700589A23 /* Constants+Error.swift */,
 				F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */,
 				F98808061F0864AF00589A23 /* Constants+eTouches.swift */,
+				F9A1B9671F362670008D4098 /* Constants+Firebase.swift */,
 				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 				F9A502281EEEFBA000AB7E9E /* Intro.swift */,
 			);
@@ -911,6 +914,7 @@
 				F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */,
 				F9A5022F1EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F98808001F05A96700589A23 /* Constants+Error.swift in Sources */,
+				F9A1B9681F362670008D4098 /* Constants+Firebase.swift in Sources */,
 				F98807F81EF4173E00589A23 /* EventCell.swift in Sources */,
 				F929204E1EF181B10055DA69 /* String.swift in Sources */,
 				F988080A1F0864DF00589A23 /* HomeNavigationController.swift in Sources */,

@@ -34,7 +34,23 @@ extension SocialNetworkingAuthenticationStrategy {
                     return
                 }
 
-                fulfill(User(firebaseUser: user))
+                FirebaseDataManager.shared.userFromTable(firebaseUser: user)
+                    .then { userInTable -> Promise<User> in
+                        if let foundUser = userInTable {
+                            return Promise { fulfill, _ in fulfill(foundUser) }
+                        } else {
+                            // Create user in Firebase database users table
+                            let displayName = user.displayName ?? ""
+                            let (firstName, lastName) = displayName.splitFullName()
+                            let values: [String: Any] = [
+                                FirebaseKeys.User.firstName.key: firstName,
+                                FirebaseKeys.User.lastName.key: lastName
+                            ]
+                            return FirebaseDataManager.shared.createUserInTable(firebaseUser: user, values: values)
+                        }
+                    }.then { savedFirebaseUser -> Void in
+                        fulfill(savedFirebaseUser)
+                    }
             })
         }
     }
@@ -167,19 +183,17 @@ struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
                     return
                 }
 
-                // TODO: Save/set user to Firebase
-                //FirebaseDataManager.shared.setUser(email: self.email)
-                let changeRequest = firebaseUser.profileChangeRequest()
-                changeRequest.displayName = self.name
-                changeRequest.commitChanges(completion: { (profileError) in
-                    guard profileError == nil else {
-                        let error = profileError ?? AuthenticationError.invalidFirebaseAuth
-                        reject(error)
-                        return
+                let (firstName, lastName) = self.name.splitFullName()
+                let values: [String: Any] = [
+                    FirebaseKeys.User.firstName.key: firstName,
+                    FirebaseKeys.User.lastName.key: lastName
+                ]
+                FirebaseDataManager.shared.createUserInTable(firebaseUser: firebaseUser, values: values)
+                    .then { updatedUser in
+                        fulfill(updatedUser)
+                    }.catch { error in
+                        Logger.error(error)
                     }
-
-                    fulfill(User(firebaseUser: firebaseUser))
-                })
             })
         }
     }

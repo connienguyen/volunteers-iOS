@@ -48,7 +48,7 @@ class User: Object {
         return URL(string: imageURLString)
     }
 
-    /// Primary key for Realm object so that it can up updated in data store
+    /// Primary key for Realm object so that it can be updated in data store
     override static func primaryKey() -> String? {
         return "uid"
     }

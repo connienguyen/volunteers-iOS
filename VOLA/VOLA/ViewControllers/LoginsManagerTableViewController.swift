@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 fileprivate let minimumLoginsTitleKey = "remove-login-error.title.label"
 
@@ -83,7 +84,17 @@ extension LoginsManagerTableViewController {
             switch provider {
             case .google:
                 GIDSignIn.sharedInstance().signIn()
-            case .email, .facebook:
+            case .facebook:
+                FBSDKLoginManager().logIn(withReadPermissions: FBRequest.readPermissions, from: self, handler: { (_, error) in
+                    guard error == nil else {
+                        let fbError = error ?? AuthenticationError.invalidFacebookToken
+                        Logger.error(fbError)
+                        return
+                    }
+
+                    self.facebookDidSignIn()
+                })
+            case .email:
                 // TODO: Handle connected login case for email and facebook
                 break
             }
@@ -114,15 +125,35 @@ extension LoginsManagerTableViewController {
             - notification: Notifies view controller of Google signin and holds authenticated Google user data
     */
     func googleDidSignIn(_ notification: NSNotification) {
-        LoginManager.shared.addConnectedLogin(.google(notification))
+        addConnectedLogin(.google(notification))
+    }
+
+    /**
+        Add connected login after user has signed in with Facebook
+     
+        - Parameters:
+            - loginResult: Result of login from Facebook
+            - error: Error, if there is one, from the Facebook login
+    */
+    func facebookDidSignIn() {
+        addConnectedLogin(.facebook)
+    }
+
+    private func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) {
+        LoginManager.shared.addConnectedLogin(strategy)
             .then { [weak self] _ -> Void in
                 guard let `self` = self else {
                     return
                 }
 
                 self.tableView.reloadData()
-            }.catch { error in
-                Logger.error(error)
+            }.catch { [weak self] error in
+                guard let `self` = self else {
+                    Logger.error(error)
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: "Connection Error", errorMessage: error.localizedDescription)
             }
     }
 }

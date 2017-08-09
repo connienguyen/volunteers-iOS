@@ -110,12 +110,14 @@ extension LoginsManagerTableViewController {
             - strategy: Strategy to add connected login by (email, facebook, etc)
     */
     func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) {
+        displayActivityIndicator()
         LoginManager.shared.addConnectedLogin(strategy)
             .then { [weak self] _ -> Void in
                 guard let `self` = self else {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.tableView.reloadData()
             }.catch { [weak self] error in
                 guard let `self` = self else {
@@ -123,6 +125,7 @@ extension LoginsManagerTableViewController {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: "Connection Error", errorMessage: error.localizedDescription)
         }
     }

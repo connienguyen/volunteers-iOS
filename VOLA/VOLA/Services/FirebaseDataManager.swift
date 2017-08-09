@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseAuth.FIRUser
 import FirebaseDatabase
 import PromiseKit
 
@@ -23,7 +24,7 @@ class FirebaseDataManager {
 
     static let shared = FirebaseDataManager()
 
-    let reference = FIRDatabase.database().reference()
+    let reference = Database.database().reference()
 
     private init() { /* intentionally left blank */ }
 
@@ -36,7 +37,7 @@ class FirebaseDataManager {
         - Returns: `User` promise populated with data from Firebase account and user database
             if successful
     */
-    func userFromTable(firebaseUser: FIRUser) -> Promise<User?> {
+    func userFromTable(firebaseUser: FirebaseAuth.User) -> Promise<User?> {
         return Promise { fulfill, reject in
             reference.table(.users).child(firebaseUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 guard let snapshotDict = snapshot.value as? [String: Any] else {
@@ -60,7 +61,7 @@ class FirebaseDataManager {
         - Returns: `User` promise populated with data from Firebase account and user database
             if successful
     */
-    func createUserInTable(firebaseUser: FIRUser, values: [String: Any]) -> Promise<User> {
+    func createUserInTable(firebaseUser: FirebaseAuth.User, values: [String: Any]) -> Promise<User> {
         return Promise { fulfill, reject in
             reference.table(.users).child(firebaseUser.uid).setValue(values)
             reference.table(.users).child(firebaseUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in

@@ -18,7 +18,7 @@ class LoginManagerUnitTests: XCTestCase {
     }
 
     func testSuccessSocialLoginShouldReturnSetCurrentUser() {
-        let user = User(name: InputConstants.validName, email: InputConstants.validEmail, userType: .manual)
+        let user = User(uid: InputConstants.userUID, name: InputConstants.validName, email: InputConstants.validEmail)
         let userPromise: Promise<User> = Promise { fulfill, _ in
             fulfill(user)
         }
@@ -30,7 +30,6 @@ class LoginManagerUnitTests: XCTestCase {
                 XCTAssertNotNil(currentUser, "Successful should set the current user to a not nil value.")
                 XCTAssertEqual(currentUser?.email, user.email)
                 XCTAssertEqual(currentUser?.name, user.name)
-                XCTAssertEqual(currentUser?.userType, user.userType)
                 XCTAssertEqual(currentUser?.imageURL, user.imageURL)
             }
 

@@ -29,12 +29,12 @@ target 'VOLA' do
     pod 'FBSDKCoreKit', '~> 4.22.1'
     pod 'FBSDKLoginKit', '~> 4.22.1'
     pod 'FBSDKShareKit', '~> 4.22.1'
-    pod 'Google/SignIn', '~> 3.0.3'
+    pod 'Google/SignIn', '~> 2.0.4'
 
     pod 'GoogleMaps', '~> 2.3.0'
-    pod 'Firebase/Core', '~> 3.15.0'
-    pod 'Firebase/Auth', '~> 3.15.0'
-    pod 'Firebase/Database', '~> 3.15.0'
+    pod 'Firebase/Core', '~> 4.0.0'
+    pod 'Firebase/Auth', '~> 4.0.0'
+    pod 'Firebase/Database', '~> 4.0.0'
     pod 'RealmSwift', '~> 2.7.0'
 
     # Testing

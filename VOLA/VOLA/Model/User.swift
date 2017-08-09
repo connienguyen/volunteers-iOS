@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-import FirebaseAuth
+import FirebaseAuth.FIRUser
 
 /**
     Login providers that can be connected to a single Firebase user account
@@ -74,7 +74,7 @@ class User: Object {
         - Parameters:
             - firebaseUser: Authenticated user data from Firebase
     */
-    convenience init(firebaseUser: FIRUser) {
+    convenience init(firebaseUser: FirebaseAuth.User) {
         self.init()
         uid = firebaseUser.uid
         name = firebaseUser.displayName ?? ""
@@ -94,7 +94,7 @@ class User: Object {
             - firebaseUser: Authenticated user data from Firebase
             - snapshotDict: User data from Firebase database snapshot
     */
-    convenience init(firebaseUser: FIRUser, snapshotDict: [String: Any]) {
+    convenience init(firebaseUser: FirebaseAuth.User, snapshotDict: [String: Any]) {
         self.init()
         uid = firebaseUser.uid
         email = firebaseUser.email ?? ""

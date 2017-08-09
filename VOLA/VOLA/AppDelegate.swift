@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             Logger.error(error)
         }
-        FIRApp.configure()
+        FirebaseApp.configure()
 
         ThemeManager.shared.apply()
         return true

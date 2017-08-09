@@ -42,7 +42,7 @@ final class LoginManager {
         }
 
         /// Log out of any providers
-        if let firebaseUser = FIRAuth.auth()?.currentUser {
+        if let firebaseUser = Auth.auth().currentUser {
             for provider in firebaseUser.providerData {
                 if let loginProvider = LoginProvider(rawValue: provider.providerID) {
                     switch loginProvider {
@@ -109,7 +109,7 @@ final class LoginManager {
     */
     func removeConnectedLogin(_ provider: LoginProvider) -> Promise<Bool> {
         return Promise { fulfill, reject in
-            guard let currentUser = FIRAuth.auth()?.currentUser else {
+            guard let currentUser = Auth.auth().currentUser else {
                 reject(AuthenticationError.notLoggedIn)
                 return
             }

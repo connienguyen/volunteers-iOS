@@ -30,6 +30,8 @@ struct InputConstants {
     static let invalidRequiredInputEmpty = ""
     static let invalidRequiredInputSpace = " "
     static let invalidRequiredInputWhitespace = "\r\t"
+    static let userUID = "someUID"
+    static let userUID2 = "anotherUID"
 }
 
 struct EventTestConstants {

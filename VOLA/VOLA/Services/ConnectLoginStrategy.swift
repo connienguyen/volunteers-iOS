@@ -25,9 +25,9 @@ extension ConnectLoginStrategy {
      
         - Returns: Boolean Promise if connecting provider login to Firebase account was successful
     */
-    func linkToFirebase(_ credential: FIRAuthCredential) -> Promise<Bool> {
+    func linkToFirebase(_ credential: AuthCredential) -> Promise<Bool> {
         return Promise { fulfill, reject in
-            guard let currentUser = FIRAuth.auth()?.currentUser else {
+            guard let currentUser = Auth.auth().currentUser else {
                 reject(VLError.notLoggedIn)
                 return
             }
@@ -91,7 +91,7 @@ struct FacebookConnectLoginStrategy: ConnectLoginStrategy {
                 return
             }
 
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: fbTokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: fbTokenString)
             linkToFirebase(credential)
                 .then { success -> Void in
                     fulfill(success)
@@ -120,7 +120,7 @@ struct GoogleConnectLoginStrategy: ConnectLoginStrategy {
                 return
             }
 
-            let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             linkToFirebase(credential)
                 .then { success -> Void in
                     fulfill(success)
@@ -145,7 +145,7 @@ struct EmailConnectLoginStrategy: ConnectLoginStrategy {
     /// Connect email/password login to Firebase account
     func connectLogin() -> Promise<Bool> {
         return Promise { fulfill, reject in
-            let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
+            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
             linkToFirebase(credential)
                 .then { success -> Void in
                     fulfill(success)

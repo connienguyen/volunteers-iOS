@@ -17,8 +17,8 @@ class DataStoreManagerUnitTests: XCTestCase {
     }
 
     var dataStoreManager = MockDataStoreManager()
-    let user = User(name: InputConstants.validName, email: InputConstants.validEmail, userType: .manual)
-    let user2 = User(name: InputConstants.validNameMultiple, email: InputConstants.validEmailSpecialCharacter, userType: .manual)
+    let user = User(uid: InputConstants.userUID, name: InputConstants.validName, email: InputConstants.validEmail)
+    let user2 = User(uid: InputConstants.userUID2, name: InputConstants.validNameMultiple, email: InputConstants.validEmailSpecialCharacter)
     let saveFailureMessage = "Should have saved user object."
 
     override func setUp() {
@@ -43,7 +43,6 @@ class DataStoreManagerUnitTests: XCTestCase {
         let savedUser = foundUsers[0]
         XCTAssertEqual(user.name, savedUser.name)
         XCTAssertEqual(user.email, savedUser.email)
-        XCTAssertEqual(user.userTypeRaw, savedUser.userTypeRaw)
     }
 
     /// Test that user load first returns user when user exists in data store
@@ -60,7 +59,6 @@ class DataStoreManagerUnitTests: XCTestCase {
         XCTAssertNotNil(firstUser)
         XCTAssertEqual(user.name, firstUser?.name)
         XCTAssertEqual(user.email, firstUser?.email)
-        XCTAssertEqual(user.userTypeRaw, firstUser?.userTypeRaw)
     }
 
     /// Test that user load first returns a nil user if no users are saved in data store

@@ -14,7 +14,7 @@ class LoginManagerUnitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        DataManager.shared.setUser(nil)
+        DataManager.shared.setUserUpdateStoredUser(nil)
     }
 
     func testSuccessSocialLoginShouldReturnSetCurrentUser() {
@@ -47,5 +47,43 @@ class LoginManagerUnitTests: XCTestCase {
             .always {
                 XCTAssertNil(DataManager.shared.currentUser, "After failed login, current user should still be nil.")
             }
+    }
+
+    /// Test that user successfully connects a login to their Firebase account
+    func testSuccessConnectLoginShouldReturnTrue() {
+        let boolPromise: Promise<Bool> = Promise { fulfill, _ in
+            fulfill(true)
+        }
+
+        let exp = expectation(description: "Should connect login to Firebase account")
+        LoginManager.shared.addConnectedLogin(.custom(boolPromise))
+            .then { success -> Void in
+                exp.fulfill()
+                XCTAssertTrue(success, "Account should have been connected successfully")
+            }.catch { _ in
+                exp.fulfill()
+                XCTFail("Should have successfully connected login on Firebase")
+            }
+
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+
+    /// Test case where user cannot connect login to Firebase account
+    func testFailureConnectLoginShouldReturnError() {
+        let boolPromise: Promise<Bool> = Promise { _, reject in
+            reject(VLError.invalidFirebaseAction)
+        }
+
+        let exp = expectation(description: "Attempt to connect login to Firebase account")
+        LoginManager.shared.addConnectedLogin(.custom(boolPromise))
+            .then { _ -> Void in
+                exp.fulfill()
+                XCTFail("Should have returned error from connecting login.")
+            }.catch { error in
+                exp.fulfill()
+                XCTAssertTrue(error as? VLError == .invalidFirebaseAction, "Error should be regarding Firebase")
+            }
+
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }

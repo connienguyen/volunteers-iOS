@@ -15,38 +15,61 @@ protocol SocialNetworkingAuthenticationStrategy {
     func login() -> Promise<User>
 }
 
-/**
-Available user authentication strategies
+// Extension of SocialNetworkingAuthenticationStrategy with functions common across different strategies
+extension SocialNetworkingAuthenticationStrategy {
+    /**
+        Login to Firebase using `credential` for a provider login
+     
+        - Parameters:
+            - credential: Credential for a provider login
+     
+        - Returns: User Promise of connected Firebase user
+    */
+    func loginToFirebase(_ credential: FIRAuthCredential) -> Promise<User> {
+        return Promise { fulfill, reject in
+            FIRAuth.auth()?.signIn(with: credential, completion: { (firebaseUser, error) in
+                guard let user = firebaseUser, error == nil else {
+                    let signInError = error ?? VLError.invalidFirebaseAction
+                    reject(signInError)
+                    return
+                }
 
- - facebook: Login through Facebook
- - google: Login through Google
- - manualSignup: Sign up for an account (implicit login)
- - manualLogin: Login using email and password
- - custom: Use for testing/mocking purposes
+                fulfill(User(firebaseUser: user))
+            })
+        }
+    }
+}
+
+/**
+    Available user authentication strategies
+
+    - facebook: Login through Facebook
+    - google: Login through Google
+    - emailSignup: Sign up for an account (implicit login)
+    - emailLogin: Login using email and password
+    - custom: Use for testing/mocking purposes
 */
 enum AvailableLoginStrategies {
     case facebook
     case google(NSNotification)
-    case manualSignup(String, String, String)
-    case manualLogin(String, String)
+    case emailSignup(name: String, email: String, password: String)
+    case emailLogin(email: String, password: String)
     case custom(Promise<User>)
 }
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
-    /**
-    Login based on the selected user authentication method
-    */
+    /// Login based on user authentication strategy
     func login() -> Promise<User> {
         switch self {
         case .facebook:
             return FacebookAuthenticationStrategy().login()
         case .google(let notification):
             return GoogleAuthenticationStrategy(notification: notification).login()
-        case .manualSignup(let name, let email, let password):
-            return ManualSignUpStrategy(name: name, email: email, password: password).login()
-        case .manualLogin(let email, let password):
-            return ManualLoginStrategy(email: email, password: password).login()
+        case .emailSignup(let name, let email, let password):
+            return EmailSignUpStrategy(name: name, email: email, password: password).login()
+        case .emailLogin(let email, let password):
+            return EmailLoginStrategy(email: email, password: password).login()
         case .custom(let promise):
             return promise
         }
@@ -57,80 +80,78 @@ extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
 /// Strategy for user authentication via Facebook
 struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     /**
-    Retrieve user data from Facebook
+        Use Facebook access token to login to Firebase connected account
      
-    - Returns: User promise populated with Facebook user data if successful
+        - Returns: User promise populated with data from connected Firebase user if sucessful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard FBSDKAccessToken.current() != nil else {
-                let error: Error = AuthenticationError.invalidFacebookToken
-                reject(error)
+            guard let fbTokenString = FBSDKAccessToken.current().tokenString else {
+                reject(AuthenticationError.invalidFacebookToken)
                 return
             }
 
-            let parameters = [DictKeys.fields.rawValue: FBRequest.graphParameters]
-            FBSDKGraphRequest(graphPath: FBRequest.graphPath, parameters: parameters).start { (_, result, error) in
-                guard error == nil else {
-                    reject(error ?? AuthenticationError.invalidFacebookResponse)
-                    return
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: fbTokenString)
+            loginToFirebase(credential)
+                .then { user -> Void in
+                    fulfill(user)
+                }.catch { error in
+                    reject(error)
                 }
-
-                guard let response = result as? [String: Any] else {
-                    reject(AuthenticationError.invalidFacebookResponse)
-                    return
-                }
-
-                fulfill(User(fbResponse: response))
-            }
         }
     }
 }
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 /**
-Strategy for user authentication via Google
+    Strategy for user authentication via Google
  
-- notification: Notification passed from Google sign in delegate with Google user data
+    - `notification`: Notification passed from Google sign in delegate with Google user data
 */
 struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     let notification: NSNotification
 
     /**
-    Retrieve Google user data passed via notification
+        Use authenticated Google user data from `notification` to login to Firebase connected account
      
-    - Returns: User promise populated with Google user data if successful
+        - Returns: User promise populated with data from connected Firebase user if successful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser else {
-                let error = AuthenticationError.invalidGoogleUser
-                reject(error)
+            guard let googleUser = notification.userInfo?[DictKeys.user.rawValue] as? GIDGoogleUser,
+                let authentication = googleUser.authentication else {
+                reject(AuthenticationError.invalidGoogleUser)
                 return
             }
 
-            fulfill(User(googleUser: googleUser))
+            let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            loginToFirebase(credential)
+                .then { user -> Void in
+                    fulfill(user)
+                }.catch { error in
+                    reject(error)
+                }
         }
     }
 }
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 /**
-Strategy for user authentication by creating a new user account
+    Strategy for creating a new user account on Firebase and implicitly logging in through signup
  
-- name: Full name for new user account
-- email: Email address to sign up with
-- password: Password to sign up with
+    - `name`: Full name for new user
+    - `email`: Email address to sign up with and use for login
+    - `password`: Password to sign up with and user for login
 */
-struct ManualSignUpStrategy: SocialNetworkingAuthenticationStrategy {
+struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     let name: String
     let email: String
     let password: String
 
     /**
-    Retrieve newly created user
+        Create new Firebase user account and updated user information on Firebase to match `name`
      
-    - Returns: User promise populated with new user data if successful
+        - Returns: User promise populated with data from connected Firebase user if successful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
@@ -166,36 +187,29 @@ struct ManualSignUpStrategy: SocialNetworkingAuthenticationStrategy {
 
 // MARK: - SocialNetworkingAuthenticationStrategy
 /**
-Strategy for user authentication by manually logging in
+    Strategy for logging in to a Firebase account manually
  
-- email: Email address to log in with
-- password: Password to log in with
+    - `email`: Email address to login wtih
+    - `password`: Password to login with
 */
-struct ManualLoginStrategy: SocialNetworkingAuthenticationStrategy {
+struct EmailLoginStrategy: SocialNetworkingAuthenticationStrategy {
     let email: String
     let password: String
 
     /**
-    Retrieve user from manual login
+        Login to Firebase account given an `email` and `password`
      
-    - Returns: User promise populated with user data if successful
+        - Returns: Use promise populated with data from connected Firebase user if successful
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let firebaseAuth = FIRAuth.auth() else {
-                reject(AuthenticationError.invalidFirebaseAuth)
-                return
-            }
-
-            firebaseAuth.signIn(withEmail: email, password: password, completion: { (user, loginError) in
-                guard let firebaseUser = user else {
-                    let error = loginError ?? AuthenticationError.invalidFirebaseAuth
+            let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
+            loginToFirebase(credential)
+                .then { user -> Void in
+                    fulfill(user)
+                }.catch { error in
                     reject(error)
-                    return
                 }
-
-                fulfill(User(firebaseUser: firebaseUser))
-            })
         }
     }
 }

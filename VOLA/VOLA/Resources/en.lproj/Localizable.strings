@@ -28,6 +28,7 @@
 "error.load-plist-data" = "Could not open .plist file";
 "error.secret-key" = "Could not access secret key";
 "error.invalid-firebase-action" = "Could not complete action on Firebase.";
+"error.minimum-connected-logins" = "Your account must have at least one login provider attached to it.";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";
@@ -38,6 +39,10 @@
 "no-short.prompt.label" = "N";
 "default-name.label" = "Default Name";
 "cancel.prompt.label" = "Cancel";
+
+// ConnectedLoginCell
+"connected-status.title.label" = "Connected";
+"not-connected-status.title.label" = "Not Connected";
 
 // EditProfileViewController
 "edit-profile.title.label" = "Edit Profile";
@@ -76,6 +81,13 @@
 "slide-2.title.label" = "Track Events";
 "slide-2.detail.label" = "View events registered with your profile.";
 
+// LoginManualViewController
+"login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
+
+// LoginsManagerTableViewController
+"login-manager.title.label" = "Manage Logins";
+"remove-login-error.title.label" = "Remove Login Error";
+
 // LoginViewController
 "enable-event-login.title.label" = "Enable quick event registration and saved events by logging in";
 "signup.title.label" = "Don't have a Vola account yet? Sign up now.";
@@ -83,9 +95,6 @@
 "login-facebook.prompt.label"  = "Log in with Facebook";
 "login-email.prompt.label" = "Log in with Email";
 "login-error.title.label" = "Log In Error";
-
-// LoginManualViewController
-"login-alternative.title.label" = "If you haven't created an account yet, sign up now or use a social login instead.";
 
 // MapViewController
 "edit-location-settings.title.label" = "Allow Location Access";
@@ -98,6 +107,10 @@
 "sample-email.title.label" = "email@address.org";
 "not-logged-in.title.label" = "You are not logged in";
 "login-to-view.title.label" = "Log in to view your profile, enable quick event registration, and view your registered events.";
+
+// SettingsTableViewController
+"settings.title.label" = "Settings";
+"manage-logins.prompt.label" = "Manage connected logins";
 
 // SignUpViewController
 "create-account.title.label" = "Create an account to view and manage volunteer opportunities in your area.";

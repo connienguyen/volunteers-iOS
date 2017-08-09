@@ -11,94 +11,78 @@ import RealmSwift
 import FirebaseAuth
 
 /**
-    Track how the user logged in, by social network or manually
+    Login providers that can be connected to a single Firebase user account
+ 
+    - facebook: Connected Facebook login
+    - google: Connected Google login
+    - email: Connected login via email and password
 */
-enum UserType: String {
-    case facebook
-    case google
-    case manual
+enum LoginProvider: String {
+    case facebook = "facebook.com"
+    case google = "google.com"
+    case email = "password"
+
+    /// Array of login providers available
+    static let allProviders: [LoginProvider] = [.facebook, .google, .email]
+
+    /// Provider identifier used by Firebase, primarily for unlinking a login
+    var providerID: String {
+        return rawValue
+    }
 }
 
 /// Model for User data
 class User: Object {
-
+    dynamic var uid: String = ""
     dynamic var name: String = ""
     dynamic var email: String = ""
-    dynamic var userTypeRaw: String = ""
+    dynamic var loginProvidersJoined: String = ""
     dynamic var imageURLString: String = ""
     // Computed values since their types are unsupported by Realm
-    var userType: UserType {
-        // If userTypeRaw is not specified, return .manual as default value
-        return UserType(rawValue: userTypeRaw) ?? .manual
+    var providers: [LoginProvider?] {
+        return loginProvidersJoined.components(separatedBy: ",")
+            .map { LoginProvider(rawValue: $0) }
+            .filter { $0 != nil }
     }
     var imageURL: URL? {
         return URL(string: imageURLString)
     }
 
-    /// Primary key for Realm object so that it can up updated in data store
+    /// Primary key for Realm object so that it can be updated in data store
     override static func primaryKey() -> String? {
-        return "email"
+        return "uid"
     }
 
     /**
-    Initializer for a customized User, such as from manual login or for mocking purposes
+        Initializer for a customized User, such as from manual login or for mocking purposes
      
-    - Parameters:
-        - name: Full name of user
-        - email: Email address of user
-        - userType: Method that user logged in
+        - Parameters:
+            - uid: Unique identifier for user
+            - name: Full name of user
+            - email: Email address of user
     */
-    convenience init(name: String, email: String, userType: UserType) {
+    convenience init(uid: String, name: String, email: String) {
         self.init()
+        self.uid = uid
         self.name = name
         self.email = email
-        self.userTypeRaw = userType.rawValue
     }
 
     /**
-    Initializer for User from logging in through Google
+        Convenience initializer for User via Firebase authentication
      
-    - Parameters:
-        - googleUser: GIDGoogleUser object to extract user details from (e.g. name, email)
-    */
-    convenience init(googleUser: GIDGoogleUser) {
-        self.init()
-        name = googleUser.profile.name
-        email = googleUser.profile.email
-        userTypeRaw = UserType.google.rawValue
-        imageURLString = googleUser.profile.imageURL(withDimension: UserNumbers.twiceImageIcon.rawValue).absoluteString
-    }
-
-    /**
-    Initializer for User from logging in through Facebook
-     
-    - Parameters:
-        - fbResponse: Response from Facebook Graph API request for user data
-    */
-    convenience init(fbResponse: [String: Any]) {
-        self.init()
-        name = fbResponse["name"] as? String ?? ""
-        email = fbResponse["email"] as? String ?? ""
-        userTypeRaw = UserType.facebook.rawValue
-
-        guard let fbID = fbResponse["id"] as? String else {
-                Logger.error("Could not format Facebook user imageURL.")
-                return
-        }
-        imageURLString = String(format: FBRequest.imageURLFormat, fbID)
-    }
-
-    /**
-    Initializer for User from manual login via Firebase
-     
-    - Parameters:
-        - firebaseUser: FIRUser object response from Firebase API
+        - Parameters:
+            - firebaseUser: Authenticated user data from Firebase
     */
     convenience init(firebaseUser: FIRUser) {
         self.init()
+        uid = firebaseUser.uid
         name = firebaseUser.displayName ?? ""
         email = firebaseUser.email ?? ""
-        userTypeRaw = UserType.manual.rawValue
         imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
+        loginProvidersJoined = firebaseUser.providerData
+            .reduce("") { text, provider in
+                "\(text),\(provider.providerID)"
+            }
     }
 }

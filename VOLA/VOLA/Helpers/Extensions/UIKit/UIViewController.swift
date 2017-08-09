@@ -19,8 +19,8 @@ extension UIViewController {
     - Parameters:
         - segue: Segue to perform
     */
-    func performSegue(_ segue: Segue) {
-        performSegue(withIdentifier: segue.identifier, sender: self)
+    func performSegue(_ segue: Segue, sender: Any?) {
+        performSegue(withIdentifier: segue.identifier, sender: sender)
     }
 
     /// Currently active indicator, nil if there is no indicator

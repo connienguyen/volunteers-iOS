@@ -22,9 +22,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set up "Edit" button on right side of navBar
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(onEditPressed))
-        navigationItem.rightBarButtonItem = editButton
+        // Set up "Settings" button on right side of navBar
+        let settingsButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(onSettingsPressed))
+        navigationItem.rightBarButtonItem = settingsButton
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,13 +34,7 @@ class ProfileViewController: UIViewController {
             configureUserView()
         } else {
             showUpsell()
-            showEditButton(false)
         }
-    }
-
-    /// Segue to EditProfileViewController
-    func onEditPressed() {
-        performSegue(withIdentifier: Segue.showEditProfile.identifier, sender: self)
     }
 
     /// Configure UI elements to match details of current user
@@ -49,9 +43,7 @@ class ProfileViewController: UIViewController {
         guard let user = DataManager.shared.currentUser else {
             return
         }
-
-        let loggedInManual = user.userType == .manual
-        showEditButton(loggedInManual)
+        
         nameLabel.text = user.name
         emailLabel.text = user.email
         if let imageURL = user.imageURL {
@@ -59,15 +51,9 @@ class ProfileViewController: UIViewController {
         }
     }
 
-    /**
-    Show or hide edit button
-    
-    - Parameters:
-        - show: Boolean value of whether or not to show edit button
-    */
-    func showEditButton(_ show: Bool) {
-        navigationItem.rightBarButtonItem?.isEnabled = show
-        navigationItem.rightBarButtonItem?.title = show ? "Edit" : nil
+    /// Segue to SettingsViewController
+    func onSettingsPressed() {
+        performSegue(.showSettings, sender: self)
     }
 }
 
@@ -79,9 +65,8 @@ extension ProfileViewController {
         showUpsell()
     }
 
-    /// Show login user flow
-    @IBAction func onLoginPressed(_ sender: Any) {
-        let loginNavController: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
-        present(loginNavController, animated: true, completion: nil)
+    /// Show Edit Profile view
+    @IBAction func onEditProfilePressed(_ sender: Any) {
+        performSegue(.showEditProfile, sender: self)
     }
 }

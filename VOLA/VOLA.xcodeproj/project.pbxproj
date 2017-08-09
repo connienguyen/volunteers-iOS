@@ -86,6 +86,15 @@
 		F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */; };
 		F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */; };
 		F99F8D591F2F40C300C4E97A /* VLInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */; };
+		F99F8D5B1F308FAF00C4E97A /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */; };
+		F99F8D5D1F30900900C4E97A /* ProfileNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */; };
+		F99F8D5F1F30961100C4E97A /* ManageLoginsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */; };
+		F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */; };
+		F99F8D651F30DBC400C4E97A /* ConnectedLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */; };
+		F99F8D671F327A2700C4E97A /* ConnectLoginStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */; };
+		F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */; };
+		F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */; };
+		F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -230,6 +239,15 @@
 		F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		F99F8D561F2F3C7100C4E97A /* FirebaseDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLInputTextView.swift; sourceTree = "<group>"; };
+		F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavigationViewController.swift; sourceTree = "<group>"; };
+		F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageLoginsCell.swift; sourceTree = "<group>"; };
+		F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginsManagerTableViewController.swift; sourceTree = "<group>"; };
+		F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginCell.swift; sourceTree = "<group>"; };
+		F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectLoginStrategy.swift; sourceTree = "<group>"; };
+		F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
+		F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginsViewModel.swift; sourceTree = "<group>"; };
+		F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -364,11 +382,12 @@
 		754C462A1EDED1AE00E2F848 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F99F8D661F327A2700C4E97A /* ConnectLoginStrategy.swift */,
 				F9A377FA1EE5818900299FD3 /* DataManager.swift */,
 				F98294C81F21139600F9152B /* DataStoreManager.swift */,
 				F92855F91F154D9400D461B1 /* DefaultManager.swift */,
-				F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */,
 				F92920431EF0395D0055DA69 /* ETouchesAPIService.swift */,
+				F9DD11D21F0D9664006C029A /* ETouchesAPIService+Events.swift */,
 				F9F077021F275C79004DE558 /* ETouchesAPIServices+Registration.swift */,
 				F99F8D541F2BF63400C4E97A /* FirebaseDataManager.swift */,
 				F9B234981EE7532F00884E4E /* LoginManager.swift */,
@@ -425,21 +444,24 @@
 				F98807FA1EF41A5100589A23 /* CalendarNavigationController.swift */,
 				F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */,
 				F98807E71EF26A2800589A23 /* EventDetailViewController.swift */,
-				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
 				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
 				F92920301EEFF18B0055DA69 /* EventTableViewController.swift */,
-				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 				F928562D1F1E474100D461B1 /* HiddenBackTextNavigationController.swift */,
 				F92856271F18ED1400D461B1 /* HomeContainerViewController.swift */,
 				F98808091F0864DF00589A23 /* HomeNavigationController.swift */,
 				F9A501E21EEC44EB00AB7E9E /* IntroductionViewController.swift */,
 				F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */,
 				F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */,
+				F99F8D601F3098FA00C4E97A /* LoginsManagerTableViewController.swift */,
 				F9ADA1271EDF39D4006C7FF1 /* LoginViewController.swift */,
 				F92856241F18ECA100D461B1 /* MapViewController.swift */,
+				F99F8D5C1F30900900C4E97A /* ProfileNavigationViewController.swift */,
 				F9A501DD1EEBED4800AB7E9E /* ProfileViewController.swift */,
+				F99F8D5A1F308FAF00C4E97A /* SettingsTableViewController.swift */,
 				F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */,
 				F9A501EE1EEC4AD400AB7E9E /* VLTabBarController.swift */,
+				F98807E51EF269FC00589A23 /* EventDetailViewController.xib */,
+				F92920311EEFF18B0055DA69 /* EventTableViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -468,6 +490,8 @@
 			children = (
 				F98807F71EF4173E00589A23 /* EventCell.swift */,
 				F98807F41EF412F700589A23 /* EventCell.xib */,
+				F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */,
+				F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -528,6 +552,7 @@
 				754C464C1EDED39800E2F848 /* Logger.swift */,
 				754C46451EDED34C00E2F848 /* ReachabilityManager.swift */,
 				F94B4A7F1F0FD13300AEB13A /* ThemeManager.swift */,
+				F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -576,7 +601,9 @@
 		F90824EC1F2157570070B5D0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */,
 				F90824ED1F2157810070B5D0 /* EventsViewModel.swift */,
+				F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -895,6 +922,7 @@
 				F92855E51F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */,
 				F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F92855E81F10DDA600D461B1 /* TitleLabel.swift in Sources */,
+				F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */,
 				754C463C1EDED2D600E2F848 /* UIView.swift in Sources */,
 				F98294C91F21139600F9152B /* DataStoreManager.swift in Sources */,
 				F9A501DE1EEBED4800AB7E9E /* ProfileViewController.swift in Sources */,
@@ -909,11 +937,13 @@
 				F94B4A841F0FFE1900AEB13A /* VLButton.swift in Sources */,
 				754C46571EDED48800E2F848 /* Theme+Fonts.swift in Sources */,
 				F92855EB1F11103300D461B1 /* VolunteersNeededLabel.swift in Sources */,
+				F99F8D5D1F30900900C4E97A /* ProfileNavigationViewController.swift in Sources */,
 				F90824EE1F2157810070B5D0 /* EventsViewModel.swift in Sources */,
 				F9A501E01EEC2EE000AB7E9E /* EditProfileViewController.swift in Sources */,
 				F90824F71F23BC7E0070B5D0 /* LoginUpsellView.swift in Sources */,
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
 				F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
+				F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
 				F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F9A502291EEEFBA000AB7E9E /* Intro.swift in Sources */,
@@ -930,13 +960,17 @@
 				F92856251F18ECA100D461B1 /* MapViewController.swift in Sources */,
 				F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */,
 				754C46511EDED39800E2F848 /* Logger.swift in Sources */,
+				F99F8D5F1F30961100C4E97A /* ManageLoginsCell.swift in Sources */,
 				F92855F71F11262800D461B1 /* ThinLabel.swift in Sources */,
 				F92920441EF0395D0055DA69 /* ETouchesAPIService.swift in Sources */,
 				F92856161F17900F00D461B1 /* SecretKeyManager.swift in Sources */,
 				F98807EE1EF4005E00589A23 /* SocialNetworkingAuthenticationStrategy.swift in Sources */,
+				F99F8D651F30DBC400C4E97A /* ConnectedLoginCell.swift in Sources */,
 				754C46421EDED30A00E2F848 /* NSObject.swift in Sources */,
 				754C46351EDED23A00E2F848 /* Int+Date.swift in Sources */,
+				F99F8D611F3098FA00C4E97A /* LoginsManagerTableViewController.swift in Sources */,
 				F9A501D01EE7689400AB7E9E /* VLHyperLabel.swift in Sources */,
+				F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */,
 				F99F8D571F2F3C7100C4E97A /* FirebaseDatabase.swift in Sources */,
 				F9DD11D31F0D9664006C029A /* ETouchesAPIService+Events.swift in Sources */,
 				F9A501E31EEC44EC00AB7E9E /* IntroductionViewController.swift in Sources */,
@@ -954,11 +988,13 @@
 				F99F8D551F2BF63400C4E97A /* FirebaseDataManager.swift in Sources */,
 				F92920471EF045900055DA69 /* EventRegistrationViewController.swift in Sources */,
 				F98808071F0864AF00589A23 /* Constants+eTouches.swift in Sources */,
+				F99F8D671F327A2700C4E97A /* ConnectLoginStrategy.swift in Sources */,
 				F92855F11F1111C500D461B1 /* UILabel.swift in Sources */,
 				F94B4A7D1F0FD00400AEB13A /* Theme.swift in Sources */,
 				754C463D1EDED2D600E2F848 /* AppDelegateExtension.swift in Sources */,
 				F9A501E91EEC465500AB7E9E /* IntroSlideView.swift in Sources */,
 				F98807EA1EF3DF9700589A23 /* VLCheckbox.swift in Sources */,
+				F99F8D5B1F308FAF00C4E97A /* SettingsTableViewController.swift in Sources */,
 				754C460A1EDED11400E2F848 /* AppDelegate.swift in Sources */,
 				754C46531EDED42F00E2F848 /* Theme+Colors.swift in Sources */,
 				F9A501EF1EEC4AD400AB7E9E /* VLTabBarController.swift in Sources */,

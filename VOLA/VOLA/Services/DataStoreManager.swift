@@ -62,7 +62,7 @@ extension DataStoreManagerProtocol {
 final class DataStoreManager: DataStoreManagerProtocol {
     static let shared = DataStoreManager()
 
-    var realm = try! Realm()
+    var realm = try! Realm(configuration: RealmConfiguration.config)
 
     private init() { /* intentionally left blank */ }
 }

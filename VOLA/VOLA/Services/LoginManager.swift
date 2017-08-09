@@ -18,12 +18,12 @@ final class LoginManager {
     private init() { /* Intentionally left empty */ }
 
     /**
-    Log in user given an authentication strategy and sets currentUser on DataManager
+        Log in user using given `strategy` and set `currentUser` on `DataManager`
      
-    - Parameters:
-        - strategy: Authentication strategy to log in with
+        - Parameters:
+            - strategy: Authentication strategy to log in with
      
-    - Returns: User promise if login is successful
+        - Returns: User promise if login is successful, otherwise error
     */
     func login(_ strategy: AvailableLoginStrategies) -> Promise<Bool> {
         return strategy.login()
@@ -34,41 +34,49 @@ final class LoginManager {
         }
     }
 
-    /**
-    Log out current user from social network if applicable and set currentUser on DataManager to nil
-    */
+    /// Log out current user from social networks and set `currentUser` on `DataManater` to nil
     func logOut() {
-        guard let user = DataManager.shared.currentUser else {
+        guard DataManager.shared.currentUser != nil else {
             Logger.error(VLError.notLoggedIn)
             return
         }
-        switch user.userType {
-        case .facebook:
-            FBSDKLoginManager().logOut()
-        case .google:
-            GIDSignIn.sharedInstance().signOut()
-        case .manual:
-            guard let firebaseAuth = FIRAuth.auth() else {
-                Logger.error(AuthenticationError.invalidFirebaseAuth)
-                return
+
+        /// Log out of any providers
+        if let firebaseUser = FIRAuth.auth()?.currentUser {
+            for provider in firebaseUser.providerData {
+                if let loginProvider = LoginProvider(rawValue: provider.providerID) {
+                    switch loginProvider {
+                    case .facebook:
+                        FBSDKLoginManager().logOut()
+                    case .google:
+                        GIDSignIn.sharedInstance().signOut()
+                    case .email:
+                        // log out occurs below from Firebase
+                        break
+                    }
+                }
             }
 
             do {
-                try firebaseAuth.signOut()
+                // Logout from Firebase if `auth` is not nil
+                // All log in goes through Firebase, so after logging out of any
+                // applicable social networks, log out of Firebase to complete logout
+                try FIRAuth.auth()?.signOut()
             } catch let signOutError {
                 Logger.error(signOutError)
             }
         }
+
         DataManager.shared.setUserUpdateStoredUser(nil)
     }
 
     /**
-    Update user data on remote server and then update local data to match given a strategy
+        Update user data on remote server and then update local data to match given a strategy
  
-    - Parameters:
-        - strategy: User update strategy to update user data with
+        - Parameters:
+            - strategy: User update strategy to update user data with
      
-    - Returns: Boolean promise whether or not user update was successful
+        - Returns: Boolean promise whether or not user update was successful
     */
     func updateUser(_ strategy: AvailableUserUpdateStrategies) -> Promise<Bool> {
         return strategy.update()
@@ -76,5 +84,46 @@ final class LoginManager {
                 DataManager.shared.setUserUpdateStoredUser(user)
                 return true
             }
+    }
+
+    /**
+        Connect a provider login to user's Firebase account so user can use multiple providers to
+            log into one account
+     
+        - Parameters:
+            - strategy: Strategy for connecting a provider login to user's account
+     
+        - Returns: Boolean promise that returns true if successful
+    */
+    func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) -> Promise<Bool> {
+        return strategy.connectLogin()
+    }
+
+    /**
+        Remove a connected provider login from user's Firebase account
+     
+        - Parameters:
+            - provider: Login provider to remove from user's account
+     
+        - Returns: Boolean promise that returns true if successfull
+    */
+    func removeConnectedLogin(_ provider: LoginProvider) -> Promise<Bool> {
+        return Promise { fulfill, reject in
+            guard let currentUser = FIRAuth.auth()?.currentUser else {
+                reject(AuthenticationError.notLoggedIn)
+                return
+            }
+
+            currentUser.unlink(fromProvider: provider.providerID, completion: { (updatedUser, error) in
+                guard let firebaseUser = updatedUser, error == nil else {
+                    let unlinkError = error ?? AuthenticationError.invalidFirebaseAuth
+                    reject(unlinkError)
+                    return
+                }
+
+                DataManager.shared.setUserUpdateStoredUser(User(firebaseUser: firebaseUser))
+                fulfill(true)
+            })
+        }
     }
 }

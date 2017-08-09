@@ -107,6 +107,7 @@ extension MapViewController: GMSMapViewDelegate {
             mapInfoWindow.configureInfoWindow(event: event)
         }
 
+        mapInfoWindow.layoutIfNeeded()
         return mapInfoWindow
     }
 
@@ -118,18 +119,5 @@ extension MapViewController: GMSMapViewDelegate {
         }
 
         showEventDetail(event)
-    }
-
-    /// Calculate new camera position with offset for info window and open info window for tapped marker
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        let markerProjection = mapView.projection.point(for: marker.position)
-        let mapCenter = CGPoint(x: markerProjection.x, y: markerProjection.y - EventMapInfoWindow.mapYOffset)
-        let mapCenterCoords = mapView.projection.coordinate(for: mapCenter)
-        let cameraUpdate = GMSCameraUpdate.setTarget(mapCenterCoords)
-        mapView.animate(with: cameraUpdate)
-        mapView.selectedMarker = marker
-
-        // Return true to override default Google actions for didTap marker
-        return true
     }
 }

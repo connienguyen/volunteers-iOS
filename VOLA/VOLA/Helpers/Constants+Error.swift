@@ -27,6 +27,7 @@ enum VLError: String, LocalizedError {
     case loadPlistData = "error.load-plist-data"
     case secretKey = "error.secret-key"
     case invalidFirebaseAction = "error.invalid-firebase-action"
+    case minimumConnectedLogins = "error.minimum-connected-logins"
 
     var errorDescription: String? {
         return rawValue.localized

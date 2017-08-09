@@ -44,6 +44,10 @@
 "connected-status.title.label" = "Connected";
 "not-connected-status.title.label" = "Not Connected";
 
+// ConnectEmailViewController
+"connect-email.title.label" = "Connect Email Login";
+"connect-email.prompt.label" = "Connect Email";
+
 // EditProfileViewController
 "edit-profile.title.label" = "Edit Profile";
 "save-changes.prompt.label" = "Save Changes";

@@ -103,6 +103,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             return
         }
 
+        displayActivityIndicator()
         LoginManager.shared.login(.facebook)
             .then { [weak self] (success) -> Void in
                 guard let `self` = self,
@@ -110,6 +111,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.onCancelPressed()
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -117,6 +119,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
             }
     }
@@ -129,6 +132,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
 // MARK: - NotificationObserver
 extension LoginViewController {
     func googleDidSignIn(_ notification: NSNotification) {
+        displayActivityIndicator()
         LoginManager.shared.login(.google(notification))
             .then { [weak self] (success) -> Void in
                 guard let `self` = self,
@@ -136,6 +140,7 @@ extension LoginViewController {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.onCancelPressed()
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -143,6 +148,7 @@ extension LoginViewController {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
             }
     }

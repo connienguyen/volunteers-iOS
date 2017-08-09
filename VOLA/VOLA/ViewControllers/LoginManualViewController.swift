@@ -38,6 +38,7 @@ extension LoginManualViewController {
                 return
         }
 
+        displayActivityIndicator()
         LoginManager.shared.login(.emailLogin(email: email, password: password))
             .then { [weak self] (success) -> Void in
                 guard let `self` = self,
@@ -45,6 +46,7 @@ extension LoginManualViewController {
                         return
                 }
 
+                self.removeActivityIndicator()
                 self.dismiss(animated: true, completion: nil)
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -53,6 +55,7 @@ extension LoginManualViewController {
                     return
                 }
 
+                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
             }
     }

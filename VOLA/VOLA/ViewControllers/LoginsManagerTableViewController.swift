@@ -92,16 +92,48 @@ extension LoginsManagerTableViewController {
                         return
                     }
 
-                    self.facebookDidSignIn()
+                    self.addConnectedLogin(.facebook)
                 })
             case .email:
-                // TODO: Handle connected login case for email and facebook
-                break
+                let connectVC: ConnectEmailViewController = UIStoryboard(.login).instantiateViewController()
+                connectVC.delegate = self
+                show(connectVC, sender: self)
             }
         }
     }
 
-    /// Removes a connected login from account and reflect changes in table
+    /**
+        Add a connected login to Firebase account given a `strategy`. Update tableview
+        display if connection was successful.
+     
+        - Parameters:
+            - strategy: Strategy to add connected login by (email, facebook, etc)
+    */
+    func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) {
+        LoginManager.shared.addConnectedLogin(strategy)
+            .then { [weak self] _ -> Void in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.tableView.reloadData()
+            }.catch { [weak self] error in
+                guard let `self` = self else {
+                    Logger.error(error)
+                    return
+                }
+
+                self.showErrorAlert(errorTitle: "Connection Error", errorMessage: error.localizedDescription)
+        }
+    }
+
+    /**
+        Remove a connected login from Firebase account and reflect changes in the
+        tableview.
+     
+        - Parameters:
+            - provider: Provider of connected login to be removed
+    */
     private func removeConnectedLoginUpdateTable(_ provider: LoginProvider) {
         LoginManager.shared.removeConnectedLogin(provider)
             .then { [weak self] _ -> Void in
@@ -110,8 +142,12 @@ extension LoginsManagerTableViewController {
                 }
 
                 self.tableView.reloadData()
-            }.catch { error in
-                Logger.error(error)
+            }.catch { [weak self] error in
+                guard let `self` = self else {
+                    Logger.error(error)
+                    return
+                }
+                self.showErrorAlert(errorTitle: "Remove Connected Login Error", errorMessage: error.localizedDescription)
             }
     }
 }
@@ -127,33 +163,11 @@ extension LoginsManagerTableViewController {
     func googleDidSignIn(_ notification: NSNotification) {
         addConnectedLogin(.google(notification))
     }
+}
 
-    /**
-        Add connected login after user has signed in with Facebook
-     
-        - Parameters:
-            - loginResult: Result of login from Facebook
-            - error: Error, if there is one, from the Facebook login
-    */
-    func facebookDidSignIn() {
-        addConnectedLogin(.facebook)
-    }
-
-    private func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) {
-        LoginManager.shared.addConnectedLogin(strategy)
-            .then { [weak self] _ -> Void in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.tableView.reloadData()
-            }.catch { [weak self] error in
-                guard let `self` = self else {
-                    Logger.error(error)
-                    return
-                }
-
-                self.showErrorAlert(errorTitle: "Connection Error", errorMessage: error.localizedDescription)
-            }
+// MARK: - ConnectEmailViewControllerDelegate
+extension LoginsManagerTableViewController: ConnectEmailViewControllerDelegate {
+    func emailDidConnect(email: String, password: String) {
+        addConnectedLogin(.email(email: email, password: password))
     }
 }

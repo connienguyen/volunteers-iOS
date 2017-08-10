@@ -58,10 +58,9 @@ final class LoginManager {
             }
 
             do {
-                // Logout from Firebase if `auth` is not nil
                 // All log in goes through Firebase, so after logging out of any
                 // applicable social networks, log out of Firebase to complete logout
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
             } catch let signOutError {
                 Logger.error(signOutError)
             }

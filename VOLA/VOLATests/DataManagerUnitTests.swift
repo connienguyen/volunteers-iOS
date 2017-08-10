@@ -13,7 +13,6 @@ class DataManagerUnitTests: XCTestCase {
 
     let user: User = User(uid: InputConstants.userUID, name: InputConstants.validName, email: InputConstants.validEmail)
 
-
     override func setUp() {
         super.setUp()
         DataManager.shared.setUserUpdateStoredUser(nil)

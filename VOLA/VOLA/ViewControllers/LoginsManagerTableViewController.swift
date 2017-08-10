@@ -118,15 +118,19 @@ extension LoginsManagerTableViewController {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.tableView.reloadData()
+            }.always { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.removeActivityIndicator()
             }.catch { [weak self] error in
                 guard let `self` = self else {
                     Logger.error(error)
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: addLoginErrorKey.localized,
                                     errorMessage: error.localizedDescription)
         }
@@ -140,6 +144,7 @@ extension LoginsManagerTableViewController {
             - provider: Provider of connected login to be removed
     */
     private func removeConnectedLoginUpdateTable(_ provider: LoginProvider) {
+        displayActivityIndicator()
         LoginManager.shared.removeConnectedLogin(provider)
             .then { [weak self] _ -> Void in
                 guard let `self` = self else {
@@ -147,6 +152,12 @@ extension LoginsManagerTableViewController {
                 }
 
                 self.tableView.reloadData()
+            }.always { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+
+                self.removeActivityIndicator()
             }.catch { [weak self] error in
                 guard let `self` = self else {
                     Logger.error(error)

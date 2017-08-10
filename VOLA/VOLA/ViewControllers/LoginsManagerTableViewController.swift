@@ -9,7 +9,8 @@
 import UIKit
 import FBSDKLoginKit
 
-fileprivate let minimumLoginsTitleKey = "remove-login-error.title.label"
+fileprivate let addLoginErrorKey = "add-login-error.title.label"
+fileprivate let removeLoginErrorKey = "remove-login-error.title.label"
 
 /// Table view where user can manage their connected logins
 class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelegate {
@@ -77,7 +78,7 @@ extension LoginsManagerTableViewController {
                 // Can only remove login if there is more than one
                 removeConnectedLoginUpdateTable(provider)
             } else {
-                showErrorAlert(errorTitle: minimumLoginsTitleKey.localized,
+                showErrorAlert(errorTitle: removeLoginErrorKey.localized,
                                errorMessage: VLError.minimumConnectedLogins.localizedDescription)
             }
         } else {
@@ -126,7 +127,8 @@ extension LoginsManagerTableViewController {
                 }
 
                 self.removeActivityIndicator()
-                self.showErrorAlert(errorTitle: "Connection Error", errorMessage: error.localizedDescription)
+                self.showErrorAlert(errorTitle: addLoginErrorKey.localized,
+                                    errorMessage: error.localizedDescription)
         }
     }
 
@@ -150,12 +152,13 @@ extension LoginsManagerTableViewController {
                     Logger.error(error)
                     return
                 }
-                self.showErrorAlert(errorTitle: "Remove Connected Login Error", errorMessage: error.localizedDescription)
+                self.showErrorAlert(errorTitle: removeLoginErrorKey.localized,
+                                    errorMessage: error.localizedDescription)
             }
     }
 }
 
-// MARK: - NotificationObserver
+// MARK: - NotificationObserver; For Google sign in
 extension LoginsManagerTableViewController {
     /**
         Add connected login after user has signed in with Google

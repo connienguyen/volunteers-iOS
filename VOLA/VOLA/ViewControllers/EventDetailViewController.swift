@@ -54,7 +54,10 @@ class EventDetailViewController: UIViewController, XIBInstantiable {
         // Views dependent on event.eventType status
         registeredLabel.eventType = event.eventType
         if event.eventType == .unregistered {
-            let registerBarButton = UIBarButtonItem(title: "register.prompt.label".localized, style: .plain, target: self, action: #selector(onRegisterPressed(_:)))
+            let registerBarButton = UIBarButtonItem(title: "register.prompt.label".localized,
+                                                    style: .plain,
+                                                    target: self,
+                                                    action: #selector(onRegisterPressed(_:)))
             navigationItem.rightBarButtonItem = registerBarButton
         }
     }

@@ -90,6 +90,7 @@
 
 // LoginsManagerTableViewController
 "login-manager.title.label" = "Manage Logins";
+"add-login-error.title.label" = "Add Login Error";
 "remove-login-error.title.label" = "Remove Login Error";
 
 // LoginViewController

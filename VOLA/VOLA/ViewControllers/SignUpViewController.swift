@@ -83,7 +83,6 @@ extension SignUpViewController {
                         return
                 }
 
-                self.removeActivityIndicator()
                 self.dismiss(animated: true, completion: nil)
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -91,8 +90,9 @@ extension SignUpViewController {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: signUpErrorKey.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

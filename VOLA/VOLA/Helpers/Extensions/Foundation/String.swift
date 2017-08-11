@@ -20,12 +20,19 @@ extension String {
     */
     func splitFullName() -> (firstName: String, lastName: String) {
         var names = self.components(separatedBy: " ")
-        guard names.count >= 2 else {
+        switch names.count {
+        case 0:
             return ("", "")
+        case 1:
+            return (names[0], "")
+        case 2:
+            return (names[0], names[1])
+        default:
+            // Full name is three words or longer
+            let firstName = names[0...1].flatMap({ $0 }).joined(separator: " ")
+            let lastName = names[names.count-1]
+            return (firstName, lastName)
         }
-        let lastName = names.popLast() ?? ""
-        let firstName = names.flatMap({ $0 }).joined(separator: " ")
-        return (firstName, lastName)
     }
 }
 

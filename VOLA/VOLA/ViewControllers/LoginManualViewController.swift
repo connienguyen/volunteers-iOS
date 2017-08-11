@@ -46,7 +46,6 @@ extension LoginManualViewController {
                         return
                 }
 
-                self.removeActivityIndicator()
                 self.dismiss(animated: true, completion: nil)
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -55,8 +54,9 @@ extension LoginManualViewController {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

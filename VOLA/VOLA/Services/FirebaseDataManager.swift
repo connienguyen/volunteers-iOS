@@ -41,6 +41,7 @@ class FirebaseDataManager {
         return Promise { fulfill, reject in
             reference.table(.users).child(firebaseUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 guard let snapshotDict = snapshot.value as? [String: Any] else {
+                    // No user with matching UID exists on Firebase database
                     fulfill(nil)
                     return
                 }

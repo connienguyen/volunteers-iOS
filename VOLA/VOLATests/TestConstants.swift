@@ -54,3 +54,18 @@ struct SecretKeysConstants {
     static let secretValue = "testAPIkeyVaLuE123"
     static let invalidSecretKey = "testAPI"
 }
+
+struct SplitNameConstants {
+    static let standardFullName = "Jane Doe"
+    static let standardFirstName = "Jane"
+    static let standardLastName = "Doe"
+    static let oneWordFullName = "Cher"
+    static let oneWordFirstName = "Cher"
+    static let oneWordLastName = ""
+    static let multiWordFullName = "Ann Marie Smith"
+    static let multiWordFirstName = "Ann Marie"
+    static let multiWordLastName = "Smith"
+    static let superMultiWordFullName = "Mary Anne Smith Jones"
+    static let superMultiWordFirstName = "Mary Anne"
+    static let superMultiWordLastName = "Jones"
+}

@@ -131,6 +131,7 @@
 		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
 		F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1311EE33CEE006C7FF1 /* User.swift */; };
 		F9AEA2F11F3B692900620FD0 /* ConnectEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AEA2F01F3B692900620FD0 /* ConnectEmailViewController.swift */; };
+		F9AEA2F31F3DABE000620FD0 /* StringExtensionUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AEA2F21F3DABE000620FD0 /* StringExtensionUnitTests.swift */; };
 		F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2348D1EE6D72500884E4E /* UIViewController.swift */; };
 		F9B234931EE6DF8400884E4E /* Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234921EE6DF8400884E4E /* Completions.swift */; };
 		F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234951EE6FE1C00884E4E /* Constants.swift */; };
@@ -280,6 +281,7 @@
 		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F9ADA1311EE33CEE006C7FF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F9AEA2F01F3B692900620FD0 /* ConnectEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectEmailViewController.swift; sourceTree = "<group>"; };
+		F9AEA2F21F3DABE000620FD0 /* StringExtensionUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionUnitTests.swift; sourceTree = "<group>"; };
 		F9B2348D1EE6D72500884E4E /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F9B234921EE6DF8400884E4E /* Completions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Completions.swift; sourceTree = "<group>"; };
 		F9B234951EE6FE1C00884E4E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -358,16 +360,17 @@
 		754C461D1EDED11400E2F848 /* VOLATests */ = {
 			isa = PBXGroup;
 			children = (
-				F9DD11D81F0E34EA006C029A /* Fixtures */,
+				754C46201EDED11400E2F848 /* Info.plist */,
 				F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */,
 				F9F077051F28925F004DE558 /* DataStoreManagerUnitTests.swift */,
 				754C461E1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift */,
-				754C46201EDED11400E2F848 /* Info.plist */,
 				F9A501FD1EEECCE200AB7E9E /* InputValidationUnitTests.swift */,
 				F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */,
 				F929204B1EF14B7D0055DA69 /* LoginManagerUnitTests.swift */,
 				F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */,
+				F9AEA2F21F3DABE000620FD0 /* StringExtensionUnitTests.swift */,
 				F98807FD1F05995C00589A23 /* TestConstants.swift */,
+				F9DD11D81F0E34EA006C029A /* Fixtures */,
 			);
 			path = VOLATests;
 			sourceTree = "<group>";
@@ -659,9 +662,9 @@
 		F9DD11D81F0E34EA006C029A /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				F9F076FE1F242180004DE558 /* SecretTestKeys.plist */,
 				F928560F1F15733A00D461B1 /* GetAvailableEvents */,
 				F928560E1F15731800D461B1 /* GetEventDetail */,
-				F9F076FE1F242180004DE558 /* SecretTestKeys.plist */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -1127,6 +1130,7 @@
 				F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */,
 				F9A501FE1EEECCE200AB7E9E /* InputValidationUnitTests.swift in Sources */,
 				F9DD11DC1F0E368F006C029A /* JSONFileNames.swift in Sources */,
+				F9AEA2F31F3DABE000620FD0 /* StringExtensionUnitTests.swift in Sources */,
 				F98807FE1F05995C00589A23 /* TestConstants.swift in Sources */,
 				754C461F1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift in Sources */,
 				F929204C1EF14B7D0055DA69 /* LoginManagerUnitTests.swift in Sources */,

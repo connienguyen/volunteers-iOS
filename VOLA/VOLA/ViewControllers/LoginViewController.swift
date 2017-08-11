@@ -111,7 +111,6 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.onCancelPressed()
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -119,8 +118,9 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 
@@ -140,7 +140,6 @@ extension LoginViewController {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.onCancelPressed()
             }.catch { [weak self] error in
                 Logger.error(error)
@@ -148,8 +147,9 @@ extension LoginViewController {
                     return
                 }
 
-                self.removeActivityIndicator()
                 self.showErrorAlert(errorTitle: UIDisplay.loginErrorTitle.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

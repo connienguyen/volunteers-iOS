@@ -114,26 +114,14 @@ extension LoginsManagerTableViewController {
         displayActivityIndicator()
         LoginManager.shared.addConnectedLogin(strategy)
             .then { [weak self] _ -> Void in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.tableView.reloadData()
-            }.always { [weak self] in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.removeActivityIndicator()
+                self?.tableView.reloadData()
             }.catch { [weak self] error in
-                guard let `self` = self else {
-                    Logger.error(error)
-                    return
-                }
-
-                self.showErrorAlert(errorTitle: addLoginErrorKey.localized,
+                Logger.error(error)
+                self?.showErrorAlert(errorTitle: addLoginErrorKey.localized,
                                     errorMessage: error.localizedDescription)
-        }
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
+            }
     }
 
     /**
@@ -147,24 +135,13 @@ extension LoginsManagerTableViewController {
         displayActivityIndicator()
         LoginManager.shared.removeConnectedLogin(provider)
             .then { [weak self] _ -> Void in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.tableView.reloadData()
-            }.always { [weak self] in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.removeActivityIndicator()
+                self?.tableView.reloadData()
             }.catch { [weak self] error in
-                guard let `self` = self else {
-                    Logger.error(error)
-                    return
-                }
-                self.showErrorAlert(errorTitle: removeLoginErrorKey.localized,
+                Logger.error(error)
+                self?.showErrorAlert(errorTitle: removeLoginErrorKey.localized,
                                     errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

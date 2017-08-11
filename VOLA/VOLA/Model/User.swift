@@ -106,6 +106,7 @@ class User: Object {
 
         guard let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String,
             let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String else {
+                Logger.error(VLError.failedUserSnapshot)
                 return nil
         }
         name = "\(firstName) \(lastName)"

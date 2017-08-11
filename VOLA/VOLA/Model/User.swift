@@ -87,14 +87,14 @@ class User: Object {
     }
 
     /**
-        Convenience initializer for User via Firebase authentication and data from
+        Failable convenience initializer for User via Firebase authentication and data from
             Firebase database snapshot
      
         - Parameters:
             - firebaseUser: Authenticated user data from Firebase
             - snapshotDict: User data from Firebase database snapshot
     */
-    convenience init(firebaseUser: FirebaseAuth.User, snapshotDict: [String: Any]) {
+    convenience init?(firebaseUser: FirebaseAuth.User, snapshotDict: [String: Any]) {
         self.init()
         uid = firebaseUser.uid
         email = firebaseUser.email ?? ""
@@ -103,8 +103,11 @@ class User: Object {
             .reduce("") { text, provider in
                 "\(text),\(provider.providerID)"
             }
-        let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String ?? ""
-        let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String ?? ""
+
+        guard let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String,
+            let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String else {
+                return nil
+        }
         name = "\(firstName) \(lastName)"
     }
 }

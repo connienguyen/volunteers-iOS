@@ -46,7 +46,13 @@ class FirebaseDataManager {
                     return
                 }
 
-                fulfill(User(firebaseUser: firebaseUser, snapshotDict: snapshotDict))
+                let userFromSnapshot = User(firebaseUser: firebaseUser, snapshotDict: snapshotDict)
+                guard let userInDatabase = userFromSnapshot else {
+                    reject(VLError.failedUserSnapshot)
+                    return
+                }
+
+                fulfill(userInDatabase)
             }) { (error) in
                 reject(error)
             }
@@ -71,7 +77,13 @@ class FirebaseDataManager {
                     return
                 }
 
-                fulfill(User(firebaseUser: firebaseUser, snapshotDict: snapshotDict))
+                let userFromSnapshot = User(firebaseUser: firebaseUser, snapshotDict: snapshotDict)
+                guard let newUser = userFromSnapshot else {
+                    reject(VLError.failedUserSnapshot)
+                    return
+                }
+
+                fulfill(newUser)
             }) { (error) in
                 reject(error)
             }

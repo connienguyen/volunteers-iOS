@@ -29,6 +29,7 @@
 "error.secret-key" = "Could not access secret key";
 "error.invalid-firebase-action" = "Could not complete action on Firebase.";
 "error.minimum-connected-logins" = "Your account must have at least one login provider attached to it.";
+"error.failed-user-snapshot" = "Failed to initialize User from Firebase snapshot.";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";

@@ -40,8 +40,10 @@ extension SocialNetworkingAuthenticationStrategy {
                             return Promise { fulfill, _ in fulfill(foundUser) }
                         } else {
                             // Create user in Firebase database users table
-                            let displayName = user.displayName ?? ""
-                            let (firstName, lastName) = displayName.splitFullName()
+                            var (firstName, lastName) = ("", "")
+                            if let displayName = user.displayName {
+                                (firstName, lastName) = displayName.splitFullName()
+                            }
                             let values: [String: Any] = [
                                 FirebaseKeys.User.firstName.key: firstName,
                                 FirebaseKeys.User.lastName.key: lastName

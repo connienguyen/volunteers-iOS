@@ -15,8 +15,10 @@ extension String {
     }
 
     /**
-        Split a full name into first and last, where last name is the last word in the
-            name preceded by a space and the first name is everything before the last name
+        Split a full name into first and last based on the number of words in full name.
+        Last name is the last word in the name, unless name is only one word long.
+        First name is the first word in the name, or the first two words in the name if the
+        name is three words or longer.
     */
     func splitFullName() -> (firstName: String, lastName: String) {
         var names = self.components(separatedBy: " ")

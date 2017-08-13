@@ -18,7 +18,8 @@ struct FirebaseKeys {
     enum User: String, ParameterKey {
         case firstName = "first_name"
         case lastName = "last_name"
-        case organization
+        case affiliation
+        case title
 
         var key: String {
             return rawValue

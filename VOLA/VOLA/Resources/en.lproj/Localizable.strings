@@ -34,7 +34,11 @@
 // Generic
 "confirm-password.title.label" = "Confirm Password";
 "email.title.label" = "Email Address";
+"first-name.title.label" = "First Name";
+"last-name.title.label" = "Last Name";
 "name.title.label" = "Name";
+"title.title.label" = "Title";
+"affiliation.title.label" = "Company/ Organization";
 "password.title.label" = "Password";
 "yes-short.prompt.label" = "Y";
 "no-short.prompt.label" = "N";

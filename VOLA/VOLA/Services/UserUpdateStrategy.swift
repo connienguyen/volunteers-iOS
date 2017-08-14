@@ -51,13 +51,12 @@ struct FirebaseUserUpdateStrategy: UserUpdateStrategy {
     */
     func update() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let firebaseAuth = FIRAuth.auth(),
-                let firebaseUser = firebaseAuth.currentUser else {
+            guard let firebaseUser = Auth.auth().currentUser else {
                 reject(AuthenticationError.invalidFirebaseAuth)
                 return
             }
 
-            let changeRequest = firebaseUser.profileChangeRequest()
+            let changeRequest = firebaseUser.createProfileChangeRequest()
             changeRequest.displayName = name
             changeRequest.commitChanges(completion: { (updateError) in
                 guard updateError == nil else {
@@ -67,7 +66,7 @@ struct FirebaseUserUpdateStrategy: UserUpdateStrategy {
                 }
 
                 if firebaseUser.email != self.email {
-                    firebaseUser.updateEmail(self.email, completion: { (updateError) in
+                    firebaseUser.updateEmail(to: self.email, completion: { (updateError) in
                         guard updateError == nil else {
                             let error = updateError ?? AuthenticationError.invalidFirebaseAuth
                             reject(error)

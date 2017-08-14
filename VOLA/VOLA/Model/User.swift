@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-import FirebaseAuth
+import FirebaseAuth.FIRUser
 
 /**
     Login providers that can be connected to a single Firebase user account
@@ -74,7 +74,7 @@ class User: Object {
         - Parameters:
             - firebaseUser: Authenticated user data from Firebase
     */
-    convenience init(firebaseUser: FIRUser) {
+    convenience init(firebaseUser: FirebaseAuth.User) {
         self.init()
         uid = firebaseUser.uid
         name = firebaseUser.displayName ?? ""
@@ -84,5 +84,33 @@ class User: Object {
             .reduce("") { text, provider in
                 "\(text),\(provider.providerID)"
             }
+    }
+
+    /**
+        Failable convenience initializer for User via Firebase authentication and data from
+        Firebase database snapshot. Fails whenever values `email`, `firstName`, or `lastName`
+        from `firebaseUser` or `snapshotDict` are nil
+     
+        - Parameters:
+            - firebaseUser: Authenticated user data from Firebase
+            - snapshotDict: User data from Firebase database snapshot
+    */
+    convenience init?(firebaseUser: FirebaseAuth.User, snapshotDict: [String: Any]) {
+        self.init()
+        uid = firebaseUser.uid
+        imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
+        loginProvidersJoined = firebaseUser.providerData
+            .reduce("") { text, provider in
+                "\(text),\(provider.providerID)"
+            }
+
+        guard let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String,
+            let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String,
+            let firebaseEmail = firebaseUser.email else {
+                Logger.error(VLError.failedUserSnapshot)
+                return nil
+        }
+        email = firebaseEmail
+        name = "\(firstName) \(lastName)"
     }
 }

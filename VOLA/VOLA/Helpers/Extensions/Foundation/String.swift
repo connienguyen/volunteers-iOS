@@ -15,30 +15,37 @@ extension String {
     }
 
     /**
-    For a string, returns its SHA1 hex-encoded encryption.
-     Source: https://stackoverflow.com/questions/25761344/how-to-crypt-string-to-sha1-with-swift
-
-    - Returns: A hex encoded string using SHA1
+        Split a full name into first and last based on the number of words in full name.
+        Last name is the last word in the name, unless name is only one word long.
+        First name is the first word in the name, or the first two words in the name if the
+        name is three words or longer.
     */
-    func sha1HexString() -> String {
-        let data = self.data(using: .utf8)!
-        var digest = [UInt8](repeatElement(0, count: Int(CC_SHA1_DIGEST_LENGTH)))
-        data.withUnsafeBytes {
-            _ = CC_SHA1($0, CC_LONG(data.count), &digest)
+    func splitFullName() -> (firstName: String, lastName: String) {
+        var names = self.components(separatedBy: " ")
+        switch names.count {
+        case 0:
+            return ("", "")
+        case 1:
+            return (names[0], "")
+        case 2:
+            return (names[0], names[1])
+        default:
+            // Full name is three words or longer
+            let firstName = names[0...1].flatMap({ $0 }).joined(separator: " ")
+            let lastName = names[names.count-1]
+            return (firstName, lastName)
         }
-        let hexBytes = digest.map { String(format: "%02hhx", $0) }
-        return hexBytes.joined()
     }
 }
 
 extension Sequence where Iterator.Element == String {
     /**
-    Combine an array of strings into one localized string
+        Combine an array of strings into one localized string
      
-    - Parameteters:
-        - separator: String between each element to combine; default is newline character
+        - Parameters:
+            - separator: String between each element to combine; default is newline character
      
-    - Returns: Combined string of localized array elements
+        - Returns: Combined string of localized array elements
     */
     func joinLocalized(separator: String = "\n") -> String {
         return flatMap({ $0.localized}).joined(separator: separator)

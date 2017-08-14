@@ -30,6 +30,8 @@ struct InputConstants {
     static let invalidRequiredInputEmpty = ""
     static let invalidRequiredInputSpace = " "
     static let invalidRequiredInputWhitespace = "\r\t"
+    static let userUID = "someUID"
+    static let userUID2 = "anotherUID"
 }
 
 struct EventTestConstants {
@@ -51,4 +53,19 @@ struct SecretKeysConstants {
     static let secretKey = "TestAPI"
     static let secretValue = "testAPIkeyVaLuE123"
     static let invalidSecretKey = "testAPI"
+}
+
+struct SplitNameConstants {
+    static let standardFullName = "Jane Doe"
+    static let standardFirstName = "Jane"
+    static let standardLastName = "Doe"
+    static let oneWordFullName = "Cher"
+    static let oneWordFirstName = "Cher"
+    static let oneWordLastName = ""
+    static let multiWordFullName = "Ann Marie Smith"
+    static let multiWordFirstName = "Ann Marie"
+    static let multiWordLastName = "Smith"
+    static let superMultiWordFullName = "Mary Anne Smith Jones"
+    static let superMultiWordFirstName = "Mary Anne"
+    static let superMultiWordLastName = "Jones"
 }

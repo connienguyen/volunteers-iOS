@@ -95,6 +95,7 @@
 		F99F8D691F337F5300C4E97A /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */; };
 		F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */; };
 		F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */; };
+		F9A1B9681F362670008D4098 /* Constants+Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A1B9671F362670008D4098 /* Constants+Firebase.swift */; };
 		F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A377FA1EE5818900299FD3 /* DataManager.swift */; };
 		F9A501B91EE75AEF00AB7E9E /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */; };
 		F9A501BE1EE7600100AB7E9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9A501C11EE7600100AB7E9E /* Localizable.strings */; };
@@ -129,6 +130,8 @@
 		F9ADA12A1EDF3CAC006C7FF1 /* LoginManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */; };
 		F9ADA12F1EE2CE53006C7FF1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */; };
 		F9ADA1321EE33CEE006C7FF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADA1311EE33CEE006C7FF1 /* User.swift */; };
+		F9AEA2F11F3B692900620FD0 /* ConnectEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AEA2F01F3B692900620FD0 /* ConnectEmailViewController.swift */; };
+		F9AEA2F31F3DABE000620FD0 /* StringExtensionUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AEA2F21F3DABE000620FD0 /* StringExtensionUnitTests.swift */; };
 		F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2348D1EE6D72500884E4E /* UIViewController.swift */; };
 		F9B234931EE6DF8400884E4E /* Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234921EE6DF8400884E4E /* Completions.swift */; };
 		F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B234951EE6FE1C00884E4E /* Constants.swift */; };
@@ -248,6 +251,7 @@
 		F99F8D681F337F5300C4E97A /* RealmConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
 		F99F8D6A1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedLoginsViewModel.swift; sourceTree = "<group>"; };
 		F99F8D6C1F3481F700C4E97A /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		F9A1B9671F362670008D4098 /* Constants+Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constants+Firebase.swift"; sourceTree = "<group>"; };
 		F9A377F61EE4BD5A00299FD3 /* VOLA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VOLA-Bridging-Header.h"; sourceTree = "<group>"; };
 		F9A377FA1EE5818900299FD3 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9A501B81EE75AEF00AB7E9E /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		F9ADA1291EDF3CAC006C7FF1 /* LoginManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManualViewController.swift; sourceTree = "<group>"; };
 		F9ADA12E1EE2CE53006C7FF1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F9ADA1311EE33CEE006C7FF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F9AEA2F01F3B692900620FD0 /* ConnectEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectEmailViewController.swift; sourceTree = "<group>"; };
+		F9AEA2F21F3DABE000620FD0 /* StringExtensionUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionUnitTests.swift; sourceTree = "<group>"; };
 		F9B2348D1EE6D72500884E4E /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F9B234921EE6DF8400884E4E /* Completions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Completions.swift; sourceTree = "<group>"; };
 		F9B234951EE6FE1C00884E4E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -354,16 +360,17 @@
 		754C461D1EDED11400E2F848 /* VOLATests */ = {
 			isa = PBXGroup;
 			children = (
-				F9DD11D81F0E34EA006C029A /* Fixtures */,
+				754C46201EDED11400E2F848 /* Info.plist */,
 				F929202E1EEFDDD40055DA69 /* DataManagerUnitTests.swift */,
 				F9F077051F28925F004DE558 /* DataStoreManagerUnitTests.swift */,
 				754C461E1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift */,
-				754C46201EDED11400E2F848 /* Info.plist */,
 				F9A501FD1EEECCE200AB7E9E /* InputValidationUnitTests.swift */,
 				F9DD11DB1F0E368F006C029A /* JSONFileNames.swift */,
 				F929204B1EF14B7D0055DA69 /* LoginManagerUnitTests.swift */,
 				F9F077001F242215004DE558 /* SecretKeysManagerUnitTests.swift */,
+				F9AEA2F21F3DABE000620FD0 /* StringExtensionUnitTests.swift */,
 				F98807FD1F05995C00589A23 /* TestConstants.swift */,
+				F9DD11D81F0E34EA006C029A /* Fixtures */,
 			);
 			path = VOLATests;
 			sourceTree = "<group>";
@@ -406,6 +413,7 @@
 				F98807FF1F05A96700589A23 /* Constants+Error.swift */,
 				F928562A1F1E17DC00D461B1 /* Constants+GoogleMaps.swift */,
 				F98808061F0864AF00589A23 /* Constants+eTouches.swift */,
+				F9A1B9671F362670008D4098 /* Constants+Firebase.swift */,
 				F9B234951EE6FE1C00884E4E /* Constants.swift */,
 				F9A502281EEEFBA000AB7E9E /* Intro.swift */,
 			);
@@ -442,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				F98807FA1EF41A5100589A23 /* CalendarNavigationController.swift */,
+				F9AEA2F01F3B692900620FD0 /* ConnectEmailViewController.swift */,
 				F9A501DF1EEC2EE000AB7E9E /* EditProfileViewController.swift */,
 				F98807E71EF26A2800589A23 /* EventDetailViewController.swift */,
 				F92920461EF045900055DA69 /* EventRegistrationViewController.swift */,
@@ -469,18 +478,18 @@
 		754C462F1EDED20200E2F848 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F9259D491F0EDEA100CE7954 /* CircleImageView.swift */,
+				F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */,
+				F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */,
+				F94B4A861F10330800AEB13A /* RoundedImageView.swift */,
+				F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */,
+				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
+				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
+				F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */,
 				F94B4A821F0FFDD600AEB13A /* Buttons */,
 				754C46301EDED20800E2F848 /* Cells */,
 				F92855E01F103D3100D461B1 /* Labels */,
 				754C46311EDED20B00E2F848 /* Popups */,
-				F9259D491F0EDEA100CE7954 /* CircleImageView.swift */,
-				F9A501E81EEC465500AB7E9E /* IntroSlideView.swift */,
-				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
-				F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */,
-				F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */,
-				F94B4A861F10330800AEB13A /* RoundedImageView.swift */,
-				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
-				F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,10 +497,10 @@
 		754C46301EDED20800E2F848 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F98807F71EF4173E00589A23 /* EventCell.swift */,
-				F98807F41EF412F700589A23 /* EventCell.xib */,
-				F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */,
 				F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */,
+				F98807F71EF4173E00589A23 /* EventCell.swift */,
+				F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */,
+				F98807F41EF412F700589A23 /* EventCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -653,9 +662,9 @@
 		F9DD11D81F0E34EA006C029A /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				F9F076FE1F242180004DE558 /* SecretTestKeys.plist */,
 				F928560F1F15733A00D461B1 /* GetAvailableEvents */,
 				F928560E1F15731800D461B1 /* GetEventDetail */,
-				F9F076FE1F242180004DE558 /* SecretTestKeys.plist */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -804,13 +813,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOLA-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		332B929763DE52BE30B22561 /* [CP] Copy Pods Resources */ = {
@@ -819,9 +831,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests-resources.sh",
+				"${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -834,9 +851,58 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VOLA-VOLATests/Pods-VOLA-VOLATests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FRHyperLabel/FRHyperLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRHyperLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -862,9 +928,54 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FRHyperLabel/FRHyperLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRHyperLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -877,9 +988,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VOLA/Pods-VOLA-resources.sh",
+				"${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -892,13 +1008,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VOLA-VOLATests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -908,9 +1027,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9AEA2F11F3B692900620FD0 /* ConnectEmailViewController.swift in Sources */,
 				F9B234961EE6FE1C00884E4E /* Constants.swift in Sources */,
 				F9A5022F1EEF273E00AB7E9E /* XIBInstantiable.swift in Sources */,
 				F98808001F05A96700589A23 /* Constants+Error.swift in Sources */,
+				F9A1B9681F362670008D4098 /* Constants+Firebase.swift in Sources */,
 				F98807F81EF4173E00589A23 /* EventCell.swift in Sources */,
 				F929204E1EF181B10055DA69 /* String.swift in Sources */,
 				F988080A1F0864DF00589A23 /* HomeNavigationController.swift in Sources */,
@@ -1009,6 +1130,7 @@
 				F929202F1EEFDDD40055DA69 /* DataManagerUnitTests.swift in Sources */,
 				F9A501FE1EEECCE200AB7E9E /* InputValidationUnitTests.swift in Sources */,
 				F9DD11DC1F0E368F006C029A /* JSONFileNames.swift in Sources */,
+				F9AEA2F31F3DABE000620FD0 /* StringExtensionUnitTests.swift in Sources */,
 				F98807FE1F05995C00589A23 /* TestConstants.swift in Sources */,
 				754C461F1EDED11400E2F848 /* ETouchesAPIServiceUnitTests.swift in Sources */,
 				F929204C1EF14B7D0055DA69 /* LoginManagerUnitTests.swift in Sources */,

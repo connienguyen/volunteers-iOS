@@ -60,21 +60,20 @@ extension EditProfileViewController {
                 return
         }
 
+        displayActivityIndicator()
         LoginManager.shared.updateUser(.firebase(name, email))
             .then { [weak self] (success) -> Void in
-                guard let `self` = self, success else {
+                guard success else {
                     Logger.error(VLError.invalidFirebaseAction)
                     return
                 }
-
-                self.navigationController?.popViewController(animated: true)
+                
+                self?.navigationController?.popViewController(animated: true)
             }.catch { [weak self] (error) in
                 Logger.error(error)
-                guard let `self` = self else {
-                    return
-                }
-
-                self.showErrorAlert(errorTitle: saveErrorKey.localized, errorMessage: error.localizedDescription)
+                self?.showErrorAlert(errorTitle: saveErrorKey.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

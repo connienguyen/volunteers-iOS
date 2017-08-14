@@ -42,7 +42,7 @@ final class LoginManager {
         }
 
         /// Log out of any providers
-        if let firebaseUser = FIRAuth.auth()?.currentUser {
+        if let firebaseUser = Auth.auth().currentUser {
             for provider in firebaseUser.providerData {
                 if let loginProvider = LoginProvider(rawValue: provider.providerID) {
                     switch loginProvider {
@@ -58,10 +58,9 @@ final class LoginManager {
             }
 
             do {
-                // Logout from Firebase if `auth` is not nil
                 // All log in goes through Firebase, so after logging out of any
                 // applicable social networks, log out of Firebase to complete logout
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
             } catch let signOutError {
                 Logger.error(signOutError)
             }
@@ -109,7 +108,7 @@ final class LoginManager {
     */
     func removeConnectedLogin(_ provider: LoginProvider) -> Promise<Bool> {
         return Promise { fulfill, reject in
-            guard let currentUser = FIRAuth.auth()?.currentUser else {
+            guard let currentUser = Auth.auth().currentUser else {
                 reject(AuthenticationError.notLoggedIn)
                 return
             }

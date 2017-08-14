@@ -25,16 +25,34 @@ extension SocialNetworkingAuthenticationStrategy {
      
         - Returns: User Promise of connected Firebase user
     */
-    func loginToFirebase(_ credential: FIRAuthCredential) -> Promise<User> {
+    func loginToFirebase(_ credential: AuthCredential) -> Promise<User> {
         return Promise { fulfill, reject in
-            FIRAuth.auth()?.signIn(with: credential, completion: { (firebaseUser, error) in
+            Auth.auth().signIn(with: credential, completion: { (firebaseUser, error) in
                 guard let user = firebaseUser, error == nil else {
                     let signInError = error ?? VLError.invalidFirebaseAction
                     reject(signInError)
                     return
                 }
 
-                fulfill(User(firebaseUser: user))
+                FirebaseDataManager.shared.userFromTable(firebaseUser: user)
+                    .then { userInTable -> Promise<User> in
+                        if let foundUser = userInTable {
+                            return Promise { fulfill, _ in fulfill(foundUser) }
+                        } else {
+                            // Create user in Firebase database users table
+                            var (firstName, lastName) = ("", "")
+                            if let displayName = user.displayName {
+                                (firstName, lastName) = displayName.splitFullName()
+                            }
+                            let values: [String: Any] = [
+                                FirebaseKeys.User.firstName.key: firstName,
+                                FirebaseKeys.User.lastName.key: lastName
+                            ]
+                            return FirebaseDataManager.shared.createUserInTable(firebaseUser: user, values: values)
+                        }
+                    }.then { savedFirebaseUser -> Void in
+                        fulfill(savedFirebaseUser)
+                    }
             })
         }
     }
@@ -91,7 +109,7 @@ struct FacebookAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
                 return
             }
 
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: fbTokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: fbTokenString)
             loginToFirebase(credential)
                 .then { user -> Void in
                     fulfill(user)
@@ -124,7 +142,7 @@ struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
                 return
             }
 
-            let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             loginToFirebase(credential)
                 .then { user -> Void in
                     fulfill(user)
@@ -155,31 +173,24 @@ struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let firebaseAuth = FIRAuth.auth() else {
-                reject(AuthenticationError.invalidFirebaseAuth)
-                return
-            }
-
-            firebaseAuth.createUser(withEmail: email, password: password, completion: { (user, signUpError) in
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, signUpError) in
                 guard let firebaseUser = user else {
                     let error = signUpError ?? AuthenticationError.invalidFirebaseAuth
                     reject(error)
                     return
                 }
 
-                // TODO: Save/set user to Firebase
-                //FirebaseDataManager.shared.setUser(email: self.email)
-                let changeRequest = firebaseUser.profileChangeRequest()
-                changeRequest.displayName = self.name
-                changeRequest.commitChanges(completion: { (profileError) in
-                    guard profileError == nil else {
-                        let error = profileError ?? AuthenticationError.invalidFirebaseAuth
-                        reject(error)
-                        return
+                let (firstName, lastName) = self.name.splitFullName()
+                let values: [String: Any] = [
+                    FirebaseKeys.User.firstName.key: firstName,
+                    FirebaseKeys.User.lastName.key: lastName
+                ]
+                FirebaseDataManager.shared.createUserInTable(firebaseUser: firebaseUser, values: values)
+                    .then { updatedUser in
+                        fulfill(updatedUser)
+                    }.catch { error in
+                        Logger.error(error)
                     }
-
-                    fulfill(User(firebaseUser: firebaseUser))
-                })
             })
         }
     }
@@ -203,7 +214,7 @@ struct EmailLoginStrategy: SocialNetworkingAuthenticationStrategy {
     */
     func login() -> Promise<User> {
         return Promise { fulfill, reject in
-            let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
+            let credential = EmailAuthProvider.credential(withEmail: email, password: password)
             loginToFirebase(credential)
                 .then { user -> Void in
                     fulfill(user)

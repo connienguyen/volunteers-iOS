@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <scene sceneID="nmF-iZ-8oZ">
             <objects>
                 <navigationController storyboardIdentifier="LoginNavigationController" id="AYe-br-d5T" customClass="LoginNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sn3-aq-JU0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sn3-aq-JU0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -202,13 +202,6 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="name.title.label"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anita Borg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cR-oF-Ihu" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="159" width="275" height="30"/>
-                                                <accessibility key="accessibilityConfiguration" label="NameTextField"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxu-Dt-4ux" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="50" y="214" width="103" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -267,6 +260,13 @@
                                                     <action selector="onSignUpPressed:" destination="LpZ-sx-Ae5" eventType="touchUpInside" id="luO-cy-c5f"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anita Borg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cR-oF-Ihu" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="55" y="160" width="275" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" label="NameTextField"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -332,6 +332,147 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9Z-zV-kO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-416.80000000000001" y="766.86656671664173"/>
+        </scene>
+        <!--Connect Email Login-->
+        <scene sceneID="inw-PY-3Oz">
+            <objects>
+                <viewController storyboardIdentifier="ConnectEmailViewController" title="Connect Email Login" id="gkG-B6-8c9" customClass="ConnectEmailViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ebr-J4-TBB"/>
+                        <viewControllerLayoutGuide type="bottom" id="FX0-gq-wnC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uCF-98-fjX">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBJ-pO-HP3" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldf-ez-uEz" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="393.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an email login to your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfB-ig-Qtc" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="335" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHD-4h-PWS" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="84" width="102.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="email.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPR-Nj-g5O" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="110.5" width="275" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oO6-e2-d4H" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="165.5" width="70" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="password.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAe-UR-ns6" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="192" width="275" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5w-vj-kri" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="247" width="132" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="confirm-password.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Vk-s1-W5i" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="273.5" width="275" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-Ze-5bA" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="50" y="333.5" width="275" height="30"/>
+                                                <state key="normal" title="Connect Email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="connect-email.prompt.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onConnectPressed:" destination="gkG-B6-8c9" eventType="touchUpInside" id="GLG-ET-PS6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="l5w-vj-kri" firstAttribute="top" secondItem="oAe-UR-ns6" secondAttribute="bottom" constant="25" id="0YT-sF-Yvn"/>
+                                            <constraint firstItem="HfB-ig-Qtc" firstAttribute="top" secondItem="Ldf-ez-uEz" secondAttribute="top" constant="20" id="3rs-WA-d90"/>
+                                            <constraint firstAttribute="bottom" secondItem="pIh-Ze-5bA" secondAttribute="bottom" constant="30" id="4hZ-0W-uAR"/>
+                                            <constraint firstAttribute="trailing" secondItem="HfB-ig-Qtc" secondAttribute="trailing" constant="20" id="7kA-hh-323"/>
+                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="8lQ-YY-DnA"/>
+                                            <constraint firstItem="oO6-e2-d4H" firstAttribute="top" secondItem="JPR-Nj-g5O" secondAttribute="bottom" constant="25" id="CND-93-Y3Q"/>
+                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="top" secondItem="HfB-ig-Qtc" secondAttribute="bottom" constant="40" id="E7B-ve-5Bu"/>
+                                            <constraint firstItem="1Vk-s1-W5i" firstAttribute="leading" secondItem="l5w-vj-kri" secondAttribute="leading" id="I6U-3f-NKM"/>
+                                            <constraint firstItem="l5w-vj-kri" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="JSa-7T-U8S"/>
+                                            <constraint firstItem="JPR-Nj-g5O" firstAttribute="top" secondItem="kHD-4h-PWS" secondAttribute="bottom" constant="7" id="LZD-wC-tLx"/>
+                                            <constraint firstAttribute="trailing" secondItem="pIh-Ze-5bA" secondAttribute="trailing" constant="50" id="MYK-7B-h2U"/>
+                                            <constraint firstAttribute="trailing" secondItem="JPR-Nj-g5O" secondAttribute="trailing" constant="50" id="NVD-0s-hQQ"/>
+                                            <constraint firstItem="oO6-e2-d4H" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="ROf-dM-NMF"/>
+                                            <constraint firstItem="JPR-Nj-g5O" firstAttribute="top" secondItem="kHD-4h-PWS" secondAttribute="bottom" constant="7" id="VTy-fd-kkg"/>
+                                            <constraint firstItem="pIh-Ze-5bA" firstAttribute="top" secondItem="1Vk-s1-W5i" secondAttribute="bottom" constant="30" id="Xgu-u9-jMM"/>
+                                            <constraint firstItem="JPR-Nj-g5O" firstAttribute="leading" secondItem="kHD-4h-PWS" secondAttribute="leading" id="awX-0l-M1l"/>
+                                            <constraint firstItem="pIh-Ze-5bA" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="dyf-V9-pph"/>
+                                            <constraint firstItem="oAe-UR-ns6" firstAttribute="leading" secondItem="oO6-e2-d4H" secondAttribute="leading" id="jio-G4-NVi"/>
+                                            <constraint firstItem="HfB-ig-Qtc" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="20" id="m0T-s3-C57"/>
+                                            <constraint firstItem="1Vk-s1-W5i" firstAttribute="top" secondItem="l5w-vj-kri" secondAttribute="bottom" constant="7" id="mjY-d2-IgO"/>
+                                            <constraint firstItem="oAe-UR-ns6" firstAttribute="top" secondItem="oO6-e2-d4H" secondAttribute="bottom" constant="7" id="pF4-ft-Zha"/>
+                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="rxi-4A-FYI"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Vk-s1-W5i" secondAttribute="trailing" constant="50" id="v4I-HK-2lv"/>
+                                            <constraint firstAttribute="trailing" secondItem="oAe-UR-ns6" secondAttribute="trailing" constant="50" id="zKe-GS-oPa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ldf-ez-uEz" secondAttribute="trailing" id="FfK-3g-iK8"/>
+                                    <constraint firstItem="Ldf-ez-uEz" firstAttribute="top" secondItem="xBJ-pO-HP3" secondAttribute="top" id="TPS-Qs-fUm"/>
+                                    <constraint firstItem="Ldf-ez-uEz" firstAttribute="leading" secondItem="xBJ-pO-HP3" secondAttribute="leading" id="U9Z-3h-ZSi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ldf-ez-uEz" secondAttribute="bottom" id="veC-QW-B8J"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FX0-gq-wnC" firstAttribute="top" secondItem="xBJ-pO-HP3" secondAttribute="bottom" id="7Zr-Gv-sgP"/>
+                            <constraint firstItem="xBJ-pO-HP3" firstAttribute="leading" secondItem="uCF-98-fjX" secondAttribute="leading" id="G5w-8h-CKO"/>
+                            <constraint firstAttribute="trailing" secondItem="xBJ-pO-HP3" secondAttribute="trailing" id="LUB-cE-ZKX"/>
+                            <constraint firstItem="Ldf-ez-uEz" firstAttribute="width" secondItem="uCF-98-fjX" secondAttribute="width" id="orp-AH-gt6"/>
+                            <constraint firstItem="xBJ-pO-HP3" firstAttribute="top" secondItem="ebr-J4-TBB" secondAttribute="bottom" id="wL7-Jz-3Wq"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="connect-email.title.label"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="confirmTextField" destination="1Vk-s1-W5i" id="Moi-lZ-TYf"/>
+                        <outlet property="emailTextField" destination="JPR-Nj-g5O" id="SBI-SD-8hK"/>
+                        <outlet property="passowrdTextField" destination="oAe-UR-ns6" id="0gX-IU-2uy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XDm-sm-r2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.80000000000001" y="764.16791604197908"/>
         </scene>
         <!--Log in with Email-->
         <scene sceneID="Kov-VK-0Cz">

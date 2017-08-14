@@ -75,6 +75,7 @@ extension SignUpViewController {
             return
         }
 
+        displayActivityIndicator()
         LoginManager.shared.login(.emailSignup(name: name, email: email, password: password))
             .then { [weak self] (success) -> Void in
                 guard let `self` = self,
@@ -90,6 +91,8 @@ extension SignUpViewController {
                 }
 
                 self.showErrorAlert(errorTitle: signUpErrorKey.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

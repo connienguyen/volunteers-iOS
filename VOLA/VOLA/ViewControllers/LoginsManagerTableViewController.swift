@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
-fileprivate let minimumLoginsTitleKey = "remove-login-error.title.label"
+fileprivate let addLoginErrorKey = "add-login-error.title.label"
+fileprivate let removeLoginErrorKey = "remove-login-error.title.label"
 
 /// Table view where user can manage their connected logins
 class LoginsManagerTableViewController: UITableViewController, GIDSignInUIDelegate {
@@ -76,36 +78,75 @@ extension LoginsManagerTableViewController {
                 // Can only remove login if there is more than one
                 removeConnectedLoginUpdateTable(provider)
             } else {
-                showErrorAlert(errorTitle: minimumLoginsTitleKey.localized,
+                showErrorAlert(errorTitle: removeLoginErrorKey.localized,
                                errorMessage: VLError.minimumConnectedLogins.localizedDescription)
             }
         } else {
             switch provider {
             case .google:
                 GIDSignIn.sharedInstance().signIn()
-            case .email, .facebook:
-                // TODO: Handle connected login case for email and facebook
-                break
+            case .facebook:
+                FBSDKLoginManager().logIn(withReadPermissions: FBRequest.readPermissions, from: self, handler: { (_, error) in
+                    guard error == nil else {
+                        let fbError = error ?? AuthenticationError.invalidFacebookToken
+                        Logger.error(fbError)
+                        return
+                    }
+
+                    self.addConnectedLogin(.facebook)
+                })
+            case .email:
+                let connectVC: ConnectEmailViewController = UIStoryboard(.login).instantiateViewController()
+                connectVC.delegate = self
+                show(connectVC, sender: self)
             }
         }
     }
 
-    /// Removes a connected login from account and reflect changes in table
+    /**
+        Add a connected login to Firebase account given a `strategy`. Update tableview
+        display if connection was successful.
+     
+        - Parameters:
+            - strategy: Strategy to add connected login by (email, facebook, etc)
+    */
+    func addConnectedLogin(_ strategy: AvailableConnectLoginStrategies) {
+        displayActivityIndicator()
+        LoginManager.shared.addConnectedLogin(strategy)
+            .then { [weak self] _ -> Void in
+                self?.tableView.reloadData()
+            }.catch { [weak self] error in
+                Logger.error(error)
+                self?.showErrorAlert(errorTitle: addLoginErrorKey.localized,
+                                    errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
+            }
+    }
+
+    /**
+        Remove a connected login from Firebase account and reflect changes in the
+        tableview.
+     
+        - Parameters:
+            - provider: Provider of connected login to be removed
+    */
     private func removeConnectedLoginUpdateTable(_ provider: LoginProvider) {
+        displayActivityIndicator()
         LoginManager.shared.removeConnectedLogin(provider)
             .then { [weak self] _ -> Void in
-                guard let `self` = self else {
-                    return
-                }
-
-                self.tableView.reloadData()
-            }.catch { error in
+                self?.tableView.reloadData()
+            }.catch { [weak self] error in
                 Logger.error(error)
+                self?.showErrorAlert(errorTitle: removeLoginErrorKey.localized,
+                                    errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }
 
-// MARK: - NotificationObserver
+// MARK: - NotificationObserver; For Google sign in
 extension LoginsManagerTableViewController {
     /**
         Add connected login after user has signed in with Google
@@ -114,15 +155,13 @@ extension LoginsManagerTableViewController {
             - notification: Notifies view controller of Google signin and holds authenticated Google user data
     */
     func googleDidSignIn(_ notification: NSNotification) {
-        LoginManager.shared.addConnectedLogin(.google(notification))
-            .then { [weak self] _ -> Void in
-                guard let `self` = self else {
-                    return
-                }
+        addConnectedLogin(.google(notification))
+    }
+}
 
-                self.tableView.reloadData()
-            }.catch { error in
-                Logger.error(error)
-            }
+// MARK: - ConnectEmailViewControllerDelegate
+extension LoginsManagerTableViewController: ConnectEmailViewControllerDelegate {
+    func emailDidConnect(email: String, password: String) {
+        addConnectedLogin(.email(email: email, password: password))
     }
 }

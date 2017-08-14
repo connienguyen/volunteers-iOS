@@ -88,7 +88,8 @@ class User: Object {
 
     /**
         Failable convenience initializer for User via Firebase authentication and data from
-            Firebase database snapshot
+        Firebase database snapshot. Fails whenever values `email`, `firstName`, or `lastName`
+        from `firebaseUser` or `snapshotDict` are nil
      
         - Parameters:
             - firebaseUser: Authenticated user data from Firebase
@@ -97,7 +98,6 @@ class User: Object {
     convenience init?(firebaseUser: FirebaseAuth.User, snapshotDict: [String: Any]) {
         self.init()
         uid = firebaseUser.uid
-        email = firebaseUser.email ?? ""
         imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
         loginProvidersJoined = firebaseUser.providerData
             .reduce("") { text, provider in
@@ -105,10 +105,12 @@ class User: Object {
             }
 
         guard let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String,
-            let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String else {
+            let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String,
+            let firebaseEmail = firebaseUser.email else {
                 Logger.error(VLError.failedUserSnapshot)
                 return nil
         }
+        email = firebaseEmail
         name = "\(firstName) \(lastName)"
     }
 }

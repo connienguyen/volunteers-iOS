@@ -73,10 +73,18 @@ struct FirebaseUserUpdateStrategy: UserUpdateStrategy {
                             return
                         }
 
-                        fulfill(User(firebaseUser: firebaseUser))
+                        guard let userFromFirebase = User(firebaseUser: firebaseUser) else {
+                            reject(VLError.failedUserFirebase)
+                            return
+                        }
+                        fulfill(userFromFirebase)
                     })
                 } else {
-                    fulfill(User(firebaseUser: firebaseUser))
+                    guard let userFromFirebase = User(firebaseUser: firebaseUser) else {
+                        reject(VLError.failedUserFirebase)
+                        return
+                    }
+                    fulfill(userFromFirebase)
                 }
             })
 

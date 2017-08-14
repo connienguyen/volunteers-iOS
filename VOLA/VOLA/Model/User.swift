@@ -34,7 +34,10 @@ enum LoginProvider: String {
 /// Model for User data
 class User: Object {
     dynamic var uid: String = ""
-    dynamic var name: String = ""
+    dynamic var title: String = ""
+    dynamic var firstName: String = ""
+    dynamic var lastName: String = ""
+    dynamic var affiliation: String = ""
     dynamic var email: String = ""
     dynamic var loginProvidersJoined: String = ""
     dynamic var imageURLString: String = ""
@@ -58,32 +61,41 @@ class User: Object {
      
         - Parameters:
             - uid: Unique identifier for user
-            - name: Full name of user
+            - firstName: First name of the user
+            - lastName: Last name of the user
             - email: Email address of user
     */
-    convenience init(uid: String, name: String, email: String) {
+    convenience init(uid: String, firstName: String, lastName: String, email: String) {
         self.init()
         self.uid = uid
-        self.name = name
+        self.firstName = firstName
+        self.lastName = lastName
         self.email = email
     }
 
     /**
-        Convenience initializer for User via Firebase authentication
+        Failable convenience initializer for User via Firebase authentication. Initialization fails
+        if `displayName` or `email` properties on `firebaseUser` are nil
      
         - Parameters:
             - firebaseUser: Authenticated user data from Firebase
     */
-    convenience init(firebaseUser: FirebaseAuth.User) {
+    convenience init?(firebaseUser: FirebaseAuth.User) {
         self.init()
+        guard let fullName = firebaseUser.displayName,
+            let firebaseEmail = firebaseUser.email else {
+                Logger.error(VLError.failedUserSnapshot)
+                return nil
+        }
         uid = firebaseUser.uid
-        name = firebaseUser.displayName ?? ""
-        email = firebaseUser.email ?? ""
+        (firstName, lastName) = fullName.splitFullName()
+        email = firebaseEmail
         imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
         loginProvidersJoined = firebaseUser.providerData
             .reduce("") { text, provider in
                 "\(text),\(provider.providerID)"
             }
+
     }
 
     /**
@@ -110,7 +122,7 @@ class User: Object {
                 Logger.error(VLError.failedUserSnapshot)
                 return nil
         }
-        email = firebaseEmail
-        name = "\(firstName) \(lastName)"
+        self.firstName = firstName
+        self.lastName = lastName
     }
 }

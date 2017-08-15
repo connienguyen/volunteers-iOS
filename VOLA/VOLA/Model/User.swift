@@ -84,12 +84,12 @@ class User: Object {
         self.init()
         guard let fullName = firebaseUser.displayName,
             let firebaseEmail = firebaseUser.email else {
-                Logger.error(VLError.failedUserSnapshot)
+                Logger.error(VLError.failedUserFirebase)
                 return nil
         }
         uid = firebaseUser.uid
-        (firstName, lastName) = fullName.splitFullName()
         email = firebaseEmail
+        (firstName, lastName) = fullName.splitFullName()
         imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
         loginProvidersJoined = firebaseUser.providerData
             .reduce("") { text, provider in
@@ -109,21 +109,25 @@ class User: Object {
     */
     convenience init?(firebaseUser: FirebaseAuth.User, snapshotDict: [String: Any]) {
         self.init()
+        guard let firebaseEmail = firebaseUser.email else {
+            Logger.error(VLError.failedUserFirebase)
+            return nil
+        }
+
+        guard let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String,
+            let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String else {
+                Logger.error(VLError.failedUserSnapshot)
+                return nil
+        }
         uid = firebaseUser.uid
+        self.email = firebaseEmail
+        self.firstName = firstName
+        self.lastName = lastName
         imageURLString = firebaseUser.photoURL?.absoluteString ?? ""
         loginProvidersJoined = firebaseUser.providerData
             .reduce("") { text, provider in
                 "\(text),\(provider.providerID)"
             }
-
-        guard let firstName = snapshotDict[FirebaseKeys.User.firstName.key] as? String,
-            let lastName = snapshotDict[FirebaseKeys.User.lastName.key] as? String,
-            let firebaseEmail = firebaseUser.email else {
-                Logger.error(VLError.failedUserSnapshot)
-                return nil
-        }
-        self.firstName = firstName
-        self.lastName = lastName
 
         // These values from the Firebase snapshot may be nil if the user did not set them
         // after logging in via a social login

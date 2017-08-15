@@ -81,6 +81,7 @@ class LoginManagerUnitTests: XCTestCase {
                 XCTFail("Should have returned error from connecting login.")
             }.catch { error in
                 exp.fulfill()
+                XCTAssertTrue(error is VLError, "Error should be a custom error of type VLError.")
                 XCTAssertTrue(error as? VLError == .invalidFirebaseAction, "Error should be regarding Firebase")
             }
 
@@ -122,6 +123,7 @@ class LoginManagerUnitTests: XCTestCase {
                 XCTFail("Should have returned an error from updating user.")
             }.catch { error in
                 exp.fulfill()
+                XCTAssertTrue(error is VLError, "Error should be a custom error of type VLError.")
                 XCTAssertTrue(error as? VLError == .invalidFirebaseAction, "Error should be regarding invalid Firebase action")
             }
         waitForExpectations(timeout: 10, handler: nil)

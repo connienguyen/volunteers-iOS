@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircleImageView!
     @IBOutlet weak var nameLabel: TitleLabel!
     @IBOutlet weak var affiliationLabel: TextLabel!
+    @IBOutlet weak var titleLabel: TextLabel!
     @IBOutlet weak var emailLabel: TextLabel!
 
     override func viewDidLoad() {
@@ -45,9 +46,13 @@ class ProfileViewController: UIViewController {
             return
         }
         
-        nameLabel.text = "\(user.title) \(user.firstName) \(user.lastName)".trimmed
-        affiliationLabel.text = user.affiliation
+        nameLabel.text = "\(user.firstName) \(user.lastName)".trimmed
         emailLabel.text = user.email
+        affiliationLabel.text = user.affiliation
+        titleLabel.text = user.title
+        affiliationLabel.isHidden = user.affiliation.isEmpty
+        titleLabel.isHidden = user.title.isEmpty
+
         if let imageURL = user.imageURL {
             profileImageView.kf.setImage(with: imageURL)
         }

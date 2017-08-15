@@ -70,6 +70,7 @@ class SecretKeysManagerUnitTests: XCTestCase {
             XCTFail("Should have gotten VLError.secretKey for value not in plist.")
         } catch {
             exp.fulfill()
+            XCTAssertTrue(error is VLError, "Error should be custom error of type VLError.")
             XCTAssertTrue(error as? VLError == VLError.secretKey)
         }
         waitForExpectations(timeout: 10, handler: nil)
@@ -85,6 +86,7 @@ class SecretKeysManagerUnitTests: XCTestCase {
             XCTFail("Should have gotten VLError.secretKey for invalid plist file.")
         } catch {
             exp.fulfill()
+            XCTAssertTrue(error is VLError, "Error should be custom error of type VLError.")
             XCTAssertTrue(error as? VLError == VLError.secretKey)
         }
 

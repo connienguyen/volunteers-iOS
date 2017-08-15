@@ -124,5 +124,14 @@ class User: Object {
         }
         self.firstName = firstName
         self.lastName = lastName
+
+        // These values from the Firebase snapshot may be nil if the user did not set them
+        // after logging in via a social login
+        if let title = snapshotDict[FirebaseKeys.User.title.key] as? String {
+            self.title = title
+        }
+        if let affiliation = snapshotDict[FirebaseKeys.User.affiliation.key] as? String {
+            self.affiliation = affiliation
+        }
     }
 }

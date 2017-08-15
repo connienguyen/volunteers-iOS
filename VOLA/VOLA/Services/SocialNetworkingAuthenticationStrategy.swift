@@ -48,10 +48,10 @@ extension SocialNetworkingAuthenticationStrategy {
                                 FirebaseKeys.User.firstName.key: firstName,
                                 FirebaseKeys.User.lastName.key: lastName
                             ]
-                            return FirebaseDataManager.shared.createUserInTable(firebaseUser: user, values: values)
+                            return FirebaseDataManager.shared.updateUserInTable(firebaseUser: user, values: values)
                         }
-                    }.then { savedFirebaseUser -> Void in
-                        fulfill(savedFirebaseUser)
+                    }.then { savedUserInTable -> Void in
+                        fulfill(savedUserInTable)
                     }
             })
         }
@@ -194,7 +194,7 @@ struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
                     FirebaseKeys.User.lastName.key: self.lastName,
                     FirebaseKeys.User.affiliation.key: self.affiliation
                 ]
-                FirebaseDataManager.shared.createUserInTable(firebaseUser: firebaseUser, values: values)
+                FirebaseDataManager.shared.updateUserInTable(firebaseUser: firebaseUser, values: values)
                     .then { updatedUser in
                         fulfill(updatedUser)
                     }.catch { error in

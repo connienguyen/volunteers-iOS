@@ -21,7 +21,7 @@ Available strategies to update user data on remote service
  - firebase: Strategy to update user on Firebase servers
 */
 enum AvailableUserUpdateStrategies {
-    case firebase(String, String)
+    case firebase(title: String, firstName: String, lastName: String, affiliation: String, email: String)
     case custom(Promise<User>)
 }
 
@@ -30,8 +30,8 @@ extension AvailableUserUpdateStrategies: UserUpdateStrategy {
     /// Update user data on remote service based on selected strategy
     func update() -> Promise<User> {
         switch self {
-        case .firebase(let name, let email):
-            return FirebaseUserUpdateStrategy(name: name, email: email).update()
+        case .firebase(let title, let firstName, let lastName, let affiliation, let email):
+            return FirebaseUserUpdateStrategy(title: title, firstName: firstName, lastName: lastName, affiliation: affiliation, email: email).update()
         case .custom(let userPromise):
             return userPromise
         }
@@ -39,55 +39,47 @@ extension AvailableUserUpdateStrategies: UserUpdateStrategy {
 }
 
 // MARK: - UserUpdateStrategy
-/// Strategy for updating user data on Firebase servers
+/// Strategy for updating user data on the Firebase database and authentication tables
 struct FirebaseUserUpdateStrategy: UserUpdateStrategy {
-    let name: String
+    let title: String
+    let firstName: String
+    let lastName: String
+    let affiliation: String
     let email: String
 
-    /**
-    Update user data on Firebase servers
-     
-    - Returns: User promise of updated user model
-    */
     func update() -> Promise<User> {
         return Promise { fulfill, reject in
-            guard let firebaseUser = Auth.auth().currentUser else {
+            guard let currentFirebaseUser = Auth.auth().currentUser else {
                 reject(AuthenticationError.invalidFirebaseAuth)
                 return
             }
 
-            let changeRequest = firebaseUser.createProfileChangeRequest()
-            changeRequest.displayName = name
-            changeRequest.commitChanges(completion: { (updateError) in
-                guard updateError == nil else {
-                    let error = updateError ?? AuthenticationError.invalidFirebaseAuth
-                    reject(error)
-                    return
-                }
+            let updates: [String: Any] = [
+                FirebaseKeys.User.title.key: title,
+                FirebaseKeys.User.firstName.key: firstName,
+                FirebaseKeys.User.lastName.key: lastName,
+                FirebaseKeys.User.affiliation.key: affiliation
+            ]
+            FirebaseDataManager.shared.updateUserInTable(firebaseUser: currentFirebaseUser, values: updates)
+                .then { user -> Void in
+                    // Update user email if old value and new value do not match
+                    if self.email != currentFirebaseUser.email {
+                        currentFirebaseUser.updateEmail(to: self.email, completion: { (updateError) in
+                            guard updateError == nil else {
+                                let error = updateError ?? AuthenticationError.invalidFirebaseAuth
+                                reject(error)
+                                return
+                            }
 
-                if firebaseUser.email != self.email {
-                    firebaseUser.updateEmail(to: self.email, completion: { (updateError) in
-                        guard updateError == nil else {
-                            let error = updateError ?? AuthenticationError.invalidFirebaseAuth
-                            reject(error)
-                            return
-                        }
-
-                        guard let userFromFirebase = User(firebaseUser: firebaseUser) else {
-                            reject(VLError.failedUserFirebase)
-                            return
-                        }
-                        fulfill(userFromFirebase)
-                    })
-                } else {
-                    guard let userFromFirebase = User(firebaseUser: firebaseUser) else {
-                        reject(VLError.failedUserFirebase)
-                        return
+                            // TODO update user from user
+                            fulfill(user)
+                        })
+                    } else {
+                        fulfill(user)
                     }
-                    fulfill(userFromFirebase)
+                }.catch { error in
+                    reject(error)
                 }
-            })
-
         }
     }
 }

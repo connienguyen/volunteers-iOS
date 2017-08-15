@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
             return
         }
         
-        nameLabel.text = "\(user.firstName) \(user.lastName)"
+        nameLabel.text = " \(user.title) \(user.firstName) \(user.lastName)".trimmed
         emailLabel.text = user.email
         if let imageURL = user.imageURL {
             profileImageView.kf.setImage(with: imageURL)

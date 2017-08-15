@@ -40,8 +40,10 @@ class EditProfileViewController: UIViewController {
         }
 
         // Textfields are considered valid since they are pre-filled from previous data
+        titleTextField.text = user.title
         firstNameTextField.text = user.firstName
         lastNameTextField.text = user.lastName
+        affiliationTextField.text = user.affiliation
         emailTextField.text = user.email
         [firstNameTextField, lastNameTextField, emailTextField].setIsValid(true)
 
@@ -71,7 +73,7 @@ extension EditProfileViewController {
 
         displayActivityIndicator()
         // TODO: Fix updateUser logic to match user model
-        LoginManager.shared.updateUser(.firebase(firstName, email))
+        LoginManager.shared.updateUser(.firebase(title: title, firstName: firstName, lastName: lastName, affiliation: affiliation, email: email))
             .then { [weak self] (success) -> Void in
                 guard success else {
                     Logger.error(VLError.invalidFirebaseAction)

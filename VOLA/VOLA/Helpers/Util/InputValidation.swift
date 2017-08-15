@@ -74,10 +74,13 @@ extension Validatable where Self: UIViewController {
     /// Array of strings describing input validation errors on view controller
     var validationErrorDescriptions: [String] {
         var errorDescriptions: [String] = []
-        for field in fieldsToValidate where !field.isValid {
-            errorDescriptions.append(field.validator.error)
-            field.validate()    // Show error if not already shown
+        for field in fieldsToValidate {
+            field.validate()
+            if !field.isValid {
+                errorDescriptions.append(field.validator.error)
+            }
         }
+
         return errorDescriptions
     }
 

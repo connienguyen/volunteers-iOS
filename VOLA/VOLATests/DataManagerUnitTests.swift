@@ -11,7 +11,7 @@ import XCTest
 
 class DataManagerUnitTests: XCTestCase {
 
-    let user: User = User(uid: InputConstants.userUID, name: InputConstants.validName, email: InputConstants.validEmail)
+    let user = User(uid: InputConstants.userUID, firstName: SplitNameConstants.standardFirstName, lastName: SplitNameConstants.standardLastName, email: InputConstants.validEmail)
 
     override func setUp() {
         super.setUp()
@@ -36,7 +36,8 @@ class DataManagerUnitTests: XCTestCase {
         DataManager.shared.setUserUpdateStoredUser(self.user)
         currentUser = DataManager.shared.currentUser
         XCTAssertNotNil(currentUser, "Current user model should be updated to new user.")
-        XCTAssertEqual(currentUser?.name, self.user.name)
+        XCTAssertEqual(currentUser?.firstName, self.user.firstName)
+        XCTAssertEqual(currentUser?.lastName, self.user.lastName)
         XCTAssertEqual(currentUser?.email, self.user.email)
 
         DataManager.shared.setUserUpdateStoredUser(nil)

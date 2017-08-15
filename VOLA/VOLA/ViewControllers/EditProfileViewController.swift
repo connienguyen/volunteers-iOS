@@ -56,7 +56,7 @@ class EditProfileViewController: UIViewController {
 // MARK: - IBActions
 extension EditProfileViewController {
     /**
-    Save changes made to user profile to backend
+        Save changes made to user profile to backend
     */
     @IBAction func onSaveChangesPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
@@ -72,7 +72,6 @@ extension EditProfileViewController {
         }
 
         displayActivityIndicator()
-        // TODO: Fix updateUser logic to match user model
         LoginManager.shared.updateUser(.firebase(title: title, firstName: firstName, lastName: lastName, affiliation: affiliation, email: email))
             .then { [weak self] (success) -> Void in
                 guard success else {

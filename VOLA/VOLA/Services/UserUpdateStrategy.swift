@@ -54,6 +54,7 @@ struct FirebaseUserUpdateStrategy: UserUpdateStrategy {
                 return
             }
 
+            // Future improvement: only update values that have changed
             let updates: [String: Any] = [
                 FirebaseKeys.User.title.key: title,
                 FirebaseKeys.User.firstName.key: firstName,
@@ -71,7 +72,7 @@ struct FirebaseUserUpdateStrategy: UserUpdateStrategy {
                                 return
                             }
 
-                            // TODO update user from user
+                            user.email = self.email
                             fulfill(user)
                         })
                     } else {

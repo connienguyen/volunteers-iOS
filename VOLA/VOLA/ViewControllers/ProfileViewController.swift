@@ -16,8 +16,9 @@ View controller where user can view their profile if they are logged in, otherwi
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: CircleImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: TitleLabel!
+    @IBOutlet weak var affiliationLabel: TextLabel!
+    @IBOutlet weak var emailLabel: TextLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,8 @@ class ProfileViewController: UIViewController {
             return
         }
         
-        nameLabel.text = " \(user.title) \(user.firstName) \(user.lastName)".trimmed
+        nameLabel.text = "\(user.title) \(user.firstName) \(user.lastName)".trimmed
+        affiliationLabel.text = user.affiliation
         emailLabel.text = user.email
         if let imageURL = user.imageURL {
             profileImageView.kf.setImage(with: imageURL)

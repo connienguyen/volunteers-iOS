@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-P7-Hln">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="396"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="430.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-rh-tJ6" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
                                                 <rect key="frame" x="137.5" y="25" width="100" height="100"/>
@@ -62,7 +62,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@address.org" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-U2-Iap" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="30" y="185.5" width="315" height="20.5"/>
+                                                <rect key="frame" x="30" y="220" width="315" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-zu-yEa" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="286" width="275" height="30"/>
+                                                <rect key="frame" x="50" y="320.5" width="275" height="30"/>
                                                 <state key="normal" title="Log Out"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="logout.prompt.label"/>
@@ -81,7 +81,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cft-re-wJx" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="231" width="275" height="30"/>
+                                                <rect key="frame" x="50" y="265.5" width="275" height="30"/>
                                                 <state key="normal" title="Edit Profile"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="edit-profile.title.label"/>
@@ -90,23 +90,35 @@
                                                     <action selector="onEditProfilePressed:" destination="I0W-Dr-Qb6" eventType="touchUpInside" id="SFt-zI-KqO"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company/ Organization" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0d-V0-cgq" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="30" y="185.5" width="315" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="affiliation.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="mbS-zu-yEa" secondAttribute="bottom" constant="80" id="06a-GH-ca2"/>
                                             <constraint firstItem="alR-U2-Iap" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="4gh-Cz-wxq"/>
+                                            <constraint firstItem="alR-U2-Iap" firstAttribute="top" secondItem="H0d-V0-cgq" secondAttribute="bottom" constant="15" id="7cg-Yz-MzK"/>
+                                            <constraint firstItem="H0d-V0-cgq" firstAttribute="top" secondItem="Om7-yh-022" secondAttribute="bottom" constant="15" id="BaW-Vd-CxF"/>
                                             <constraint firstItem="7JJ-rh-tJ6" firstAttribute="top" secondItem="VPV-P7-Hln" secondAttribute="top" constant="25" id="CAR-3T-F89"/>
                                             <constraint firstItem="cft-re-wJx" firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" id="D7E-nW-VBO"/>
                                             <constraint firstItem="cft-re-wJx" firstAttribute="top" secondItem="alR-U2-Iap" secondAttribute="bottom" constant="25" id="LEb-fC-lqr"/>
                                             <constraint firstItem="mbS-zu-yEa" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="50" id="Ps3-fZ-m2D"/>
                                             <constraint firstItem="mbS-zu-yEa" firstAttribute="top" secondItem="cft-re-wJx" secondAttribute="bottom" constant="25" id="aB0-VT-9p1"/>
                                             <constraint firstItem="Om7-yh-022" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="bj4-Wx-VCq"/>
-                                            <constraint firstItem="alR-U2-Iap" firstAttribute="top" secondItem="Om7-yh-022" secondAttribute="bottom" constant="15" id="cVC-LS-Rr5"/>
+                                            <constraint firstItem="H0d-V0-cgq" firstAttribute="leading" secondItem="VPV-P7-Hln" secondAttribute="leading" constant="30" id="gSF-wL-OUI"/>
                                             <constraint firstItem="7JJ-rh-tJ6" firstAttribute="centerX" secondItem="VPV-P7-Hln" secondAttribute="centerX" id="p5Y-Re-kfN"/>
                                             <constraint firstItem="cft-re-wJx" firstAttribute="leading" secondItem="mbS-zu-yEa" secondAttribute="leading" id="pPe-jD-x2Y"/>
                                             <constraint firstAttribute="trailing" secondItem="mbS-zu-yEa" secondAttribute="trailing" constant="50" id="sEN-Xx-6DF"/>
                                             <constraint firstAttribute="trailing" secondItem="Om7-yh-022" secondAttribute="trailing" constant="30" id="uQm-wg-zNZ"/>
                                             <constraint firstItem="Om7-yh-022" firstAttribute="top" secondItem="7JJ-rh-tJ6" secondAttribute="bottom" constant="25" id="upr-Gk-dwr"/>
+                                            <constraint firstAttribute="trailing" secondItem="H0d-V0-cgq" secondAttribute="trailing" constant="30" id="vyU-PF-SaL"/>
                                             <constraint firstAttribute="trailing" secondItem="alR-U2-Iap" secondAttribute="trailing" constant="30" id="zzU-e3-hp4"/>
                                         </constraints>
                                     </view>
@@ -135,6 +147,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="localizeTitle" value="profile.title.label"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="affiliationLabel" destination="H0d-V0-cgq" id="vi0-uC-D5z"/>
                         <outlet property="emailLabel" destination="alR-U2-Iap" id="A20-fh-h5w"/>
                         <outlet property="nameLabel" destination="Om7-yh-022" id="TxP-YA-2ih"/>
                         <outlet property="profileImageView" destination="7JJ-rh-tJ6" id="97R-Vf-QoZ"/>
@@ -343,7 +356,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqB-9g-fW3" id="pEx-HS-yZK">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage connected logins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiZ-9h-VaB" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
@@ -392,7 +405,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cUu-rk-dZF" id="sXk-rG-KC9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYH-7j-Y59" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">

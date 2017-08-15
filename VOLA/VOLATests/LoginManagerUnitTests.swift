@@ -86,4 +86,44 @@ class LoginManagerUnitTests: XCTestCase {
 
         waitForExpectations(timeout: 10, handler: nil)
     }
+
+    /// Test case where user successfully updates their profile information
+    func testSuccessUpdateUserShouldReturnUpdatedUser() {
+        let updatedUser = User(uid: InputConstants.userUID,
+                               firstName: SplitNameConstants.standardFirstName,
+                               lastName: SplitNameConstants.standardLastName,
+                               email: InputConstants.validEmail)
+        let userPromise: Promise<User> = Promise { fulfill, _ in
+            fulfill(updatedUser)
+        }
+
+        let exp = expectation(description: "Attempt to update user data on Firebase")
+        LoginManager.shared.updateUser(.custom(userPromise))
+            .then { success -> Void in
+                exp.fulfill()
+                XCTAssertTrue(success, "User update should be a success given a valid user promise.")
+            }.catch { error in
+                exp.fulfill()
+                XCTFail("Should have successfully updated user.")
+            }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+
+    /// Test case where user encounters a failure when updating their profile information
+    func testFailureUpdateUserShouldREturnError() {
+        let userPromise: Promise<User> = Promise { _, reject in
+            reject(VLError.invalidFirebaseAction)
+        }
+
+        let exp = expectation(description: "Attempt to update user data on Firebase")
+        LoginManager.shared.updateUser(.custom(userPromise))
+            .then { _ -> Void in
+                exp.fulfill()
+                XCTFail("Should have returned an error from updating user.")
+            }.catch { error in
+                exp.fulfill()
+                XCTAssertTrue(error as? VLError == .invalidFirebaseAction, "Error should be regarding invalid Firebase action")
+            }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
 }

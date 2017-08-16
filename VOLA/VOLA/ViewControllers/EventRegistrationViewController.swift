@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FRHyperLabel
 
 /**
     View controller that allows user to register for an event. Some fields may be autofilled
@@ -15,7 +14,10 @@ import FRHyperLabel
 */
 class EventRegistrationViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
-    @IBOutlet weak var nameTextField: VLTextField!
+    @IBOutlet weak var firstNameTextField: VLTextField!
+    @IBOutlet weak var lastNameTextField: VLTextField!
+    @IBOutlet weak var affiliationTextField: VLTextField!
+    @IBOutlet weak var titleTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
     @IBOutlet weak var accommodationTextView: UITextView!
     @IBOutlet weak var volunteerCheckbox: VLCheckbox!
@@ -30,7 +32,10 @@ class EventRegistrationViewController: UIViewController {
         super.viewDidLoad()
 
         title = titleKey.localized
-        nameTextField.validator = .name
+        firstNameTextField.validator = .name
+        lastNameTextField.validator = .name
+        affiliationTextField.validator = .required
+        titleTextField.validator = .required
         emailTextField.validator = .email
         setUpValidatableFields()
 
@@ -41,7 +46,10 @@ class EventRegistrationViewController: UIViewController {
         }
 
         eventNameLabel.text = event.name
-        nameTextField.text = "\(currentUser.firstName) \(currentUser.lastName)".trimmed
+        firstNameTextField.text = currentUser.firstName
+        lastNameTextField.text = currentUser.lastName
+        affiliationTextField.text = currentUser.affiliation
+        titleTextField.text = currentUser.title
         emailTextField.text = currentUser.email
     }
 }
@@ -50,7 +58,10 @@ class EventRegistrationViewController: UIViewController {
 extension EventRegistrationViewController {
     @IBAction func onRegisterPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
-        guard let name = nameTextField.text,
+        guard let firstName = firstNameTextField.text,
+            let lastName = lastNameTextField.text,
+            let affiliation = affiliationTextField.text,
+            let title = titleTextField.text,
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.joinLocalized()
@@ -58,8 +69,9 @@ extension EventRegistrationViewController {
                 return
         }
 
+        // TODO: Update to user new Firebae eTouches replacement
         ETouchesAPIService.shared.registerForEvent(eventID: event.eventID,
-                                                   name: name,
+                                                   name: "\(firstName) \(lastName)".trimmed,
                                                    email: email,
                                                    volunteering: volunteerCheckbox.isChecked,
                                                    accommodation: accommodationTextView.text)
@@ -74,6 +86,6 @@ extension EventRegistrationViewController {
 // MARK: - Validatable; protocol to validate application text fields on view controller
 extension EventRegistrationViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
-        return [nameTextField, emailTextField]
+        return [firstNameTextField, lastNameTextField, affiliationTextField, titleTextField, emailTextField]
     }
 }

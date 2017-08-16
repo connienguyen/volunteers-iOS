@@ -10,12 +10,11 @@ import UIKit
 import FRHyperLabel
 
 /**
-View controller that allows user to register for an event. Some fields may be autofilled
- if the user is logged in.
+    View controller that allows user to register for an event. Some fields may be autofilled
+    if the user is logged in.
 */
 class EventRegistrationViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
-    @IBOutlet weak var loginBenefitLabel: VLHyperLabel!
     @IBOutlet weak var nameTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
     @IBOutlet weak var accommodationTextView: UITextView!
@@ -35,33 +34,15 @@ class EventRegistrationViewController: UIViewController {
         emailTextField.validator = .email
         setUpValidatableFields()
 
-        // Set up VLHyperLabel
-        let loginHandlers = [
-            HyperHandler(linkText: registrationPromptKey.localized, linkHandler: {
-                let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
-                self.present(loginNavVC, animated: true, completion: nil)
-            })
-        ]
-        loginBenefitLabel.setUpLabel(registrationLabelKey.localized, textSize: .normal, handlers: loginHandlers)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        configureRegistrationView()
-    }
-
-    /// Configure event registration display based on whether or nor user is logged in
-    func configureRegistrationView() {
-        eventNameLabel.text = event.name
-        loginBenefitLabel.isHidden = DataManager.shared.isLoggedIn
-        guard let user = DataManager.shared.currentUser else {
-            // If user is not logged in, do not pre-fill text fields
+        // Autofill fields with current user data since user must be logged in to view this page
+        guard let currentUser = DataManager.shared.currentUser else {
+            Logger.error(VLError.notLoggedIn)
             return
         }
 
-        nameTextField.text = "\(user.firstName) \(user.lastName)"
-        emailTextField.text = user.email
+        eventNameLabel.text = event.name
+        nameTextField.text = "\(currentUser.firstName) \(currentUser.lastName)".trimmed
+        emailTextField.text = currentUser.email
     }
 }
 

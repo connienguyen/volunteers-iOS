@@ -45,6 +45,8 @@
 "no-short.prompt.label" = "N";
 "default-name.label" = "Default Name";
 "cancel.prompt.label" = "Cancel";
+"login-required.title.label" = "Login Required";
+"login-required.prompt.label" = "You must be logged in to continue.";
 
 // ConnectedLoginCell
 "connected-status.title.label" = "Connected";

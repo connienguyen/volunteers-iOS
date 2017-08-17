@@ -14,9 +14,20 @@ import Foundation
 import UIKit
 
 enum Theme: Int {
-    // TODO: Add dark theme for accessibility
     case normal
     case colorblind
+
+    static let availableThemes: [Theme] = [.normal, .colorblind]
+
+    /// Name of theme to display in Settings
+    var themeName: String {
+        switch self {
+        case .normal:
+            return "default-theme.title.label".localized
+        case .colorblind:
+            return "colorblind-theme.title.label".localized
+        }
+    }
 
     /// Main color of the app; used for navigational elements
     var primaryColor: UIColor {

@@ -70,6 +70,8 @@
 		F94B4A841F0FFE1900AEB13A /* VLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A831F0FFE1900AEB13A /* VLButton.swift */; };
 		F94B4A871F10330800AEB13A /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B4A861F10330800AEB13A /* RoundedImageView.swift */; };
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
+		F95B77DF1F4586FB00E41B28 /* ThemeManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B77DE1F4586FB00E41B28 /* ThemeManagementCell.swift */; };
+		F95B77E11F45882000E41B28 /* VLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B77E01F45882000E41B28 /* VLSegmentedControl.swift */; };
 		F98294C91F21139600F9152B /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98294C81F21139600F9152B /* DataStoreManager.swift */; };
 		F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
 		F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
@@ -226,6 +228,8 @@
 		F94B4A831F0FFE1900AEB13A /* VLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLButton.swift; sourceTree = "<group>"; };
 		F94B4A861F10330800AEB13A /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		F95B77DE1F4586FB00E41B28 /* ThemeManagementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagementCell.swift; sourceTree = "<group>"; };
+		F95B77E01F45882000E41B28 /* VLSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLSegmentedControl.swift; sourceTree = "<group>"; };
 		F98294C81F21139600F9152B /* DataStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -483,6 +487,7 @@
 				F90824F61F23BC7E0070B5D0 /* LoginUpsellView.swift */,
 				F94B4A861F10330800AEB13A /* RoundedImageView.swift */,
 				F99F8D581F2F40C300C4E97A /* VLInputTextView.swift */,
+				F95B77E01F45882000E41B28 /* VLSegmentedControl.swift */,
 				F9A501D51EE871BE00AB7E9E /* VLTextField.swift */,
 				F9A501E51EEC463500AB7E9E /* IntroSlideView.xib */,
 				F90824F31F23B9C60070B5D0 /* LoginUpsellView.xib */,
@@ -501,6 +506,7 @@
 				F98807F71EF4173E00589A23 /* EventCell.swift */,
 				F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */,
 				F98807F41EF412F700589A23 /* EventCell.xib */,
+				F95B77DE1F4586FB00E41B28 /* ThemeManagementCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1065,6 +1071,7 @@
 				F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */,
 				F9259D4A1F0EDEA100CE7954 /* CircleImageView.swift in Sources */,
 				F99F8D6D1F3481F700C4E97A /* SettingsViewModel.swift in Sources */,
+				F95B77DF1F4586FB00E41B28 /* ThemeManagementCell.swift in Sources */,
 				F9B234931EE6DF8400884E4E /* Completions.swift in Sources */,
 				F92856281F18ED1400D461B1 /* HomeContainerViewController.swift in Sources */,
 				F9A502291EEEFBA000AB7E9E /* Intro.swift in Sources */,
@@ -1100,6 +1107,7 @@
 				754C46341EDED23A00E2F848 /* Date.swift in Sources */,
 				F92856221F1824A000D461B1 /* EventMapInfoWindow.swift in Sources */,
 				F9B2348E1EE6D72500884E4E /* UIViewController.swift in Sources */,
+				F95B77E11F45882000E41B28 /* VLSegmentedControl.swift in Sources */,
 				F9A501D21EE7E97B00AB7E9E /* Errors.swift in Sources */,
 				754C465A1EDED5B400E2F848 /* UITableView.swift in Sources */,
 				754C463F1EDED2D600E2F848 /* UIKit+Localization.swift in Sources */,

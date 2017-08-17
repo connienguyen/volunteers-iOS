@@ -51,6 +51,7 @@ final class ThemeManager {
 
         VLButton.appearance().backgroundColor = theme.buttonColor
         VLButton.appearance().tintColor = theme.tintColor
+        VLSegmentedControl.appearance().tintColor = theme.buttonColor
 
         VolunteersNeededLabel.appearance().backgroundColor = theme.accentColor
         VolunteersNeededLabel.appearance().textColor = theme.tintColor
@@ -59,6 +60,14 @@ final class ThemeManager {
         TextLabel.appearance().textColor = theme.textColor
 
         VLInputTextView.appearance().borderColor = theme.inputBorderColor
+
+        // Remove and re-add subviews so that theme is applied to already created UIView instances
+        for window in UIApplication.shared.windows {
+            for view in window.subviews {
+                view.removeFromSuperview()
+                window.addSubview(view)
+            }
+        }
     }
 
     /**

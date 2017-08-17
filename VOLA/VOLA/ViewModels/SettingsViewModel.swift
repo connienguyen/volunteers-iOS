@@ -15,7 +15,7 @@ enum UserSetting {
     var cellType: UITableViewCell.Type {
         switch self {
         case .theme:
-            return UITableViewCell.self
+            return ThemeManagementCell.self
         case .connectedLogins:
             return ManageLoginsCell.self
         }

@@ -361,8 +361,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ManageLoginsCell" id="nqB-9g-fW3" customClass="ManageLoginsCell" customModule="VOLA" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeManagementCell" id="n0M-0T-Skx" customClass="ThemeManagementCell" customModule="VOLA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n0M-0T-Skx" id="Qve-Pb-oZC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Va-lc-NWj" customClass="VLSegmentedControl" customModule="VOLA" customModuleProvider="target">
+                                            <rect key="frame" x="234" y="7" width="121" height="29"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="onSegmentedControlSelectWithSender:" destination="n0M-0T-Skx" eventType="valueChanged" id="y3D-Tn-Hdo"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-LS-OKw" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="12" width="50.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="theme.title.label"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="9Va-lc-NWj" secondAttribute="trailing" constant="20" id="FGM-45-Pom"/>
+                                        <constraint firstItem="nt3-LS-OKw" firstAttribute="leading" secondItem="Qve-Pb-oZC" secondAttribute="leading" constant="20" id="YDl-7b-HAU"/>
+                                        <constraint firstItem="9Va-lc-NWj" firstAttribute="centerY" secondItem="Qve-Pb-oZC" secondAttribute="centerY" id="gg5-3a-AcQ"/>
+                                        <constraint firstItem="nt3-LS-OKw" firstAttribute="centerY" secondItem="Qve-Pb-oZC" secondAttribute="centerY" id="ljk-6k-aG4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="segmentedThemeControl" destination="9Va-lc-NWj" id="lbV-e9-mmU"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ManageLoginsCell" id="nqB-9g-fW3" customClass="ManageLoginsCell" customModule="VOLA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqB-9g-fW3" id="pEx-HS-yZK">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>

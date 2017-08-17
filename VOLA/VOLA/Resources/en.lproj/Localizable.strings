@@ -133,3 +133,7 @@
 "privacy.title.label" = "Privacy Policy.";
 "signup-error.title.label" = "Sign Up Error";
 
+// ThemeManagementCell
+"theme.title.label" = "Theme";
+"default-theme.title.label" = "Default";
+"colorblind-theme.title.label" = "Colorblind";

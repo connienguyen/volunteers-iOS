@@ -60,7 +60,7 @@ class EventRegistrationViewController: UIViewController {
             return
         }
 
-        nameTextField.text = user.name
+        nameTextField.text = "\(user.firstName) \(user.lastName)"
         emailTextField.text = user.email
     }
 }

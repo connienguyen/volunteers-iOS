@@ -17,7 +17,10 @@ let signUpErrorKey = "signup-error.title.label"
 /// View controller allows user to sign up for an account
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: VLTextField!
+    @IBOutlet weak var titleTextField: VLTextField!
+    @IBOutlet weak var firstNameTextField: VLTextField!
+    @IBOutlet weak var lastNameTextField: VLTextField!
+    @IBOutlet weak var affiliationTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
     @IBOutlet weak var passwordTextField: VLTextField!
     @IBOutlet weak var confirmTextField: VLTextField!
@@ -26,7 +29,10 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameTextField.validator = .name
+        titleTextField.validator = .required
+        firstNameTextField.validator = .name
+        lastNameTextField.validator = .name
+        affiliationTextField.validator = .required
         emailTextField.validator = .email
         passwordTextField.validator = .password
         setUpValidatableFields()
@@ -58,25 +64,27 @@ extension SignUpViewController {
     */
     @IBAction func onSignUpPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
-        guard let name = nameTextField.text,
+        guard let title = titleTextField.text,
+            let firstName = firstNameTextField.text,
+            let lastName = lastNameTextField.text,
+            let affiliation = affiliationTextField.text,
             let email = emailTextField.text,
             let password = passwordTextField.text,
             let confirm = confirmTextField.text,
             password == confirm,
             errorDescriptions.isEmpty else {
-                let errorMessage = errorDescriptions.flatMap({$0.localized}).joined(separator: "\n")
-                showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
+                let errorMessge = errorDescriptions.joinLocalized()
+                showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessge)
                 return
-        }
-        guard errorDescriptions.isEmpty else {
-            let errorMessage = errorDescriptions.joinLocalized()
-            showErrorAlert(errorTitle: VLError.validation.localizedDescription, errorMessage: errorMessage)
-            Logger.error(errorMessage)
-            return
         }
 
         displayActivityIndicator()
-        LoginManager.shared.login(.emailSignup(name: name, email: email, password: password))
+        LoginManager.shared.login(.emailSignup(title: title,
+                                               firstName: firstName,
+                                               lastName: lastName,
+                                               affiliation: affiliation,
+                                               email: email,
+                                               password: password))
             .then { [weak self] (success) -> Void in
                 guard let `self` = self,
                     success else {
@@ -100,6 +108,6 @@ extension SignUpViewController {
 // MARK: - Validatable; protocol to validate applicable text fields on view controller
 extension SignUpViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
-        return [nameTextField, emailTextField, passwordTextField]
+        return [titleTextField, firstNameTextField, lastNameTextField, affiliationTextField, emailTextField, passwordTextField]
     }
 }

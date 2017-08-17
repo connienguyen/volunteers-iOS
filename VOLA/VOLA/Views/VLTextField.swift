@@ -39,3 +39,17 @@ class VLTextField: UITextField {
         isValid = validator.isValid(self.text)
     }
 }
+
+extension Sequence where Iterator.Element == VLTextField {
+    /**
+        Set the `isValid` value for all textfields in array to value `valid`
+     
+        - Parameters:
+            - valid: Boolean value to set textfields `isValid` value to
+    */
+    func setIsValid(_ valid: Bool) {
+        for textfield in self {
+            textfield.isValid = valid
+        }
+    }
+}

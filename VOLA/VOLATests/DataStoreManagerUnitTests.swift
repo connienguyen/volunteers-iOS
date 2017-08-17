@@ -17,8 +17,8 @@ class DataStoreManagerUnitTests: XCTestCase {
     }
 
     var dataStoreManager = MockDataStoreManager()
-    let user = User(uid: InputConstants.userUID, name: InputConstants.validName, email: InputConstants.validEmail)
-    let user2 = User(uid: InputConstants.userUID2, name: InputConstants.validNameMultiple, email: InputConstants.validEmailSpecialCharacter)
+    let user = User(uid: InputConstants.userUID, firstName: SplitNameConstants.standardFirstName, lastName: SplitNameConstants.standardLastName, email: InputConstants.validEmail)
+    let user2 = User(uid: InputConstants.userUID2, firstName: SplitNameConstants.multiWordFirstName, lastName: SplitNameConstants.multiWordLastName, email: InputConstants.validEmailSpecialCharacter)
     let saveFailureMessage = "Should have saved user object."
 
     override func setUp() {
@@ -41,7 +41,8 @@ class DataStoreManagerUnitTests: XCTestCase {
         }
         XCTAssertEqual(foundUsers.count, 1)
         let savedUser = foundUsers[0]
-        XCTAssertEqual(user.name, savedUser.name)
+        XCTAssertEqual(user.firstName, savedUser.firstName)
+        XCTAssertEqual(user.lastName, savedUser.lastName)
         XCTAssertEqual(user.email, savedUser.email)
     }
 
@@ -57,7 +58,8 @@ class DataStoreManagerUnitTests: XCTestCase {
         }
         let firstUser = dataStoreManager.loadFirst(of: User.self)
         XCTAssertNotNil(firstUser)
-        XCTAssertEqual(user.name, firstUser?.name)
+        XCTAssertEqual(user.firstName, firstUser?.firstName)
+        XCTAssertEqual(user.lastName, firstUser?.lastName)
         XCTAssertEqual(user.email, firstUser?.email)
     }
 

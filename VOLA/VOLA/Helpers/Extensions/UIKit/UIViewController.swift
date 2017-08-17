@@ -14,10 +14,10 @@ extension UIViewController: StoryboardIdentifiable {}
 extension UIViewController {
 
     /**
-    Perform one of available segues
+        Perform one of available segues
      
-    - Parameters:
-        - segue: Segue to perform
+        - Parameters:
+            - segue: Segue to perform
     */
     func performSegue(_ segue: Segue, sender: Any?) {
         performSegue(withIdentifier: segue.identifier, sender: sender)
@@ -53,11 +53,11 @@ extension UIViewController {
     }
 
     /**
-    Display error in an alert view controller
+        Display error in an alert view controller
      
-    - Parameters:
-        - errorTitle: Title to display on error alert
-        - errorMessage: Message to display on error alert
+        - Parameters:
+            - errorTitle: Title to display on error alert
+            - errorMessage: Message to display on error alert
     */
     func showErrorAlert(errorTitle: String, errorMessage: String) {
         let alert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
@@ -71,8 +71,8 @@ extension UIViewController {
     }
 
     /**
-    Shows login upsell view if there is already not one on the view controller and sets
-     up target for the button on the upsell
+        Shows login upsell view if there is already not one on the view controller and sets
+        up target for the button on the upsell
     */
     func showUpsell() {
         // Guard against showing multiple upsells on the same view controller
@@ -107,11 +107,11 @@ extension UIViewController {
     }
 
     /**
-    Show alert that user can dismiss or use as a shortcut to Settings to edit app permissions
+        Show alert that user can dismiss or use as a shortcut to Settings to edit app permissions
      
-    - Parameters:
-        - title: Title of the alert (suggested to use title of permission that needs access)
-        - message: Message of the alert (suggested to use an explaination for permission access)
+        - Parameters:
+            - title: Title of the alert (suggested to use title of permission that needs access)
+            - message: Message of the alert (suggested to use an explaination for permission access)
     */
     func showEditSettingsAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

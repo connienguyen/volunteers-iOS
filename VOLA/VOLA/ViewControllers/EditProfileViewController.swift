@@ -14,13 +14,19 @@ fileprivate let saveErrorKey: String = "save-error.title.label"
 /// View controller where a logged in user can edit their profile.
 class EditProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: CircleImageView!
-    @IBOutlet weak var nameTextField: VLTextField!
+    @IBOutlet weak var titleTextField: VLTextField!
+    @IBOutlet weak var firstNameTextField: VLTextField!
+    @IBOutlet weak var lastNameTextField: VLTextField!
+    @IBOutlet weak var affiliationTextField: VLTextField!
     @IBOutlet weak var emailTextField: VLTextField!
 
     override func viewDidLoad() {
          super.viewDidLoad()
 
-        nameTextField.validator = .name
+        titleTextField.validator = .required
+        firstNameTextField.validator = .name
+        lastNameTextField.validator = .name
+        affiliationTextField.validator = .required
         emailTextField.validator = .email
         setUpValidatableFields()
 
@@ -34,10 +40,12 @@ class EditProfileViewController: UIViewController {
         }
 
         // Textfields are considered valid since they are pre-filled from previous data
-        nameTextField.text = user.name
+        titleTextField.text = user.title
+        firstNameTextField.text = user.firstName
+        lastNameTextField.text = user.lastName
+        affiliationTextField.text = user.affiliation
         emailTextField.text = user.email
-        nameTextField.isValid = true
-        emailTextField.isValid = true
+        [firstNameTextField, lastNameTextField, emailTextField].setIsValid(true)
 
         if let imageURL = user.imageURL {
             profileImageView.kf.setImage(with: imageURL)
@@ -48,11 +56,14 @@ class EditProfileViewController: UIViewController {
 // MARK: - IBActions
 extension EditProfileViewController {
     /**
-    Save changes made to user profile to backend
+        Save changes made to user profile to backend
     */
     @IBAction func onSaveChangesPressed(_ sender: Any) {
         let errorDescriptions = validationErrorDescriptions
-        guard let name = nameTextField.text,
+        guard let title = titleTextField.text,
+            let firstName = firstNameTextField.text,
+            let lastName = lastNameTextField.text,
+            let affiliation = affiliationTextField.text,
             let email = emailTextField.text,
             errorDescriptions.isEmpty else {
                 let errorMessage = errorDescriptions.joinLocalized()
@@ -61,7 +72,7 @@ extension EditProfileViewController {
         }
 
         displayActivityIndicator()
-        LoginManager.shared.updateUser(.firebase(name, email))
+        LoginManager.shared.updateUser(.firebase(title: title, firstName: firstName, lastName: lastName, affiliation: affiliation, email: email))
             .then { [weak self] (success) -> Void in
                 guard success else {
                     Logger.error(VLError.invalidFirebaseAction)
@@ -81,6 +92,6 @@ extension EditProfileViewController {
 // MARK: - Validatable; protocol to validate text fields on view controller
 extension EditProfileViewController: Validatable {
     var fieldsToValidate: [VLTextField] {
-        return [nameTextField, emailTextField]
+        return [titleTextField, firstNameTextField, lastNameTextField, affiliationTextField, emailTextField]
     }
 }

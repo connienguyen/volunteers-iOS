@@ -48,10 +48,10 @@ extension SocialNetworkingAuthenticationStrategy {
                                 FirebaseKeys.User.firstName.key: firstName,
                                 FirebaseKeys.User.lastName.key: lastName
                             ]
-                            return FirebaseDataManager.shared.createUserInTable(firebaseUser: user, values: values)
+                            return FirebaseDataManager.shared.updateUserInTable(firebaseUser: user, values: values)
                         }
-                    }.then { savedFirebaseUser -> Void in
-                        fulfill(savedFirebaseUser)
+                    }.then { savedUserInTable -> Void in
+                        fulfill(savedUserInTable)
                     }
             })
         }
@@ -70,7 +70,7 @@ extension SocialNetworkingAuthenticationStrategy {
 enum AvailableLoginStrategies {
     case facebook
     case google(NSNotification)
-    case emailSignup(name: String, email: String, password: String)
+    case emailSignup(title: String, firstName: String, lastName: String, affiliation: String, email: String, password: String)
     case emailLogin(email: String, password: String)
     case custom(Promise<User>)
 }
@@ -84,8 +84,13 @@ extension AvailableLoginStrategies: SocialNetworkingAuthenticationStrategy {
             return FacebookAuthenticationStrategy().login()
         case .google(let notification):
             return GoogleAuthenticationStrategy(notification: notification).login()
-        case .emailSignup(let name, let email, let password):
-            return EmailSignUpStrategy(name: name, email: email, password: password).login()
+        case .emailSignup(let title, let firstName, let lastName, let affiliation, let email, let password):
+            return EmailSignUpStrategy(title: title,
+                                       firstName: firstName,
+                                       lastName: lastName,
+                                       affiliation: affiliation,
+                                       email: email,
+                                       password: password).login()
         case .emailLogin(let email, let password):
             return EmailLoginStrategy(email: email, password: password).login()
         case .custom(let promise):
@@ -162,7 +167,10 @@ struct GoogleAuthenticationStrategy: SocialNetworkingAuthenticationStrategy {
     - `password`: Password to sign up with and user for login
 */
 struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
-    let name: String
+    let title: String
+    let firstName: String
+    let lastName: String
+    let affiliation: String
     let email: String
     let password: String
 
@@ -180,12 +188,13 @@ struct EmailSignUpStrategy: SocialNetworkingAuthenticationStrategy {
                     return
                 }
 
-                let (firstName, lastName) = self.name.splitFullName()
                 let values: [String: Any] = [
-                    FirebaseKeys.User.firstName.key: firstName,
-                    FirebaseKeys.User.lastName.key: lastName
+                    FirebaseKeys.User.title.key: self.title,
+                    FirebaseKeys.User.firstName.key: self.firstName,
+                    FirebaseKeys.User.lastName.key: self.lastName,
+                    FirebaseKeys.User.affiliation.key: self.affiliation
                 ]
-                FirebaseDataManager.shared.createUserInTable(firebaseUser: firebaseUser, values: values)
+                FirebaseDataManager.shared.updateUserInTable(firebaseUser: firebaseUser, values: values)
                     .then { updatedUser in
                         fulfill(updatedUser)
                     }.catch { error in

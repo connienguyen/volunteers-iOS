@@ -26,8 +26,11 @@ class ThemeManagementCell: UITableViewCell {
 // MARK: - IBActions
 extension ThemeManagementCell {
     @IBAction func onSegmentedControlSelect(sender: AnyObject) {
-        guard let theme = Theme(rawValue: segmentedThemeControl.selectedSegmentIndex) else {
-            // This should not happen; using guard to avoid ?? syntax
+        let currentTheme = ThemeManager.shared.currentTheme
+        guard let theme = Theme(rawValue: segmentedThemeControl.selectedSegmentIndex),
+            currentTheme.rawValue != segmentedThemeControl.selectedSegmentIndex else {
+            // Using guard let to avoid using ?? syntax
+            // Do not need to change theme if selection is the same as the current theme
             return
         }
 
@@ -35,5 +38,9 @@ extension ThemeManagementCell {
         // to currentTheme after user approves preview
         ThemeManager.shared.apply(theme)
         ThemeManager.shared.saveTheme(theme)
+
+        // Post notification so UI elemented not affected by UIAppearance proxy changes are
+        // updated to match theme
+        NotificationCenter.default.post(name: NotificationName.themeDidChange, object: nil)
     }
 }

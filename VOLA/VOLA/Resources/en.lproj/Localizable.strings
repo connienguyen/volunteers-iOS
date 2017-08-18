@@ -74,6 +74,9 @@
 // EventDetailViewController
 "event-detail.title.label" = "Event Detail";
 
+// EventTableViewController
+"calendar.title.label" = "Calendar";
+
 // HomeContainerViewController
 "list.prompt.label" = "List";
 "map.prompt.label" = "Map";

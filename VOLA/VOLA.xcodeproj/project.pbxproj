@@ -72,6 +72,7 @@
 		F953BFF61EE6D3BD001302F1 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */; };
 		F95B77DF1F4586FB00E41B28 /* ThemeManagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B77DE1F4586FB00E41B28 /* ThemeManagementCell.swift */; };
 		F95B77E11F45882000E41B28 /* VLSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B77E01F45882000E41B28 /* VLSegmentedControl.swift */; };
+		F95B77E31F479DBD00E41B28 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95B77E21F479DBD00E41B28 /* UIImage.swift */; };
 		F98294C91F21139600F9152B /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98294C81F21139600F9152B /* DataStoreManager.swift */; };
 		F98807E61EF269FC00589A23 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F98807E51EF269FC00589A23 /* EventDetailViewController.xib */; };
 		F98807E81EF26A2800589A23 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98807E71EF26A2800589A23 /* EventDetailViewController.swift */; };
@@ -230,6 +231,7 @@
 		F953BFF51EE6D3BD001302F1 /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F95B77DE1F4586FB00E41B28 /* ThemeManagementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManagementCell.swift; sourceTree = "<group>"; };
 		F95B77E01F45882000E41B28 /* VLSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLSegmentedControl.swift; sourceTree = "<group>"; };
+		F95B77E21F479DBD00E41B28 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		F98294C81F21139600F9152B /* DataStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		F98807E51EF269FC00589A23 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		F98807E71EF26A2800589A23 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 			children = (
 				754C46391EDED2D600E2F848 /* AppDelegateExtension.swift */,
 				754C463A1EDED2D600E2F848 /* UIColor.swift */,
+				F95B77E21F479DBD00E41B28 /* UIImage.swift */,
 				754C463B1EDED2D600E2F848 /* UIKit+Localization.swift */,
 				F92855F01F1111C500D461B1 /* UILabel.swift */,
 				F9A502251EEEDC2A00AB7E9E /* UIScrollView.swift */,
@@ -1049,6 +1052,7 @@
 				F92855E51F10416100D461B1 /* PaddedRegisteredLabel.swift in Sources */,
 				F9A377FB1EE5818900299FD3 /* DataManager.swift in Sources */,
 				F92855E81F10DDA600D461B1 /* TitleLabel.swift in Sources */,
+				F95B77E31F479DBD00E41B28 /* UIImage.swift in Sources */,
 				F99F8D6B1F33DD1D00C4E97A /* ConnectedLoginsViewModel.swift in Sources */,
 				754C463C1EDED2D600E2F848 /* UIView.swift in Sources */,
 				F98294C91F21139600F9152B /* DataStoreManager.swift in Sources */,

@@ -13,6 +13,7 @@ struct NotificationName {
     static let availableEventsUpdated = Notification.Name("availableEventsUpdated")
     static let calendarEventsUpdated = Notification.Name("calendarEventsUpdated")
     static let userLogin = Notification.Name("userLogin")
+    static let themeDidChange = Notification.Name("themeDidChange")
 }
 
 enum DefaultsKey: String {

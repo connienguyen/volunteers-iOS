@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vt6-fD-Tp5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vt6-fD-Tp5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,13 +43,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="uMm-hw-Evd">
-                                <rect key="frame" x="168" y="555" width="39" height="37"/>
+                                <rect key="frame" x="168" y="549.5" width="39" height="37"/>
                                 <connections>
                                     <action selector="onPageControlPressed:" destination="3a4-9U-ZLv" eventType="valueChanged" id="hMy-N7-H3u"/>
                                 </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-iX-zlJ" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                <rect key="frame" x="166" y="607" width="42" height="30"/>
+                                <rect key="frame" x="37" y="601.5" width="300" height="35.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5ve-iX-zlJ" secondAttribute="height" multiplier="17:2" id="UZ0-ig-xlg"/>
+                                </constraints>
                                 <state key="normal" title="Log In"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="login.prompt.label"/>
@@ -74,6 +79,7 @@
                             <constraint firstItem="Kfe-S5-aF8" firstAttribute="top" secondItem="qiI-UV-Lpq" secondAttribute="bottom" id="I3r-z9-aro"/>
                             <constraint firstAttribute="trailing" secondItem="Kfe-S5-aF8" secondAttribute="trailing" id="MvQ-QZ-ohM"/>
                             <constraint firstItem="uMm-hw-Evd" firstAttribute="centerX" secondItem="gcQ-m8-Ysk" secondAttribute="centerX" id="ORj-z2-NZT"/>
+                            <constraint firstItem="5ve-iX-zlJ" firstAttribute="width" secondItem="Kfe-S5-aF8" secondAttribute="width" multiplier="4:5" id="RXT-mf-yHx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kyg-gM-wjj" secondAttribute="trailing" constant="15" id="Ydb-iP-t5x"/>
                             <constraint firstItem="hh4-UO-6c8" firstAttribute="top" secondItem="5ve-iX-zlJ" secondAttribute="bottom" constant="30" id="Zod-qC-U0e"/>
                             <constraint firstItem="kyg-gM-wjj" firstAttribute="top" secondItem="qiI-UV-Lpq" secondAttribute="bottom" constant="20" id="f1K-3s-Cjl"/>
@@ -125,7 +131,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qo7-wJ-9bg">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="vt6-fD-Tp5" customClass="VLTabBarController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="vt6-fD-Tp5" customClass="VLTabBarController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="EaB-Ld-Q2z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

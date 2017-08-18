@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Table view that allows users to change the color theme of the app
 class ThemeManagementCell: UITableViewCell {
     @IBOutlet weak var segmentedThemeControl: VLSegmentedControl!
 
@@ -26,7 +27,7 @@ class ThemeManagementCell: UITableViewCell {
 extension ThemeManagementCell {
     @IBAction func onSegmentedControlSelect(sender: AnyObject) {
         guard let theme = Theme(rawValue: segmentedThemeControl.selectedSegmentIndex) else {
-            // This should not happen, but using guard to avoid ?? syntax
+            // This should not happen; using guard to avoid ?? syntax
             return
         }
 

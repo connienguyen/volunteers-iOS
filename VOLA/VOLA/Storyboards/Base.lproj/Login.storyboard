@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,23 +29,23 @@
         <!--Log In-->
         <scene sceneID="Dpk-Td-Ur7">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" id="Ycx-fw-40a" customClass="LoginViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Ycx-fw-40a" customClass="LoginViewController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Obs-Nx-lKc"/>
                         <viewControllerLayoutGuide type="bottom" id="oS2-1K-WY1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="U50-xN-OA8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eJ-bS-wm8" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKr-36-Rxv" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="466"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable quick event registration and saved events by logging in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axo-7O-b9u" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="137" width="325" height="48"/>
+                                                <rect key="frame" x="37.5" y="137.5" width="300" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -53,27 +54,30 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ABIlogo" translatesAutoresizingMaskIntoConstraints="NO" id="zju-y3-BSb">
-                                                <rect key="frame" x="20" y="25" width="335" height="67"/>
+                                                <rect key="frame" x="19" y="25" width="337.5" height="67.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="zju-y3-BSb" secondAttribute="height" multiplier="5:1" id="H6D-xw-srA"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vya-cn-R2r" userLabel="Log in with Google" customClass="GIDSignInButton">
-                                                <rect key="frame" x="35" y="275" width="305" height="40"/>
+                                                <rect key="frame" x="37.5" y="281" width="300" height="40"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="4RJ-3g-6Ys"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5n-BN-Bkm">
-                                                <rect key="frame" x="179" y="330" width="17" height="21"/>
+                                                <rect key="frame" x="179" y="336" width="17" height="21"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnp-Vm-A22" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="366" width="305" height="30"/>
+                                                <rect key="frame" x="37.5" y="372" width="300" height="35"/>
                                                 <accessibility key="accessibilityConfiguration" label="EmailLoginButton"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dnp-Vm-A22" secondAttribute="height" multiplier="17:2" id="Lw6-f0-vX1"/>
+                                                </constraints>
                                                 <state key="normal" title="Log in with Email"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="login-email.prompt.label"/>
@@ -83,7 +87,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have a Vola account yet? Sign up now." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ik9-9h-OfO" customClass="VLHyperLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="421" width="285" height="20"/>
+                                                <rect key="frame" x="37.5" y="432" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -92,7 +96,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPt-1c-eu5" customClass="FBSDKLoginButton">
-                                                <rect key="frame" x="35" y="210" width="305" height="30"/>
+                                                <rect key="frame" x="37.5" y="210.5" width="300" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="NPt-1c-eu5" secondAttribute="height" multiplier="17:2" id="h5D-Up-1e8"/>
+                                                </constraints>
                                                 <state key="normal" title="Log in with Facebook"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="login-facebook.prompt.label"/>
@@ -101,25 +108,25 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="zju-y3-BSb" firstAttribute="centerX" secondItem="yKr-36-Rxv" secondAttribute="centerX" id="5aC-Mp-ag4"/>
                                             <constraint firstItem="dnp-Vm-A22" firstAttribute="top" secondItem="p5n-BN-Bkm" secondAttribute="bottom" constant="15" id="8dA-ED-v21"/>
-                                            <constraint firstAttribute="trailing" secondItem="NPt-1c-eu5" secondAttribute="trailing" constant="35" id="C3k-fB-FtW"/>
+                                            <constraint firstItem="ik9-9h-OfO" firstAttribute="centerX" secondItem="yKr-36-Rxv" secondAttribute="centerX" id="Cpa-0P-2qx"/>
+                                            <constraint firstItem="axo-7O-b9u" firstAttribute="centerX" secondItem="yKr-36-Rxv" secondAttribute="centerX" id="Dcu-ma-hec"/>
                                             <constraint firstItem="NPt-1c-eu5" firstAttribute="top" secondItem="axo-7O-b9u" secondAttribute="bottom" constant="25" id="Exi-bp-Qsb"/>
-                                            <constraint firstItem="zju-y3-BSb" firstAttribute="leading" secondItem="yKr-36-Rxv" secondAttribute="leading" constant="20" id="FHB-bw-w8y"/>
-                                            <constraint firstItem="p5n-BN-Bkm" firstAttribute="centerX" secondItem="vya-cn-R2r" secondAttribute="centerX" id="GEL-LB-Bgh"/>
+                                            <constraint firstItem="zju-y3-BSb" firstAttribute="width" secondItem="yKr-36-Rxv" secondAttribute="width" multiplier="9:10" id="K9o-Mh-qnY"/>
                                             <constraint firstAttribute="bottom" secondItem="ik9-9h-OfO" secondAttribute="bottom" constant="25" id="KMR-Rj-xX9"/>
-                                            <constraint firstAttribute="trailing" secondItem="zju-y3-BSb" secondAttribute="trailing" constant="20" id="Lt3-uU-EdW"/>
-                                            <constraint firstItem="dnp-Vm-A22" firstAttribute="centerX" secondItem="p5n-BN-Bkm" secondAttribute="centerX" id="M20-Qb-Ab2"/>
                                             <constraint firstItem="dnp-Vm-A22" firstAttribute="width" secondItem="vya-cn-R2r" secondAttribute="width" id="Mdy-OG-svH"/>
                                             <constraint firstItem="vya-cn-R2r" firstAttribute="top" secondItem="NPt-1c-eu5" secondAttribute="bottom" constant="35" id="Ofp-4r-iRc"/>
                                             <constraint firstItem="p5n-BN-Bkm" firstAttribute="top" secondItem="vya-cn-R2r" secondAttribute="bottom" constant="15" id="PT6-KJ-Mum"/>
-                                            <constraint firstItem="ik9-9h-OfO" firstAttribute="leading" secondItem="yKr-36-Rxv" secondAttribute="leading" constant="45" id="SWr-bR-uvg"/>
-                                            <constraint firstAttribute="trailing" secondItem="axo-7O-b9u" secondAttribute="trailing" constant="25" id="UGx-zF-kzt"/>
                                             <constraint firstItem="vya-cn-R2r" firstAttribute="centerX" secondItem="NPt-1c-eu5" secondAttribute="centerX" id="XtT-PW-knf"/>
-                                            <constraint firstItem="NPt-1c-eu5" firstAttribute="leading" secondItem="yKr-36-Rxv" secondAttribute="leading" constant="35" id="iWp-IN-L3m"/>
-                                            <constraint firstAttribute="trailing" secondItem="ik9-9h-OfO" secondAttribute="trailing" constant="45" id="o4d-2t-JuE"/>
+                                            <constraint firstItem="axo-7O-b9u" firstAttribute="width" secondItem="yKr-36-Rxv" secondAttribute="width" multiplier="4:5" id="Zkn-Dp-EgC"/>
+                                            <constraint firstItem="dnp-Vm-A22" firstAttribute="centerX" secondItem="yKr-36-Rxv" secondAttribute="centerX" id="jBg-mJ-4rj"/>
+                                            <constraint firstItem="p5n-BN-Bkm" firstAttribute="centerX" secondItem="yKr-36-Rxv" secondAttribute="centerX" id="kTf-kO-RcC"/>
                                             <constraint firstItem="axo-7O-b9u" firstAttribute="top" secondItem="zju-y3-BSb" secondAttribute="bottom" constant="45" id="oqv-Zq-Yl4"/>
                                             <constraint firstItem="zju-y3-BSb" firstAttribute="top" secondItem="yKr-36-Rxv" secondAttribute="top" constant="25" id="psa-8a-9wc"/>
-                                            <constraint firstItem="axo-7O-b9u" firstAttribute="leading" secondItem="yKr-36-Rxv" secondAttribute="leading" constant="25" id="pt9-QC-Dgt"/>
+                                            <constraint firstItem="NPt-1c-eu5" firstAttribute="width" secondItem="yKr-36-Rxv" secondAttribute="width" multiplier="4:5" id="rS6-54-BoJ"/>
+                                            <constraint firstItem="ik9-9h-OfO" firstAttribute="width" secondItem="yKr-36-Rxv" secondAttribute="width" multiplier="4:5" id="rYt-5D-61E"/>
+                                            <constraint firstItem="NPt-1c-eu5" firstAttribute="centerX" secondItem="yKr-36-Rxv" secondAttribute="centerX" id="sxW-NT-9WR"/>
                                             <constraint firstItem="ik9-9h-OfO" firstAttribute="top" secondItem="dnp-Vm-A22" secondAttribute="bottom" constant="25" id="uZ3-Aj-k6j"/>
                                             <constraint firstItem="vya-cn-R2r" firstAttribute="width" secondItem="NPt-1c-eu5" secondAttribute="width" id="vKG-rB-hs7"/>
                                         </constraints>
@@ -135,13 +142,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8eJ-bS-wm8" firstAttribute="leading" secondItem="U50-xN-OA8" secondAttribute="leading" id="4bb-du-d6v"/>
-                            <constraint firstAttribute="bottom" secondItem="8eJ-bS-wm8" secondAttribute="bottom" id="B5r-vh-eOq"/>
-                            <constraint firstAttribute="trailing" secondItem="8eJ-bS-wm8" secondAttribute="trailing" id="KOu-Pc-6z6"/>
+                            <constraint firstItem="8eJ-bS-wm8" firstAttribute="top" secondItem="Obs-Nx-lKc" secondAttribute="bottom" id="FKM-Gt-ZbZ"/>
                             <constraint firstItem="yKr-36-Rxv" firstAttribute="width" secondItem="U50-xN-OA8" secondAttribute="width" id="SNo-rA-tT0"/>
-                            <constraint firstItem="8eJ-bS-wm8" firstAttribute="top" secondItem="Obs-Nx-lKc" secondAttribute="bottom" id="aNp-9h-cww"/>
+                            <constraint firstItem="8eJ-bS-wm8" firstAttribute="leading" secondItem="U50-xN-OA8" secondAttribute="leading" id="SWv-Zl-8mW"/>
+                            <constraint firstItem="oS2-1K-WY1" firstAttribute="top" secondItem="8eJ-bS-wm8" secondAttribute="bottom" id="plm-0h-cps"/>
+                            <constraint firstAttribute="trailing" secondItem="8eJ-bS-wm8" secondAttribute="trailing" id="rFU-Th-9hn"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Log In" id="RdA-ne-2p2">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="login.prompt.label"/>
@@ -173,10 +181,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YlJ-Q5-Jo8" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="847"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="873.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account to view and manage volunteer opportunities in your area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYP-5H-ASW" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="20" width="335" height="72"/>
+                                                <rect key="frame" x="37.5" y="20" width="300" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -184,17 +192,8 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="create-account.title.label"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up you agree to the Terms of Service. You can also view the Privacy Policy. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNn-Q8-68B" customClass="VLHyperLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="771.5" width="285" height="50.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="signup-agree.title.label"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75j-Cv-GWU" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="132" width="79" height="20"/>
+                                                <rect key="frame" x="37" y="132" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -202,57 +201,18 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="first-name.title.label"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EP-GS-CTw" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="541.5" width="70" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="password.title.label"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dmj-Ph-RnX" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="568.5" width="275" height="30"/>
-                                                <accessibility key="accessibilityConfiguration" label="PasswordField"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW2-sU-8NP" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="623.5" width="140" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="confirm-password.title.label"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-we-1oO" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="651.5" width="275" height="30"/>
-                                                <accessibility key="accessibilityConfiguration" label="ConfirmPasswordTextField"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-XV-tSs" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="711.5" width="275" height="30"/>
-                                                <state key="normal" title="Sign Up"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="signup.prompt.label"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onSignUpPressed:" destination="LpZ-sx-Ae5" eventType="touchUpInside" id="luO-cy-c5f"/>
-                                                </connections>
-                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anita" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cR-oF-Ihu" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="159" width="275" height="30"/>
+                                                <rect key="frame" x="37" y="159" width="300" height="35.5"/>
                                                 <accessibility key="accessibilityConfiguration" label="NameTextField"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="2cR-oF-Ihu" secondAttribute="height" multiplier="17:2" id="nRy-Ae-s4W"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJq-ol-8x3" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="214" width="77.5" height="20"/>
+                                                <rect key="frame" x="37" y="219" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -261,13 +221,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Borg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKF-eg-vz4" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="241" width="275" height="30"/>
+                                                <rect key="frame" x="37" y="246" width="300" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qKF-eg-vz4" secondAttribute="height" multiplier="17:2" id="B0n-bW-Gji"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company/ Organization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkR-6r-jiV" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="296" width="170" height="20"/>
+                                                <rect key="frame" x="37" y="306" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -276,13 +239,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anita Borg Institute" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-FU-0kJ" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="323" width="275" height="30"/>
+                                                <rect key="frame" x="37" y="333" width="300" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dNl-FU-0kJ" secondAttribute="height" multiplier="17:2" id="cf0-w3-NjQ"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJH-ZD-eqN" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="378" width="32" height="20"/>
+                                                <rect key="frame" x="37" y="394" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -291,13 +257,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Software Engineer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rEn-ae-kXe" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="404.5" width="275" height="30"/>
+                                                <rect key="frame" x="37" y="421" width="300" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="rEn-ae-kXe" secondAttribute="height" multiplier="17:2" id="WAe-IU-3mm"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxu-Dt-4ux" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="459.5" width="103" height="20"/>
+                                                <rect key="frame" x="37" y="481" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -306,60 +275,130 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWO-OE-Bfk" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="486.5" width="275" height="30"/>
+                                                <rect key="frame" x="37" y="508" width="300" height="35.5"/>
                                                 <accessibility key="accessibilityConfiguration" label="EmailTextField"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bWO-OE-Bfk" secondAttribute="height" multiplier="17:2" id="UMz-2P-w9u"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EP-GS-CTw" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="37.5" y="569" width="300" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="password.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dmj-Ph-RnX" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="37.5" y="596" width="300" height="35.5"/>
+                                                <accessibility key="accessibilityConfiguration" label="PasswordField"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Dmj-Ph-RnX" secondAttribute="height" multiplier="17:2" id="4OH-0Q-FkN"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW2-sU-8NP" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="37.5" y="656.5" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="confirm-password.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-we-1oO" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="37.5" y="684.5" width="300" height="35"/>
+                                                <accessibility key="accessibilityConfiguration" label="ConfirmPasswordTextField"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="z6W-we-1oO" secondAttribute="height" multiplier="17:2" id="PXX-EW-kJu"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-XV-tSs" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="37.5" y="749.5" width="300" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="k5N-XV-tSs" secondAttribute="height" multiplier="17:2" id="ryQ-Uo-PGX"/>
+                                                </constraints>
+                                                <state key="normal" title="Sign Up"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="signup.prompt.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onSignUpPressed:" destination="LpZ-sx-Ae5" eventType="touchUpInside" id="luO-cy-c5f"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up you agree to the Terms of Service. You can also view the Privacy Policy. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNn-Q8-68B" customClass="VLHyperLabel" customModule="VOLA" customModuleProvider="target">
+                                                <rect key="frame" x="37" y="815" width="300" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="signup-agree.title.label"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="fNn-Q8-68B" secondAttribute="trailing" constant="45" id="0WP-dg-LFd"/>
                                             <constraint firstItem="dJq-ol-8x3" firstAttribute="leading" secondItem="qKF-eg-vz4" secondAttribute="leading" id="3Sx-ng-iIY"/>
-                                            <constraint firstItem="kxu-Dt-4ux" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="4jc-Ag-Rhz"/>
+                                            <constraint firstItem="kxu-Dt-4ux" firstAttribute="width" secondItem="rEn-ae-kXe" secondAttribute="width" id="3Te-Le-aq7"/>
+                                            <constraint firstItem="YkR-6r-jiV" firstAttribute="leading" secondItem="qKF-eg-vz4" secondAttribute="leading" id="4ld-5Y-Ty8"/>
+                                            <constraint firstItem="tJH-ZD-eqN" firstAttribute="leading" secondItem="dNl-FU-0kJ" secondAttribute="leading" id="4sS-pD-Ilf"/>
+                                            <constraint firstItem="Dmj-Ph-RnX" firstAttribute="width" secondItem="9EP-GS-CTw" secondAttribute="width" id="54A-Xz-uCc"/>
                                             <constraint firstItem="qYP-5H-ASW" firstAttribute="top" secondItem="YlJ-Q5-Jo8" secondAttribute="top" constant="20" id="59V-iQ-iTj"/>
-                                            <constraint firstItem="75j-Cv-GWU" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="9lm-tZ-ErO"/>
+                                            <constraint firstItem="FW2-sU-8NP" firstAttribute="width" secondItem="Dmj-Ph-RnX" secondAttribute="width" id="9tD-qu-0s3"/>
                                             <constraint firstItem="YkR-6r-jiV" firstAttribute="top" secondItem="qKF-eg-vz4" secondAttribute="bottom" constant="25" id="A5h-4X-X6f"/>
                                             <constraint firstItem="rEn-ae-kXe" firstAttribute="leading" secondItem="tJH-ZD-eqN" secondAttribute="leading" id="AVL-58-DEt"/>
                                             <constraint firstItem="2cR-oF-Ihu" firstAttribute="leading" secondItem="75j-Cv-GWU" secondAttribute="leading" id="Bei-F6-Tfc"/>
-                                            <constraint firstAttribute="trailing" secondItem="2cR-oF-Ihu" secondAttribute="trailing" constant="50" id="BlX-hn-rxm"/>
+                                            <constraint firstItem="kxu-Dt-4ux" firstAttribute="leading" secondItem="rEn-ae-kXe" secondAttribute="leading" id="C6r-B4-GTZ"/>
+                                            <constraint firstItem="fNn-Q8-68B" firstAttribute="centerX" secondItem="YlJ-Q5-Jo8" secondAttribute="centerX" id="CR8-ef-mby"/>
                                             <constraint firstItem="Dmj-Ph-RnX" firstAttribute="top" secondItem="9EP-GS-CTw" secondAttribute="bottom" constant="7" id="Caw-cZ-7dT"/>
+                                            <constraint firstItem="qKF-eg-vz4" firstAttribute="width" secondItem="dJq-ol-8x3" secondAttribute="width" id="DIL-Pj-Whd"/>
                                             <constraint firstItem="bWO-OE-Bfk" firstAttribute="top" secondItem="kxu-Dt-4ux" secondAttribute="bottom" constant="7" id="DQC-fB-4BG"/>
                                             <constraint firstItem="z6W-we-1oO" firstAttribute="top" secondItem="FW2-sU-8NP" secondAttribute="bottom" constant="7" id="Ep7-k1-3aq"/>
-                                            <constraint firstAttribute="trailing" secondItem="rEn-ae-kXe" secondAttribute="trailing" constant="50" id="FX3-5l-K29"/>
+                                            <constraint firstItem="75j-Cv-GWU" firstAttribute="width" secondItem="YlJ-Q5-Jo8" secondAttribute="width" multiplier="4:5" id="FDm-UD-aP6"/>
+                                            <constraint firstItem="tJH-ZD-eqN" firstAttribute="width" secondItem="dNl-FU-0kJ" secondAttribute="width" id="FWB-vk-zgM"/>
+                                            <constraint firstItem="z6W-we-1oO" firstAttribute="width" secondItem="FW2-sU-8NP" secondAttribute="width" id="FWW-IU-7xY"/>
                                             <constraint firstItem="z6W-we-1oO" firstAttribute="leading" secondItem="FW2-sU-8NP" secondAttribute="leading" id="Fvs-Ac-pT8"/>
-                                            <constraint firstItem="dJq-ol-8x3" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="Gnh-WG-gmK"/>
-                                            <constraint firstItem="tJH-ZD-eqN" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="HRq-Wu-cT4"/>
+                                            <constraint firstItem="qYP-5H-ASW" firstAttribute="width" secondItem="YlJ-Q5-Jo8" secondAttribute="width" multiplier="4:5" id="GHt-Zj-RHy"/>
                                             <constraint firstItem="75j-Cv-GWU" firstAttribute="top" secondItem="qYP-5H-ASW" secondAttribute="bottom" constant="40" id="Ib0-Cb-aZN"/>
+                                            <constraint firstItem="2cR-oF-Ihu" firstAttribute="width" secondItem="75j-Cv-GWU" secondAttribute="width" id="IqV-F4-zel"/>
+                                            <constraint firstItem="dJq-ol-8x3" firstAttribute="width" secondItem="2cR-oF-Ihu" secondAttribute="width" id="LcE-Pj-6G1"/>
+                                            <constraint firstItem="FW2-sU-8NP" firstAttribute="leading" secondItem="Dmj-Ph-RnX" secondAttribute="leading" id="Lju-Wq-vDB"/>
+                                            <constraint firstItem="75j-Cv-GWU" firstAttribute="centerX" secondItem="YlJ-Q5-Jo8" secondAttribute="centerX" id="Luj-BX-Krr"/>
+                                            <constraint firstItem="k5N-XV-tSs" firstAttribute="width" secondItem="YlJ-Q5-Jo8" secondAttribute="width" multiplier="4:5" id="Moy-Dp-SVy"/>
+                                            <constraint firstItem="dJq-ol-8x3" firstAttribute="leading" secondItem="2cR-oF-Ihu" secondAttribute="leading" id="N1J-yM-6WX"/>
                                             <constraint firstItem="bWO-OE-Bfk" firstAttribute="leading" secondItem="kxu-Dt-4ux" secondAttribute="leading" id="O5B-D4-JdJ"/>
                                             <constraint firstItem="rEn-ae-kXe" firstAttribute="top" secondItem="tJH-ZD-eqN" secondAttribute="bottom" constant="7" id="QEc-Sk-Sto"/>
-                                            <constraint firstAttribute="trailing" secondItem="qKF-eg-vz4" secondAttribute="trailing" constant="50" id="S3V-6l-2iE"/>
-                                            <constraint firstItem="YkR-6r-jiV" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="SBt-x5-obW"/>
+                                            <constraint firstItem="bWO-OE-Bfk" firstAttribute="width" secondItem="kxu-Dt-4ux" secondAttribute="width" id="SXG-Ch-g0n"/>
                                             <constraint firstItem="k5N-XV-tSs" firstAttribute="top" secondItem="z6W-we-1oO" secondAttribute="bottom" constant="30" id="X5a-d8-7NJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="qYP-5H-ASW" secondAttribute="trailing" constant="20" id="YG7-qw-ZsZ"/>
-                                            <constraint firstItem="FW2-sU-8NP" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="YpX-ph-sLl"/>
                                             <constraint firstItem="dNl-FU-0kJ" firstAttribute="leading" secondItem="YkR-6r-jiV" secondAttribute="leading" id="ZIV-HW-z5j"/>
-                                            <constraint firstAttribute="trailing" secondItem="Dmj-Ph-RnX" secondAttribute="trailing" constant="50" id="Zur-Ab-FtY"/>
                                             <constraint firstItem="dNl-FU-0kJ" firstAttribute="top" secondItem="YkR-6r-jiV" secondAttribute="bottom" constant="7" id="dMV-vx-pPA"/>
-                                            <constraint firstItem="9EP-GS-CTw" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="eaQ-YO-6tu"/>
                                             <constraint firstAttribute="bottom" secondItem="fNn-Q8-68B" secondAttribute="bottom" constant="25" id="eru-SE-nbQ"/>
+                                            <constraint firstItem="9EP-GS-CTw" firstAttribute="width" secondItem="bWO-OE-Bfk" secondAttribute="width" id="fuw-4r-Ngm"/>
                                             <constraint firstItem="kxu-Dt-4ux" firstAttribute="top" secondItem="rEn-ae-kXe" secondAttribute="bottom" constant="25" id="hIX-0W-Lic"/>
                                             <constraint firstItem="2cR-oF-Ihu" firstAttribute="top" secondItem="75j-Cv-GWU" secondAttribute="bottom" constant="7" id="hPO-ON-671"/>
                                             <constraint firstItem="tJH-ZD-eqN" firstAttribute="top" secondItem="dNl-FU-0kJ" secondAttribute="bottom" constant="25" id="inY-Z7-0Jw"/>
+                                            <constraint firstItem="k5N-XV-tSs" firstAttribute="centerX" secondItem="YlJ-Q5-Jo8" secondAttribute="centerX" id="jwS-zO-MEk"/>
                                             <constraint firstItem="dJq-ol-8x3" firstAttribute="top" secondItem="2cR-oF-Ihu" secondAttribute="bottom" constant="25" id="kUH-1x-vav"/>
-                                            <constraint firstAttribute="trailing" secondItem="dNl-FU-0kJ" secondAttribute="trailing" constant="50" id="nJt-AH-AQq"/>
-                                            <constraint firstItem="fNn-Q8-68B" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="45" id="qYL-TQ-spq"/>
-                                            <constraint firstAttribute="trailing" secondItem="z6W-we-1oO" secondAttribute="trailing" constant="50" id="qbN-xj-7Tg"/>
+                                            <constraint firstItem="qYP-5H-ASW" firstAttribute="centerX" secondItem="YlJ-Q5-Jo8" secondAttribute="centerX" id="oT7-Kq-otz"/>
+                                            <constraint firstItem="9EP-GS-CTw" firstAttribute="leading" secondItem="bWO-OE-Bfk" secondAttribute="leading" id="og4-Q0-pHU"/>
+                                            <constraint firstItem="YkR-6r-jiV" firstAttribute="width" secondItem="qKF-eg-vz4" secondAttribute="width" id="pLb-NF-aXU"/>
+                                            <constraint firstItem="fNn-Q8-68B" firstAttribute="width" secondItem="YlJ-Q5-Jo8" secondAttribute="width" multiplier="4:5" id="qnN-c0-58Q"/>
                                             <constraint firstItem="Dmj-Ph-RnX" firstAttribute="leading" secondItem="9EP-GS-CTw" secondAttribute="leading" id="r3z-mq-4k7"/>
                                             <constraint firstItem="9EP-GS-CTw" firstAttribute="top" secondItem="bWO-OE-Bfk" secondAttribute="bottom" constant="25" id="rZa-1H-oz5"/>
+                                            <constraint firstItem="rEn-ae-kXe" firstAttribute="width" secondItem="tJH-ZD-eqN" secondAttribute="width" id="tGm-p3-FCa"/>
                                             <constraint firstItem="fNn-Q8-68B" firstAttribute="top" secondItem="k5N-XV-tSs" secondAttribute="bottom" constant="30" id="uA5-kH-LNV"/>
-                                            <constraint firstItem="qYP-5H-ASW" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="20" id="vcv-Em-R7e"/>
-                                            <constraint firstAttribute="trailing" secondItem="bWO-OE-Bfk" secondAttribute="trailing" constant="50" id="wcl-sN-dQg"/>
                                             <constraint firstItem="FW2-sU-8NP" firstAttribute="top" secondItem="Dmj-Ph-RnX" secondAttribute="bottom" constant="25" id="xne-Fc-2Cz"/>
+                                            <constraint firstItem="dNl-FU-0kJ" firstAttribute="width" secondItem="YkR-6r-jiV" secondAttribute="width" id="yX9-bN-m8U"/>
                                             <constraint firstItem="qKF-eg-vz4" firstAttribute="top" secondItem="dJq-ol-8x3" secondAttribute="bottom" constant="7" id="yhp-Vl-Xae"/>
-                                            <constraint firstItem="k5N-XV-tSs" firstAttribute="leading" secondItem="YlJ-Q5-Jo8" secondAttribute="leading" constant="50" id="zIw-bI-Rfc"/>
-                                            <constraint firstAttribute="trailing" secondItem="k5N-XV-tSs" secondAttribute="trailing" constant="50" id="zWX-vc-go4"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -412,16 +451,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldf-ez-uEz" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="393.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="438.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an email login to your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfB-ig-Qtc" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="20" width="335" height="24"/>
+                                                <rect key="frame" x="37.5" y="20" width="300" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHD-4h-PWS" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="84" width="102.5" height="19.5"/>
+                                                <rect key="frame" x="37.5" y="108" width="300" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -430,13 +469,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPR-Nj-g5O" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="110.5" width="275" height="30"/>
+                                                <rect key="frame" x="37.5" y="134.5" width="300" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="JPR-Nj-g5O" secondAttribute="height" multiplier="17:2" id="df8-H4-EXW"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oO6-e2-d4H" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="165.5" width="70" height="19.5"/>
+                                                <rect key="frame" x="37.5" y="195" width="300" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -445,13 +487,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAe-UR-ns6" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="192" width="275" height="30"/>
+                                                <rect key="frame" x="37.5" y="221.5" width="300" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="oAe-UR-ns6" secondAttribute="height" multiplier="17:2" id="q5F-7t-KSo"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5w-vj-kri" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="247" width="132" height="19.5"/>
+                                                <rect key="frame" x="37.5" y="281.5" width="300" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -460,13 +505,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Vk-s1-W5i" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="273.5" width="275" height="30"/>
+                                                <rect key="frame" x="37.5" y="308" width="300" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="1Vk-s1-W5i" secondAttribute="height" multiplier="17:2" id="2Ax-Pu-1gc"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-Ze-5bA" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="333.5" width="275" height="30"/>
+                                                <rect key="frame" x="37.5" y="373.5" width="300" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="pIh-Ze-5bA" secondAttribute="height" multiplier="17:2" id="cdl-Et-VU4"/>
+                                                </constraints>
                                                 <state key="normal" title="Connect Email"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKeyForNormal" value="connect-email.prompt.label"/>
@@ -481,27 +532,28 @@
                                             <constraint firstItem="l5w-vj-kri" firstAttribute="top" secondItem="oAe-UR-ns6" secondAttribute="bottom" constant="25" id="0YT-sF-Yvn"/>
                                             <constraint firstItem="HfB-ig-Qtc" firstAttribute="top" secondItem="Ldf-ez-uEz" secondAttribute="top" constant="20" id="3rs-WA-d90"/>
                                             <constraint firstAttribute="bottom" secondItem="pIh-Ze-5bA" secondAttribute="bottom" constant="30" id="4hZ-0W-uAR"/>
-                                            <constraint firstAttribute="trailing" secondItem="HfB-ig-Qtc" secondAttribute="trailing" constant="20" id="7kA-hh-323"/>
-                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="8lQ-YY-DnA"/>
+                                            <constraint firstItem="pIh-Ze-5bA" firstAttribute="width" secondItem="1Vk-s1-W5i" secondAttribute="width" id="5gh-OM-SRx"/>
+                                            <constraint firstItem="l5w-vj-kri" firstAttribute="width" secondItem="oAe-UR-ns6" secondAttribute="width" id="8pG-7z-6Vw"/>
+                                            <constraint firstItem="oO6-e2-d4H" firstAttribute="width" secondItem="JPR-Nj-g5O" secondAttribute="width" id="9p8-o2-wZa"/>
                                             <constraint firstItem="oO6-e2-d4H" firstAttribute="top" secondItem="JPR-Nj-g5O" secondAttribute="bottom" constant="25" id="CND-93-Y3Q"/>
                                             <constraint firstItem="kHD-4h-PWS" firstAttribute="top" secondItem="HfB-ig-Qtc" secondAttribute="bottom" constant="40" id="E7B-ve-5Bu"/>
+                                            <constraint firstItem="HfB-ig-Qtc" firstAttribute="width" secondItem="Ldf-ez-uEz" secondAttribute="width" multiplier="0.8" id="HPA-aq-V8s"/>
                                             <constraint firstItem="1Vk-s1-W5i" firstAttribute="leading" secondItem="l5w-vj-kri" secondAttribute="leading" id="I6U-3f-NKM"/>
-                                            <constraint firstItem="l5w-vj-kri" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="JSa-7T-U8S"/>
                                             <constraint firstItem="JPR-Nj-g5O" firstAttribute="top" secondItem="kHD-4h-PWS" secondAttribute="bottom" constant="7" id="LZD-wC-tLx"/>
-                                            <constraint firstAttribute="trailing" secondItem="pIh-Ze-5bA" secondAttribute="trailing" constant="50" id="MYK-7B-h2U"/>
-                                            <constraint firstAttribute="trailing" secondItem="JPR-Nj-g5O" secondAttribute="trailing" constant="50" id="NVD-0s-hQQ"/>
-                                            <constraint firstItem="oO6-e2-d4H" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="ROf-dM-NMF"/>
-                                            <constraint firstItem="JPR-Nj-g5O" firstAttribute="top" secondItem="kHD-4h-PWS" secondAttribute="bottom" constant="7" id="VTy-fd-kkg"/>
+                                            <constraint firstItem="pIh-Ze-5bA" firstAttribute="centerX" secondItem="Ldf-ez-uEz" secondAttribute="centerX" id="VNK-eV-85y"/>
                                             <constraint firstItem="pIh-Ze-5bA" firstAttribute="top" secondItem="1Vk-s1-W5i" secondAttribute="bottom" constant="30" id="Xgu-u9-jMM"/>
+                                            <constraint firstItem="1Vk-s1-W5i" firstAttribute="width" secondItem="l5w-vj-kri" secondAttribute="width" id="YGe-xi-d7f"/>
+                                            <constraint firstItem="HfB-ig-Qtc" firstAttribute="centerX" secondItem="Ldf-ez-uEz" secondAttribute="centerX" id="YI0-NU-dgk"/>
+                                            <constraint firstItem="oO6-e2-d4H" firstAttribute="leading" secondItem="JPR-Nj-g5O" secondAttribute="leading" id="Yyw-LT-0J1"/>
+                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="width" secondItem="Ldf-ez-uEz" secondAttribute="width" multiplier="4:5" id="aYW-ui-VuK"/>
                                             <constraint firstItem="JPR-Nj-g5O" firstAttribute="leading" secondItem="kHD-4h-PWS" secondAttribute="leading" id="awX-0l-M1l"/>
-                                            <constraint firstItem="pIh-Ze-5bA" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="dyf-V9-pph"/>
+                                            <constraint firstItem="oAe-UR-ns6" firstAttribute="width" secondItem="oO6-e2-d4H" secondAttribute="width" id="g5N-iT-v4e"/>
                                             <constraint firstItem="oAe-UR-ns6" firstAttribute="leading" secondItem="oO6-e2-d4H" secondAttribute="leading" id="jio-G4-NVi"/>
-                                            <constraint firstItem="HfB-ig-Qtc" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="20" id="m0T-s3-C57"/>
+                                            <constraint firstItem="l5w-vj-kri" firstAttribute="leading" secondItem="oAe-UR-ns6" secondAttribute="leading" id="kd6-pU-QNp"/>
                                             <constraint firstItem="1Vk-s1-W5i" firstAttribute="top" secondItem="l5w-vj-kri" secondAttribute="bottom" constant="7" id="mjY-d2-IgO"/>
                                             <constraint firstItem="oAe-UR-ns6" firstAttribute="top" secondItem="oO6-e2-d4H" secondAttribute="bottom" constant="7" id="pF4-ft-Zha"/>
-                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="leading" secondItem="Ldf-ez-uEz" secondAttribute="leading" constant="50" id="rxi-4A-FYI"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Vk-s1-W5i" secondAttribute="trailing" constant="50" id="v4I-HK-2lv"/>
-                                            <constraint firstAttribute="trailing" secondItem="oAe-UR-ns6" secondAttribute="trailing" constant="50" id="zKe-GS-oPa"/>
+                                            <constraint firstItem="kHD-4h-PWS" firstAttribute="centerX" secondItem="Ldf-ez-uEz" secondAttribute="centerX" id="rcj-3c-tR5"/>
+                                            <constraint firstItem="JPR-Nj-g5O" firstAttribute="width" secondItem="kHD-4h-PWS" secondAttribute="width" id="xfS-jQ-IdQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -553,10 +605,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-rc-iJb" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="353.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="369.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't created an account yet, sign up now or use a social login instead. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-fZ-ADT" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="30" y="20" width="315" height="68.5"/>
+                                                <rect key="frame" x="37.5" y="20" width="300" height="68.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -565,10 +617,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-Po-P1V" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="128.5" width="103" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="4X7-8L-u87"/>
-                                                </constraints>
+                                                <rect key="frame" x="37.5" y="128.5" width="300" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -577,19 +626,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULF-8p-fgp" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="155.5" width="285" height="30"/>
+                                                <rect key="frame" x="37.5" y="155.5" width="300" height="35.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="nTh-FL-c2v"/>
+                                                    <constraint firstAttribute="width" secondItem="ULF-8p-fgp" secondAttribute="height" multiplier="17:2" id="LcY-dc-qgy"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUb-p8-TTz" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="210.5" width="74" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="zNS-Mj-bay"/>
-                                                </constraints>
+                                                <rect key="frame" x="37.5" y="216" width="300" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -598,18 +644,18 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MXo-M1-ZA1" customClass="VLTextField" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="238.5" width="285" height="30"/>
+                                                <rect key="frame" x="37.5" y="244" width="300" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="c8I-O7-mLn"/>
+                                                    <constraint firstAttribute="width" secondItem="MXo-M1-ZA1" secondAttribute="height" multiplier="17:2" id="g0T-Dm-WKG"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALs-BR-JKr" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="298.5" width="285" height="30"/>
+                                                <rect key="frame" x="37.5" y="309" width="300" height="35.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="BRE-eo-aFC"/>
+                                                    <constraint firstAttribute="width" secondItem="ALs-BR-JKr" secondAttribute="height" multiplier="17:2" id="mj5-Zn-0It"/>
                                                 </constraints>
                                                 <state key="normal" title="Log In"/>
                                                 <userDefinedRuntimeAttributes>
@@ -622,23 +668,25 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="ALs-BR-JKr" secondAttribute="trailing" constant="45" id="8KP-yn-UsC"/>
+                                            <constraint firstItem="EN0-fZ-ADT" firstAttribute="width" secondItem="a1k-rc-iJb" secondAttribute="width" multiplier="4:5" id="1S3-Uo-LUa"/>
+                                            <constraint firstItem="uXU-Po-P1V" firstAttribute="centerX" secondItem="a1k-rc-iJb" secondAttribute="centerX" id="2xF-vS-sj9"/>
                                             <constraint firstItem="MXo-M1-ZA1" firstAttribute="top" secondItem="FUb-p8-TTz" secondAttribute="bottom" constant="7" id="ETE-N0-sLD"/>
                                             <constraint firstItem="uXU-Po-P1V" firstAttribute="top" secondItem="EN0-fZ-ADT" secondAttribute="bottom" constant="40" id="Ffq-ac-EYx"/>
-                                            <constraint firstItem="EN0-fZ-ADT" firstAttribute="leading" secondItem="a1k-rc-iJb" secondAttribute="leading" constant="30" id="INr-aE-jTb"/>
+                                            <constraint firstItem="uXU-Po-P1V" firstAttribute="width" secondItem="a1k-rc-iJb" secondAttribute="width" multiplier="4:5" id="J7y-c5-dZF"/>
                                             <constraint firstItem="FUb-p8-TTz" firstAttribute="top" secondItem="ULF-8p-fgp" secondAttribute="bottom" constant="25" id="LCr-cd-IZl"/>
                                             <constraint firstAttribute="bottom" secondItem="ALs-BR-JKr" secondAttribute="bottom" constant="25" id="QCu-B2-jJB"/>
-                                            <constraint firstAttribute="trailing" secondItem="MXo-M1-ZA1" secondAttribute="trailing" constant="45" id="R5P-f7-wjd"/>
                                             <constraint firstItem="ULF-8p-fgp" firstAttribute="leading" secondItem="uXU-Po-P1V" secondAttribute="leading" id="Wfz-i3-Pg0"/>
-                                            <constraint firstAttribute="trailing" secondItem="EN0-fZ-ADT" secondAttribute="trailing" constant="30" id="Z1K-CT-OuI"/>
+                                            <constraint firstItem="ALs-BR-JKr" firstAttribute="centerX" secondItem="a1k-rc-iJb" secondAttribute="centerX" id="XTO-eS-3VI"/>
                                             <constraint firstItem="ULF-8p-fgp" firstAttribute="top" secondItem="uXU-Po-P1V" secondAttribute="bottom" constant="7" id="bZl-rC-SeM"/>
                                             <constraint firstItem="ALs-BR-JKr" firstAttribute="top" secondItem="MXo-M1-ZA1" secondAttribute="bottom" constant="30" id="bue-vR-h65"/>
                                             <constraint firstItem="FUb-p8-TTz" firstAttribute="leading" secondItem="ULF-8p-fgp" secondAttribute="leading" id="dsJ-Jk-FoP"/>
+                                            <constraint firstItem="FUb-p8-TTz" firstAttribute="width" secondItem="ULF-8p-fgp" secondAttribute="width" id="els-s3-whT"/>
+                                            <constraint firstItem="ALs-BR-JKr" firstAttribute="width" secondItem="a1k-rc-iJb" secondAttribute="width" multiplier="0.8" id="jVx-pg-V71"/>
+                                            <constraint firstItem="MXo-M1-ZA1" firstAttribute="width" secondItem="FUb-p8-TTz" secondAttribute="width" id="jad-V4-x72"/>
+                                            <constraint firstItem="EN0-fZ-ADT" firstAttribute="centerX" secondItem="a1k-rc-iJb" secondAttribute="centerX" id="k7h-Te-66q"/>
                                             <constraint firstItem="MXo-M1-ZA1" firstAttribute="leading" secondItem="FUb-p8-TTz" secondAttribute="leading" id="lyc-aW-RH8"/>
-                                            <constraint firstAttribute="trailing" secondItem="ULF-8p-fgp" secondAttribute="trailing" constant="45" id="ous-aY-T50"/>
                                             <constraint firstItem="EN0-fZ-ADT" firstAttribute="top" secondItem="a1k-rc-iJb" secondAttribute="top" constant="20" id="qx8-2C-PdQ"/>
-                                            <constraint firstItem="uXU-Po-P1V" firstAttribute="leading" secondItem="a1k-rc-iJb" secondAttribute="leading" constant="45" id="rWh-3e-d1F"/>
-                                            <constraint firstItem="ALs-BR-JKr" firstAttribute="leading" secondItem="a1k-rc-iJb" secondAttribute="leading" constant="45" id="ysa-TD-FkV"/>
+                                            <constraint firstItem="ULF-8p-fgp" firstAttribute="width" secondItem="uXU-Po-P1V" secondAttribute="width" id="tpV-ec-OVX"/>
                                         </constraints>
                                     </view>
                                 </subviews>

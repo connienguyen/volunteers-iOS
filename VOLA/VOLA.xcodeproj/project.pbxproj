@@ -505,8 +505,8 @@
 				F99F8D641F30DBC400C4E97A /* ConnectedLoginCell.swift */,
 				F98807F71EF4173E00589A23 /* EventCell.swift */,
 				F99F8D5E1F30961100C4E97A /* ManageLoginsCell.swift */,
-				F98807F41EF412F700589A23 /* EventCell.xib */,
 				F95B77DE1F4586FB00E41B28 /* ThemeManagementCell.swift */,
+				F98807F41EF412F700589A23 /* EventCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

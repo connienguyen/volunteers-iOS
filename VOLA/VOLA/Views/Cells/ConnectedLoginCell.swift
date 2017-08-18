@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 fileprivate let isConnectedKey = "connected-status.title.label"
 fileprivate let isNotConnectedKey = "not-connected-status.title.label"
 

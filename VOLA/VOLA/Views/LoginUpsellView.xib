@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not logged in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p71-ZX-ggd" customClass="TitleLabel" customModule="VOLA" customModuleProvider="target">
-                    <rect key="frame" x="30" y="30" width="315" height="21"/>
+                    <rect key="frame" x="37.5" y="30" width="300" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -24,7 +26,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to view your profie, enable quick event registration, and view your registered events." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESs-0N-DAr" customClass="TextLabel" customModule="VOLA" customModuleProvider="target">
-                    <rect key="frame" x="30" y="76" width="315" height="61"/>
+                    <rect key="frame" x="37.5" y="76" width="300" height="61"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -33,9 +35,9 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-a2-iw8" customClass="VLButton" customModule="VOLA" customModuleProvider="target">
-                    <rect key="frame" x="50" y="162" width="275" height="30"/>
+                    <rect key="frame" x="37.5" y="162" width="300" height="35.5"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="vy5-Qe-E18"/>
+                        <constraint firstAttribute="width" secondItem="dU7-a2-iw8" secondAttribute="height" multiplier="17:2" id="bo0-Vv-vL0"/>
                     </constraints>
                     <state key="normal" title="Log In"/>
                     <userDefinedRuntimeAttributes>
@@ -45,16 +47,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="p71-ZX-ggd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="BHw-iG-JjY"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dU7-a2-iw8" secondAttribute="bottom" constant="25" id="Bvo-2E-uPK"/>
+                <constraint firstItem="dU7-a2-iw8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="4:5" id="C7R-ta-gTp"/>
+                <constraint firstItem="p71-ZX-ggd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IcI-0b-UPh"/>
+                <constraint firstItem="ESs-0N-DAr" firstAttribute="width" secondItem="p71-ZX-ggd" secondAttribute="width" id="J7K-kd-f6A"/>
                 <constraint firstItem="ESs-0N-DAr" firstAttribute="top" secondItem="p71-ZX-ggd" secondAttribute="bottom" constant="25" id="Jis-A7-wO3"/>
-                <constraint firstAttribute="trailing" secondItem="p71-ZX-ggd" secondAttribute="trailing" constant="30" id="RkY-AJ-7eB"/>
-                <constraint firstItem="dU7-a2-iw8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="TnA-3w-QAX"/>
-                <constraint firstItem="ESs-0N-DAr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="Xxm-o2-9ZZ"/>
-                <constraint firstAttribute="trailing" secondItem="ESs-0N-DAr" secondAttribute="trailing" constant="30" id="gIH-dp-zjZ"/>
+                <constraint firstItem="dU7-a2-iw8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RGn-lf-tLa"/>
                 <constraint firstItem="dU7-a2-iw8" firstAttribute="top" secondItem="ESs-0N-DAr" secondAttribute="bottom" constant="25" id="juw-yS-UP3"/>
+                <constraint firstItem="p71-ZX-ggd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="4:5" id="qq4-hP-Och"/>
                 <constraint firstItem="p71-ZX-ggd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="s7u-oG-Lpb"/>
-                <constraint firstAttribute="trailing" secondItem="dU7-a2-iw8" secondAttribute="trailing" constant="50" id="x5L-w0-cCl"/>
+                <constraint firstItem="ESs-0N-DAr" firstAttribute="leading" secondItem="p71-ZX-ggd" secondAttribute="leading" id="xwM-Zh-dJK"/>
             </constraints>
             <connections>
                 <outlet property="loginButton" destination="dU7-a2-iw8" id="gv3-Pm-dLr"/>

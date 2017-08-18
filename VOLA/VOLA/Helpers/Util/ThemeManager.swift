@@ -58,6 +58,7 @@ final class ThemeManager {
         RegisteredLabel.appearance().textColor = theme.tintColor
         TitleLabel.appearance().textColor = theme.textColor
         TextLabel.appearance().textColor = theme.textColor
+        CircleImageView.appearance().backgroundColor = theme.accentColor
 
         VLInputTextView.appearance().borderColor = theme.inputBorderColor
 

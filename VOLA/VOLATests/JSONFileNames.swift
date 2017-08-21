@@ -19,7 +19,7 @@ enum JSONFileNames: String {
 
     /// Data give a JSON file name
     var fileData: Data {
-        guard let path = Bundle(for: ETouchesAPIServiceUnitTests.self).url(forResource: self.rawValue, withExtension: "json") else {
+        guard let path = Bundle(for: DataManagerUnitTests.self).url(forResource: self.rawValue, withExtension: "json") else {
             fatalError(VLError.loadJSONData.localizedDescription)
         }
 

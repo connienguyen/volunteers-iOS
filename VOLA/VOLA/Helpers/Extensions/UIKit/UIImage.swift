@@ -19,20 +19,22 @@ extension UIImage {
     */
     func maskWithColor(_ color: UIColor) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
 
         color.setFill()
-        context?.translateBy(x: 0, y: size.height)
-        context?.scaleBy(x: 1.0, y: -1.0)
+        context.translateBy(x: 0, y: size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
 
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         guard let cgImage = self.cgImage else {
             return nil
         }
-        context?.draw(cgImage, in: rect)
-        context?.setBlendMode(.sourceIn)
-        context?.addRect(rect)
-        context?.drawPath(using: .fill)
+        context.draw(cgImage, in: rect)
+        context.setBlendMode(.sourceIn)
+        context.addRect(rect)
+        context.drawPath(using: .fill)
 
         let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

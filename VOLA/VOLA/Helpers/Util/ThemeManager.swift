@@ -13,6 +13,7 @@ final class ThemeManager {
     static let shared = ThemeManager()
 
     private var _currentTheme: Theme
+    private var appliedTheme: Theme?
 
     private init() {
         if let storedThemeValue = Defaults.getObject(forKey: .selectedTheme) as? Int,
@@ -35,6 +36,11 @@ final class ThemeManager {
         - theme: New theme
     */
     func apply(_ theme: Theme = ThemeManager.shared.currentTheme) {
+        guard theme != appliedTheme else {
+            // Only apply changes to UI if theme is different than currently applied theme
+            return
+        }
+
         UINavigationBar.appearance().barStyle = theme.barStyle
         UINavigationBar.appearance().backgroundColor = theme.primaryColor
         UINavigationBar.appearance().tintColor = theme.tintColor
@@ -69,6 +75,8 @@ final class ThemeManager {
                 window.addSubview(view)
             }
         }
+
+        appliedTheme = theme
     }
 
     /**
@@ -80,5 +88,9 @@ final class ThemeManager {
     func saveTheme(_ theme: Theme) {
         Defaults.setObject(forKey: .selectedTheme, object: theme.rawValue)
         _currentTheme = theme
+
+        // Post notification so UI elemented not affected by UIAppearance proxy changes are
+        // updated to match theme
+        NotificationCenter.default.post(name: NotificationName.themeDidChange, object: nil)
     }
 }

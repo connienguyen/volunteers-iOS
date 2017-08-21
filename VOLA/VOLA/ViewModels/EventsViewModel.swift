@@ -63,7 +63,7 @@ class EventsViewModel {
     Reload events array with data from eTouches API and call reloadViewCallback
     */
     func retrieveAvailableEvents() {
-        ETouchesAPIService.shared.getAvailableEvents()
+        FirebaseDataManager.shared.getAvailableEvents()
             .then { (events) -> Void in
                 self._events = events
                 self.delegate?.reloadEventsView()

@@ -31,6 +31,7 @@
 "error.minimum-connected-logins" = "Your account must have at least one login provider attached to it.";
 "error.failed-user-snapshot" = "Failed to initialize User from Firebase snapshot.";
 "error.failed-user-firebase" = "Failed to initalize User from Firebase user object.";
+"error.failed-snapshot" = "Failed to read data from Firebase snapshot";
 
 // Generic
 "confirm-password.title.label" = "Confirm Password";

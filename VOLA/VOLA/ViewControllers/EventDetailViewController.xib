@@ -74,7 +74,7 @@
                                         <rect key="frame" x="0.0" y="337" width="375.5" height="30.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volunteers Needed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGW-V5-yVl" customClass="VolunteersNeededLabel" customModule="VOLA" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="10" width="319.5" height="20.5"/>
+                                                <rect key="frame" x="28" y="10" width="146.5" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="9Fg-a3-K8I"/>
                                                 </constraints>
@@ -177,7 +177,6 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="KGW-V5-yVl" firstAttribute="width" secondItem="Gwg-jf-5OP" secondAttribute="width" id="0le-L1-5Qx"/>
                                     <constraint firstItem="yMR-J8-ZW3" firstAttribute="leading" secondItem="2KT-OS-z2Q" secondAttribute="leading" id="1o0-Kp-ZK2"/>
                                     <constraint firstItem="4UZ-0C-R97" firstAttribute="leading" secondItem="GFB-1M-mOI" secondAttribute="leading" id="1vs-go-QVg"/>
                                     <constraint firstAttribute="trailing" secondItem="eGg-DY-77N" secondAttribute="trailing" id="2pV-BP-vkX"/>
@@ -185,6 +184,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Nqx-qG-c9L" secondAttribute="trailing" id="6pl-xo-8Un"/>
                                     <constraint firstAttribute="trailing" secondItem="rJW-hM-7Ta" secondAttribute="trailing" id="7b9-h2-45u"/>
                                     <constraint firstAttribute="trailing" secondItem="F26-hI-Yty" secondAttribute="trailing" id="8Jy-zP-zY1"/>
+                                    <constraint firstItem="2KT-OS-z2Q" firstAttribute="width" secondItem="Gwg-jf-5OP" secondAttribute="width" id="8jJ-DD-u8C"/>
                                     <constraint firstItem="h6l-0T-q1N" firstAttribute="leading" secondItem="GFB-1M-mOI" secondAttribute="leading" id="Av6-Zp-U1C"/>
                                     <constraint firstItem="Nc1-zO-XgB" firstAttribute="top" secondItem="4UZ-0C-R97" secondAttribute="bottom" id="B4O-4M-2YW"/>
                                     <constraint firstItem="Nqx-qG-c9L" firstAttribute="leading" secondItem="GFB-1M-mOI" secondAttribute="leading" id="Bna-aO-iQA"/>
@@ -199,7 +199,6 @@
                                     <constraint firstItem="F26-hI-Yty" firstAttribute="leading" secondItem="GFB-1M-mOI" secondAttribute="leading" id="hjX-h0-luv"/>
                                     <constraint firstItem="yMR-J8-ZW3" firstAttribute="width" secondItem="2KT-OS-z2Q" secondAttribute="width" id="kzf-4v-2Tf"/>
                                     <constraint firstItem="4UZ-0C-R97" firstAttribute="top" secondItem="GFB-1M-mOI" secondAttribute="top" id="oYY-gO-4x8"/>
-                                    <constraint firstItem="2KT-OS-z2Q" firstAttribute="width" secondItem="KGW-V5-yVl" secondAttribute="width" id="qlk-j0-wcj"/>
                                     <constraint firstItem="7h1-cm-5FM" firstAttribute="leading" secondItem="GFB-1M-mOI" secondAttribute="leading" id="wdE-kw-ocO"/>
                                 </constraints>
                             </stackView>

@@ -30,6 +30,7 @@ enum VLError: String, LocalizedError {
     case minimumConnectedLogins = "error.minimum-connected-logins"
     case failedUserSnapshot = "error.failed-user-snapshot"
     case failedUserFirebase = "error.failed-user-firebase"
+    case failedSnapshot = "error.failed-snapshot"
 
     var errorDescription: String? {
         return rawValue.localized

@@ -8,6 +8,7 @@
 
 import UIKit
 
+fileprivate let registrationErrorKey = "registration-error.title.label"
 /**
     View controller that allows user to register for an event. Some fields may be autofilled
     if the user is logged in.
@@ -69,16 +70,29 @@ extension EventRegistrationViewController {
                 return
         }
 
-        // TODO: Update to user new Firebae eTouches replacement
-        ETouchesAPIService.shared.registerForEvent(eventID: event.eventID,
-                                                   name: "\(firstName) \(lastName)".trimmed,
-                                                   email: email,
-                                                   volunteering: volunteerCheckbox.isChecked,
-                                                   accommodation: accommodationTextView.text)
-            .then { [weak self] (_) -> Void in
+        let registrationValues: [String: Any] = [
+            FirebaseKeys.EventRegistration.firstName.key: firstName,
+            FirebaseKeys.EventRegistration.lastName.key: lastName,
+            FirebaseKeys.EventRegistration.affiliation.key: affiliation,
+            FirebaseKeys.EventRegistration.title.key: title,
+            FirebaseKeys.EventRegistration.email.key: email,
+            FirebaseKeys.EventRegistration.eventID.key: event.eventID
+        ]
+
+        displayActivityIndicator()
+        FirebaseDataManager.shared.registerForEvent(registrationValues)
+            .then { [weak self] (success) -> Void in
+                guard success else {
+                    // This shouldn't happen since any errors will be in catch
+                    Logger.error(VLError.invalidFirebaseAction)
+                    return
+                }
+
                 self?.navigationController?.popViewController(animated: true)
-            }.catch { [weak self] error in
-                self?.showErrorAlert(errorTitle: "Could not register for event", errorMessage: error.localizedDescription)
+            }.catch { [weak self] (error) in
+                self?.showErrorAlert(errorTitle: registrationErrorKey.localized, errorMessage: error.localizedDescription)
+            }.always { [weak self] in
+                self?.removeActivityIndicator()
             }
     }
 }

@@ -66,7 +66,7 @@ class HomeContainerViewController: UIViewController {
         mapEventsVC.didMove(toParentViewController: self)
         currentController = .map
 
-        viewModel = EventsViewModel()
+        viewModel = EventsViewModel(.home)
         viewModel.delegate = self
         eventTablesVC.viewModel = viewModel
         mapEventsVC.viewModel = viewModel

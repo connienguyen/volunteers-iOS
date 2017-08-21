@@ -71,6 +71,7 @@
 "accommodations-description.title.label" = "Please inform event organizers if you need any special accommodation such as accessibility issues or allergies";
 "volunteer.prompt.label" = "I would like to volunteer at this event.";
 "register.prompt.label" = "Register";
+"registration-error.title.label" = "Registration Error";
 
 // EventDetailViewController
 "event-detail.title.label" = "Event Detail";

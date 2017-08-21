@@ -156,3 +156,68 @@ extension FirebaseDataManager {
         return events
     }
 }
+
+/// MARK: - Extension for Firebase for functions relating to event registrations
+extension FirebaseDataManager {
+    /**
+        Register current user for an event given their registration details (title, attendeeType, etc)
+     
+        - Parameters:
+            - registrationValues: Registration details of user for the event
+     
+        - Returns: Bool promise that is true if registration was successful
+    */
+    func registerForEvent(_ registrationValues: [String: Any]) -> Promise<Bool> {
+        return Promise { fulfill, reject in
+            var values = registrationValues
+            guard let firebaseUID = DataManager.shared.currentUser?.uid,
+                let eventID = values.removeValue(forKey: FirebaseKeys.EventRegistration.eventID.key) as? String else {
+                reject(VLError.invalidFirebaseAction)
+                return
+            }
+
+            let registrationReference = reference.table(.registrations).child(firebaseUID).child(eventID)
+            registrationReference.setValue(values)
+            registrationReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                // TODO save to some model
+                guard let _ = snapshot.value as? [String: Any] else {
+                    reject(VLError.failedSnapshot)
+                    return
+                }
+
+                fulfill(true)
+            }, withCancel: { (error) in
+                reject(error)
+            })
+        }
+    }
+
+    /**
+        Retrieve registered events from Firebase database for `currentUser`
+     
+        - Returns: An array of `Event` models populated with data from the Firebase snapshot
+    */
+    func getRegisteredEvents() -> Promise<[Event]> {
+        return Promise { fulfill, reject in
+            guard let firebaseUID = DataManager.shared.currentUser?.uid else {
+                reject(VLError.notLoggedIn)
+                return
+            }
+
+            reference.table(.registrations).child(firebaseUID).observe(.value, with: { (snapshot) in
+                guard let snapshotDict = snapshot.value as? [String: Any] else {
+                    reject(VLError.failedSnapshot)
+                    return
+                }
+
+                let eventIDs = snapshotDict.map({ (eventID, _) in eventID})
+                // TODO query for events user has registered for based on eventIDs
+                // Will have to revisit in the future since it is not easy to query with
+                // current event registrations schema
+                fulfill([])
+            }, withCancel: { (error) in
+                reject(error)
+            })
+        }
+    }
+}

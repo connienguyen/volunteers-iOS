@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 /// Protocol for views displaying changes on EventsViewModel
 protocol EventsViewModelDelegate: class {
@@ -15,10 +16,11 @@ protocol EventsViewModelDelegate: class {
 }
 
 /**
-ViewModel for view controllers that display information from an array of Events
- (e.g. EventTableViewController, MapViewController)
+    ViewModel for view controllers that display information from an array of Events
+    (e.g. EventTableViewController, MapViewController)
 */
 class EventsViewModel {
+    private var _eventTableType: EventTableType
     private var _events: [Event] = []
     weak var delegate: EventsViewModelDelegate?
     /// Publically accessible array of event models
@@ -31,39 +33,48 @@ class EventsViewModel {
     }
 
     /// Initialize view model and retrieve available events
-    init() {
-        retrieveAvailableEvents()
+    init(_ tableType: EventTableType) {
+        _eventTableType = tableType
+        retrieveEvents()
     }
 
     /**
-    Find event in data array given eventID if it exists
+        Find event in data array given eventID if it exists
      
-    - Parameters:
-        - eventID: eventID of Event to retrieve as a String
+        - Parameters:
+            - eventID: eventID of Event to retrieve as a String
      
-    - Returns: Event with matching eventID if it exists, otherwise nil
+        - Returns: Event with matching eventID if it exists, otherwise nil
     */
     func event(with eventID: String) -> Event? {
         return _events.first(where: { String($0.eventID) == eventID })
     }
 
     /**
-    Find event given index
+        Find event given index
      
-    - Parameters:
-        - index: Array index for Event in array
+        - Parameters:
+            - index: Array index for Event in array
      
-    - Returns: Event in data array given an index
+        - Returns: Event in data array given an index
     */
     func event(at index: Int) -> Event {
         return _events[index]
     }
 
     /**
-    Reload events array with data from eTouches API and call reloadViewCallback
+        Reload events array with data from eTouches API and call reloadViewCallback
     */
-    func retrieveAvailableEvents() {
-        FirebaseDataManager.shared.getAvailableEvents()
+    func retrieveEvents() {
+        var eventsPromise: Promise<[Event]>
+        switch _eventTableType {
+        case .calendar:
+            eventsPromise = FirebaseDataManager.shared.getRegisteredEvents()
+        case .home:
+            eventsPromise = FirebaseDataManager.shared.getAvailableEvents()
+        }
+
+        eventsPromise
             .then { (events) -> Void in
                 self._events = events
                 self.delegate?.reloadEventsView()

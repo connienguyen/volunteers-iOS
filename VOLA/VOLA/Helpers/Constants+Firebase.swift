@@ -25,4 +25,18 @@ struct FirebaseKeys {
             return rawValue
         }
     }
+
+    enum EventRegistration: String, ParameterKey {
+        case eventID = "event_id"
+        case attendeeType = "attendee_type"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case email
+        case affiliation
+        case title
+
+        var key: String {
+            return rawValue
+        }
+    }
 }

@@ -13,6 +13,7 @@ struct NotificationName {
     static let availableEventsUpdated = Notification.Name("availableEventsUpdated")
     static let calendarEventsUpdated = Notification.Name("calendarEventsUpdated")
     static let userLogin = Notification.Name("userLogin")
+    static let themeDidChange = Notification.Name("themeDidChange")
 }
 
 enum DefaultsKey: String {
@@ -51,6 +52,9 @@ enum UIDisplay: String {
     case loginErrorTitle = "login-error.title.label"
     case cancel = "cancel.prompt.label"
     case editSettings = "edit-settings.prompt.label"
+    case loginRequiredTitle = "login-required.title.label"
+    case loginRequiredPrompt = "login-required.prompt.label"
+    case loginPrompt = "login.prompt.label"
 
     var localized: String {
         return rawValue.localized

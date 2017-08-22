@@ -16,8 +16,13 @@ Type of data source table should display
 - calendar: Use events user has registered as data source for table
 */
 enum EventTableType: String {
-    case home = "Home"
-    case calendar = "Calendar"
+    case home = "home.title.label"
+    case calendar = "calendar.title.label"
+
+    // Localized string to display as title of view controller
+    var localized: String {
+        return rawValue.localized
+    }
 }
 
 /**
@@ -52,7 +57,7 @@ class EventTableViewController: UITableViewController, XIBInstantiable {
         }
 
         isShown = true
-        self.title = tableType.rawValue
+        self.title = tableType.localized
     }
 
     override func removeUpsell() {

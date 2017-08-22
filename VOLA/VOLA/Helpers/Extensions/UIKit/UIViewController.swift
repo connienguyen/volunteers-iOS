@@ -107,6 +107,23 @@ extension UIViewController {
     }
 
     /**
+        Show alert that user can dismiss or use as a shortcut to the login flow in order to
+        complete an action that requires a user account (e.g. event registration)
+    */
+    func showLoginAlert() {
+        let alert = UIAlertController(title: UIDisplay.loginRequiredTitle.localized,
+                                      message: UIDisplay.loginRequiredPrompt.localized, preferredStyle: .alert)
+        let loginAction = UIAlertAction(title: UIDisplay.loginPrompt.localized, style: .default) { _ in
+            let loginNavVC: LoginNavigationController = UIStoryboard(.login).instantiateViewController()
+            self.present(loginNavVC, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: UIDisplay.cancel.localized, style: .cancel, handler: nil)
+        alert.addAction(loginAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    /**
         Show alert that user can dismiss or use as a shortcut to Settings to edit app permissions
      
         - Parameters:

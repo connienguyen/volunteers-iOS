@@ -45,6 +45,8 @@
 "no-short.prompt.label" = "N";
 "default-name.label" = "Default Name";
 "cancel.prompt.label" = "Cancel";
+"login-required.title.label" = "Login Required";
+"login-required.prompt.label" = "You must be logged in to continue.";
 
 // ConnectedLoginCell
 "connected-status.title.label" = "Connected";
@@ -65,12 +67,15 @@
 "registration-login.title.label" = "Log in to pre-fill your information and save this to your events.";
 "registration-login.prompt.title.label" = "Log in";
 "accommodations.title.label" = "Special Accommodations";
-"accommodations-description.title.label" = "Please inform event organizers if you neec any special accommodation such as accessibility issues or allergies";
+"accommodations-description.title.label" = "Please inform event organizers if you need any special accommodation such as accessibility issues or allergies";
 "volunteer.prompt.label" = "I would like to volunteer at this event.";
 "register.prompt.label" = "Register";
 
 // EventDetailViewController
 "event-detail.title.label" = "Event Detail";
+
+// EventTableViewController
+"calendar.title.label" = "Calendar";
 
 // HomeContainerViewController
 "list.prompt.label" = "List";
@@ -131,3 +136,7 @@
 "privacy.title.label" = "Privacy Policy.";
 "signup-error.title.label" = "Sign Up Error";
 
+// ThemeManagementCell
+"theme.title.label" = "Theme";
+"default-theme.title.label" = "Default";
+"colorblind-theme.title.label" = "Colorblind";

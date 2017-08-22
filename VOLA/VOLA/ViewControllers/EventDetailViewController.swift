@@ -70,8 +70,13 @@ extension EventDetailViewController {
     }
 
     @IBAction func onRegisterPressed(_ sender: Any) {
-        let registrationVC: EventRegistrationViewController = UIStoryboard(.home).instantiateViewController()
-        registrationVC.event = event
-        navigationController?.show(registrationVC, sender: self)
+        if DataManager.shared.isLoggedIn {
+            let registrationVC: EventRegistrationViewController = UIStoryboard(.home).instantiateViewController()
+            registrationVC.event = event
+            navigationController?.show(registrationVC, sender: self)
+        } else {
+            // Must be logged in to register for an event
+            showLoginAlert()
+        }
     }
 }

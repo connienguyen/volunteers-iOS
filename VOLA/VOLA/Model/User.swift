@@ -29,6 +29,30 @@ enum LoginProvider: String {
     var providerID: String {
         return rawValue
     }
+
+    /// Image name for provider login
+    var imageName: String {
+        switch self {
+        case .facebook:
+            return "Facebook_logo"
+        case .google:
+            return "Google_logo"
+        case .email:
+            return "Mail_logo"
+        }
+    }
+
+    /// Background color for provider login
+    var backgroundColor: UIColor {
+        switch self {
+        case .facebook:
+            return ThemeColors.facebookBlue
+        case .google:
+            return ThemeColors.googleRed
+        case .email:
+            return ThemeManager.shared.currentTheme.accentColor
+        }
+    }
 }
 
 /// Model for User data

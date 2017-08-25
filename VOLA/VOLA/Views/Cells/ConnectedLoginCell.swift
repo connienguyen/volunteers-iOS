@@ -20,9 +20,9 @@ class ConnectedLoginCell: UITableViewCell {
 
     /// Configure the cell to show login provider connection status
     func configureCell(_ provider: LoginProvider, connectedStatus: Bool) {
-        var labelText = provider.providerID
         let statusText = connectedStatus ? isConnectedKey.localized : isNotConnectedKey.localized
-        labelText += ": " + statusText
-        connectedLoginStatus.text = labelText
+        connectedLoginStatus.text = statusText
+        connectedLoginImage.backgroundColor = provider.backgroundColor
+        connectedLoginImage.image = UIImage(named: provider.imageName)?.maskWithColor(ThemeColors.white)
     }
 }

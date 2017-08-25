@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1id-Am-XBm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1id-Am-XBm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="1id-Am-XBm" customClass="ProfileNavigationController" customModule="VOLA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Dy9-J2-Dsl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JX5-yM-1e8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JX5-yM-1e8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -484,7 +484,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYH-7j-Y59" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYH-7j-Y59" customClass="CircleImageView" customModule="VOLA" customModuleProvider="target">
                                             <rect key="frame" x="20" y="12.5" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="AYH-7j-Y59" secondAttribute="height" multiplier="1:1" id="61t-Xh-ob9"/>

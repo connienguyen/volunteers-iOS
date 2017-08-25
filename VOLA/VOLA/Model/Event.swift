@@ -36,8 +36,8 @@ enum EventMapable: String {
     case description
     case location
     case areVolunteersNeeded = "needs_volunteers"
-    case eventImageURL = "event_image_url"
-    case sponsorImageURL = "sponsor_image_url"
+    case eventImageURL = "event_image"
+    case sponsorImageURL = "sponsor_image"
 
     /// JSON key to map from
     var mapping: String {
